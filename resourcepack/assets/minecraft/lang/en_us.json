@@ -1,4 +1,5 @@
-﻿{
-    "soundCategory.record":  "u{00A7}aJukeBox/Radio",
-    "container.crafting":  ""
+{
+  "soundCategory.record": "§aJukeBox/Radio",
+  "container.crafting": "",
+  "subtitles.gourd_guard.objective.hit": "Gourd Objective damaged"
 }

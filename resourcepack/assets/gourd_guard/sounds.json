@@ -7,5 +7,35 @@
         "stream": false
       }
     ]
+  },
+  "objective.hit": {
+    "category": "hostile",
+    "subtitle": "subtitles.gourd_guard.objective.hit",
+    "sounds": [
+      {
+        "name": "gourd_guard:objective/gourd_hit",
+        "stream": false
+      }
+    ]
+  },
+  "objective.damage": {
+    "category": "hostile",
+    "subtitle": "subtitles.gourd_guard.objective.hit",
+    "sounds": [
+      {
+        "name": "gourd_guard:objective/gourd_hit",
+        "stream": false
+      }
+    ]
+  },
+  "gourd.hit": {
+    "category": "hostile",
+    "subtitle": "subtitles.gourd_guard.objective.hit",
+    "sounds": [
+      {
+        "name": "gourd_guard:objective/gourd_hit",
+        "stream": false
+      }
+    ]
   }
 }
