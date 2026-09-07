@@ -79,7 +79,7 @@ void main() {
                 pos.x = originX * waveScale + (guiWidth - 104.0) + shadowOff;
                 pos.y = originY * waveScale + 55.0 + shadowOff;
                 pos.z = isShadow ? -0.01 : 0.0;
-                vertexColor.rgb = isShadow ? vec3(0.12, 0.07, 0.03) : vec3(1.0, 1.0, 1.0);
+                vertexColor.rgb = isShadow ? vec3(0.0) : vec3(1.0);
             }
             // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px, Y: 103px..117px)
             else if (bByte == 2) {
@@ -95,7 +95,7 @@ void main() {
                 pos.x = originX * mobScale + (guiWidth - 83.0) + shadowOff;
                 pos.y = originY * mobScale + 109.0 + shadowOff;
                 pos.z = isShadow ? -0.01 : 0.0;
-                vertexColor.rgb = isShadow ? vec3(0.12, 0.07, 0.03) : vec3(1.0, 1.0, 1.0);
+                vertexColor.rgb = isShadow ? vec3(0.0) : vec3(1.0);
             }
         }
         // === SECTION B: Top-Left Match HUD ===
@@ -132,14 +132,14 @@ void main() {
                 pos.x = originX + 97.0 + shadowOff;
                 pos.y = originY + 140.0 + shadowOff;
                 pos.z = isShadow ? -0.01 : 0.0;
-                vertexColor.rgb = isShadow ? vec3(0.04, 0.16, 0.04) : vec3(0.33, 1.0, 0.33);
+                vertexColor.rgb = isShadow ? vec3(0.0) : vec3(0.33, 1.0, 0.33);
             }
             // #0100FC (Main) / #01003C (Shadow): Coin Loss Pop-Up (-XX)
             else if (bByte == 252 || bByte == 60) {
                 pos.x = originX + 97.0 + shadowOff;
                 pos.y = originY + 140.0 + shadowOff;
                 pos.z = isShadow ? -0.01 : 0.0;
-                vertexColor.rgb = isShadow ? vec3(0.18, 0.04, 0.04) : vec3(1.0, 0.25, 0.25);
+                vertexColor.rgb = isShadow ? vec3(0.0) : vec3(1.0, 0.25, 0.25);
             }
             // Timer Digits: at (X: 67px, Y: 38px)
             else {
@@ -147,10 +147,7 @@ void main() {
                 pos.y = originY + 38.0 + shadowOff;
                 pos.z = isShadow ? -0.01 : 0.0;
                 if (isShadow) {
-                    if (gByte == 0) vertexColor.rgb = vec3(0.04, 0.16, 0.04);      // Green Shadow
-                    else if (gByte == 1) vertexColor.rgb = vec3(0.18, 0.18, 0.04); // Yellow Shadow
-                    else if (gByte == 2) vertexColor.rgb = vec3(0.18, 0.10, 0.0);  // Orange Shadow
-                    else if (gByte == 3) vertexColor.rgb = vec3(0.18, 0.04, 0.04); // Red Shadow
+                    vertexColor.rgb = vec3(0.0);
                 } else {
                     if (gByte == 0) vertexColor.rgb = vec3(0.33, 1.0, 0.33);      // Green (> 2m)
                     else if (gByte == 1) vertexColor.rgb = vec3(1.0, 1.0, 0.33); // Yellow (1m-2m)
@@ -175,7 +172,7 @@ void main() {
                 pos.x = originX + 70.0 + shadowOff;
                 pos.y = originY + 147.0 + shadowOff;
                 pos.z = isShadow ? -0.01 : 0.0;
-                vertexColor.rgb = isShadow ? vec3(0.10, 0.10, 0.10) : vec3(1.0);
+                vertexColor.rgb = isShadow ? vec3(0.0) : vec3(1.0);
             }
         }
     }
