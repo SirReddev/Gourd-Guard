@@ -77,17 +77,17 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(1.0, 1.0, 1.0); // Pure White
             }
-            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 113px, Y: 103px..117px)
+            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 112px, Y: 103px..117px)
             else if (bByte == 2) {
-                pos.x = (vId == 0 || vId == 1) ? (guiWidth - 113.0) : (guiWidth - 99.0);
+                pos.x = (vId == 0 || vId == 1) ? (guiWidth - 112.0) : (guiWidth - 98.0);
                 pos.y = (vId == 0 || vId == 3) ? 103.0 : 117.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB03: Bottom Board Mob Count Digits - Scaled 1.4x, Shifted at (X: guiWidth - 87px, Y: 109px)
+            // #01BB03: Bottom Board Mob Count Digits - Scaled 1.4x, Shifted at (X: guiWidth - 88px, Y: 109px)
             else if (bByte == 3) {
                 float mobScale = 1.4;
-                pos.x = originX * mobScale + (guiWidth - 87.0);
+                pos.x = originX * mobScale + (guiWidth - 88.0);
                 pos.y = originY * mobScale + 109.0;
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(1.0, 1.0, 1.0); // Pure White
