@@ -70,13 +70,21 @@ void main() {
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB01 (Main) / #012E01 (Shadow): Top Board Text ("WAVE " + score) - Scaled 1.85x at (X: guiWidth - 104px, Y: 55px)
+            // #01BB01 (Main) / #012E01 (Shadow): Top Board "WAVE " Text - Scaled 1.85x at (X: guiWidth - 104px, Y: 55px)
             else if (bByte == 1) {
                 float waveScale = 1.85;
                 pos.x = originX * waveScale + (guiWidth - 104.0);
                 pos.y = originY * waveScale + 55.0;
                 pos.z = 0.0;
-                vertexColor.rgb = (gByte == 46) ? vec3(0.25, 0.175, 0.04) : vec3(1.0, 0.70, 0.15); // Pumpkin Gold/Orange
+                vertexColor.rgb = (gByte == 46) ? vec3(0.25) : vec3(1.0); // Pure White
+            }
+            // #01BB04 (Main) / #012E04 (Shadow): Top Board Wave Score Number - Scaled 1.85x at (X: guiWidth - 104px, Y: 55px)
+            else if (bByte == 4) {
+                float waveScale = 1.85;
+                pos.x = originX * waveScale + (guiWidth - 104.0);
+                pos.y = originY * waveScale + 55.0;
+                pos.z = 0.0;
+                vertexColor.rgb = (gByte == 46) ? vec3(0.0, 0.1675, 0.1675) : vec3(0.0, 0.67, 0.67); // Dark Aqua (#00AAAA)
             }
             // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px, Y: 103px..117px)
             else if (bByte == 2) {
