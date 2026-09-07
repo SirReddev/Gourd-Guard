@@ -76,7 +76,7 @@ void main() {
                 pos.x = originX * waveScale + (guiWidth - 104.0);
                 pos.y = originY * waveScale + 55.0;
                 pos.z = 0.0;
-                vertexColor.rgb = (gByte == 46) ? vec3(0.25) : vec3(1.0);
+                vertexColor.rgb = (gByte == 46) ? vec3(0.25, 0.175, 0.04) : vec3(1.0, 0.70, 0.15); // Pumpkin Gold/Orange
             }
             // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px, Y: 103px..117px)
             else if (bByte == 2) {
@@ -91,7 +91,7 @@ void main() {
                 pos.x = originX * mobScale + (guiWidth - 81.0);
                 pos.y = originY * mobScale + 109.0;
                 pos.z = 0.0;
-                vertexColor.rgb = (gByte == 46) ? vec3(0.25) : vec3(1.0);
+                vertexColor.rgb = (gByte == 46) ? vec3(0.09, 0.22, 0.25) : vec3(0.35, 0.90, 1.0); // Spooky Ghost Cyan
             }
         }
         // === SECTION B: Top-Left Match HUD ===
