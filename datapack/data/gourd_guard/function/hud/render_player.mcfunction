@@ -1,11 +1,18 @@
-﻿# Ensure player scores are initialized (Default: HUD enabled = 1)
+# Ensure player scores are initialized (Default: HUD enabled = 1)
 execute unless score @s hud_toggle matches 0..1 run scoreboard players set @s hud_toggle 1
 execute unless score @s coins matches 0.. run scoreboard players set @s coins 0
+execute unless score @s coins_diff matches 0.. run scoreboard players set @s coins_diff 0
+execute unless score @s coins_pop matches 0.. run scoreboard players set @s coins_pop 0
+execute unless score @s coins_pop_type matches 0.. run scoreboard players set @s coins_pop_type 0
 execute unless score .global timer_sec matches 0.. run scoreboard players set .global timer_sec 0
 execute unless score .global timer_min matches 0.. run scoreboard players set .global timer_min 5
 
 # If player has toggled HUD off (hud_toggle = 0), skip rendering
 execute if score @s hud_toggle matches 0 run return 0
+
+# Set default macro backsteps
+data modify storage gourd_guard:hud macro.coins_back set value "\uF806"
+data modify storage gourd_guard:hud macro.pop_back set value "\uF80C"
 
 # Calculate dynamic backstep for coins digits (6px per digit)
 execute if score @s coins matches 0..9 run data modify storage gourd_guard:hud macro.coins_back set value "\uF806"
