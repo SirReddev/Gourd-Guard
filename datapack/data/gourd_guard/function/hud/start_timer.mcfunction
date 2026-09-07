@@ -1,0 +1,2 @@
+scoreboard players set .global timer_active 1
+tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Timer ","color":"gray"},{"text":"STARTED / RUNNING","color":"green","bold":true}]

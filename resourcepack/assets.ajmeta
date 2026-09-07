@@ -1,0 +1,22 @@
+{
+	"formatVersion": "1.0.0",
+	"rigs": {
+		"aj:gourdguard_pumpkin": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_pumpkin/leaf.json",
+				"assets/aj/items/blueprint/gourdguard_pumpkin/leaf1.json",
+				"assets/aj/items/blueprint/gourdguard_pumpkin/leafstem.json",
+				"assets/aj/items/blueprint/gourdguard_pumpkin/leafstem1.json",
+				"assets/aj/items/blueprint/gourdguard_pumpkin/main.json",
+				"assets/aj/items/blueprint/gourdguard_pumpkin/stem.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf1.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem1.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/main.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/stem.json"
+			]
+		}
+	}
+}

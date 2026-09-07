@@ -1,0 +1,11 @@
+{
+  "hud.timer10s": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "gourd_guard:hud/timer10s",
+        "stream": false
+      }
+    ]
+  }
+}

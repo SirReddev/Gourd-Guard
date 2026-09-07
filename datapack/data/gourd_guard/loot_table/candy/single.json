@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pumpkin_pie",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_model_data": {
+                  "floats": [1.0],
+                  "strings": ["candy"]
+                },
+                "minecraft:custom_data": {
+                  "glow_black": 1,
+                  "candy": 1
+                },
+                "minecraft:max_stack_size": 1,
+                "minecraft:item_name": {
+                  "text": "Candy",
+                  "color": "dark_purple",
+                  "bold": true,
+                  "italic": false
+                },
+                "minecraft:tooltip_display": {
+                  "hide_tooltip": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

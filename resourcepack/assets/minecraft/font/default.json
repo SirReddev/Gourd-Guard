@@ -1,0 +1,51 @@
+{
+  "providers": [
+    {
+      "type": "reference",
+      "id": "minecraft:include/space"
+    },
+    {
+      "type": "reference",
+      "id": "minecraft:include/default"
+    },
+    {
+      "type": "reference",
+      "id": "minecraft:include/unifont"
+    },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/hud_bg.png", "ascent": 152, "height": 188, "chars": ["\uE001"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/timer.png", "ascent": 12, "height": 14, "chars": ["\uE003"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/coin.png", "ascent": 12, "height": 14, "chars": ["\uE002"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/pumpkin_objective.png", "ascent": 15, "height": 18, "chars": ["\uE100"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_0.png", "ascent": 10, "height": 10, "chars": ["\uE101"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_1.png", "ascent": 10, "height": 10, "chars": ["\uE102"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_2.png", "ascent": 10, "height": 10, "chars": ["\uE103"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_3.png", "ascent": 10, "height": 10, "chars": ["\uE104"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_4.png", "ascent": 10, "height": 10, "chars": ["\uE105"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_5.png", "ascent": 10, "height": 10, "chars": ["\uE106"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_6.png", "ascent": 10, "height": 10, "chars": ["\uE107"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_7.png", "ascent": 10, "height": 10, "chars": ["\uE108"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_8.png", "ascent": 10, "height": 10, "chars": ["\uE109"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_9.png", "ascent": 10, "height": 10, "chars": ["\uE10A"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_10.png", "ascent": 10, "height": 10, "chars": ["\uE10B"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_11.png", "ascent": 10, "height": 10, "chars": ["\uE10C"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_12.png", "ascent": 10, "height": 10, "chars": ["\uE10D"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_13.png", "ascent": 10, "height": 10, "chars": ["\uE10E"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_14.png", "ascent": 10, "height": 10, "chars": ["\uE10F"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_15.png", "ascent": 10, "height": 10, "chars": ["\uE110"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_16.png", "ascent": 10, "height": 10, "chars": ["\uE111"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_17.png", "ascent": 10, "height": 10, "chars": ["\uE112"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_18.png", "ascent": 10, "height": 10, "chars": ["\uE113"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_19.png", "ascent": 10, "height": 10, "chars": ["\uE114"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_20.png", "ascent": 10, "height": 10, "chars": ["\uE115"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/wave_sign.png", "ascent": 22, "height": 22, "chars": ["\uE200"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/ghost.png", "ascent": 10, "height": 12, "chars": ["\uE201"] },
+    {
+      "type": "space",
+      "advances": {
+        "\uF801": -1, "\uF802": -2, "\uF804": -4, "\uF806": -6, "\uF808": -8, "\uF80C": -12, "\uF80E": -14, "\uF810": -16,
+        "\uF814": -20, "\uF816": -22, "\uF819": -25, "\uF81A": -26, "\uF81C": -28, "\uF820": -32, "\uF822": -34, "\uF830": -48,
+        "\uF840": -64, "\uF850": -80
+      }
+    }
+  ]
+}

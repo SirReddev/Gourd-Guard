@@ -1,0 +1,1 @@
+give @s pumpkin_pie[custom_model_data={floats:[1.0f],strings:["candy"]},custom_data={glow_black:1b,candy:1b},max_stack_size=1,item_name={"bold":true,"color":"dark_purple","italic":false,"obfuscated":false,"strikethrough":false,"text":"Candy","underlined":false},tooltip_display={hide_tooltip:true}] 1
