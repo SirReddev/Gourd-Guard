@@ -1,6 +1,6 @@
 # Gourd Guard
 
-Gourd Guard is a custom Halloween-themed minigame for Minecraft 1.21 Fabric featuring a custom Core Shader HUD, dynamic Minecrafter font rendering, custom candy mechanics, custom items, item glowing borders, boss health bars, and wave progression systems.
+Gourd Guard is a custom Halloween-themed minigame for Minecraft 1.21 Fabric featuring a custom Core Shader HUD, dynamic Minecrafter font rendering, custom candy mechanics, custom items, item glowing borders, boss health bars, wave progression systems, procedural custom skyboxes, and arcade loot drops.
 
 ---
 
@@ -8,8 +8,8 @@ Gourd Guard is a custom Halloween-themed minigame for Minecraft 1.21 Fabric feat
 
 | Directory | Description |
 | :--- | :--- |
-| **datapack/** | Contains all game functions, scoreboards, timer ticks, candy collection mechanics, wave managers, and macro actionbar renderers (`data/gourd_guard/`). |
-| **resourcepack/** | Contains custom text core shaders (`assets/minecraft/shaders/core/`), Minecrafter bitmap font (`assets/gourd_guard/font/`), custom textures, 3D candy model, and sounds. |
+| **datapack/** | Contains all game functions, scoreboards, timer ticks, candy collection mechanics, wave managers, loot tables, and macro actionbar renderers (`data/gourd_guard/`). |
+| **resourcepack/** | Contains custom text core shaders (`assets/minecraft/shaders/core/`), procedural skybox shaders (`assets/gourd_guard/shaders/`), Minecrafter bitmap font (`assets/gourd_guard/font/`), custom textures, 3D candy model, and sounds. |
 
 ---
 
@@ -55,10 +55,16 @@ The HUD uses a custom vertex shader (`text.vsh`) with color-hooked glyphs to ach
 | `/function gourd_guard:hud/timer/start_1m` | Set timer to 1:00 and start immediately. |
 | `/function gourd_guard:hud/timer/start_10s` | Set timer to 0:10 (triggers red warning state). |
 
-### Candy & Score Commands
+### Candy, Loot & Score Commands
 | Command | Description |
 | :--- | :--- |
 | `/function gourd_guard:give_candy` | Gives the custom 3D model candy item to the player. |
+| `/loot spawn ~ ~1 ~ loot gourd_guard:candy/boss` | Spawns a Boss candy burst (8 - 15 candies). |
+| `/loot spawn ~ ~1 ~ loot gourd_guard:candy/large` | Spawns a Large candy drop (4 - 7 candies). |
+| `/loot spawn ~ ~1 ~ loot gourd_guard:candy/medium` | Spawns a Medium candy drop (2 - 4 candies). |
+| `/loot spawn ~ ~1 ~ loot gourd_guard:candy/small` | Spawns a Small candy drop (1 - 2 candies). |
+| `/loot spawn ~ ~1 ~ loot gourd_guard:candy/single` | Spawns a Single candy drop (1 candy). |
+| `/function gourd_guard:candy/drop` | Spawns a pop drop with outward arcade velocity. |
 | `/function gourd_guard:hud/candy/add_50` | Add +50 coins to player (triggers green +50 pop-up). |
 | `/function gourd_guard:hud/candy/add_100` | Add +100 coins to player (triggers green +100 pop-up). |
 | `/function gourd_guard:hud/candy/remove_50` | Deduct 50 coins from player (triggers red -50 pop-up). |
@@ -99,11 +105,77 @@ The HUD uses a custom vertex shader (`text.vsh`) with color-hooked glyphs to ach
 | `/function gourd_guard:hud/hide` | Force hide full HUD. |
 | `/function gourd_guard:hud/reset` | Reset all HUD elements to default states. |
 
-### Item Glowing Border Teams
+---
+
+## Custom Items with Glowing Color Outlines
+
+Dropped items with custom tags automatically receive glowing team outlines when dropped on the ground.
+
+### Giving Items with Custom Glow Colors (1.21 Component Syntax):
+Give an item with `custom_data={glow_<color>:1b}` where `<color>` is any of the supported colors:
+
+```mcfunction
+# Give a diamond sword that glows RED when dropped:
+/give @s diamond_sword[custom_data={glow_red:1b}] 1
+
+# Give a bow that glows GOLD when dropped:
+/give @s bow[custom_data={glow_gold:1b}] 1
+
+# Give an enchanted apple that glows AQUA when dropped:
+/give @s enchanted_golden_apple[custom_data={glow_aqua:1b}] 1
+
+# Give candy that glows BLACK (default candy glow):
+/give @s pumpkin_pie[custom_model_data={floats:[1.0f],strings:["candy"]},custom_data={glow_black:1b,candy:1b},max_stack_size=1,item_name={"bold":true,"color":"dark_purple","italic":false,"text":"Candy"}] 1
+```
+
+### Supported Glow Colors:
+- `glow_red`
+- `glow_gold`
+- `glow_yellow`
+- `glow_green`
+- `glow_lime`
+- `glow_aqua`
+- `glow_cyan`
+- `glow_light_blue`
+- `glow_blue`
+- `glow_purple`
+- `glow_magenta`
+- `glow_pink`
+- `glow_white`
+- `glow_light_gray`
+- `glow_gray`
+- `glow_black`
+- `glow_brown`
+
+### Glowing Team Commands:
 | Command | Description |
 | :--- | :--- |
 | `/function gourd_guard:item_glow/setup_teams` | Initializes all 16 Minecraft glowing team colors. |
-| `/function gourd_guard:item_glow/colors/<color>` | Applies glowing team (red, green, blue, gold, aqua, black, etc.) |
+| `/function gourd_guard:item_glow/colors/<color>` | Assigns executing item to specified color team (`red`, `green`, `blue`, `gold`, `aqua`, `black`, etc.). |
+
+---
+
+## Custom Skyboxes (Core Shaders)
+
+The project includes custom procedural animated skybox shaders rendered directly in the game world using `item.vsh` and `item.fsh`.
+
+### Available Skyboxes:
+1. **Halloween Skybox** (Sky ID 2): Cosmic dark purple nebula gas swirls, twinkling starfields, animated witch-purple & spectral green aurora ribbons, shooting comets, and horizon void vignettes.
+2. **Nebula Skybox** (Sky ID 1): Deep cosmic space nebula with starfields.
+
+### How to Summon Skyboxes in the World:
+Summon an Item Display entity wearing/holding the custom skybox item centered around the player or arena:
+
+```mcfunction
+# Summon the Halloween Animated Skybox at current position:
+/summon item_display ~ ~ ~ {item:{id:"minecraft:item_frame",components:{"minecraft:item_model":"gourd_guard:skybox_halloween"}},transformation:{scale:[1000.0f,1000.0f,1000.0f],translation:[0.0f,0.0f,0.0f],rotation:[0.0f,0.0f,0.0f,1.0f]},teleport_duration:1}
+
+# Summon the Nebula Animated Skybox at current position:
+/summon item_display ~ ~ ~ {item:{id:"minecraft:item_frame",components:{"minecraft:item_model":"gourd_guard:skybox_nebula"}},transformation:{scale:[1000.0f,1000.0f,1000.0f],translation:[0.0f,0.0f,0.0f],rotation:[0.0f,0.0f,0.0f,1.0f]},teleport_duration:1}
+
+# Clear active skybox displays:
+/kill @e[type=item_display,distance=..100]
+```
 
 ---
 
