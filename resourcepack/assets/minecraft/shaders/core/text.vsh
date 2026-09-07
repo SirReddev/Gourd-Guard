@@ -99,7 +99,7 @@ void main() {
                 pos.x = originX * mobScale + (guiWidth - 81.0);
                 pos.y = originY * mobScale + 109.0;
                 pos.z = 0.0;
-                vertexColor.rgb = (gByte == 46) ? vec3(0.09, 0.22, 0.25) : vec3(0.35, 0.90, 1.0); // Spooky Ghost Cyan
+                vertexColor.rgb = (gByte == 46) ? vec3(0.18) : vec3(0.70, 0.70, 0.70); // Gray
             }
         }
         // === SECTION B: Top-Left Match HUD ===
