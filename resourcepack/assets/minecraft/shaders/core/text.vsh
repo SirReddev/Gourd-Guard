@@ -121,14 +121,14 @@ void main() {
             }
             // #0100FD: Coin Gain Pop-Up (+XX)
             else if (bByte == 253) {
-                pos.x = originX + 74.0;
+                pos.x = originX + 80.0;
                 pos.y = originY + 133.0;
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(0.33, 1.0, 0.33);
             }
             // #0100FC: Coin Loss Pop-Up (-XX)
             else if (bByte == 252) {
-                pos.x = originX + 74.0;
+                pos.x = originX + 80.0;
                 pos.y = originY + 133.0;
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(1.0, 0.25, 0.25);
