@@ -69,10 +69,10 @@ void main() {
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB01: Top Board Text ("WAVE " + score) - Scaled 1.85x at (X: guiWidth - 102px, Y: 55px)
+            // #01BB01: Top Board Text ("WAVE " + score) - Scaled 1.85x at (X: guiWidth - 104px, Y: 55px)
             else if (bByte == 1) {
                 float waveScale = 1.85;
-                pos.x = originX * waveScale + (guiWidth - 102.0);
+                pos.x = originX * waveScale + (guiWidth - 104.0);
                 pos.y = originY * waveScale + 55.0;
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(1.0, 1.0, 1.0); // Pure White
@@ -84,10 +84,10 @@ void main() {
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB03: Bottom Board Mob Count Digits - Scaled 1.4x, Shifted at (X: guiWidth - 85px, Y: 109px)
+            // #01BB03: Bottom Board Mob Count Digits - Scaled 1.4x, Shifted at (X: guiWidth - 83px, Y: 109px)
             else if (bByte == 3) {
                 float mobScale = 1.4;
-                pos.x = originX * mobScale + (guiWidth - 85.0);
+                pos.x = originX * mobScale + (guiWidth - 83.0);
                 pos.y = originY * mobScale + 109.0;
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(1.0, 1.0, 1.0); // Pure White
