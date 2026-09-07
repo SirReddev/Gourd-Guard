@@ -69,10 +69,10 @@ void main() {
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB01: Top Board Text ("WAVE " + score) - Scaled 1.85x at (X: guiWidth - 111px, Y: 55px)
+            // #01BB01: Top Board Text ("WAVE " + score) - Scaled 1.85x at (X: guiWidth - 106px, Y: 55px)
             else if (bByte == 1) {
                 float waveScale = 1.85;
-                pos.x = originX * waveScale + (guiWidth - 111.0);
+                pos.x = originX * waveScale + (guiWidth - 106.0);
                 pos.y = originY * waveScale + 55.0;
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(1.0, 1.0, 1.0); // Pure White
