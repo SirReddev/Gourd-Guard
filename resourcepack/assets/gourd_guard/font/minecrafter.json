@@ -29,6 +29,13 @@
       ]
     },
     {
+      "type": "bitmap",
+      "file": "gourd_guard:font/tag_npc.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": ["\uE300"]
+    },
+    {
       "type": "reference",
       "id": "minecraft:include/default"
     },
