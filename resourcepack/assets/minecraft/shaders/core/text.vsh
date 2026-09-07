@@ -122,20 +122,20 @@ void main() {
             // #0100FD: Coin Gain Pop-Up (+XX)
             else if (bByte == 253) {
                 pos.x = originX + 88.0;
-                pos.y = originY + 133.0;
+                pos.y = originY + 140.0;
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(0.33, 1.0, 0.33);
             }
             // #0100FC: Coin Loss Pop-Up (-XX)
             else if (bByte == 252) {
                 pos.x = originX + 88.0;
-                pos.y = originY + 133.0;
+                pos.y = originY + 140.0;
                 pos.z = 0.0;
                 vertexColor.rgb = vec3(1.0, 0.25, 0.25);
             }
-            // Timer Digits: at (X: 73px, Y: 38px)
+            // Timer Digits: at (X: 69px, Y: 38px)
             else {
-                pos.x = originX + 73.0;
+                pos.x = originX + 69.0;
                 pos.y = originY + 38.0;
                 pos.z = 0.0;
                 if (gByte == 0) vertexColor.rgb = vec3(0.33, 1.0, 0.33);      // Green (> 2m)
