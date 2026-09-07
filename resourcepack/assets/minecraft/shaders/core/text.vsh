@@ -101,11 +101,11 @@ void main() {
             pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
-        // #010000: JNNGL GUI Avatar (56x56px at X: 41px..97px, Y: 68px..124px)
+        // #010000: JNNGL GUI Avatar (56x56px at X: 42px..98px, Y: 68px..124px)
         else if (Color.g < 0.05 && Color.b < 0.05) {
             texCoord0 = uvCorners[vId];
             custom = 1.0;
-            pos.x = (vId == 0 || vId == 1) ? 41.0 : 97.0;
+            pos.x = (vId == 0 || vId == 1) ? 42.0 : 98.0;
             pos.y = (vId == 0 || vId == 3) ? 68.0 : 124.0;
             pos.z = 0.0;
             vertexColor = vec4(1.0);
