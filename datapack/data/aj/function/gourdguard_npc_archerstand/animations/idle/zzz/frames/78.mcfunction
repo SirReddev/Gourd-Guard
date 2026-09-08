@@ -2,3 +2,4 @@
 $data merge entity $(cross_8) {transformation: [0f,0.7071f,0.7071f,0f,-0.1672f,0.6971f,-0.6971f,1.3555f,-0.9859f,-0.1183f,0.1183f,1.3005f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(back3) {transformation: [0f,0.7071f,-0.7071f,0f,-0.1672f,-0.6971f,-0.6971f,1.2606f,-0.9859f,0.1183f,0.1183f,0.7413f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(cross_7) {transformation: [0f,0.7071f,-0.7071f,0f,-0.1672f,-0.6971f,-0.6971f,1.3555f,-0.9859f,0.1183f,0.1183f,1.3005f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
+execute unless entity @s[tag=aj.transforms_only] at @s run function aj:gourdguard_npc_archerstand/animations/idle/zzz/frames/78_root_function
