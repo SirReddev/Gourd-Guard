@@ -1,5 +1,5 @@
 # gourd_guard:npc/witchstand/tick
-# Intermittent slime blob popping out of the cauldron and landing nearby
+# Frequent popping slime bubbles shooting out of the potion & cauldron
 
-scoreboard players add #witch_slime aj.i 1
-execute if score #witch_slime aj.i matches 16.. run function gourd_guard:npc/witchstand/pop_slime
+scoreboard players add #witch_slime gg.timer 1
+execute if score #witch_slime gg.timer matches 6.. run function gourd_guard:npc/witchstand/pop_slime
