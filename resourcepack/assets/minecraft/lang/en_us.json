@@ -1,5 +1,6 @@
 {
   "soundCategory.record": "§aJukeBox/Radio",
   "container.crafting": "",
-  "subtitles.gourd_guard.objective.hit": "Gourd Objective damaged"
+  "subtitles.gourd_guard.objective.hit": "Gourd Objective damaged",
+  "subtitles.gourd_guard.npc.witchstand.stir": "Cauldron stirs"
 }

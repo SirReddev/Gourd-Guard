@@ -37,5 +37,15 @@
         "stream": false
       }
     ]
+  },
+  "npc.witchstand.stir": {
+    "category": "neutral",
+    "subtitle": "subtitles.gourd_guard.npc.witchstand.stir",
+    "sounds": [
+      {
+        "name": "gourd_guard:npc/witchstand/stirring_potion",
+        "stream": false
+      }
+    ]
   }
 }

@@ -5,3 +5,6 @@ execute rotated ~ 0 run function aj:gourdguard_npc_witchstand/summon {args:{anim
 
 # Stabilize text display: set vertical billboard and disable interpolation jitter
 execute as @e[type=text_display,tag=aj.gourdguard_npc_witchstand.node.text_display,distance=..3] run data merge entity @s {billboard:"vertical",interpolation_duration:0,teleport_duration:0}
+
+# Start stirring sound immediately
+function gourd_guard:npc/witchstand/play_stir_sound
