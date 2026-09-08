@@ -4,7 +4,9 @@ $data merge entity $(bone3) {transformation: [-0.8544f,-0.8544f,0f,1.0313f,-0.85
 $data merge entity $(head_sub_1) {transformation: [-2.2396f,0f,0f,0f,0f,2.2396f,0f,-1.4375f,0f,0f,-2.2396f,-0.5625f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(bone5) {transformation: [0f,0f,-2.2396f,0f,0f,2.2396f,0f,-1.4375f,2.2396f,0f,0f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(bone) {transformation: [0f,0f,2.2396f,0f,0f,2.2396f,0f,-1.4375f,-2.2396f,0f,0f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
+$data merge entity $(hat2) {transformation: [-2.4125f,0f,0f,0f,0f,2.4125f,0f,-1.4375f,0f,0f,-2.4125f,-0.5625f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(nose) {transformation: [-2.2083f,0f,0f,0f,0f,2.2083f,0f,-1.625f,0f,0f,-2.2083f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
+$data merge entity $(head) {transformation: [-1f,0f,0f,0f,0f,1f,0f,1.7031f,0f,0f,-1f,0.1875f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(left_arm) {transformation: [-0.9763f,0.2164f,0f,0.25f,0.1658f,0.7479f,-0.6428f,1.5f,-0.1391f,-0.6276f,-0.766f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(right_arm) {transformation: [-0.9763f,-0.2164f,0f,-0.25f,-0.1658f,0.7479f,-0.6428f,1.5f,0.1391f,-0.6276f,-0.766f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(body) {transformation: [-1f,0f,0f,0f,0f,1f,0f,0.6146f,0f,0f,-1f,-0.0312f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
@@ -20,4 +22,3 @@ $data merge entity $(crossbow) {transformation: [-1.0153f,0f,0f,0.6695f,0f,0.999
 $data merge entity $(cross_8) {transformation: [0f,0.7071f,0.7071f,0f,0.1736f,0.6964f,-0.6964f,0.702f,-0.9848f,0.1228f,-0.1228f,1.09f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(back3) {transformation: [0f,0.7071f,-0.7071f,0f,0.1736f,-0.6964f,-0.6964f,0.8005f,-0.9848f,-0.1228f,-0.1228f,0.5315f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(cross_7) {transformation: [0f,0.7071f,-0.7071f,0f,0.1736f,-0.6964f,-0.6964f,0.702f,-0.9848f,-0.1228f,-0.1228f,1.09f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
-execute unless entity @s[tag=aj.transforms_only] run function aj:gourdguard_npc_archerstand/variants/default/apply

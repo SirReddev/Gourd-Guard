@@ -3,4 +3,3 @@ $data merge entity $(right_arm) {transformation: [-0.9763f,-0.2118f,0.0445f,-0.2
 $data merge entity $(cross_8) {transformation: [0f,0.7071f,0.7071f,0f,0.9397f,0.2418f,-0.2418f,0.4188f,-0.342f,0.6645f,-0.6645f,0.7494f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(back3) {transformation: [0f,0.7071f,-0.7071f,0f,0.9397f,-0.2418f,-0.2418f,0.9518f,-0.342f,-0.6645f,-0.6645f,0.5554f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(cross_7) {transformation: [0f,0.7071f,-0.7071f,0f,0.9397f,-0.2418f,-0.2418f,0.4188f,-0.342f,-0.6645f,-0.6645f,0.7494f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
-execute unless entity @s[tag=aj.transforms_only] run function aj:gourdguard_npc_archerstand/variants/load2/apply

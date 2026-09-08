@@ -4,7 +4,9 @@ $data merge entity $(bone3) {transformation: [-0.8544f,-0.8544f,0f,1.0313f,-0.85
 $data merge entity $(head_sub_1) {transformation: [-2.2396f,0f,0f,0f,0f,2.2389f,0.0544f,-1.424f,0f,0.0544f,-2.2389f,-0.6121f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(bone5) {transformation: [0f,0f,-2.2396f,0f,-0.0544f,2.2389f,0f,-1.4377f,2.2389f,0.0544f,0f,-0.0498f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(bone) {transformation: [0f,0f,2.2396f,0f,0.0544f,2.2389f,0f,-1.4377f,-2.2389f,0.0544f,0f,-0.0498f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
+$data merge entity $(hat2) {transformation: [-2.4125f,0f,0f,0f,0f,2.4118f,0.0585f,-1.424f,0f,0.0585f,-2.4118f,-0.6121f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(nose) {transformation: [-2.2083f,0f,0f,0f,0f,2.2077f,0.0536f,-1.6251f,0f,0.0536f,-2.2077f,-0.0544f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
+$data merge entity $(head) {transformation: [-1f,0f,0f,0f,0f,0.9997f,0.0243f,1.6975f,0f,0.0243f,-0.9997f,0.2139f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(left_arm) {transformation: [-0.9763f,0.2164f,-0.001f,0.25f,0.1691f,0.76f,-0.6275f,1.499f,-0.1351f,-0.6128f,-0.7786f,0.0215f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(right_arm) {transformation: [-0.9763f,-0.2164f,0.0013f,-0.25f,-0.1691f,0.7591f,-0.6286f,1.4945f,0.1351f,-0.6139f,-0.7777f,0.0257f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(body) {transformation: [-1f,0f,0f,0f,0f,0.9997f,0.0243f,0.6146f,0f,0.0243f,-0.9997f,-0.0312f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}

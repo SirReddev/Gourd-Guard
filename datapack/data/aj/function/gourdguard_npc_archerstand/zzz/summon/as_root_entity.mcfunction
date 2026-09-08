@@ -12,7 +12,7 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_npc_archerstand"
-data modify storage animated_java:temp entry.data.rig_hash set value "52c17dd3960e671112e62ccf5a9fdf437a0a2c8842c2e72840de92784dec3273"
+data modify storage animated_java:temp entry.data.rig_hash set value "38513ff3c4dd605ad3962c6e5d736b732531dff83c41c0711a615e3bdca5bec0"
 tp @s ~ ~ ~ ~ ~
 execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.text_display] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/text_display
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
@@ -128,7 +128,7 @@ data modify storage animated_java:temp entry.data.uuids_by_name.leg set from sto
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_npc_archerstand/zzz/set_default_pose
-execute if data storage animated_java:temp args.variant run function aj:gourdguard_npc_archerstand/zzz/summon/variant_arg/process with storage animated_java:temp args
+execute if data storage animated_java:temp args.variant run function aj:gourdguard_npc_archerstand/zzz/summon/zzz/variant_arg/no_variants_warning
 execute if score #success aj.i matches 0 run return fail
 execute if data storage animated_java:temp args.animation run function aj:gourdguard_npc_archerstand/zzz/summon/animation_arg/process with storage animated_java:temp args
 execute if score #success aj.i matches 0 run return fail
