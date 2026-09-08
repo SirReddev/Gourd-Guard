@@ -1,4 +1,4 @@
-﻿# gourd_guard:npc/witchstand/summon
+# gourd_guard:npc/witchstand/summon
 # Summons the Witchstand NPC model, locks vertical pitch to 0, and starts the idle animation.
 
 # Mark existing root entities to uniquely isolate the new spawn

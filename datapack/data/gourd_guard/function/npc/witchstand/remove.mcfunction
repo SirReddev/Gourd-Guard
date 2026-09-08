@@ -1,4 +1,4 @@
-﻿# gourd_guard:npc/witchstand/remove
+# gourd_guard:npc/witchstand/remove
 # Removes the nearest Witchstand NPC within 6 blocks, or all if executed directly as the root
 
 # If run directly as a root entity:
