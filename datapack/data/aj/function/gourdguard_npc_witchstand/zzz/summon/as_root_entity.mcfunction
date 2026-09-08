@@ -12,8 +12,11 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_npc_witchstand"
-data modify storage animated_java:temp entry.data.rig_hash set value "ac33f8a503880702471b63d0818631e6c767eb02b01290924df7a9a4617ce156"
+data modify storage animated_java:temp entry.data.rig_hash set value "ac169170c0bce8228a9e093f4f4ce0fa99d18bd8c832507c098663d73117e584"
 tp @s ~ ~ ~ ~ ~
+execute on passengers if entity @s[tag=aj.gourdguard_npc_witchstand.node.text_display] run function aj:gourdguard_npc_witchstand/zzz/summon/as_node/text_display
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.text_display set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_witchstand.node.table] run function aj:gourdguard_npc_witchstand/zzz/summon/as_node/table
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.table set from storage animated_java:gu out
@@ -59,9 +62,6 @@ data modify storage animated_java:temp entry.data.uuids_by_name.left_leg set fro
 execute on passengers if entity @s[tag=aj.gourdguard_npc_witchstand.node.right_leg] run function aj:gourdguard_npc_witchstand/zzz/summon/as_node/right_leg
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.right_leg set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_witchstand.node.text_display] run function aj:gourdguard_npc_witchstand/zzz/summon/as_node/text_display
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.text_display set from storage animated_java:gu out
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_npc_witchstand/zzz/set_default_pose
