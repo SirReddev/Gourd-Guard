@@ -1,9 +1,81 @@
 {
 	"model": {
-		"type": "minecraft:model",
-		"model": "aj:blueprint/gourdguard_npc_archerstand/hat2",
-		"tints": [
-			{"type": "minecraft:dye", "default": [1, 1, 1]}
-		]
+		"type": "minecraft:select",
+		"property": "minecraft:custom_model_data",
+		"cases": [
+			{
+				"when": "AJ_INTERNAL_EMPTY",
+				"model": {
+					"type": "minecraft:empty"
+				}
+			},
+			{
+				"when": "load1",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_npc_archerstand/load1/hat2",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			},
+			{
+				"when": "load2",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_npc_archerstand/load2/hat2",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			},
+			{
+				"when": "load3",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_npc_archerstand/load3/hat2",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			},
+			{
+				"when": "load4",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_npc_archerstand/load4/hat2",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			},
+			{
+				"when": "load5",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_npc_archerstand/load5/hat2",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			},
+			{
+				"when": "hidearrow",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_npc_archerstand/hidearrow/hat2",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			}
+		],
+		"fallback": {
+			"type": "minecraft:model",
+			"model": "aj:blueprint/gourdguard_npc_archerstand/hat2",
+			"tints": [
+				{"type": "minecraft:dye", "default": [1, 1, 1]}
+			]
+		}
 	}
 }

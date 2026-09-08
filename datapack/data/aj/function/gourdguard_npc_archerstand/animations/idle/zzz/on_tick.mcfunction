@@ -2,9 +2,8 @@
 scoreboard players remove @s aj.tween_duration 1
 execute if score @s aj.tween_duration matches 1.. run return 1
 execute if score @s aj.tween_duration matches 0 on passengers run data modify entity @s interpolation_duration set value 1
-execute if score @s aj.idle.frame matches -1 run function aj:gourdguard_npc_archerstand/animations/idle/zzz/function_keyframe_loop_patch
 data remove storage animated_java:temp args
 execute store result storage animated_java:temp args.frame int 1 run scoreboard players get @s aj.idle.frame
 function aj:gourdguard_npc_archerstand/animations/idle/zzz/apply_frame with storage animated_java:temp args
-execute if score @s aj.idle.frame matches 300.. run return run scoreboard players set @s aj.idle.frame -1
+execute if score @s aj.idle.frame matches 300.. run return run function aj:gourdguard_npc_archerstand/animations/shoot/play_exclusive
 scoreboard players add @s aj.idle.frame 1
