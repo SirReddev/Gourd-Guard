@@ -291,7 +291,8 @@
 				"assets/aj/models/blueprint/gourdguard_npc_archerstand/shot/right_joint.json",
 				"assets/aj/models/blueprint/gourdguard_npc_archerstand/shot/right_leg.json",
 				"assets/aj/models/blueprint/gourdguard_npc_archerstand/shot/rope.json",
-				"assets/aj/models/blueprint/gourdguard_npc_archerstand/shot/scope.json"
+				"assets/aj/models/blueprint/gourdguard_npc_archerstand/shot/scope.json",
+				"assets/aj/textures/blueprint/gourdguard_npc_archerstand/gourdguard_npc_archerstand_dummy.png"
 			]
 		},
 		"aj:gourdguard_npc_witchstand": {
