@@ -1,6 +1,6 @@
 # Gourd Guard
 
-**Gourd Guard** is a custom Halloween-themed minigame for **Minecraft 1.21.4 (Fabric)** featuring a custom Core Shader HUD, dynamic Minecrafter font rendering, custom candy mechanics, custom items with glowing team outlines, boss health bars, wave progression systems, procedural custom skyboxes, arcade loot drops, and Animated Java NPC rigs with locator-based particle physics and spatial 3D audio.
+**Gourd Guard** is a custom Halloween-themed minigame for **Minecraft 26.2 (VANILLA) Java Realms** featuring a custom Core Shader HUD, dynamic Minecrafter font rendering, custom candy mechanics, custom items with glowing team outlines, boss health bars, wave progression systems, procedural custom skyboxes, arcade loot drops, and Animated Java NPC rigs with locator-based particle physics and spatial 3D audio.
 
 ---
 
