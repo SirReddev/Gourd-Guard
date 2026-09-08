@@ -2,5 +2,7 @@
   "soundCategory.record": "§aJukeBox/Radio",
   "container.crafting": "",
   "subtitles.gourd_guard.objective.hit": "Gourd Objective damaged",
-  "subtitles.gourd_guard.npc.witchstand.stir": "Cauldron stirs"
+  "subtitles.gourd_guard.npc.witchstand.stir": "Cauldron stirs",
+  "subtitles.gourd_guard.npc.archerstand.shot": "Arrow shoots",
+  "subtitles.gourd_guard.npc.archerstand.hit_target": "Target hit"
 }

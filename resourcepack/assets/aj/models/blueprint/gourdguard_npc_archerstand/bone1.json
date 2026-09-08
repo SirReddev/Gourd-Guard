@@ -1,0 +1,49 @@
+{
+	"textures": {
+		"4": "aj:blueprint/gourdguard_npc_archerstand_crossbow_1",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [9.31664, 5.31875, 10.85221],
+			"to": [10.14164, 6.96875, 11.67721],
+			"rotation": {
+				"x": 0,
+				"y": -105,
+				"z": 0,
+				"origin": [9.72914, 6.14375, 11.26471]
+			},
+			"faces": {
+				"north": {
+					"uv": [9.75, 12, 10, 12.5],
+					"texture": "#4"
+				},
+				"east": {
+					"uv": [10, 12, 10.25, 12.5],
+					"texture": "#4"
+				},
+				"south": {
+					"uv": [12, 10, 12.25, 10.5],
+					"texture": "#4"
+				},
+				"west": {
+					"uv": [10.25, 12, 10.5, 12.5],
+					"texture": "#4"
+				},
+				"up": {
+					"uv": [12.75, 2, 12.5, 1.75],
+					"texture": "#4"
+				},
+				"down": {
+					"uv": [2.25, 12.5, 2, 12.75],
+					"texture": "#4"
+				}
+			}
+		}
+	]
+}

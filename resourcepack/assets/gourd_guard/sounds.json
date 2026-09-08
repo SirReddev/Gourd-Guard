@@ -47,5 +47,45 @@
         "stream": false
       }
     ]
+  },
+  "npc.archerstand.shot": {
+    "category": "neutral",
+    "subtitle": "subtitles.gourd_guard.npc.archerstand.shot",
+    "sounds": [
+      {
+        "name": "gourd_guard:npc/archerstand/arrow_shot",
+        "stream": false
+      }
+    ]
+  },
+  "npc.archerstand.arrow_shot": {
+    "category": "neutral",
+    "subtitle": "subtitles.gourd_guard.npc.archerstand.shot",
+    "sounds": [
+      {
+        "name": "gourd_guard:npc/archerstand/arrow_shot",
+        "stream": false
+      }
+    ]
+  },
+  "npc.archerstand.hit_target": {
+    "category": "neutral",
+    "subtitle": "subtitles.gourd_guard.npc.archerstand.hit_target",
+    "sounds": [
+      {
+        "name": "gourd_guard:npc/archerstand/arrow_hit_target",
+        "stream": false
+      }
+    ]
+  },
+  "npc.archerstand.arrow_hit_target": {
+    "category": "neutral",
+    "subtitle": "subtitles.gourd_guard.npc.archerstand.hit_target",
+    "sounds": [
+      {
+        "name": "gourd_guard:npc/archerstand/arrow_hit_target",
+        "stream": false
+      }
+    ]
   }
 }

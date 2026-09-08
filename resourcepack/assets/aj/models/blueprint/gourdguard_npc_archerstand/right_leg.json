@@ -1,0 +1,85 @@
+{
+	"textures": {
+		"0": "aj:blueprint/gourdguard_npc_archerstand_pillager",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [6, -4, 6],
+			"to": [10, 8, 10],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [4, -16, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [1, 6.5, 2, 9.5],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [0, 6.5, 1, 9.5],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [3, 6.5, 4, 9.5],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [2, 6.5, 3, 9.5],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [1, 5.5, 2, 6.5],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [2, 5.5, 3, 6.5],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [5.83, -1.17, 5.83],
+			"to": [10.17, 0.17, 10.17],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [4, -16, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [9, 4.5, 10, 4.75],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [8, 4.5, 9, 4.75],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [11, 4.5, 12, 4.75],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [10, 4.5, 11, 4.75],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [9, 3.5, 10, 4.5],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [10, 3.5, 11, 4.5],
+					"texture": "#0"
+				}
+			}
+		}
+	]
+}

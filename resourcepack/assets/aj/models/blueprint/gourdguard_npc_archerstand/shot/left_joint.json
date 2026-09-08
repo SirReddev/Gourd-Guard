@@ -1,0 +1,8 @@
+{
+	"parent": "aj:blueprint/gourdguard_npc_archerstand/left_joint",
+	"textures": {
+		"0": "aj:blueprint/gourdguard_npc_archerstand_pillager",
+		"3": "aj:blueprint/gourdguard_npc_archerstand_crossbow_0",
+		"10": "aj:blueprint/gourdguard_npc_archerstand_crossbow_arrow"
+	}
+}
