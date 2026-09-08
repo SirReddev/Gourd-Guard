@@ -1,6 +1,41 @@
 {
 	"formatVersion": "1.0.0",
 	"rigs": {
+		"aj:gourdguard_npc_witchstand": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/body.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/bodywear.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/bone.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/cauldron.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/hat.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/head.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/left_arm.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/left_leg.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/mole.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/nose.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/potion.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/right_arm.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/right_leg.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/spoon.json",
+				"assets/aj/items/blueprint/gourdguard_npc_witchstand/table.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/body.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/bodywear.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/bone.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/cauldron.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/hat.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/head.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/left_arm.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/left_leg.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/mole.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/nose.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/potion.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/right_arm.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/right_leg.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/spoon.json",
+				"assets/aj/models/blueprint/gourdguard_npc_witchstand/table.json"
+			]
+		},
 		"aj:gourdguard_pumpkin": {
 			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
 			"versionedFiles": [

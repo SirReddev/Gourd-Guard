@@ -1,6 +1,8 @@
 {
-  "pack": {
-    "pack_format": 61,
-    "description": "Gourd Guard Datapack"
-  }
+	"pack": {
+		"pack_format": 61,
+		"description": "Gourd Guard Datapack",
+		"min_format": 107,
+		"max_format": 107
+	}
 }

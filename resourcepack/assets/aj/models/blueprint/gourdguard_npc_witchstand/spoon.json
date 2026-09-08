@@ -1,0 +1,51 @@
+{
+	"textures": {
+		"1": "aj:blueprint/gourdguard_npc_witchstand_0",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [7.34597, 15.36904, 2.73346],
+			"to": [9.11135, 32, 4.47782],
+			"rotation": {
+				"x": 125,
+				"y": 0,
+				"z": 0,
+				"origin": [8.22866, 10.54928, 3.1678]
+			},
+			"faces": {
+				"north": {
+					"uv": [3, 10.75, 3.5, 6.5],
+					"texture": "#1"
+				},
+				"east": {
+					"uv": [2.25, 10.5, 2.5, 6.25],
+					"texture": "#1"
+				},
+				"south": {
+					"uv": [2.5, 10.75, 3, 6.5],
+					"texture": "#1"
+				},
+				"west": {
+					"uv": [5, 8.75, 5.25, 4.5],
+					"texture": "#1"
+				},
+				"up": {
+					"uv": [4.75, 13.75, 5, 13.25],
+					"rotation": 90,
+					"texture": "#1"
+				},
+				"down": {
+					"uv": [5.5, 7.75, 5.75, 8.25],
+					"rotation": 270,
+					"texture": "#1"
+				}
+			}
+		}
+	]
+}
