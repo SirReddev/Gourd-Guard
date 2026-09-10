@@ -22,9 +22,9 @@ $data merge entity $(bone1) { transformation: [-1f,0f,0f,-0.5615f,0f,0.9848f,0.1
 $data merge entity $(bone6) { transformation: [-1f,0f,0f,-0.5615f,0f,0.9848f,0.1736f,1.0037f,0f,0.1736f,-0.9848f,1.2929f,0f,0f,0f,1f], start_interpolation: 0 }
 $data merge entity $(right_joint) { transformation: [-1f,0f,0f,-0.6695f,0f,0.9848f,0.1736f,0.9249f,0f,0.1736f,-0.9848f,1.0718f,0f,0f,0f,1f], start_interpolation: 0 }
 $data merge entity $(crossbow) { transformation: [-1.0153f,0f,0f,0.6695f,0f,0.9999f,0.1763f,0.9249f,0f,0.1763f,-0.9999f,1.0718f,0f,0f,0f,1f], start_interpolation: 0 }
-$data merge entity $(cross_8) { transformation: [0f,0.7071f,0.7071f,0f,0.1736f,0.6964f,-0.6964f,0.702f,-0.9848f,0.1228f,-0.1228f,1.09f,0f,0f,0f,1f], start_interpolation: 0 }
-$data merge entity $(back3) { transformation: [0f,0.7071f,-0.7071f,0f,0.1736f,-0.6964f,-0.6964f,0.8005f,-0.9848f,-0.1228f,-0.1228f,0.5315f,0f,0f,0f,1f], start_interpolation: 0 }
-$data merge entity $(cross_7) { transformation: [0f,0.7071f,-0.7071f,0f,0.1736f,-0.6964f,-0.6964f,0.702f,-0.9848f,-0.1228f,-0.1228f,1.09f,0f,0f,0f,1f], start_interpolation: 0 }
+$data merge entity $(cross_8) { transformation: [0f,0.7071f,0.7071f,0f,0f,0.7071f,-0.7071f,0.6389f,-1f,0f,0f,1.2189f,0f,0f,0f,1f], start_interpolation: 0 }
+$data merge entity $(back3) { transformation: [0f,0.7071f,-0.7071f,0f,0f,-0.7071f,-0.7071f,0.6389f,-1f,0f,0f,0.6517f,0f,0f,0f,1f], start_interpolation: 0 }
+$data merge entity $(cross_7) { transformation: [0f,0.7071f,-0.7071f,0f,0f,-0.7071f,-0.7071f,0.6389f,-1f,0f,0f,1.2189f,0f,0f,0f,1f], start_interpolation: 0 }
 $data merge entity $(back2) { transformation: [0.2164f,0.6903f,-0.6903f,0.25f,0.1695f,-0.7229f,-0.6698f,1.7813f,-0.9615f,0.0279f,-0.2735f,3.25f,0f,0f,0f,1f], start_interpolation: 0 }
 $data merge entity $(cross_5) { transformation: [0.2164f,0.6903f,-0.6903f,0.1012f,0.1695f,-0.7229f,-0.6698f,1.6647f,-0.9615f,0.0279f,-0.2735f,3.911f,0f,0f,0f,1f], start_interpolation: 0 }
 $data merge entity $(cross_6) { transformation: [0.2164f,0.6903f,0.6903f,0.1012f,0.1695f,0.6698f,-0.7229f,1.6647f,-0.9615f,0.2735f,0.0279f,3.911f,0f,0f,0f,1f], start_interpolation: 0 }
