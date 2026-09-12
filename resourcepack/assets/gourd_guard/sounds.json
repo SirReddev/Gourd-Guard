@@ -94,6 +94,7 @@
     "sounds": [
       {
         "name": "gourd_guard:prop/windmill/spinning",
+        "volume": 0.5,
         "stream": false
       }
     ]
@@ -104,6 +105,7 @@
     "sounds": [
       {
         "name": "gourd_guard:prop/windmill/spinning",
+        "volume": 0.5,
         "stream": false
       }
     ]
