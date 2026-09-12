@@ -14,6 +14,7 @@
 		"aj:gourdguard_prop_graveyard_grave7/on_load",
 		"aj:gourdguard_prop_graveyard_grave8/on_load",
 		"aj:gourdguard_prop_graveyard_grave9/on_load",
+		"aj:gourdguard_prop_waterwheel/on_load",
 		"aj:gourdguard_prop_windmill/on_load",
 		"aj:gourdguard_pumpkin/on_load"
 	]

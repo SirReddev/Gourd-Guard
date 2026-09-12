@@ -109,5 +109,27 @@
         "stream": false
       }
     ]
+  },
+  "prop.waterwheel.spin": {
+    "category": "ambient",
+    "subtitle": "subtitles.gourd_guard.prop.waterwheel.spin",
+    "sounds": [
+      {
+        "name": "gourd_guard:prop/waterwheel/spinning",
+        "volume": 1.0,
+        "stream": false
+      }
+    ]
+  },
+  "prop.waterwheel.spinning": {
+    "category": "ambient",
+    "subtitle": "subtitles.gourd_guard.prop.waterwheel.spin",
+    "sounds": [
+      {
+        "name": "gourd_guard:prop/waterwheel/spinning",
+        "volume": 1.0,
+        "stream": false
+      }
+    ]
   }
 }

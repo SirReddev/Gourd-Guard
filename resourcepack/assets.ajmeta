@@ -406,6 +406,13 @@
 				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave9/grave9.json"
 			]
 		},
+		"aj:gourdguard_prop_waterwheel": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_waterwheel/waterwheel.json",
+				"assets/aj/models/blueprint/gourdguard_prop_waterwheel/waterwheel.json"
+			]
+		},
 		"aj:gourdguard_prop_windmill": {
 			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
 			"versionedFiles": [
