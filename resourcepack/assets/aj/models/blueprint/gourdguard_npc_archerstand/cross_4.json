@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"2": "aj:blueprint/gourdguard_npc_archerstand_dummy_arrow",
+		"2": "aj:blueprint/npc/gourdguard_npc_archerstand_dummy_arrow",
 		"particle": "minecraft:item/pufferfish"
 	},
 	"display": {

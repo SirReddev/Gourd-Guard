@@ -1,6 +1,6 @@
 {
 	"parent": "aj:blueprint/gourdguard_npc_archerstand/body",
 	"textures": {
-		"9": "aj:blueprint/gourdguard_npc_archerstand_crossbow_arrow_invis"
+		"9": "aj:blueprint/npc/gourdguard_npc_archerstand_crossbow_arrow_invis"
 	}
 }

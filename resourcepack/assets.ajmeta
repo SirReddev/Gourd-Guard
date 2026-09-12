@@ -329,6 +329,98 @@
 				"assets/aj/models/blueprint/gourdguard_npc_witchstand/table.json"
 			]
 		},
+		"aj:gourdguard_prop_graveyard_grave1": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave1/grave1.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave1/grave1.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave10": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave10/grave10.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave10/grave10.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave11": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave11/grave11.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave11/grave11.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave2": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave2/grave2.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave2/grave2.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave3": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave3/grave3.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave3/grave3.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave4": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave4/grave4.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave4/grave4.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave5": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave5/grave5.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave5/grave5.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave6": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave6/grave6.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave6/grave6.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave7": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave7/grave7.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave7/grave7.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave8": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave8/grave8.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave8/grave8.json"
+			]
+		},
+		"aj:gourdguard_prop_graveyard_grave9": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave9/grave9.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave9/grave9.json"
+			]
+		},
+		"aj:gourdguard_prop_windmill": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_prop_windmill/rotor.json",
+				"assets/aj/items/blueprint/gourdguard_prop_windmill/wiek_1.json",
+				"assets/aj/items/blueprint/gourdguard_prop_windmill/wiek_2.json",
+				"assets/aj/items/blueprint/gourdguard_prop_windmill/wiek_3.json",
+				"assets/aj/items/blueprint/gourdguard_prop_windmill/wiek_4.json",
+				"assets/aj/models/blueprint/gourdguard_prop_windmill/rotor.json",
+				"assets/aj/models/blueprint/gourdguard_prop_windmill/wiek_1.json",
+				"assets/aj/models/blueprint/gourdguard_prop_windmill/wiek_2.json",
+				"assets/aj/models/blueprint/gourdguard_prop_windmill/wiek_3.json",
+				"assets/aj/models/blueprint/gourdguard_prop_windmill/wiek_4.json"
+			]
+		},
 		"aj:gourdguard_pumpkin": {
 			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
 			"versionedFiles": [

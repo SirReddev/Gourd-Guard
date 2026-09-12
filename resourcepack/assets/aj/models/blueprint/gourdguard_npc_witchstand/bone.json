@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"4": "aj:blueprint/gourdguard_npc_witchstand_4",
+		"4": "aj:blueprint/npc/gourdguard_npc_witchstand_4",
 		"particle": "minecraft:item/pufferfish"
 	},
 	"display": {

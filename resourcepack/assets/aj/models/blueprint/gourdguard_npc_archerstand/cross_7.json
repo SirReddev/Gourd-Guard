@@ -1,6 +1,6 @@
 {
 	"textures": {
-		"10": "aj:blueprint/gourdguard_npc_archerstand_crossbow_arrow_invis",
+		"10": "aj:blueprint/npc/gourdguard_npc_archerstand_crossbow_arrow_invis",
 		"particle": "minecraft:item/pufferfish"
 	},
 	"display": {

@@ -12,7 +12,7 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_npc_witchstand"
-data modify storage animated_java:temp entry.data.rig_hash set value "25078802386445148b3b6ba8140a89d5cf3c2560f7214e001256a09cda619872"
+data modify storage animated_java:temp entry.data.rig_hash set value "deda864c3e4633f937fd09060c03f0a7e798aa1d46cd67fd143a0f45096f4ce0"
 tp @s ~ ~ ~ ~ ~
 execute on passengers if entity @s[tag=aj.gourdguard_npc_witchstand.node.table] run function aj:gourdguard_npc_witchstand/zzz/summon/as_node/table
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
