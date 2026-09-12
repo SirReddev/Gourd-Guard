@@ -3,3 +3,4 @@
 function aj:gourdguard_prop_windmill/remove/all
 stopsound @a ambient gourd_guard:prop.windmill.spin
 scoreboard players set #windmill_spin gg.timer 0
+tag @a remove in_windmill_zone

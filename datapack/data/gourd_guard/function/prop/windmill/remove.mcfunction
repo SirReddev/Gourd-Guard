@@ -6,3 +6,4 @@ execute unless entity @s[tag=aj.gourdguard_prop_windmill.root] as @e[type=item_d
 # Stop sound if no more windmills exist
 execute unless entity @e[type=item_display,tag=aj.gourdguard_prop_windmill.root] run stopsound @a ambient gourd_guard:prop.windmill.spin
 execute unless entity @e[type=item_display,tag=aj.gourdguard_prop_windmill.root] run scoreboard players set #windmill_spin gg.timer 0
+execute unless entity @e[type=item_display,tag=aj.gourdguard_prop_windmill.root] run tag @a remove in_windmill_zone
