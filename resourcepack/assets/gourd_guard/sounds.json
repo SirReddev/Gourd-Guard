@@ -87,5 +87,25 @@
         "stream": false
       }
     ]
+  },
+  "prop.windmill.spin": {
+    "category": "ambient",
+    "subtitle": "subtitles.gourd_guard.prop.windmill.spin",
+    "sounds": [
+      {
+        "name": "gourd_guard:prop/windmill/spinning",
+        "stream": false
+      }
+    ]
+  },
+  "prop.windmill.spinning": {
+    "category": "ambient",
+    "subtitle": "subtitles.gourd_guard.prop.windmill.spin",
+    "sounds": [
+      {
+        "name": "gourd_guard:prop/windmill/spinning",
+        "stream": false
+      }
+    ]
   }
 }

@@ -4,3 +4,4 @@ function gourd_guard:candy/tick
 function gourd_guard:hud/tick
 function gourd_guard:npc/witchstand/tick
 function gourd_guard:npc/archerstand/tick
+function gourd_guard:prop/windmill/tick
