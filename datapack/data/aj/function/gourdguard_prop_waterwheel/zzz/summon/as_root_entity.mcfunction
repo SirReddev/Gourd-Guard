@@ -12,7 +12,7 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_prop_waterwheel"
-data modify storage animated_java:temp entry.data.rig_hash set value "e8f360655540c66a6ca58b463a25644a294673c85f5faa86f524bf7582809da3"
+data modify storage animated_java:temp entry.data.rig_hash set value "ee15b1c2806ad960f4d73d552c643cc3902543d144bd3a741f554b2f717bfe05"
 tp @s ~ ~ ~ ~ ~
 execute on passengers if entity @s[tag=aj.gourdguard_prop_waterwheel.node.waterwheel] run function aj:gourdguard_prop_waterwheel/zzz/summon/as_node/waterwheel
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
