@@ -25,9 +25,9 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
 }
 
 vec4 apply_fog(vec4 inColor, float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmantalEnd, float renderDistanceStart, float renderDistanceEnd, vec4 fogColor) {
-    // Large clear zone around the player, followed by dense black fog
-    float clearRadius = 22.0;  // 0% fog within 22 blocks of the player
-    float blackWall   = 38.0;  // 100% thick pitch-black fog by 38 blocks
+    // 10-block clear zone around the player, followed by dense black fog
+    float clearRadius = 10.0;  // 0% fog within 10 blocks of the player
+    float blackWall   = 22.0;  // 100% thick pitch-black fog by 22 blocks
 
     float activeStart = min(renderDistanceStart, clearRadius);
     float activeEnd   = min(renderDistanceEnd, blackWall);
