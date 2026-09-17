@@ -12,17 +12,16 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_npc_blacksmithstand"
-data modify storage animated_java:temp entry.data.rig_hash set value "59a12b046b5cae317e0c68b70a3b2fa402d601b726384fe057d70b28abaaf9fb"
+data modify storage animated_java:temp entry.data.rig_hash set value "4cfa843775a5cb2d1b29cc5f8ed453f4df0e06955dfa3935ec9b01dbb2b1f47a"
 tp @s ~ ~ ~ ~ ~
+summon minecraft:marker ^0.125 ^1.0625 ^0.5625 {Tags:["","aj.global.bone.blacksmithstand.decendant","aj.global.bone.blacksmithstand.decendant.locator","aj.global.bone.blacksmithstand.tree","aj.global.bone.hammer.child","aj.global.bone.hammer.child.locator","aj.global.bone.hammer.decendant","aj.global.bone.hammer.decendant.locator","aj.global.bone.hammer.tree","aj.global.entity","aj.global.locator","aj.global.node","aj.global.node.locator","aj.gourdguard_npc_blacksmithstand.bone.blacksmithstand.decendant","aj.gourdguard_npc_blacksmithstand.bone.blacksmithstand.decendant.locator","aj.gourdguard_npc_blacksmithstand.bone.blacksmithstand.tree","aj.gourdguard_npc_blacksmithstand.bone.hammer.child","aj.gourdguard_npc_blacksmithstand.bone.hammer.child.locator","aj.gourdguard_npc_blacksmithstand.bone.hammer.decendant","aj.gourdguard_npc_blacksmithstand.bone.hammer.decendant.locator","aj.gourdguard_npc_blacksmithstand.bone.hammer.tree","aj.gourdguard_npc_blacksmithstand.entity","aj.gourdguard_npc_blacksmithstand.locator","aj.gourdguard_npc_blacksmithstand.locator.locator","aj.gourdguard_npc_blacksmithstand.node","aj.gourdguard_npc_blacksmithstand.node.locator","aj.new"]}
+execute as @n[ type=minecraft:marker, tag=aj.gourdguard_npc_blacksmithstand.locator.locator, tag=aj.new, distance=..3 ] run function aj:gourdguard_npc_blacksmithstand/zzz/summon/as_locator/locator
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.locator set from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.locators.locator.uuid set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_blacksmithstand.node.text_display] run function aj:gourdguard_npc_blacksmithstand/zzz/summon/as_node/text_display
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.text_display set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_blacksmithstand.node.hammer] run function aj:gourdguard_npc_blacksmithstand/zzz/summon/as_node/hammer
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.hammer set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_blacksmithstand.node.anvil] run function aj:gourdguard_npc_blacksmithstand/zzz/summon/as_node/anvil
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.anvil set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_blacksmithstand.node.nose] run function aj:gourdguard_npc_blacksmithstand/zzz/summon/as_node/nose
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.nose set from storage animated_java:gu out
@@ -56,6 +55,12 @@ data modify storage animated_java:temp entry.data.uuids_by_name.left_leg_sub_0 s
 execute on passengers if entity @s[tag=aj.gourdguard_npc_blacksmithstand.node.left_leg] run function aj:gourdguard_npc_blacksmithstand/zzz/summon/as_node/left_leg
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.left_leg set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_blacksmithstand.node.anvil] run function aj:gourdguard_npc_blacksmithstand/zzz/summon/as_node/anvil
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.anvil set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_blacksmithstand.node.hammer] run function aj:gourdguard_npc_blacksmithstand/zzz/summon/as_node/hammer
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.hammer set from storage animated_java:gu out
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_npc_blacksmithstand/zzz/set_default_pose
@@ -66,5 +71,14 @@ execute if score #success aj.i matches 0 run return fail
 execute on passengers run rotate @s ~ ~
 data modify entity @s teleport_duration set value 1
 execute on passengers run data modify entity @s teleport_duration set value 1
+function aj:gourdguard_npc_blacksmithstand/zzz/summon/zzz/0 with storage animated_java:temp entry.data.locators
+# Data Manager: Prepare for Read / Write
+execute store result storage animated_java:temp args.id int 1 run scoreboard players get @s aj.id
+# Data Manager: Read
+function animated_java:global/data_manager/read with storage animated_java:temp args
+function aj:gourdguard_npc_blacksmithstand/zzz/summon/zzz/2 with storage animated_java:temp entry.data.locators.locator
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:temp uuids
+# Data Manager: Write
+function animated_java:global/data_manager/write with storage animated_java:temp args
 tag @s remove aj.new
 execute on passengers run tag @s remove aj.new

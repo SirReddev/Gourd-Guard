@@ -12,11 +12,11 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_prop_graveyard_grave10"
-data modify storage animated_java:temp entry.data.rig_hash set value "a1f3c24ab14024a528a241aab3f70672898f5ff1bf53fd1787e628e5c2cb1911"
+data modify storage animated_java:temp entry.data.rig_hash set value "4de996f0c96691d9b0c0c13073f11052426e59833e748564628d9ed8533c20fd"
 tp @s ~ ~ ~ ~ ~
-execute on passengers if entity @s[tag=aj.gourdguard_prop_graveyard_grave10.node.grave10] run function aj:gourdguard_prop_graveyard_grave10/zzz/summon/as_node/grave10
+execute on passengers if entity @s[tag=aj.gourdguard_prop_graveyard_grave10.node.grave9] run function aj:gourdguard_prop_graveyard_grave10/zzz/summon/as_node/grave9
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.grave10 set from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.grave9 set from storage animated_java:gu out
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_prop_graveyard_grave10/zzz/set_default_pose

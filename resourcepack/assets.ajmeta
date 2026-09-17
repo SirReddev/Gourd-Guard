@@ -391,8 +391,8 @@
 		"aj:gourdguard_prop_graveyard_grave10": {
 			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
 			"versionedFiles": [
-				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave10/grave10.json",
-				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave10/grave10.json"
+				"assets/aj/items/blueprint/gourdguard_prop_graveyard_grave10/grave9.json",
+				"assets/aj/models/blueprint/gourdguard_prop_graveyard_grave10/grave9.json"
 			]
 		},
 		"aj:gourdguard_prop_graveyard_grave11": {

@@ -6,7 +6,7 @@ $data merge entity $(body) {transformation: [-1f,-0.0041f,0.0073f,0f,0f,0.8723f,
 $data merge entity $(right_leg) {transformation: [-1f,0.0001f,-0.0012f,0.1188f,0f,0.9966f,0.0827f,0.75f,0.0012f,0.0827f,-0.9966f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(left_leg) {transformation: [-1f,-0.0001f,-0.0012f,-0.1187f,0f,0.9966f,-0.0827f,0.75f,0.0012f,-0.0827f,-0.9966f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(shovel) {transformation: [-0.9999f,0.0047f,0.0116f,-0.0065f,-0.0009f,0.8976f,-0.4409f,0.8844f,-0.0125f,-0.4408f,-0.8975f,0.5309f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
-data modify storage animated_java:temp entry.data merge value {"locators":{"locator":{"px":-0.0104,"py":0.1551,"pz":0.8891,"ry":0.7435,"rx":-26.1588}}}
+data modify storage animated_java:temp entry.data merge value {"locators":{"locator":{"px":-0.0107,"py":0.099,"pz":0.9167,"ry":0.7435,"rx":-26.1588}}}
 # Data Manager: Prepare for Read / Write
 execute store result storage animated_java:temp args.id int 1 run scoreboard players get @s aj.id
 # Data Manager: Write

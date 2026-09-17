@@ -6,8 +6,9 @@ $data merge entity $(body) {transformation: [-1f,0f,0f,0f,0f,0.866f,0.5f,0.7313f
 $data merge entity $(right_leg) {transformation: [-1f,0f,0f,0.1188f,0f,0.9962f,0.0872f,0.75f,0f,0.0872f,-0.9962f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(left_leg) {transformation: [-1f,0f,0f,-0.1187f,0f,0.9962f,-0.0872f,0.75f,0f,-0.0872f,-0.9962f,0f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
 $data merge entity $(shovel) {transformation: [-1f,0f,0f,0f,0f,0.9135f,-0.4067f,0.8706f,0f,-0.4067f,-0.9135f,0.533f,0f,0f,0f,1f],start_interpolation: 0,interpolation_duration: 1}
-data modify storage animated_java:temp entry.data merge value {"locators":{"locator":{"px":0,"py":0.1283,"pz":0.8635,"ry":0,"rx":-24}}}
+data modify storage animated_java:temp entry.data merge value {"locators":{"locator":{"px":0,"py":0.0712,"pz":0.8889,"ry":0,"rx":-24}}}
 # Data Manager: Prepare for Read / Write
 execute store result storage animated_java:temp args.id int 1 run scoreboard players get @s aj.id
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
+execute unless entity @s[tag=aj.transforms_only] at @s run function aj:gourdguard_npc_gravediggerstand/animations/digging/zzz/frames/96_root_function

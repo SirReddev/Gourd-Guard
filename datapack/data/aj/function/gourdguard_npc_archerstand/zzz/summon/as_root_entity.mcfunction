@@ -12,11 +12,53 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_npc_archerstand"
-data modify storage animated_java:temp entry.data.rig_hash set value "c38e4554f63605c16b0f9159b41206609be83db15ef64ba9a83800a317538fbf"
+data modify storage animated_java:temp entry.data.rig_hash set value "bf660145e85d452503f2b1527de456f98b04aee50604ea9c1d930b915e87b1ae"
 tp @s ~ ~ ~ ~ ~
 execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.text_display] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/text_display
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.text_display set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.back2] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/back2
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.back2 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_5] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_5
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.cross_5 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_6] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_6
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.cross_6 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.head1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/head1
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.head1 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.right_arm1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/right_arm1
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.right_arm1 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.left_arm1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/left_arm1
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.left_arm1 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.back1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/back1
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.back1 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_3] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_3
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.cross_3 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_4] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_4
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.cross_4 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.body1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/body1
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.body1 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.leg] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/leg
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.leg set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_8] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_8
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.cross_8 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.back3] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/back3
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.back3 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_7] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_7
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.cross_7 set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.bone4] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/bone4
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.bone4 set from storage animated_java:gu out
@@ -83,48 +125,6 @@ data modify storage animated_java:temp entry.data.uuids_by_name.right_joint set 
 execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.crossbow] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/crossbow
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.crossbow set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_8] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_8
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.cross_8 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.back3] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/back3
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.back3 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_7] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_7
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.cross_7 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.back2] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/back2
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.back2 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_5] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_5
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.cross_5 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_6] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_6
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.cross_6 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.head1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/head1
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.head1 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.right_arm1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/right_arm1
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.right_arm1 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.left_arm1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/left_arm1
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.left_arm1 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.back1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/back1
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.back1 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_3] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_3
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.cross_3 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.cross_4] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/cross_4
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.cross_4 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.body1] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/body1
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.body1 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_archerstand.node.leg] run function aj:gourdguard_npc_archerstand/zzz/summon/as_node/leg
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.leg set from storage animated_java:gu out
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_npc_archerstand/zzz/set_default_pose

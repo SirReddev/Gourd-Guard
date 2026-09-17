@@ -3,6 +3,7 @@
 execute store result storage animated_java:temp args.id int 1 run scoreboard players get @s aj.id
 # Data Manager: Read
 function animated_java:global/data_manager/read with storage animated_java:temp args
-execute unless data storage animated_java:temp {entry:{data:{rig_hash: '59a12b046b5cae317e0c68b70a3b2fa402d601b726384fe057d70b28abaaf9fb'}}} run function animated_java:global/remove/outdated_rig
+function animated_java:global/remove/entity_stack_by_uuid with storage animated_java:temp entry.data.locators.locator
+execute unless data storage animated_java:temp {entry:{data:{rig_hash: '4cfa843775a5cb2d1b29cc5f8ed453f4df0e06955dfa3935ec9b01dbb2b1f47a'}}} run function animated_java:global/remove/outdated_rig
 function aj:gourdguard_npc_blacksmithstand/remove/this/zzz/0 with storage animated_java:temp entry.data.uuids_by_name
 function animated_java:global/remove/entity_stack

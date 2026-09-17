@@ -12,8 +12,16 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_npc_gravediggerstand"
-data modify storage animated_java:temp entry.data.rig_hash set value "d58d68c9eb8ad1e2802942baf43b796fbaebb123f6a8757040f0387c04b7393c"
+data modify storage animated_java:temp entry.data.rig_hash set value "ece11f0581cab2b17a50fe45c554eb75ef71152a5ab94d7a2077b54bf6418745"
 tp @s ~ ~ ~ ~ ~
+summon minecraft:marker ^0 ^0 ^0.3125 {Tags:["","aj.global.bone.gravedigger.decendant","aj.global.bone.gravedigger.decendant.locator","aj.global.bone.gravedigger.tree","aj.global.bone.gravediggerstand.decendant","aj.global.bone.gravediggerstand.decendant.locator","aj.global.bone.gravediggerstand.tree","aj.global.bone.shovel.child","aj.global.bone.shovel.child.locator","aj.global.bone.shovel.decendant","aj.global.bone.shovel.decendant.locator","aj.global.bone.shovel.tree","aj.global.entity","aj.global.locator","aj.global.node","aj.global.node.locator","aj.gourdguard_npc_gravediggerstand.bone.gravedigger.decendant","aj.gourdguard_npc_gravediggerstand.bone.gravedigger.decendant.locator","aj.gourdguard_npc_gravediggerstand.bone.gravedigger.tree","aj.gourdguard_npc_gravediggerstand.bone.gravediggerstand.decendant","aj.gourdguard_npc_gravediggerstand.bone.gravediggerstand.decendant.locator","aj.gourdguard_npc_gravediggerstand.bone.gravediggerstand.tree","aj.gourdguard_npc_gravediggerstand.bone.shovel.child","aj.gourdguard_npc_gravediggerstand.bone.shovel.child.locator","aj.gourdguard_npc_gravediggerstand.bone.shovel.decendant","aj.gourdguard_npc_gravediggerstand.bone.shovel.decendant.locator","aj.gourdguard_npc_gravediggerstand.bone.shovel.tree","aj.gourdguard_npc_gravediggerstand.entity","aj.gourdguard_npc_gravediggerstand.locator","aj.gourdguard_npc_gravediggerstand.locator.locator","aj.gourdguard_npc_gravediggerstand.node","aj.gourdguard_npc_gravediggerstand.node.locator","aj.new"]}
+execute as @n[ type=minecraft:marker, tag=aj.gourdguard_npc_gravediggerstand.locator.locator, tag=aj.new, distance=..3 ] run function aj:gourdguard_npc_gravediggerstand/zzz/summon/as_locator/locator
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.locator set from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.locators.locator.uuid set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_gravediggerstand.node.text_display] run function aj:gourdguard_npc_gravediggerstand/zzz/summon/as_node/text_display
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.text_display set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_gravediggerstand.node.head] run function aj:gourdguard_npc_gravediggerstand/zzz/summon/as_node/head
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.head set from storage animated_java:gu out
@@ -38,9 +46,6 @@ data modify storage animated_java:temp entry.data.uuids_by_name.shovel set from 
 execute on passengers if entity @s[tag=aj.gourdguard_npc_gravediggerstand.node.ground] run function aj:gourdguard_npc_gravediggerstand/zzz/summon/as_node/ground
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.ground set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_gravediggerstand.node.text_display] run function aj:gourdguard_npc_gravediggerstand/zzz/summon/as_node/text_display
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.text_display set from storage animated_java:gu out
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_npc_gravediggerstand/zzz/set_default_pose
@@ -51,5 +56,14 @@ execute if score #success aj.i matches 0 run return fail
 execute on passengers run rotate @s ~ ~
 data modify entity @s teleport_duration set value 1
 execute on passengers run data modify entity @s teleport_duration set value 1
+function aj:gourdguard_npc_gravediggerstand/zzz/summon/zzz/0 with storage animated_java:temp entry.data.locators
+# Data Manager: Prepare for Read / Write
+execute store result storage animated_java:temp args.id int 1 run scoreboard players get @s aj.id
+# Data Manager: Read
+function animated_java:global/data_manager/read with storage animated_java:temp args
+function aj:gourdguard_npc_gravediggerstand/zzz/summon/zzz/2 with storage animated_java:temp entry.data.locators.locator
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:temp uuids
+# Data Manager: Write
+function animated_java:global/data_manager/write with storage animated_java:temp args
 tag @s remove aj.new
 execute on passengers run tag @s remove aj.new
