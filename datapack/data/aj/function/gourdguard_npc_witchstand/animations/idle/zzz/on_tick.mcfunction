@@ -6,5 +6,5 @@ execute if score @s aj.idle.frame matches -1 run function aj:gourdguard_npc_witc
 data remove storage animated_java:temp args
 execute store result storage animated_java:temp args.frame int 1 run scoreboard players get @s aj.idle.frame
 function aj:gourdguard_npc_witchstand/animations/idle/zzz/apply_frame with storage animated_java:temp args
-execute if score @s aj.idle.frame matches 40.. run return run scoreboard players set @s aj.idle.frame -1
+execute if score @s aj.idle.frame matches 39.. run return run scoreboard players set @s aj.idle.frame -1
 scoreboard players add @s aj.idle.frame 1

@@ -1,0 +1,1 @@
+function gourd_guard:npc/gravediggerstand/remove_all

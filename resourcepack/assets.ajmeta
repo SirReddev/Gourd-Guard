@@ -294,6 +294,58 @@
 				"assets/aj/models/blueprint/gourdguard_npc_archerstand/scope.json"
 			]
 		},
+		"aj:gourdguard_npc_blacksmithstand": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/anvil.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/body.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/bodywear.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/hammer.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/head.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/headwear.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/headwear2.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/left_arm.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/left_leg.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/left_leg_sub_0.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/nose.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/right_arm.json",
+				"assets/aj/items/blueprint/gourdguard_npc_blacksmithstand/right_leg.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/anvil.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/body.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/bodywear.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/hammer.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/head.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/headwear.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/headwear2.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/left_arm.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/left_leg.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/left_leg_sub_0.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/nose.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/right_arm.json",
+				"assets/aj/models/blueprint/gourdguard_npc_blacksmithstand/right_leg.json"
+			]
+		},
+		"aj:gourdguard_npc_gravediggerstand": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_npc_gravediggerstand/body.json",
+				"assets/aj/items/blueprint/gourdguard_npc_gravediggerstand/ground.json",
+				"assets/aj/items/blueprint/gourdguard_npc_gravediggerstand/head.json",
+				"assets/aj/items/blueprint/gourdguard_npc_gravediggerstand/left_arm.json",
+				"assets/aj/items/blueprint/gourdguard_npc_gravediggerstand/left_leg.json",
+				"assets/aj/items/blueprint/gourdguard_npc_gravediggerstand/right_arm.json",
+				"assets/aj/items/blueprint/gourdguard_npc_gravediggerstand/right_leg.json",
+				"assets/aj/items/blueprint/gourdguard_npc_gravediggerstand/shovel.json",
+				"assets/aj/models/blueprint/gourdguard_npc_gravediggerstand/body.json",
+				"assets/aj/models/blueprint/gourdguard_npc_gravediggerstand/ground.json",
+				"assets/aj/models/blueprint/gourdguard_npc_gravediggerstand/head.json",
+				"assets/aj/models/blueprint/gourdguard_npc_gravediggerstand/left_arm.json",
+				"assets/aj/models/blueprint/gourdguard_npc_gravediggerstand/left_leg.json",
+				"assets/aj/models/blueprint/gourdguard_npc_gravediggerstand/right_arm.json",
+				"assets/aj/models/blueprint/gourdguard_npc_gravediggerstand/right_leg.json",
+				"assets/aj/models/blueprint/gourdguard_npc_gravediggerstand/shovel.json"
+			]
+		},
 		"aj:gourdguard_npc_witchstand": {
 			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
 			"versionedFiles": [

@@ -1,0 +1,49 @@
+{
+	"textures": {
+		"0": "aj:blueprint/npc/gourdguard_npc_blacksmithstand_blacksmith",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [3.75, 7.75, 5.75],
+			"to": [8.25, 20.25, 10.25],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [8, 3.25, 8.5, 4.75],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [7.5, 3.25, 8, 4.75],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [9, 3.25, 9.5, 4.75],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [8.5, 3.25, 9, 4.75],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [8.5, 3.25, 8, 2.75],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [9, 2.75, 8.5, 3.25],
+					"texture": "#0"
+				}
+			}
+		}
+	]
+}

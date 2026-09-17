@@ -1,0 +1,49 @@
+{
+	"textures": {
+		"0": "aj:blueprint/npc/gourdguard_npc_gravedigger",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [7, -2, 6],
+			"to": [11, 10, 10],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [9, 13, 10, 16],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [8, 13, 9, 16],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [11, 13, 12, 16],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [10, 13, 11, 16],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [10, 13, 9, 12],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [11, 12, 10, 13],
+					"texture": "#0"
+				}
+			}
+		}
+	]
+}
