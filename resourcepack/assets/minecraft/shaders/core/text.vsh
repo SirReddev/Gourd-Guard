@@ -288,10 +288,10 @@ void main() {
         );
 
         if (isShop) {
-            int k = int(floor((pos.y - 73.5) / 19.0));
+            int k = int(floor((pos.y - 61.5) / 19.0));
             if (k < 0) k = 0;
             if (k > 8) k = 8;
-            float deltaY = (guiHeight - 161.0) - (float(k) * 37.0);
+            float deltaY = (guiHeight - 165.0) - (float(k) * 40.0);
             pos.y += deltaY;
         }
 
