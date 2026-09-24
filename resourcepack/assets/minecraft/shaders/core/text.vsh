@@ -291,7 +291,7 @@ void main() {
             int k = int(floor((pos.y - 73.0) / 19.0));
             if (k < 0) k = 0;
             if (k > 8) k = 8;
-            float deltaY = (guiHeight - 165.0) - (float(k) * 40.0);
+            float deltaY = (guiHeight - 228.0) + (float(k) * 2.0);
             pos.y += deltaY;
         }
 
