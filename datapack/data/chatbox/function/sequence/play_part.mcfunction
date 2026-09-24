@@ -43,5 +43,8 @@ data remove storage chatbox:main CurrentPart
 data remove storage chatbox:main Sequence[0]
 scoreboard players set #chatbox.text.timer loy.value 0
 
+# Refresh character avatar frame with newly set Avatar
+function chatbox:manage/frame/character/stop
+
 function chatbox:manage/frame/combine
 scoreboard players set #chatbox.frame.reflash.flag loy.value 0
