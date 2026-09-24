@@ -257,7 +257,7 @@ void main() {
 
         // 2. Shop rows in bossbars 4..12:
         // Strictly identified by ChatBox Shop UI color signatures and their unique drop shadows in vertical band [65.0, 260.0]
-        bool isShop = (!isVignette && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 350.0 && pos.y >= 55.0 && pos.y <= 260.0 &&
+        bool isShop = (!isVignette && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 350.0 && pos.y >= 65.0 && pos.y <= 260.0 &&
             (
                 // Shop Row Backgrounds & Item Icons (#FBFBA4 / #FBFBA5 / #FBFBA6) & drop shadows (b in 41..42)
                 (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 166)) ||
@@ -288,7 +288,7 @@ void main() {
         );
 
         if (isShop) {
-            int k = int(floor((pos.y - 61.5) / 19.0));
+            int k = int(floor((pos.y - 73.0) / 19.0));
             if (k < 0) k = 0;
             if (k > 8) k = 8;
             float deltaY = (guiHeight - 165.0) - (float(k) * 40.0);
