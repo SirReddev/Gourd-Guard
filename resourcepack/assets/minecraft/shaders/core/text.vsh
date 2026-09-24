@@ -217,7 +217,7 @@ void main() {
         }
 
         // 2. Shop rows in bossbars 4..12:
-        // Strictly identified by Shop UI color signatures and their unique drop shadows in vertical band [75.0, 260.0]
+        // Strictly identified by ChatBox Shop UI color signatures and their unique drop shadows in vertical band [75.0, 260.0]
         bool isShop = (!isVignette && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 350.0 && pos.y >= 75.0 && pos.y <= 260.0 &&
             (
                 // Shop Row Backgrounds & Item Icons (#FBFBA4 / #FBFBA5 / #FBFBA6) & drop shadows (b in 41..42)
@@ -258,8 +258,28 @@ void main() {
 
         // 3. Dialogue box:
         // Bossbars 0..3 (Background frame, avatar, [SHIFT] icon, dialogue lines 0..2)
-        // All vertices of dialogue elements and their drop shadows reside strictly in pos.y in [5.0, 105.0]
-        bool isDialogue = (!isVignette && !isShop && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 220.0 && pos.y >= 5.0 && pos.y <= 105.0);
+        // ChatBox signature color is #FBFBFB (rgb 251, 251, 251 and shadow 62, 62, 62)
+        // Strictly matched to ChatBox color signatures only so NO vanilla menu text is ever touched!
+        bool isChatBoxColor = (
+            // Base ChatBox #FBFBFB (rgb 251, 251, 251) and shadow (rgb 62, 62, 62)
+            (c.r == 251 && c.g == 251 && c.b == 251) ||
+            (c.r == 62 && c.g == 62 && c.b == 62) ||
+            // Formatted dialogue text colors in test sequences:
+            (c.r == 255 && c.g == 58 && c.b == 58) ||   // #FF3A3A Red
+            (c.r == 63 && c.g == 14 && c.b == 14) ||    // Shadow
+            (c.r == 187 && c.g == 187 && c.b == 187) || // #BBBBBB Light Gray
+            (c.r == 46 && c.g == 46 && c.b == 46) ||    // Shadow
+            (c.r == 58 && c.g == 100 && c.b == 255) ||  // #3A64FF Blue
+            (c.r == 14 && c.g == 25 && c.b == 63) ||    // Shadow
+            (c.r == 94 && c.g == 255 && c.b == 58) ||   // #5EFF3A Green
+            (c.r == 23 && c.g == 63 && c.b == 14) ||    // Shadow
+            (c.r == 85 && c.g == 255 && c.b == 85) ||   // #55FF55 Bright Green
+            (c.r == 21 && c.g == 63 && c.b == 21)       // Shadow
+        );
+
+        bool isDialogue = (!isVignette && !isShop && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 220.0 &&
+            pos.y >= 5.0 && pos.y <= 85.0 && isChatBoxColor
+        );
 
         if (isDialogue) {
             float deltaY = guiHeight - 151.0;
