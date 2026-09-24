@@ -1,0 +1,38 @@
+{
+    "chatbox.voice.deep": {
+        "sounds": [
+            {
+                "name": "custom:chatbox/character/sans_0",
+                "pitch": 1.0,
+                "stream": "true"
+            }
+        ]
+    },
+    "chatbox.voice.chirp": {
+        "sounds": [
+            {
+                "name": "custom:chatbox/character/oneshot_text",
+                "pitch": 1.0,
+                "stream": "true"
+            }
+        ]
+    },
+    "chatbox.character.sans.0": {
+        "sounds": [
+            {
+                "name": "custom:chatbox/character/sans_0",
+                "pitch": 1.0,
+                "stream": "true"
+            }
+        ]
+    },
+    "chatbox.character.niko.0": {
+        "sounds": [
+            {
+                "name": "custom:chatbox/character/oneshot_text",
+                "pitch": 1.0,
+                "stream": "true"
+            }
+        ]
+    }
+}

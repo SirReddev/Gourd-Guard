@@ -1,4 +1,4 @@
 {
 	"replace": false,
-	"values": ["animated_java:global/on_load", "gourd_guard:load"]
+	"values": ["animated_java:global/on_load", "gourd_guard:load", "generic:init", "chatbox:init"]
 }

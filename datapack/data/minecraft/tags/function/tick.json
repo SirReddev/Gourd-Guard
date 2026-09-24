@@ -1,4 +1,4 @@
 {
 	"replace": false,
-	"values": ["animated_java:global/data_manager/on_tick", "gourd_guard:tick", "animated_java:global/on_tick"]
+	"values": ["animated_java:global/data_manager/on_tick", "gourd_guard:tick", "animated_java:global/on_tick", "chatbox:tick"]
 }

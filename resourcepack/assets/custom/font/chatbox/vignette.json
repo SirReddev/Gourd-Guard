@@ -1,0 +1,11 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "custom:font/chatbox/vignette.png",
+            "ascent": 0,
+            "height": 1,
+            "chars": ["\ue000"]
+        }
+    ]
+}

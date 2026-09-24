@@ -1,18 +1,29 @@
 #version 330
 
+#if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
 #moj_import <minecraft:fog.glsl>
+#moj_import <minecraft:sample_lightmap.glsl>
+#endif
+
 #moj_import <minecraft:dynamictransforms.glsl>
 #moj_import <minecraft:projection.glsl>
 
 in vec3 Position;
 in vec4 Color;
 in vec2 UV0;
+#if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
 in ivec2 UV2;
+#endif
 
-uniform sampler2D Sampler0;
+#if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
+uniform sampler2D Sampler2;
+out float sphericalVertexDistance;
+out float cylindricalVertexDistance;
+#endif
 
 out vec4 vertexColor;
 out vec2 texCoord0;
+out vec2 vignetteCoord;
 out float custom;
 
 const vec2[4] uvCorners = vec2[4](
@@ -26,25 +37,29 @@ void main() {
     texCoord0 = UV0;
     vertexColor = Color;
     custom = 0.0;
+    vignetteCoord = vec2(0.0);
     vec3 pos = Position;
 
-    // Color marker: #01xxxx -> rByte == 1
-    int rByte = int(round(Color.r * 255.0));
+    float guiWidth = 2.0 / ProjMat[0][0];
+    float guiHeight = abs(2.0 / ProjMat[1][1]);
+    bool isRotated = (abs(ModelViewMat[0][1]) > 0.01 || abs(ModelViewMat[1][0]) > 0.01);
+
+    ivec4 c = ivec4(round(Color * 255.0));
+    int vId = gl_VertexID % 4;
+
+    // === GOURD GUARD HUD SYSTEM (#01xxxx -> rByte == 1) ===
+    int rByte = c.r;
     bool isHud = (rByte == 1);
 
     if (isHud) {
-        float guiWidth = 2.0 / ProjMat[0][0];
-        float guiHeight = abs(2.0 / ProjMat[1][1]);
-        int vId = gl_VertexID % 4;
-
-        int gByte = int(round(Color.g * 255.0));
-        int bByte = int(round(Color.b * 255.0));
+        int gByte = c.g;
+        int bByte = c.b;
 
         // Base Actionbar text center normalization
         float originX = pos.x - (guiWidth * 0.5);
         float originY = pos.y - (guiHeight - 68.0);
 
-        // === SECTION A: Bottom-Left Objective HUD (#01AAxx, gByte == 170) ===
+        // --- SECTION A: Bottom-Left Objective HUD (#01AAxx, gByte == 170) ---
         if (gByte == 170) {
             // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px, Y: guiHeight - 46px)
             if (bByte == 0) {
@@ -60,7 +75,7 @@ void main() {
             }
             vertexColor = vec4(1.0);
         }
-        // === SECTION C: Top-Right Wave & Mob HUD ===
+        // --- SECTION C: Top-Right Wave & Mob HUD ---
         // Main Text (#01BBxx, gByte == 187) & Shadow (#012Exx, gByte == 46)
         else if (gByte == 187 || gByte == 46) {
             // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right
@@ -102,7 +117,7 @@ void main() {
                 vertexColor.rgb = (gByte == 46) ? vec3(0.18) : vec3(0.70, 0.70, 0.70); // Gray
             }
         }
-        // === SECTION B: Top-Left Match HUD ===
+        // --- SECTION B: Top-Left Match HUD ---
         // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px, Y: 2px)
         else if (Color.g > 0.8 && Color.b > 0.8) {
             pos.x = (vId == 0 || vId == 1) ? 2.0 : 134.0;
@@ -179,6 +194,90 @@ void main() {
             }
         }
     }
+    // === CHATBOX DIALOGUE & SHOP SYSTEM ===
+    else {
+        // 1. Vignette quad tagged with #FBFBFA (rgb 251, 251, 250)
+        bool isVignette = (!isRotated && c.r == 251 && c.g == 251 && c.b == 250);
+
+        if (isVignette) {
+            int corner = gl_VertexID % 4;
+            if (corner == 0) {
+                pos.xy = vec2(0.0, 0.0);
+                vignetteCoord = vec2(0.0, 0.0);
+            } else if (corner == 1) {
+                pos.xy = vec2(0.0, guiHeight);
+                vignetteCoord = vec2(0.0, 1.0);
+            } else if (corner == 2) {
+                pos.xy = vec2(guiWidth, guiHeight);
+                vignetteCoord = vec2(1.0, 1.0);
+            } else {
+                pos.xy = vec2(guiWidth, 0.0);
+                vignetteCoord = vec2(1.0, 0.0);
+            }
+        }
+
+        // 2. Shop rows in bossbars 4..12:
+        // Strictly identified by Shop UI color signatures and their unique drop shadows in vertical band [75.0, 260.0]
+        bool isShop = (!isVignette && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 350.0 && pos.y >= 75.0 && pos.y <= 260.0 &&
+            (
+                // Shop Row Backgrounds & Item Icons (#FBFBA4 / #FBFBA5 / #FBFBA6) & drop shadows (b in 41..42)
+                (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 166)) ||
+                ((c.r == 62 || c.r == 63) && (c.g == 62 || c.g == 63) && (c.b == 41 || c.b == 42)) ||
+                // Slot tags (#FFE082 / #A0887E) & drop shadows
+                (c.r == 255 && c.g == 224 && c.b == 130) ||
+                ((c.r == 63 || c.r == 64) && c.g == 56 && (c.b == 32 || c.b == 33)) ||
+                (c.r == 160 && c.g == 136 && c.b == 126) ||
+                (c.r == 40 && c.g == 34 && (c.b == 31 || c.b == 32)) ||
+                // Item Names (#FFF5C5 / #D7CCC8) & drop shadows
+                (c.r == 255 && c.g == 245 && c.b == 197) ||
+                ((c.r == 63 || c.r == 64) && c.g == 61 && c.b == 49) ||
+                (c.r == 215 && c.g == 204 && c.b == 200) ||
+                ((c.r == 53 || c.r == 54) && c.g == 51 && c.b == 50) ||
+                // Prices (#FFD54F / #FFB74D / #CF6679) & drop shadows
+                (c.r == 255 && c.g == 213 && c.b == 79) ||
+                ((c.r == 63 || c.r == 64) && c.g == 53 && (c.b == 19 || c.b == 20)) ||
+                (c.r == 255 && c.g == 183 && c.b == 77) ||
+                ((c.r == 63 || c.r == 64) && (c.g == 45 || c.g == 46) && c.b == 19) ||
+                (c.r == 207 && c.g == 102 && c.b == 121) ||
+                ((c.r == 51 || c.r == 52) && (c.g == 25 || c.g == 26) && c.b == 30) ||
+                // Buttons (#69F0AE / #FF5252) & drop shadows
+                (c.r == 105 && c.g == 240 && c.b == 174) ||
+                (c.r == 26 && c.g == 60 && (c.b == 43 || c.b == 44)) ||
+                (c.r == 255 && c.g == 82  && c.b == 82) ||
+                ((c.r == 63 || c.r == 64) && (c.g == 20 || c.g == 21) && (c.b == 20 || c.b == 21))
+            )
+        );
+
+        if (isShop) {
+            int k = int(floor((pos.y - 75.0) / 19.0));
+            if (k < 0) k = 0;
+            if (k > 8) k = 8;
+            float deltaY = (guiHeight - 161.0) - (float(k) * 37.0);
+            pos.y += deltaY;
+        }
+
+        // 3. Dialogue box:
+        // Bossbars 0..3 (Background frame, avatar, [SHIFT] icon, dialogue lines 0..2)
+        // All vertices of dialogue elements and their drop shadows reside strictly in pos.y in [5.0, 105.0]
+        bool isDialogue = (!isVignette && !isShop && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 220.0 && pos.y >= 5.0 && pos.y <= 105.0);
+
+        if (isDialogue) {
+            float deltaY = guiHeight - 151.0;
+            pos.y += deltaY;
+        }
+    }
 
     gl_Position = ProjMat * ModelViewMat * vec4(pos, 1.0);
+
+#if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
+    sphericalVertexDistance = fog_spherical_distance(pos);
+    cylindricalVertexDistance = fog_cylindrical_distance(pos);
+    vertexColor = Color * sample_lightmap(Sampler2, UV2);
+#else
+    if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 166)) {
+        vertexColor = vec4(1.0, 1.0, 1.0, Color.a);
+    } else if (!isHud) {
+        vertexColor = Color;
+    }
+#endif
 }

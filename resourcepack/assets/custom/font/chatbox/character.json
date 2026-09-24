@@ -1,0 +1,11 @@
+{
+    "providers": [
+        {
+            "type": "bitmap",
+            "file": "custom:font/chatbox/character/template.png",
+            "ascent": -4,
+            "height": 64,
+            "chars": ["\ue000"]
+        }
+    ]
+}

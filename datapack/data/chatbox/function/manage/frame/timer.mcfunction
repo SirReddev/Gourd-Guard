@@ -1,0 +1,6 @@
+execute if score #chatbox.icon.flag loy.value matches 1 unless data storage chatbox:main Buffer[0] if data storage chatbox:main HistoryBuffer[0] run function chatbox:manage/frame/icon/timer
+execute if score #chatbox.icon.flag loy.value matches 1 if score #chatbox.current.line loy.value matches 3.. if data storage chatbox:main HistoryBuffer[0] run function chatbox:manage/frame/icon/timer
+execute if score #chatbox.icon.flag loy.value matches 0 if data storage chatbox:main IconBuffer[0] run function chatbox:manage/frame/icon/disable
+execute if score #chatbox.character.flag loy.value matches 1 if data storage chatbox:main Character[1] run function chatbox:manage/frame/character/timer
+
+execute if score #chatbox.frame.reflash.flag loy.value matches 1 run function chatbox:manage/frame/zzz/2
