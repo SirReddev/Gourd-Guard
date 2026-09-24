@@ -3,35 +3,35 @@
         {
             "type": "bitmap",
             "file": "custom:font/chatbox/shop/row_idle.png",
-            "ascent": 10,
-            "height": 15,
+            "ascent": 12,
+            "height": 18,
             "chars": ["\ue100"]
         },
         {
             "type": "bitmap",
             "file": "custom:font/chatbox/shop/row_selected.png",
-            "ascent": 10,
-            "height": 15,
+            "ascent": 12,
+            "height": 18,
             "chars": ["\ue101"]
         },
         {
             "type": "bitmap",
             "file": "custom:font/chatbox/shop/buy_button.png",
-            "ascent": 6,
+            "ascent": 7,
             "height": 8,
             "chars": ["\ue102"]
         },
         {
             "type": "bitmap",
             "file": "custom:font/chatbox/shop/deny_button.png",
-            "ascent": 6,
+            "ascent": 7,
             "height": 8,
             "chars": ["\ue103"]
         },
         {
             "type": "bitmap",
             "file": "custom:font/chatbox/shop/icons.png",
-            "ascent": 8,
+            "ascent": 9,
             "height": 11,
             "chars": [
                 "\ue200\ue201\ue202\ue203\ue204\ue205\ue206\ue207"
