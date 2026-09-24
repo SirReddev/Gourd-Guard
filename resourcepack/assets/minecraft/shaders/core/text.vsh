@@ -196,6 +196,45 @@ void main() {
     }
     // === CHATBOX DIALOGUE & SHOP SYSTEM ===
     else {
+        // Strict exclusion list of vanilla UI / menu text colors and their drop shadows:
+        bool isVanillaMenuColor = (
+            // Pure White (Menu Titles & Buttons) + Drop Shadow
+            (c.r == 255 && c.g == 255 && c.b == 255) ||
+            ((c.r == 63 || c.r == 64) && (c.g == 63 || c.g == 64) && (c.b == 63 || c.b == 64)) ||
+            // Light Gray (List Items, Options, Descriptions) + Drop Shadow
+            (c.r == 170 && c.g == 170 && c.b == 170) ||
+            (c.r == 42 && c.g == 42 && c.b == 42) ||
+            // Dark Gray (Disabled buttons, headers) + Drop Shadow
+            (c.r == 85 && c.g == 85 && c.b == 85) ||
+            (c.r == 21 && c.g == 21 && c.b == 21) ||
+            // Gray tones
+            (c.r == 128 && c.g == 128 && c.b == 128) ||
+            (c.r == 32 && c.g == 32 && c.b == 32) ||
+            (c.r == 160 && c.g == 160 && c.b == 160) ||
+            (c.r == 40 && c.g == 40 && c.b == 40) ||
+            (c.r == 64 && c.g == 64 && c.b == 64) ||
+            (c.r == 16 && c.g == 16 && c.b == 16) ||
+            (c.r == 215 && c.g == 215 && c.b == 215) ||
+            (c.r == 53 && c.g == 53 && c.b == 53) ||
+            // Yellow (Hovered list items, splash text) + Drop Shadow
+            (c.r == 255 && c.g == 255 && c.b == 160) ||
+            (c.r == 63 && c.g == 63 && c.b == 40) ||
+            (c.r == 255 && c.g == 255 && c.b == 85) ||
+            (c.r == 63 && c.g == 63 && c.b == 21) ||
+            (c.r == 255 && c.g == 255 && c.b == 0) ||
+            (c.r == 63 && c.g == 63 && c.b == 0) ||
+            // Gold
+            (c.r == 255 && c.g == 170 && c.b == 0) ||
+            (c.r == 63 && c.g == 42 && c.b == 0) ||
+            // Red (Incompatible resource packs, error text) + Drop Shadow
+            (c.r == 255 && c.g == 85 && c.b == 85) ||
+            (c.r == 63 && c.g == 21 && c.b == 21) ||
+            (c.r == 170 && c.g == 0 && c.b == 0) ||
+            (c.r == 42 && c.g == 0 && c.b == 0) ||
+            // Black
+            (c.r == 0 && c.g == 0 && c.b == 0)
+        );
+
         // 1. Vignette quad tagged with #FBFBFA (rgb 251, 251, 250)
         bool isVignette = (!isRotated && c.r == 251 && c.g == 251 && c.b == 250);
 
@@ -259,26 +298,33 @@ void main() {
         // 3. Dialogue box:
         // Bossbars 0..3 (Background frame, avatar, [SHIFT] icon, dialogue lines 0..2)
         // ChatBox signature color is #FBFBFB (rgb 251, 251, 251 and shadow 62, 62, 62)
-        // Strictly matched to ChatBox color signatures only so NO vanilla menu text is ever touched!
         bool isChatBoxColor = (
             // Base ChatBox #FBFBFB (rgb 251, 251, 251) and shadow (rgb 62, 62, 62)
             (c.r == 251 && c.g == 251 && c.b == 251) ||
             (c.r == 62 && c.g == 62 && c.b == 62) ||
             // Formatted dialogue text colors in test sequences:
-            (c.r == 255 && c.g == 58 && c.b == 58) ||   // #FF3A3A Red
+            (c.r == 255 && c.g == 58 && c.b == 58) ||   // #FF3A3A Red (test/0)
             (c.r == 63 && c.g == 14 && c.b == 14) ||    // Shadow
-            (c.r == 187 && c.g == 187 && c.b == 187) || // #BBBBBB Light Gray
+            (c.r == 255 && c.g == 68 && c.b == 68) ||   // #FF4444 Red (test/3)
+            (c.r == 63 && c.g == 17 && c.b == 17) ||    // Shadow
+            (c.r == 119 && c.g == 119 && c.b == 119) || // #777777 Gray (test/1)
+            (c.r == 29 && c.g == 29 && c.b == 29) ||    // Shadow
+            (c.r == 187 && c.g == 187 && c.b == 187) || // #BBBBBB Light Gray (test/0, test/1)
             (c.r == 46 && c.g == 46 && c.b == 46) ||    // Shadow
-            (c.r == 58 && c.g == 100 && c.b == 255) ||  // #3A64FF Blue
+            (c.r == 58 && c.g == 100 && c.b == 255) ||  // #3A64FF Blue (test/0)
             (c.r == 14 && c.g == 25 && c.b == 63) ||    // Shadow
-            (c.r == 94 && c.g == 255 && c.b == 58) ||   // #5EFF3A Green
+            (c.r == 94 && c.g == 255 && c.b == 58) ||   // #5EFF3A Green (test/0)
             (c.r == 23 && c.g == 63 && c.b == 14) ||    // Shadow
-            (c.r == 85 && c.g == 255 && c.b == 85) ||   // #55FF55 Bright Green
+            (c.r == 85 && c.g == 255 && c.b == 85) ||   // #55FF55 Bright Green (test/3, story)
             (c.r == 21 && c.g == 63 && c.b == 21)       // Shadow
         );
 
-        bool isDialogue = (!isVignette && !isShop && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 220.0 &&
-            pos.y >= 5.0 && pos.y <= 105.0 && isChatBoxColor
+        // Centered horizontally within 125px (dialogue frame is 236px wide -> 118px from center)
+        // pos.y between 5.0 and 105.0 (covers frame, lines 0..2, and shift icon with ascent -74)
+        bool isDialogue = (!isVignette && !isShop && !isRotated && abs(pos.z) < 0.1 &&
+            abs(pos.x - (guiWidth * 0.5)) <= 125.0 &&
+            pos.y >= 5.0 && pos.y <= 105.0 &&
+            (isChatBoxColor || !isVanillaMenuColor)
         );
 
         if (isDialogue) {
