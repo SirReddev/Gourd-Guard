@@ -1,2 +1,2 @@
 stopsound @s player custom:chatbox.voice.chirp
-playsound custom:chatbox.voice.chirp player @s ~ ~ ~ 1 1 1
+playsound custom:chatbox.voice.chirp player @s ~ ~ ~ 0.85 1.05 1

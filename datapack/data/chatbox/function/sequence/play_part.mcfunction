@@ -37,6 +37,7 @@ execute if data storage chatbox:main CurrentPart{Sound:-1} run scoreboard player
 execute if data storage chatbox:main CurrentPart{Sound:0} run scoreboard players set #chatbox.sound.id loy.value 0
 execute if data storage chatbox:main CurrentPart{Sound:1} run scoreboard players set #chatbox.sound.id loy.value 1
 execute if data storage chatbox:main CurrentPart{Sound:2} run scoreboard players set #chatbox.sound.id loy.value 2
+execute if data storage chatbox:main CurrentPart{Sound:3} run scoreboard players set #chatbox.sound.id loy.value 3
 
 data modify storage chatbox:main Buffer set from storage chatbox:main CurrentPart.Buffer
 data remove storage chatbox:main CurrentPart
