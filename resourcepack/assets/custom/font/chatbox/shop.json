@@ -3,15 +3,15 @@
         {
             "type": "bitmap",
             "file": "custom:font/chatbox/shop/row_idle.png",
-            "ascent": 11,
-            "height": 16,
+            "ascent": 12,
+            "height": 17,
             "chars": ["\ue100"]
         },
         {
             "type": "bitmap",
             "file": "custom:font/chatbox/shop/row_selected.png",
-            "ascent": 11,
-            "height": 16,
+            "ascent": 12,
+            "height": 17,
             "chars": ["\ue101"]
         },
         {
