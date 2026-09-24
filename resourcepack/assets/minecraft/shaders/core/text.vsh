@@ -288,7 +288,7 @@ void main() {
         );
 
         if (isShop) {
-            int k = int(floor((pos.y - 75.0) / 19.0));
+            int k = int(floor((pos.y - 75.5) / 19.0));
             if (k < 0) k = 0;
             if (k > 8) k = 8;
             float deltaY = (guiHeight - 161.0) - (float(k) * 37.0);
