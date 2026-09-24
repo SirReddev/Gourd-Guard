@@ -2,8 +2,8 @@
 execute if data storage chatbox:shop Temp.CostItem run function chatbox:shop/deduct/cost_item with storage chatbox:shop Temp
 execute if data storage chatbox:shop Temp.CostScore run function chatbox:shop/deduct/cost_score with storage chatbox:shop Temp
 
-# 2. Execute configured item action callback as player (@s)
-$execute run $(Action)
+# 2. Execute configured item action callback as player (@s) if present
+execute if data storage chatbox:shop Temp.Action run function chatbox:shop/execute_action with storage chatbox:shop Temp
 
 # 3. Sound & chat notification
 playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 0.5 1.2
@@ -11,3 +11,4 @@ $tellraw @s [{"text":"[Shop] Purchased ","color":"#69F0AE"},{"text":"$(Name)","c
 
 # 4. Re-render all shop rows immediately so afford/deny state updates dynamically
 function chatbox:shop/render
+
