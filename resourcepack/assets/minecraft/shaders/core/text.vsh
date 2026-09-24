@@ -278,7 +278,7 @@ void main() {
         );
 
         bool isDialogue = (!isVignette && !isShop && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 220.0 &&
-            pos.y >= 5.0 && pos.y <= 85.0 && isChatBoxColor
+            pos.y >= 5.0 && pos.y <= 105.0 && isChatBoxColor
         );
 
         if (isDialogue) {
