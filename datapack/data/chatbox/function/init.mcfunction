@@ -29,7 +29,6 @@ scoreboard objectives add chatbox.prev_slot dummy
 scoreboard objectives add chatbox.shop_items dummy
 scoreboard objectives add chatbox.walk minecraft.custom:minecraft.walk_one_cm
 scoreboard objectives add chatbox.sprint minecraft.custom:minecraft.sprint_one_cm
-scoreboard objectives add chatbox.candy dummy "Candy"
 
 data modify storage chatbox:main Sequence set value []
 data modify storage chatbox:main SequenceActive set value 0b

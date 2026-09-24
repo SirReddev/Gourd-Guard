@@ -1,7 +1,4 @@
-# Test Dialogue Sequence leading into Shop UI
-# Pre-load the shop items
-scoreboard objectives add chatbox.candy dummy "Candy"
-data modify storage chatbox:shop Items set value [{Slot:0,Name:"Iron Sword",Price:"10 Candy",CostScore:"chatbox.candy",CostCount:10,Icon:"\ue200",SpaceAfterName:"\ue005\ue004\ue002\ue001",SpaceAfterPrice:"\ue002",Action:"give @s iron_sword 1"},{Slot:1,Name:"Wooden Shield",Price:"5 Candy",CostScore:"chatbox.candy",CostCount:5,Icon:"\ue201",SpaceAfterName:"\ue005\ue003\ue000",SpaceAfterPrice:"\ue003\ue001",Action:"give @s shield 1"},{Slot:2,Name:"Healing Potion",Price:"3 Candy",CostScore:"chatbox.candy",CostCount:3,Icon:"\ue202",SpaceAfterName:"\ue005\ue003\ue000",SpaceAfterPrice:"\ue003\ue001",Action:"give @s potion[potion_contents={potion:\"minecraft:healing\"}] 1"}]
+data modify storage chatbox:shop Items set value [{Slot:0,Name:"Iron Sword",Price:"10 Candy",CostScore:"coins",CostCount:10,Icon:"\ue200",SpaceAfterName:"\ue005\ue004\ue002\ue001",SpaceAfterPrice:"\ue002",Action:"give @s iron_sword 1"},{Slot:1,Name:"Wooden Shield",Price:"5 Candy",CostScore:"coins",CostCount:5,Icon:"\ue201",SpaceAfterName:"\ue005\ue003\ue000",SpaceAfterPrice:"\ue003\ue001",Action:"give @s shield 1"},{Slot:2,Name:"Healing Potion",Price:"3 Candy",CostScore:"coins",CostCount:3,Icon:"\ue202",SpaceAfterName:"\ue005\ue003\ue000",SpaceAfterPrice:"\ue003\ue001",Action:"give @s potion[potion_contents={potion:\"minecraft:healing\"}] 1"}]
 data modify storage chatbox:shop Title set value '[{"text":"  Blacksmith: Take your pick!  |  [Shift] Buy  |  [Walk] Exit","color":"#FBFBFB"}]'
 
 # Sequence with Shop chained at the end
