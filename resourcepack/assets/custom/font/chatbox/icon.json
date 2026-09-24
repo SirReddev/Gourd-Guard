@@ -5,21 +5,7 @@
             "file": "custom:font/chatbox/icon/0.png",
             "ascent": -74,
             "height": 12,
-            "chars": ["\ue000\ue001"]
-        },
-        {
-            "type": "bitmap",
-            "file": "custom:font/chatbox/icon/0.png",
-            "ascent": -68,
-            "height": 12,
-            "chars": ["\ue010\ue011"]
-        },
-        {
-            "type": "bitmap",
-            "file": "custom:font/chatbox/icon/0.png",
-            "ascent": -67,
-            "height": 12,
-            "chars": ["\ue020\ue021"]
+            "chars": ["\ue000\ue001", "\ue010\ue011", "\ue020\ue021"]
         }
     ]
 }
