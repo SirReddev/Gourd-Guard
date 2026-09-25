@@ -5,6 +5,7 @@
       "conditions": {
         "entity": {
           "type": "minecraft:entity_properties",
+          "entity": "this",
           "predicate": {
             "type": "minecraft:interaction"
           }
