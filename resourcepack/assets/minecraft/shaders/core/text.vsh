@@ -106,10 +106,8 @@ void main() {
             }
             // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px..guiWidth - 96px, Y: 103px..117px)
             else if (bByte == 2) {
-                bool isLeft = (originX < 7.0);
-                bool isTop = (originY < -4.0);
-                pos.x = isLeft ? (guiWidth - 110.0) : (guiWidth - 96.0);
-                pos.y = isTop ? 103.0 : 117.0;
+                pos.x = originX * (14.0 / 12.0) + (guiWidth - 110.0);
+                pos.y = (originY + 10.0) * (14.0 / 12.0) + 103.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -147,10 +145,8 @@ void main() {
         else if (bByte > 250 || (bByte >= 60 && bByte <= 63)) {
             // #0100FE: Stopwatch Icon (\uE003) - 14x14px at (X: 44px..58px, Y: 30px..44px)
             if (bByte == 254) {
-                bool isLeft = (originX < 7.0);
-                bool isTop = (originY < -5.0);
-                pos.x = isLeft ? 44.0 : 58.0;
-                pos.y = isTop ? 30.0 : 44.0;
+                pos.x = originX + 44.0;
+                pos.y = (originY + 12.0) + 30.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -191,10 +187,8 @@ void main() {
         else if (gByte == 255 || gByte == 254 || gByte == 62) {
             // #01FF00: Candy Icon (\uE002) - 16x16px at (X: 40px..56px, Y: 139px..155px)
             if (gByte == 255) {
-                bool isLeft = (originX < 8.0);
-                bool isTop = (originY < -5.0);
-                pos.x = isLeft ? 40.0 : 56.0;
-                pos.y = isTop ? 139.0 : 155.0;
+                pos.x = (originX + 2.0) + 40.0;
+                pos.y = (originY + 12.0) * (16.0 / 14.0) + 139.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
