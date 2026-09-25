@@ -6,6 +6,7 @@
 #include <minecraft:fog.glsl>
 #include <minecraft:dynamictransforms.glsl>
 #include <minecraft:projection.glsl>
+#include <minecraft:sample_lightmap.glsl>
 
 layout(location = 0) in vec3 Position;
 layout(location = 1) in vec4 Color;
@@ -15,6 +16,8 @@ layout(location = 4) in ivec2 UV2;
 layout(location = 5) in vec3 Normal;
 
 uniform sampler2D Sampler0;
+uniform sampler2D Sampler1;
+uniform sampler2D Sampler2;
 
 layout(location = 0) out float sphericalVertexDistance;
 layout(location = 1) out float cylindricalVertexDistance;
@@ -48,8 +51,8 @@ void main() {
         vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color);
     }
 
-    lightMapColor = vec4(1.0);
-    overlayColor = vec4(0.0, 0.0, 0.0, 1.0);
+    lightMapColor = sample_lightmap(Sampler2, UV2);
+    overlayColor = texelFetch(Sampler1, UV1, 0);
 
     texCoord0 = UV0;
 
