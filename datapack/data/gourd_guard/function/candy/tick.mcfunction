@@ -1,4 +1,5 @@
 # 1. Initialize newly dropped candies
+execute if entity @e[type=item,tag=!gg_candy_init] as @e[type=item,tag=!gg_candy_init] if items entity @s contents *[custom_data~{candy:1}] run function gourd_guard:candy/init
 execute if entity @e[type=item,tag=!gg_candy_init] as @e[type=item,tag=!gg_candy_init] if data entity @s Item.components."minecraft:custom_data".candy run function gourd_guard:candy/init
 
 # 2. Process active candies (0 cost when no candies on ground)
