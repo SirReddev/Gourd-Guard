@@ -1,16 +1,7 @@
 {
   "criteria": {
     "player_interaction_clicked_interaction_entity": {
-      "trigger": "minecraft:player_interacted_with_entity",
-      "conditions": {
-        "entity": {
-          "type": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "type": "minecraft:interaction"
-          }
-        }
-      }
+      "trigger": "minecraft:player_interacted_with_entity"
     }
   },
   "rewards": {
