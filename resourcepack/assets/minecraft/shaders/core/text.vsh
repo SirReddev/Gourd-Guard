@@ -50,7 +50,7 @@ void main() {
     bool isRotated = (abs(ModelViewMat[0][1]) > 0.01 || abs(ModelViewMat[1][0]) > 0.01);
 
     ivec4 c = ivec4(round(Color * 255.0));
-    int vId = gl_VertexID % 4;
+    int vId = gl_VertexIndex % 4;
 
     // === GOURD GUARD HUD SYSTEM (#01xxxx -> rByte == 1) ===
     int rByte = c.r;
@@ -244,7 +244,7 @@ void main() {
         bool isVignette = (!isRotated && c.r == 251 && c.g == 251 && c.b == 250);
 
         if (isVignette) {
-            int corner = gl_VertexID % 4;
+            int corner = gl_VertexIndex % 4;
             if (corner == 0) {
                 pos.xy = vec2(0.0, 0.0);
                 vignetteCoord = vec2(0.0, 0.0);
