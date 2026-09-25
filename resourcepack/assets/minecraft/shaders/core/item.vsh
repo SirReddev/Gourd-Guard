@@ -17,7 +17,6 @@ layout(location = 5) in vec3 Normal;
 
 uniform sampler2D Sampler0;
 uniform sampler2D Sampler1;
-uniform sampler2D Sampler2;
 
 layout(location = 0) out float sphericalVertexDistance;
 layout(location = 1) out float cylindricalVertexDistance;
@@ -51,7 +50,7 @@ void main() {
         vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color);
     }
 
-    lightMapColor = sample_lightmap(Sampler2, UV2);
+    lightMapColor = sample_lightmap(Sampler1, UV2);
     overlayColor = texelFetch(Sampler1, UV1, 0);
 
     texCoord0 = UV0;
