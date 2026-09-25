@@ -50,7 +50,8 @@ void main() {
     bool isRotated = (abs(ModelViewMat[0][1]) > 0.01 || abs(ModelViewMat[1][0]) > 0.01);
 
     ivec4 c = ivec4(round(Color * 255.0));
-    int vId = gl_VertexIndex % 4;
+    int[6] cornerMap = int[6](0, 1, 2, 2, 3, 0);
+    int vId = cornerMap[gl_VertexIndex % 6];
 
 
     // === GOURD GUARD HUD SYSTEM (#01xxxx -> rByte == 1) ===
