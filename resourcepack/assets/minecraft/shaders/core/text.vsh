@@ -104,17 +104,17 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 46) ? vec3(0.0, 0.1675, 0.1675) : vec3(0.0, 0.67, 0.67); // Dark Aqua (#00AAAA)
             }
-            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px..guiWidth - 96px, Y: 103px..117px)
+            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 113px..guiWidth - 99px, Y: 103px..117px)
             else if (bByte == 2) {
-                pos.x = originX * (14.0 / 12.0) + (guiWidth - 110.0);
+                pos.x = originX * (14.0 / 12.0) + (guiWidth - 113.0);
                 pos.y = (originY + 10.0) * (14.0 / 12.0) + 103.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB03 (Main) / #012E03 (Shadow): Bottom Board Mob Count Digits - Scaled 1.4x at (X: guiWidth - 81px, Y: 109px)
+            // #01BB03 (Main) / #012E03 (Shadow): Bottom Board Mob Count Digits - Scaled 1.4x at (X: guiWidth - 87px, Y: 109px)
             else if (bByte == 3) {
                 float mobScale = 1.4;
-                pos.x = originX * mobScale + (guiWidth - 81.0);
+                pos.x = originX * mobScale + (guiWidth - 87.0);
                 pos.y = originY * mobScale + 109.0;
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 46) ? vec3(0.18) : vec3(0.70, 0.70, 0.70); // Gray
@@ -164,9 +164,9 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (bByte == 60) ? vec3(0.25, 0.0625, 0.0625) : vec3(1.0, 0.25, 0.25);
             }
-            // Timer Digits: at (X: 67px, Y: 38px)
+            // Timer Digits: at (X: 69px, Y: 38px)
             else {
-                pos.x = originX + 67.0;
+                pos.x = originX + 69.0;
                 pos.y = originY + 38.0;
                 pos.z = 0.0;
                 bool isShadow = (bByte == 63);
@@ -187,14 +187,14 @@ void main() {
         else if (gByte == 255 || gByte == 254 || gByte == 62) {
             // #01FF00: Candy Icon (\uE002) - 16x16px at (X: 40px..56px, Y: 139px..155px)
             if (gByte == 255) {
-                pos.x = (originX + 2.0) + 40.0;
+                pos.x = (originX + 6.0) * (16.0 / 14.0) + 40.0;
                 pos.y = (originY + 12.0) * (16.0 / 14.0) + 139.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01FE00 (Main) / #013E00 (Shadow): Candy Score Digits at (X: 70px, Y: 147px)
+            // #01FE00 (Main) / #013E00 (Shadow): Candy Score Digits at (X: 71px, Y: 147px)
             else {
-                pos.x = originX + 70.0;
+                pos.x = originX + 71.0;
                 pos.y = originY + 147.0;
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 62) ? vec3(0.25) : vec3(1.0);
