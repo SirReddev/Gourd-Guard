@@ -69,14 +69,14 @@ void main() {
         if (gByte == 170) {
             // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px, Y: guiHeight - 46px)
             if (bByte == 0) {
-                pos.x = (vId == 0 || vId == 1) ? 20.0 : 48.0;
-                pos.y = (vId == 0 || vId == 3) ? (guiHeight - 46.0) : (guiHeight - 18.0);
+                pos.x = originX + 20.0;
+                pos.y = originY + (guiHeight - 31.0);
                 pos.z = 0.0;
             }
             // #01AA01: Health Bar (\uE101 to \uE115) - 86x16px at (X: 54px, Y: guiHeight - 40px)
             else if (bByte == 1) {
-                pos.x = (vId == 0 || vId == 1) ? 54.0 : 140.0;
-                pos.y = (vId == 0 || vId == 3) ? (guiHeight - 40.0) : (guiHeight - 24.0);
+                pos.x = originX + 54.0;
+                pos.y = originY + (guiHeight - 30.0);
                 pos.z = 0.0;
             }
             vertexColor = vec4(1.0);
@@ -86,8 +86,9 @@ void main() {
         else if (gByte == 187 || gByte == 46) {
             // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right
             if (bByte == 0) {
-                pos.x = (vId == 0 || vId == 1) ? (guiWidth - 172.0) : (guiWidth - 16.0);
-                pos.y = (vId == 0 || vId == 3) ? 0.0 : 132.0;
+                float signScale = 6.0;
+                pos.x = originX * signScale + (guiWidth - 172.0);
+                pos.y = originY * signScale + 132.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -109,8 +110,8 @@ void main() {
             }
             // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px, Y: 103px..117px)
             else if (bByte == 2) {
-                pos.x = (vId == 0 || vId == 1) ? (guiWidth - 110.0) : (guiWidth - 96.0);
-                pos.y = (vId == 0 || vId == 3) ? 103.0 : 117.0;
+                pos.x = originX + (guiWidth - 110.0);
+                pos.y = originY + 113.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -126,26 +127,27 @@ void main() {
         // --- SECTION B: Top-Left Match HUD ---
         // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px, Y: 2px)
         else if (Color.g > 0.8 && Color.b > 0.8) {
-            pos.x = (vId == 0 || vId == 1) ? 2.0 : 134.0;
-            pos.y = (vId == 0 || vId == 3) ? 2.0 : 190.0;
+            pos.x = originX + 2.0;
+            pos.y = originY + 154.0;
             pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
         // #010000: JNNGL GUI Avatar (56x56px at X: 42px..98px, Y: 68px..124px)
         else if (Color.g < 0.05 && Color.b < 0.05 && bByte == 0) {
-            texCoord0 = uvCorners[vId];
-            custom = 1.0;
-            pos.x = (vId == 0 || vId == 1) ? 42.0 : 98.0;
-            pos.y = (vId == 0 || vId == 3) ? 68.0 : 124.0;
+            float avatarScale = 7.0;
+            pos.x = originX * avatarScale + 42.0;
+            pos.y = originY * avatarScale + 124.0;
             pos.z = 0.0;
+            texCoord0 = clamp(vec2((pos.x - 42.0) / 56.0, (pos.y - 68.0) / 56.0), 0.0, 1.0);
+            custom = 1.0;
             vertexColor = vec4(1.0);
         }
         // Timer Row & Popups: Main (bByte > 250) or Shadow (bByte >= 60 && bByte <= 63)
         else if (bByte > 250 || (bByte >= 60 && bByte <= 63)) {
             // #0100FE: Stopwatch Icon (\uE003) - 14x14px at (X: 44px..58px, Y: 30px..44px)
             if (bByte == 254) {
-                pos.x = (vId == 0 || vId == 1) ? 44.0 : 58.0;
-                pos.y = (vId == 0 || vId == 3) ? 30.0 : 44.0;
+                pos.x = originX + 44.0;
+                pos.y = originY + 42.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -186,8 +188,8 @@ void main() {
         else if (gByte == 255 || gByte == 254 || gByte == 62) {
             // #01FF00: Candy Icon (\uE002) - 16x16px at (X: 40px..56px, Y: 139px..155px)
             if (gByte == 255) {
-                pos.x = (vId == 0 || vId == 1) ? 40.0 : 56.0;
-                pos.y = (vId == 0 || vId == 3) ? 139.0 : 155.0;
+                pos.x = originX + 40.0;
+                pos.y = originY + 151.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
