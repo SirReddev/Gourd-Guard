@@ -58,16 +58,20 @@ void main() {
 
         // --- SECTION A: Bottom-Left Objective HUD (#01AAxx, gByte == 170) ---
         if (gByte == 170) {
-            // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px, Y: guiHeight - 46px)
+            // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px..48px, Y: guiHeight - 46px..guiHeight - 18px)
             if (bByte == 0) {
-                pos.x = (originX + 8.0) * (28.0 / 18.0) + 20.0;
-                pos.y = (originY + 15.0) * (28.0 / 18.0) + (guiHeight - 46.0);
+                bool isLeft = (originX < 1.0);
+                bool isTop = (originY < -6.0);
+                pos.x = isLeft ? 20.0 : 48.0;
+                pos.y = isTop ? (guiHeight - 46.0) : (guiHeight - 18.0);
                 pos.z = 0.0;
             }
-            // #01AA01: Health Bar (\uE101 to \uE115) - 86x16px at (X: 54px, Y: guiHeight - 40px)
+            // #01AA01: Health Bar (\uE101 to \uE115) - 86x16px at (X: 54px..140px, Y: guiHeight - 40px..guiHeight - 24px)
             else if (bByte == 1) {
-                pos.x = (originX - 16.0) + 54.0;
-                pos.y = (originY + 10.0) * (16.0 / 10.0) + (guiHeight - 40.0);
+                bool isLeft = (originX < 59.0);
+                bool isTop = (originY < -5.0);
+                pos.x = isLeft ? 54.0 : 140.0;
+                pos.y = isTop ? (guiHeight - 40.0) : (guiHeight - 24.0);
                 pos.z = 0.0;
             }
             vertexColor = vec4(1.0);
@@ -75,10 +79,12 @@ void main() {
         // --- SECTION C: Top-Right Wave & Mob HUD ---
         // Main Text (#01BBxx, gByte == 187) & Shadow (#012Exx, gByte == 46)
         else if (gByte == 187 || gByte == 46) {
-            // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right
+            // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right (X: guiWidth - 172px..guiWidth - 16px, Y: 0px..132px)
             if (bByte == 0) {
-                pos.x = (originX - 7.0) * 6.0 + (guiWidth - 172.0);
-                pos.y = (originY + 22.0) * 6.0;
+                bool isLeft = (originX < 20.0);
+                bool isTop = (originY < -11.0);
+                pos.x = isLeft ? (guiWidth - 172.0) : (guiWidth - 16.0);
+                pos.y = isTop ? 0.0 : 132.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -98,10 +104,12 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 46) ? vec3(0.0, 0.1675, 0.1675) : vec3(0.0, 0.67, 0.67); // Dark Aqua (#00AAAA)
             }
-            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px, Y: 103px..117px)
+            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px..guiWidth - 96px, Y: 103px..117px)
             else if (bByte == 2) {
-                pos.x = (originX - 12.0) + (guiWidth - 110.0);
-                pos.y = (originY + 10.0) * (14.0 / 12.0) + 103.0;
+                bool isLeft = (originX < 19.0);
+                bool isTop = (originY < -4.0);
+                pos.x = isLeft ? (guiWidth - 110.0) : (guiWidth - 96.0);
+                pos.y = isTop ? 103.0 : 117.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -115,28 +123,34 @@ void main() {
             }
         }
         // --- SECTION B: Top-Left Match HUD ---
-        // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px, Y: 2px)
+        // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px..134px, Y: 2px..190px)
         else if (Color.g > 0.8 && Color.b > 0.8) {
-            pos.x = originX + 68.0;
-            pos.y = originY + 154.0;
+            bool isLeft = (originX < 0.0);
+            bool isTop = (originY < -58.0);
+            pos.x = isLeft ? 2.0 : 134.0;
+            pos.y = isTop ? 2.0 : 190.0;
             pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
         // #010000: JNNGL GUI Avatar (56x56px at X: 42px..98px, Y: 68px..124px)
         else if (Color.g < 0.05 && Color.b < 0.05 && bByte == 0) {
-            pos.x = (originX + 4.0) * 7.0 + 42.0;
-            pos.y = (originY + 6.0) * 7.0 + 68.0;
-            pos.z = 0.0;
-            texCoord0 = clamp(vec2((originX + 4.0) / 8.0, (originY + 6.0) / 8.0), 0.0, 1.0);
+            bool isLeft = (originX < 0.0);
+            bool isTop = (originY < -2.0);
+            texCoord0 = vec2(isLeft ? 0.0 : 1.0, isTop ? 0.0 : 1.0);
             custom = 1.0;
+            pos.x = isLeft ? 42.0 : 98.0;
+            pos.y = isTop ? 68.0 : 124.0;
+            pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
         // Timer Row & Popups: Main (bByte > 250) or Shadow (bByte >= 60 && bByte <= 63)
         else if (bByte > 250 || (bByte >= 60 && bByte <= 63)) {
             // #0100FE: Stopwatch Icon (\uE003) - 14x14px at (X: 44px..58px, Y: 30px..44px)
             if (bByte == 254) {
-                pos.x = originX + 44.0;
-                pos.y = originY + 42.0;
+                bool isLeft = (originX < 7.0);
+                bool isTop = (originY < -5.0);
+                pos.x = isLeft ? 44.0 : 58.0;
+                pos.y = isTop ? 30.0 : 44.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -177,8 +191,10 @@ void main() {
         else if (gByte == 255 || gByte == 254 || gByte == 62) {
             // #01FF00: Candy Icon (\uE002) - 16x16px at (X: 40px..56px, Y: 139px..155px)
             if (gByte == 255) {
-                pos.x = (originX + 2.0) + 40.0;
-                pos.y = (originY + 12.0) * (16.0 / 14.0) + 139.0;
+                bool isLeft = (originX < 8.0);
+                bool isTop = (originY < -5.0);
+                pos.x = isLeft ? 40.0 : 56.0;
+                pos.y = isTop ? 139.0 : 155.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
