@@ -31,13 +31,6 @@ layout(location = 2) out vec2 vignetteCoord;
 layout(location = 3) out float custom;
 #endif
 
-const vec2[4] uvCorners = vec2[4](
-    vec2(0.0, 0.0), // Top-Left (Full 0..1 UV quad for portrait.glsl)
-    vec2(0.0, 1.0), // Bottom-Left
-    vec2(1.0, 1.0), // Bottom-Right
-    vec2(1.0, 0.0)  // Top-Right
-);
-
 void main() {
     texCoord0 = UV0;
     vertexColor = Color;
@@ -50,7 +43,6 @@ void main() {
     bool isRotated = (abs(ModelViewMat[0][1]) > 0.01 || abs(ModelViewMat[1][0]) > 0.01);
 
     ivec4 c = ivec4(round(Color * 255.0));
-    int vId = gl_VertexIndex % 4;
 
     // === GOURD GUARD HUD SYSTEM (#01xxxx -> rByte == 1) ===
     int rByte = c.r;
@@ -68,14 +60,18 @@ void main() {
         if (gByte == 170) {
             // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px, Y: guiHeight - 46px)
             if (bByte == 0) {
-                pos.x = (vId == 0 || vId == 1) ? 20.0 : 48.0;
-                pos.y = (vId == 0 || vId == 3) ? (guiHeight - 46.0) : (guiHeight - 18.0);
+                bool isLeft = (pos.x < guiWidth * 0.5 - 57.0);
+                bool isTop = (pos.y < guiHeight - 74.0);
+                pos.x = isLeft ? 20.0 : 48.0;
+                pos.y = isTop ? (guiHeight - 46.0) : (guiHeight - 18.0);
                 pos.z = 0.0;
             }
             // #01AA01: Health Bar (\uE101 to \uE115) - 86x16px at (X: 54px, Y: guiHeight - 40px)
             else if (bByte == 1) {
-                pos.x = (vId == 0 || vId == 1) ? 54.0 : 140.0;
-                pos.y = (vId == 0 || vId == 3) ? (guiHeight - 40.0) : (guiHeight - 24.0);
+                bool isLeft = (pos.x < guiWidth * 0.5 - 23.0);
+                bool isTop = (pos.y < guiHeight - 73.0);
+                pos.x = isLeft ? 54.0 : 140.0;
+                pos.y = isTop ? (guiHeight - 40.0) : (guiHeight - 24.0);
                 pos.z = 0.0;
             }
             vertexColor = vec4(1.0);
@@ -85,8 +81,10 @@ void main() {
         else if (gByte == 187 || gByte == 46) {
             // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right
             if (bByte == 0) {
-                pos.x = (vId == 0 || vId == 1) ? (guiWidth - 172.0) : (guiWidth - 16.0);
-                pos.y = (vId == 0 || vId == 3) ? 0.0 : 132.0;
+                bool isLeft = (pos.x < guiWidth * 0.5 - 53.0);
+                bool isTop = (pos.y < guiHeight - 79.0);
+                pos.x = isLeft ? (guiWidth - 172.0) : (guiWidth - 16.0);
+                pos.y = isTop ? 0.0 : 132.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -108,8 +106,10 @@ void main() {
             }
             // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px, Y: 103px..117px)
             else if (bByte == 2) {
-                pos.x = (vId == 0 || vId == 1) ? (guiWidth - 110.0) : (guiWidth - 96.0);
-                pos.y = (vId == 0 || vId == 3) ? 103.0 : 117.0;
+                bool isLeft = (pos.x < guiWidth * 0.5 - 59.0);
+                bool isTop = (pos.y < guiHeight - 73.0);
+                pos.x = isLeft ? (guiWidth - 110.0) : (guiWidth - 96.0);
+                pos.y = isTop ? 103.0 : 117.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -125,17 +125,21 @@ void main() {
         // --- SECTION B: Top-Left Match HUD ---
         // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px, Y: 2px)
         else if (Color.g > 0.8 && Color.b > 0.8) {
-            pos.x = (vId == 0 || vId == 1) ? 2.0 : 134.0;
-            pos.y = (vId == 0 || vId == 3) ? 2.0 : 190.0;
+            bool isLeft = (pos.x < guiWidth * 0.5);
+            bool isTop = (pos.y < guiHeight - 120.0);
+            pos.x = isLeft ? 2.0 : 134.0;
+            pos.y = isTop ? 2.0 : 190.0;
             pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
         // #010000: JNNGL GUI Avatar (56x56px at X: 42px..98px, Y: 68px..124px)
         else if (Color.g < 0.05 && Color.b < 0.05 && bByte == 0) {
-            texCoord0 = uvCorners[vId];
+            bool isLeft = (pos.x < guiWidth * 0.5 - 62.0);
+            bool isTop = (pos.y < guiHeight - 72.0);
+            texCoord0 = vec2(isLeft ? 0.0 : 1.0, isTop ? 0.0 : 1.0);
             custom = 1.0;
-            pos.x = (vId == 0 || vId == 1) ? 42.0 : 98.0;
-            pos.y = (vId == 0 || vId == 3) ? 68.0 : 124.0;
+            pos.x = isLeft ? 42.0 : 98.0;
+            pos.y = isTop ? 68.0 : 124.0;
             pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
@@ -143,8 +147,10 @@ void main() {
         else if (bByte > 250 || (bByte >= 60 && bByte <= 63)) {
             // #0100FE: Stopwatch Icon (\uE003) - 14x14px at (X: 44px..58px, Y: 30px..44px)
             if (bByte == 254) {
-                pos.x = (vId == 0 || vId == 1) ? 44.0 : 58.0;
-                pos.y = (vId == 0 || vId == 3) ? 30.0 : 44.0;
+                bool isLeft = (pos.x < guiWidth * 0.5 - 59.0);
+                bool isTop = (pos.y < guiHeight - 73.0);
+                pos.x = isLeft ? 44.0 : 58.0;
+                pos.y = isTop ? 30.0 : 44.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -185,8 +191,10 @@ void main() {
         else if (gByte == 255 || gByte == 254 || gByte == 62) {
             // #01FF00: Candy Icon (\uE002) - 16x16px at (X: 40px..56px, Y: 139px..155px)
             if (gByte == 255) {
-                pos.x = (vId == 0 || vId == 1) ? 40.0 : 56.0;
-                pos.y = (vId == 0 || vId == 3) ? 139.0 : 155.0;
+                bool isLeft = (pos.x < guiWidth * 0.5 - 59.0);
+                bool isTop = (pos.y < guiHeight - 73.0);
+                pos.x = isLeft ? 40.0 : 56.0;
+                pos.y = isTop ? 139.0 : 155.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -244,20 +252,10 @@ void main() {
         bool isVignette = (!isRotated && c.r == 251 && c.g == 251 && c.b == 250);
 
         if (isVignette) {
-            int corner = gl_VertexIndex % 4;
-            if (corner == 0) {
-                pos.xy = vec2(0.0, 0.0);
-                vignetteCoord = vec2(0.0, 0.0);
-            } else if (corner == 1) {
-                pos.xy = vec2(0.0, guiHeight);
-                vignetteCoord = vec2(0.0, 1.0);
-            } else if (corner == 2) {
-                pos.xy = vec2(guiWidth, guiHeight);
-                vignetteCoord = vec2(1.0, 1.0);
-            } else {
-                pos.xy = vec2(guiWidth, 0.0);
-                vignetteCoord = vec2(1.0, 0.0);
-            }
+            bool isLeft = (pos.x < guiWidth * 0.5);
+            bool isTop = (pos.y < guiHeight * 0.5);
+            pos.xy = vec2(isLeft ? 0.0 : guiWidth, isTop ? 0.0 : guiHeight);
+            vignetteCoord = vec2(isLeft ? 0.0 : 1.0, isTop ? 0.0 : 1.0);
         }
 
         // 2. Shop rows in bossbars 4..12:
