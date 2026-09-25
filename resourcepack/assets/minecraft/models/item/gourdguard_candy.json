@@ -2,7 +2,8 @@
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "item/gourdguard_candy"
+		"1": "minecraft:item/gourdguard_candy",
+		"particle": "minecraft:item/gourdguard_candy"
 	},
 	"elements": [
 		{
