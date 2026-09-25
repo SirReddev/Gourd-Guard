@@ -23,12 +23,24 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
 }
 
 vec4 apply_fog(vec4 inColor, float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmantalEnd, float renderDistanceStart, float renderDistanceEnd, vec4 fogColor) {
-    if (fogColor.a <= 0.0) {
+    // If rendering GUI, Inventory, HUD, or 2D models, bypass fog completely
+    if (renderDistanceStart > 500.0 || environmentalStart > 500.0 || fogColor.a <= 0.0) {
         return inColor;
     }
 
-    float fogValue = total_fog_value(sphericalVertexDistance, cylindricalVertexDistance, environmentalStart, environmantalEnd, renderDistanceStart, renderDistanceEnd);
-    return vec4(mix(inColor.rgb, fogColor.rgb, fogValue * fogColor.a), inColor.a);
+    // 7-block clear zone around the player, followed by dense black fog in the 3D world
+    float clearRadius = 7.0;   // 0% fog within 7 blocks of the player
+    float blackWall   = 16.0;  // 100% thick pitch-black fog by 16 blocks
+
+    float activeStart = min(renderDistanceStart, clearRadius);
+    float activeEnd   = min(renderDistanceEnd, blackWall);
+
+    float fogValue = total_fog_value(sphericalVertexDistance, cylindricalVertexDistance, environmentalStart, environmantalEnd, activeStart, activeEnd);
+    fogValue = pow(fogValue, 0.75); // Steep curve for heavy, dense mist
+
+    vec3 blackFog = vec3(0.008, 0.008, 0.012); // Deep eerie black void
+
+    return vec4(mix(inColor.rgb, blackFog, fogValue * fogColor.a), inColor.a);
 }
 
 float fog_spherical_distance(vec3 pos) {
