@@ -104,10 +104,10 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 46) ? vec3(0.0, 0.1675, 0.1675) : vec3(0.0, 0.67, 0.67); // Dark Aqua (#00AAAA)
             }
-            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 113px..guiWidth - 99px, Y: 103px..117px)
+            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 108px..guiWidth - 94px, Y: 98px..112px)
             else if (bByte == 2) {
-                pos.x = originX * (14.0 / 12.0) + (guiWidth - 113.0);
-                pos.y = (originY + 10.0) * (14.0 / 12.0) + 103.0;
+                pos.x = originX * (14.0 / 12.0) + (guiWidth - 108.0);
+                pos.y = (originY + 10.0) * (14.0 / 12.0) + 98.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -143,10 +143,10 @@ void main() {
         }
         // Timer Row & Popups: Main (bByte > 250) or Shadow (bByte >= 60 && bByte <= 63)
         else if (bByte > 250 || (bByte >= 60 && bByte <= 63)) {
-            // #0100FE: Stopwatch Icon (\uE003) - 14x14px at (X: 44px..58px, Y: 30px..44px)
+            // #0100FE: Stopwatch Icon (\uE003) - 14x14px at (X: 48px..62px, Y: 26px..40px)
             if (bByte == 254) {
-                pos.x = originX + 44.0;
-                pos.y = (originY + 12.0) + 30.0;
+                pos.x = originX + 48.0;
+                pos.y = (originY + 12.0) + 26.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -185,10 +185,10 @@ void main() {
         }
         // Candy Row: Main (gByte == 255 || gByte == 254) or Shadow (gByte == 62)
         else if (gByte == 255 || gByte == 254 || gByte == 62) {
-            // #01FF00: Candy Icon (\uE002) - 16x16px at (X: 40px..56px, Y: 139px..155px)
+            // #01FF00: Candy Icon (\uE002) - 16x16px at (X: 46px..62px, Y: 133px..149px)
             if (gByte == 255) {
-                pos.x = (originX + 6.0) * (16.0 / 14.0) + 40.0;
-                pos.y = (originY + 12.0) * (16.0 / 14.0) + 139.0;
+                pos.x = (originX + 6.0) * (16.0 / 14.0) + 46.0;
+                pos.y = (originY + 12.0) * (16.0 / 14.0) + 133.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
