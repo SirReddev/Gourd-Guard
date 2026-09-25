@@ -60,7 +60,7 @@ void main() {
         if (gByte == 170) {
             // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px..48px, Y: guiHeight - 46px..guiHeight - 18px)
             if (bByte == 0) {
-                bool isLeft = (originX < 1.0);
+                bool isLeft = (originX < 9.0);
                 bool isTop = (originY < -6.0);
                 pos.x = isLeft ? 20.0 : 48.0;
                 pos.y = isTop ? (guiHeight - 46.0) : (guiHeight - 18.0);
@@ -68,7 +68,7 @@ void main() {
             }
             // #01AA01: Health Bar (\uE101 to \uE115) - 86x16px at (X: 54px..140px, Y: guiHeight - 40px..guiHeight - 24px)
             else if (bByte == 1) {
-                bool isLeft = (originX < 59.0);
+                bool isLeft = (originX < 43.0);
                 bool isTop = (originY < -5.0);
                 pos.x = isLeft ? 54.0 : 140.0;
                 pos.y = isTop ? (guiHeight - 40.0) : (guiHeight - 24.0);
@@ -81,7 +81,7 @@ void main() {
         else if (gByte == 187 || gByte == 46) {
             // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right (X: guiWidth - 172px..guiWidth - 16px, Y: 0px..132px)
             if (bByte == 0) {
-                bool isLeft = (originX < 20.0);
+                bool isLeft = (originX < 13.0);
                 bool isTop = (originY < -11.0);
                 pos.x = isLeft ? (guiWidth - 172.0) : (guiWidth - 16.0);
                 pos.y = isTop ? 0.0 : 132.0;
@@ -106,7 +106,7 @@ void main() {
             }
             // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px..guiWidth - 96px, Y: 103px..117px)
             else if (bByte == 2) {
-                bool isLeft = (originX < 19.0);
+                bool isLeft = (originX < 7.0);
                 bool isTop = (originY < -4.0);
                 pos.x = isLeft ? (guiWidth - 110.0) : (guiWidth - 96.0);
                 pos.y = isTop ? 103.0 : 117.0;
@@ -125,7 +125,7 @@ void main() {
         // --- SECTION B: Top-Left Match HUD ---
         // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px..134px, Y: 2px..190px)
         else if (Color.g > 0.8 && Color.b > 0.8) {
-            bool isLeft = (originX < 0.0);
+            bool isLeft = (originX < 66.0);
             bool isTop = (originY < -58.0);
             pos.x = isLeft ? 2.0 : 134.0;
             pos.y = isTop ? 2.0 : 190.0;
