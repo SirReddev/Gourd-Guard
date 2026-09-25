@@ -1,6 +1,5 @@
 // Official JNNGL GUI Avatar Implementation (Mirrored & Flat)
 // Source: https://github.com/JNNGL/vanilla-shaders/tree/main/gui_avatars
-#version 330
 
 #define OUTLINE_COLOR (vec4(0.0, 0.0, 0.0, 1.0))
 
