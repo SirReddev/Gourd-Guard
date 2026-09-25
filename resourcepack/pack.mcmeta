@@ -1,8 +1,8 @@
 {
 	"pack": {
-		"pack_format": 46,
+		"pack_format": 97,
 		"description": "Gourd Guard Textures & Systems",
-		"min_format": 88,
-		"max_format": 88
+		"min_format": 97,
+		"max_format": 97
 	}
 }

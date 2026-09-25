@@ -1,7 +1,8 @@
 #ifndef GOURD_GUARD_SKYBOXES_GLSL
 #define GOURD_GUARD_SKYBOXES_GLSL
 
-#moj_import <minecraft:globals.glsl>
+#include <minecraft:globals.glsl>
+
 
 #ifndef PI
 #define PI 3.14159265359

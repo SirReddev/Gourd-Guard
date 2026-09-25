@@ -1,13 +1,14 @@
 #version 330
 #extension GL_ARB_separate_shader_objects : require
 
-#moj_import <minecraft:dynamictransforms.glsl>
-#moj_import <minecraft:projection.glsl>
+#include <minecraft:dynamictransforms.glsl>
+#include <minecraft:projection.glsl>
 
 #define WIDTH 422
 #define HEIGHT 237
 
-#moj_import <image/canvas1.glsl>
+#include <image/canvas1.glsl>
+
 
 layout(location = 0) in vec4 vertexColor;
 layout(location = 1) in vec3 pos;

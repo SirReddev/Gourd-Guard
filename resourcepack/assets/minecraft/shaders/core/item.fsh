@@ -1,25 +1,27 @@
 #version 330
+#extension GL_ARB_separate_shader_objects : require
 
-#moj_import <minecraft:globals.glsl>
-#moj_import <minecraft:fog.glsl>
-#moj_import <minecraft:dynamictransforms.glsl>
+#include <minecraft:globals.glsl>
+#include <minecraft:fog.glsl>
+#include <minecraft:dynamictransforms.glsl>
 
-#moj_import <gourd_guard:skyboxes.glsl>
+#include <gourd_guard:skyboxes.glsl>
 
 uniform sampler2D Sampler0;
 
-in float sphericalVertexDistance;
-in float cylindricalVertexDistance;
-in vec4 vertexColor;
-in vec4 lightMapColor;
-in vec4 overlayColor;
-in vec2 texCoord0;
+layout(location = 0) in float sphericalVertexDistance;
+layout(location = 1) in float cylindricalVertexDistance;
+layout(location = 2) in vec4 vertexColor;
+layout(location = 3) in vec4 lightMapColor;
+layout(location = 4) in vec4 overlayColor;
+layout(location = 5) in vec2 texCoord0;
 
-flat in int tf_skyId;
-smooth in vec3 tf_pos;
-smooth in vec4 tf_nearPos;
+layout(location = 6) flat in int tf_skyId;
+layout(location = 7) smooth in vec3 tf_pos;
+layout(location = 8) smooth in vec4 tf_nearPos;
 
-out vec4 fragColor;
+layout(location = 0) out vec4 fragColor;
+
 
 void main() {
     // If this fragment belongs to a procedural skybox model

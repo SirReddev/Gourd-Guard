@@ -1,30 +1,35 @@
 #version 330
+#extension GL_ARB_separate_shader_objects : require
 
 #if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
-#moj_import <minecraft:fog.glsl>
-#moj_import <minecraft:sample_lightmap.glsl>
+#include <minecraft:fog.glsl>
+#include <minecraft:sample_lightmap.glsl>
 #endif
 
-#moj_import <minecraft:dynamictransforms.glsl>
-#moj_import <minecraft:projection.glsl>
+#include <minecraft:dynamictransforms.glsl>
+#include <minecraft:projection.glsl>
 
-in vec3 Position;
-in vec4 Color;
-in vec2 UV0;
+layout(location = 0) in vec3 Position;
+layout(location = 1) in vec4 Color;
+layout(location = 2) in vec2 UV0;
 #if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
-in ivec2 UV2;
+layout(location = 3) in ivec2 UV2;
 #endif
 
 #if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
 uniform sampler2D Sampler2;
-out float sphericalVertexDistance;
-out float cylindricalVertexDistance;
+layout(location = 0) out float sphericalVertexDistance;
+layout(location = 1) out float cylindricalVertexDistance;
+layout(location = 2) out vec4 vertexColor;
+layout(location = 3) out vec2 texCoord0;
+layout(location = 4) out vec2 vignetteCoord;
+layout(location = 5) out float custom;
+#else
+layout(location = 0) out vec4 vertexColor;
+layout(location = 1) out vec2 texCoord0;
+layout(location = 2) out vec2 vignetteCoord;
+layout(location = 3) out float custom;
 #endif
-
-out vec4 vertexColor;
-out vec2 texCoord0;
-out vec2 vignetteCoord;
-out float custom;
 
 const vec2[4] uvCorners = vec2[4](
     vec2(0.0, 0.0), // Top-Left (Full 0..1 UV quad for portrait.glsl)
@@ -45,7 +50,8 @@ void main() {
     bool isRotated = (abs(ModelViewMat[0][1]) > 0.01 || abs(ModelViewMat[1][0]) > 0.01);
 
     ivec4 c = ivec4(round(Color * 255.0));
-    int vId = gl_VertexID % 4;
+    int vId = gl_VertexIndex % 4;
+
 
     // === GOURD GUARD HUD SYSTEM (#01xxxx -> rByte == 1) ===
     int rByte = c.r;
@@ -239,8 +245,9 @@ void main() {
         bool isVignette = (!isRotated && c.r == 251 && c.g == 251 && c.b == 250);
 
         if (isVignette) {
-            int corner = gl_VertexID % 4;
+            int corner = gl_VertexIndex % 4;
             if (corner == 0) {
+
                 pos.xy = vec2(0.0, 0.0);
                 vignetteCoord = vec2(0.0, 0.0);
             } else if (corner == 1) {
