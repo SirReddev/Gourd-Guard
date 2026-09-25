@@ -8,6 +8,8 @@
 #include <gourd_guard:skyboxes.glsl>
 
 uniform sampler2D Sampler0;
+uniform sampler2D Sampler1;
+uniform sampler2D Sampler2;
 
 layout(location = 0) in float sphericalVertexDistance;
 layout(location = 1) in float cylindricalVertexDistance;

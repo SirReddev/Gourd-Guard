@@ -9,6 +9,7 @@
 #include <minecraft:globals.glsl>
 
 uniform sampler2D Sampler0;
+uniform sampler2D Sampler2;
 
 #include <minecraft:portrait.glsl>
 
