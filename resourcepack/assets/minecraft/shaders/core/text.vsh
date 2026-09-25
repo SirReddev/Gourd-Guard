@@ -50,8 +50,7 @@ void main() {
     bool isRotated = (abs(ModelViewMat[0][1]) > 0.01 || abs(ModelViewMat[1][0]) > 0.01);
 
     ivec4 c = ivec4(round(Color * 255.0));
-    int vId = gl_VertexIndex % 4;
-
+    int vId = gl_VertexID % 4;
 
     // === GOURD GUARD HUD SYSTEM (#01xxxx -> rByte == 1) ===
     int rByte = c.r;
@@ -69,18 +68,14 @@ void main() {
         if (gByte == 170) {
             // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px, Y: guiHeight - 46px)
             if (bByte == 0) {
-                float u = clamp(originX / 18.0, 0.0, 1.0);
-                float v = clamp((originY + 15.0) / 18.0, 0.0, 1.0);
-                pos.x = mix(20.0, 48.0, u);
-                pos.y = mix(guiHeight - 46.0, guiHeight - 18.0, v);
+                pos.x = (vId == 0 || vId == 1) ? 20.0 : 48.0;
+                pos.y = (vId == 0 || vId == 3) ? (guiHeight - 46.0) : (guiHeight - 18.0);
                 pos.z = 0.0;
             }
             // #01AA01: Health Bar (\uE101 to \uE115) - 86x16px at (X: 54px, Y: guiHeight - 40px)
             else if (bByte == 1) {
-                float u = clamp(originX / 86.0, 0.0, 1.0);
-                float v = clamp((originY + 10.0) / 10.0, 0.0, 1.0);
-                pos.x = mix(54.0, 140.0, u);
-                pos.y = mix(guiHeight - 40.0, guiHeight - 24.0, v);
+                pos.x = (vId == 0 || vId == 1) ? 54.0 : 140.0;
+                pos.y = (vId == 0 || vId == 3) ? (guiHeight - 40.0) : (guiHeight - 24.0);
                 pos.z = 0.0;
             }
             vertexColor = vec4(1.0);
@@ -90,10 +85,8 @@ void main() {
         else if (gByte == 187 || gByte == 46) {
             // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right
             if (bByte == 0) {
-                float u = clamp(originX / 26.0, 0.0, 1.0);
-                float v = clamp((originY + 22.0) / 22.0, 0.0, 1.0);
-                pos.x = mix(guiWidth - 172.0, guiWidth - 16.0, u);
-                pos.y = mix(0.0, 132.0, v);
+                pos.x = (vId == 0 || vId == 1) ? (guiWidth - 172.0) : (guiWidth - 16.0);
+                pos.y = (vId == 0 || vId == 3) ? 0.0 : 132.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -115,10 +108,8 @@ void main() {
             }
             // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 110px, Y: 103px..117px)
             else if (bByte == 2) {
-                float u = clamp(originX / 14.0, 0.0, 1.0);
-                float v = clamp((originY + 10.0) / 12.0, 0.0, 1.0);
-                pos.x = mix(guiWidth - 110.0, guiWidth - 96.0, u);
-                pos.y = mix(103.0, 117.0, v);
+                pos.x = (vId == 0 || vId == 1) ? (guiWidth - 110.0) : (guiWidth - 96.0);
+                pos.y = (vId == 0 || vId == 3) ? 103.0 : 117.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -134,32 +125,26 @@ void main() {
         // --- SECTION B: Top-Left Match HUD ---
         // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px, Y: 2px)
         else if (Color.g > 0.8 && Color.b > 0.8) {
-            float u = clamp(originX / 132.0, 0.0, 1.0);
-            float v = clamp((originY + 152.0) / 188.0, 0.0, 1.0);
-            pos.x = mix(2.0, 134.0, u);
-            pos.y = mix(2.0, 190.0, v);
+            pos.x = (vId == 0 || vId == 1) ? 2.0 : 134.0;
+            pos.y = (vId == 0 || vId == 3) ? 2.0 : 190.0;
             pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
         // #010000: JNNGL GUI Avatar (56x56px at X: 42px..98px, Y: 68px..124px)
         else if (Color.g < 0.05 && Color.b < 0.05 && bByte == 0) {
-            float u = clamp(originX / 8.0, 0.0, 1.0);
-            float v = clamp((originY + 8.0) / 8.0, 0.0, 1.0);
-            pos.x = mix(42.0, 98.0, u);
-            pos.y = mix(68.0, 124.0, v);
-            pos.z = 0.0;
-            texCoord0 = vec2(u, v);
+            texCoord0 = uvCorners[vId];
             custom = 1.0;
+            pos.x = (vId == 0 || vId == 1) ? 42.0 : 98.0;
+            pos.y = (vId == 0 || vId == 3) ? 68.0 : 124.0;
+            pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
         // Timer Row & Popups: Main (bByte > 250) or Shadow (bByte >= 60 && bByte <= 63)
         else if (bByte > 250 || (bByte >= 60 && bByte <= 63)) {
             // #0100FE: Stopwatch Icon (\uE003) - 14x14px at (X: 44px..58px, Y: 30px..44px)
             if (bByte == 254) {
-                float u = clamp(originX / 14.0, 0.0, 1.0);
-                float v = clamp((originY + 12.0) / 14.0, 0.0, 1.0);
-                pos.x = mix(44.0, 58.0, u);
-                pos.y = mix(30.0, 44.0, v);
+                pos.x = (vId == 0 || vId == 1) ? 44.0 : 58.0;
+                pos.y = (vId == 0 || vId == 3) ? 30.0 : 44.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -200,10 +185,8 @@ void main() {
         else if (gByte == 255 || gByte == 254 || gByte == 62) {
             // #01FF00: Candy Icon (\uE002) - 16x16px at (X: 40px..56px, Y: 139px..155px)
             if (gByte == 255) {
-                float u = clamp(originX / 14.0, 0.0, 1.0);
-                float v = clamp((originY + 12.0) / 14.0, 0.0, 1.0);
-                pos.x = mix(40.0, 56.0, u);
-                pos.y = mix(139.0, 155.0, v);
+                pos.x = (vId == 0 || vId == 1) ? 40.0 : 56.0;
+                pos.y = (vId == 0 || vId == 3) ? 139.0 : 155.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -261,9 +244,8 @@ void main() {
         bool isVignette = (!isRotated && c.r == 251 && c.g == 251 && c.b == 250);
 
         if (isVignette) {
-            int corner = gl_VertexIndex % 4;
+            int corner = gl_VertexID % 4;
             if (corner == 0) {
-
                 pos.xy = vec2(0.0, 0.0);
                 vignetteCoord = vec2(0.0, 0.0);
             } else if (corner == 1) {
