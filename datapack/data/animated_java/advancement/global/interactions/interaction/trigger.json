@@ -3,14 +3,12 @@
     "player_interaction_clicked_interaction_entity": {
       "trigger": "minecraft:player_interacted_with_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "predicate": {
-              "type": "minecraft:interaction"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "predicate": {
+            "type": "minecraft:interaction"
           }
-        ]
+        }
       }
     }
   },
