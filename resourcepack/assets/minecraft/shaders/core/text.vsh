@@ -60,7 +60,7 @@ void main() {
         if (gByte == 170) {
             // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px, Y: guiHeight - 46px)
             if (bByte == 0) {
-                pos.x = (originX + 2.0) * (28.0 / 18.0) + 20.0;
+                pos.x = (originX + 8.0) * (28.0 / 18.0) + 20.0;
                 pos.y = (originY + 15.0) * (28.0 / 18.0) + (guiHeight - 46.0);
                 pos.z = 0.0;
             }
@@ -77,8 +77,8 @@ void main() {
         else if (gByte == 187 || gByte == 46) {
             // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right
             if (bByte == 0) {
-                pos.x = (originX - 12.0) * 6.0 + (guiWidth - 172.0);
-                pos.y = (originY + 22.0) * 6.0 + 0.0;
+                pos.x = (originX - 7.0) * 6.0 + (guiWidth - 172.0);
+                pos.y = (originY + 18.0) * 6.0 + 6.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -124,10 +124,10 @@ void main() {
         }
         // #010000: JNNGL GUI Avatar (56x56px at X: 42px..98px, Y: 68px..124px)
         else if (Color.g < 0.05 && Color.b < 0.05 && bByte == 0) {
-            pos.x = originX * 7.0 + 42.0;
-            pos.y = (originY + 8.0) * 7.0 + 68.0;
+            pos.x = (originX + 4.0) * 7.0 + 42.0;
+            pos.y = (originY + 6.0) * 7.0 + 68.0;
             pos.z = 0.0;
-            texCoord0 = clamp(vec2(originX / 8.0, (originY + 8.0) / 8.0), 0.0, 1.0);
+            texCoord0 = clamp(vec2((originX + 4.0) / 8.0, (originY + 6.0) / 8.0), 0.0, 1.0);
             custom = 1.0;
             vertexColor = vec4(1.0);
         }
