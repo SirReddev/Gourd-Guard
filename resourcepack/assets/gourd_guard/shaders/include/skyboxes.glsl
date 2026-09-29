@@ -217,86 +217,130 @@ vec3 tf_nebulaSky(vec3 d) {
 }
 
 // ==========================================
-// 2. SPOOKY FOGGY NIGHT (ID = 2)
-// Dark Stormy Clouds with Creeping Mist & Subtle Soft Stars
+// 2. GOTHIC FANTASY NIGHT (ID = 2)
+// Deep Indigo Night Sky, Glowing Textured Full Moon, Concentric Halos & Soft Stars
 // ==========================================
 
-// Soft Natural Star Pinpricks (No harsh lens spikes)
-vec3 tf_softStars(vec2 uv, float t) {
+// Soft Fantasy Stars (Warm Golden & Cool White Glow)
+vec3 tf_gothicStars(vec2 uv, float t) {
     vec2 gridUv = fract(uv) - 0.5;
     vec2 id = floor(uv);
     
-    vec2 randPos = (tf_hash22(id) - 0.5) * 0.8;
+    vec2 randPos = (tf_hash22(id + 23.41) - 0.5) * 0.75;
     float dist = length(gridUv - randPos);
     
-    float brightness = tf_hash12(id + 47.23);
-    float twinkle = sin(t * 1.4 + brightness * 6.283) * 0.25 + 0.75;
+    float brightness = tf_hash12(id + 81.19);
+    float twinkle = sin(t * 1.8 + brightness * 6.283) * 0.3 + 0.7;
     
-    float star = smoothstep(0.038, 0.0, dist) * brightness * twinkle;
-    vec3 col = mix(vec3(0.85, 0.90, 1.0), vec3(1.0, 0.95, 0.85), fract(brightness * 7.1));
-    return star * col * 0.45;
+    // Soft circular glowing star dot
+    float core = smoothstep(0.042, 0.0, dist) * 1.6;
+    float glow = smoothstep(0.120, 0.0, dist) * 0.4;
+    float star = (core + glow) * brightness * twinkle;
+    
+    vec3 starCol = mix(vec3(1.0, 0.90, 0.65), vec3(0.85, 0.94, 1.0), fract(brightness * 9.3));
+    return star * starCol * 0.75;
 }
 
-// Volumetric Rolling Halloween Storm Clouds & Mist
-vec3 tf_spookyStormClouds(vec3 d, float t) {
+// Glowing Textured Full Moon with Concentric Atmospheric Rings
+vec3 tf_gothicMoon(vec3 d) {
+    vec3 moonDir = normalize(vec3(0.35, 0.72, -0.60));
+    float cosAngle = dot(d, moonDir);
+    float angle = acos(clamp(cosAngle, -1.0, 1.0));
+    
+    float moonRadius = 0.095;
+    vec3 totalMoon = vec3(0.0);
+    
+    // 1. Concentric Atmospheric Lunar Halos (As in reference image)
+    float innerBloom = exp(-pow(angle / 0.16, 2.0)) * 0.75;
+    float ringGlow   = exp(-pow((angle - 0.22) / 0.055, 2.0)) * 0.22;
+    float wideHalo   = exp(-pow(angle / 0.60, 1.5)) * 0.28;
+    
+    vec3 bloomCol = vec3(1.0, 0.92, 0.72) * innerBloom;
+    vec3 ringCol  = vec3(0.30, 0.35, 0.55) * ringGlow;
+    vec3 wideCol  = vec3(0.20, 0.25, 0.48) * wideHalo;
+    totalMoon += (bloomCol + ringCol + wideCol);
+    
+    // 2. High-Detail Textured Moon Disk
+    if (angle < moonRadius * 1.4) {
+        vec3 up = vec3(0.0, 1.0, 0.0);
+        vec3 right = normalize(cross(up, moonDir));
+        vec3 mUp = cross(moonDir, right);
+        
+        vec2 mUv = vec2(dot(d, right), dot(d, mUp)) / moonRadius;
+        float r = length(mUv);
+        
+        if (r <= 1.0) {
+            float z = sqrt(1.0 - r * r);
+            
+            // Procedural Lunar Maria & Crater Shading
+            float mare1 = tf_fbm(mUv * 3.8 + vec2(1.8, 3.4));
+            float mare2 = tf_fbm(mUv * 7.6 + vec2(5.1, 2.2));
+            float mareNoise = mare1 * 0.65 + mare2 * 0.35;
+            float maria = smoothstep(0.35, 0.68, mareNoise);
+            
+            // Warm golden ivory illuminated surface + darker crater basins
+            vec3 brightSurface = vec3(1.0, 0.98, 0.88);
+            vec3 craterBasin   = vec3(0.68, 0.64, 0.45);
+            vec3 surfaceCol    = mix(brightSurface, craterBasin, maria * 0.55);
+            
+            // 3D spherical limb shading & crisp disk edge
+            float limb = pow(z, 0.28);
+            float diskMask = smoothstep(1.0, 0.94, r);
+            
+            totalMoon += surfaceCol * limb * diskMask * 2.8;
+        }
+    }
+    
+    float horizon = smoothstep(-0.06, 0.15, d.y);
+    return totalMoon * horizon;
+}
+
+// Soft Fantasy Twilight Clouds (with subtle Magenta/Purple and Midnight Blue)
+vec3 tf_gothicClouds(vec3 d, float t) {
     if (d.y <= -0.10) return vec3(0.0);
     
-    // Project sky dome onto planar cloud UVs
-    float planarDist = 1.0 / max(d.y + 0.18, 0.05);
-    vec2 cloudPos = d.xz * planarDist * 1.6;
+    float planarDist = 1.0 / max(d.y + 0.20, 0.05);
+    vec2 cloudPos = d.xz * planarDist * 1.5;
     
-    // Multi-speed slow wind drift
-    vec2 wind1 = vec2(t * 0.010, t * 0.005);
-    vec2 wind2 = vec2(-t * 0.007, t * 0.009);
+    vec2 wind = vec2(t * 0.008, t * 0.004);
+    float cloudNoise = tf_fbm(cloudPos * 0.7 + wind) * 0.7 + tf_fbm(cloudPos * 1.4 - wind * 0.5) * 0.3;
+    float cloudMask = smoothstep(0.32, 0.75, cloudNoise);
     
-    // Octave FBM cloud density
-    float fbm1 = tf_fbm(cloudPos * 0.75 + wind1);
-    float fbm2 = tf_fbm(cloudPos * 1.5 + wind2);
-    float cloudDensity = fbm1 * 0.65 + fbm2 * 0.35;
+    // Twilight Magenta & Midnight Blue cloud shading
+    vec3 cloudDark = vec3(0.015, 0.012, 0.035);
+    vec3 cloudMagenta = vec3(0.085, 0.025, 0.065);
+    vec3 cloudLit = mix(cloudDark, cloudMagenta, smoothstep(0.42, 0.78, cloudNoise));
     
-    // Soft thresholding for stormy cloud shapes
-    float cloudMask = smoothstep(0.30, 0.75, cloudDensity);
-    
-    // Cloud lighting (dark slate storm clouds with faint ambient highlight)
-    vec3 cloudShadow = vec3(0.006, 0.005, 0.009);
-    vec3 cloudHighlight = vec3(0.020, 0.018, 0.028);
-    vec3 cloudColor = mix(cloudShadow, cloudHighlight, smoothstep(0.38, 0.80, cloudDensity));
-    
-    // Horizon fade
     float horizon = smoothstep(-0.08, 0.25, d.y);
-    return cloudColor * cloudMask * horizon;
+    return cloudLit * cloudMask * horizon;
 }
 
 vec3 tf_halloweenSky(vec3 d) {
     float t = GameTime * 2.0 * PI;
     
-    // 1. Dark Slate Base Night Sky Ambient
-    vec3 zenithColor = vec3(0.0025, 0.0025, 0.0050); // Dark slate midnight
-    vec3 horizonColor = vec3(0.0080, 0.0075, 0.0120); // Moody atmospheric fog near trees/hills
+    // 1. Deep Midnight Royal Indigo & Navy Gradient
+    vec3 zenithColor  = vec3(0.012, 0.015, 0.048); // Deep royal midnight indigo
+    vec3 midSkyColor  = vec3(0.022, 0.025, 0.075); // Midnight sapphire
+    vec3 horizonColor = vec3(0.045, 0.028, 0.085); // Moody twilight purple horizon
     
-    float skyFade = clamp(d.y * 1.6, 0.0, 1.0);
-    vec3 sky = mix(horizonColor, zenithColor, skyFade);
+    float y = clamp(d.y, 0.0, 1.0);
+    vec3 sky = mix(horizonColor, midSkyColor, smoothstep(0.0, 0.45, y));
+    sky = mix(sky, zenithColor, smoothstep(0.45, 1.0, y));
     
-    // 2. Subtle Soft Starfield (Visible through cloud gaps)
-    vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 14.0;
-    vec2 starUv = tf_rotate(uv + vec2(2.0, -1.0), t * 0.005);
-    vec3 stars = tf_softStars(starUv, t) * smoothstep(-0.05, 0.20, d.y);
+    // 2. Soft Scattered Golden-White Stars
+    vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 13.0;
+    vec2 starUv = tf_rotate(uv + vec2(1.5, -2.5), t * 0.006);
+    vec3 stars = tf_gothicStars(starUv, t) * smoothstep(-0.05, 0.18, d.y);
+    sky += stars;
     
-    // Cloud density calculation for masking stars
-    float planarDist = 1.0 / max(d.y + 0.18, 0.05);
-    vec2 cloudPos = d.xz * planarDist * 1.6;
-    vec2 wind1 = vec2(t * 0.010, t * 0.005);
-    float cloudDensity = tf_fbm(cloudPos * 0.75 + wind1);
-    float cloudCover = smoothstep(0.25, 0.70, cloudDensity);
+    // 3. Glowing Full Moon with Concentric Halos
+    sky += tf_gothicMoon(d);
     
-    // Stars get naturally obscured by thick rolling clouds
-    sky += stars * (1.0 - cloudCover * 0.88);
+    // 4. Soft Twilight Clouds
+    sky += tf_gothicClouds(d, t);
     
-    // 3. Volumetric Spooky Rolling Storm Clouds & Mist
-    sky += tf_spookyStormClouds(d, t);
-    
-    // 4. Ground/Horizon Fog Blend
-    sky = mix(vec3(0.003, 0.003, 0.005), sky, smoothstep(-0.35, 0.05, d.y));
+    // 5. Horizon Fog Blend
+    sky = mix(vec3(0.015, 0.012, 0.025), sky, smoothstep(-0.35, 0.05, d.y));
     
     return sky;
 }
