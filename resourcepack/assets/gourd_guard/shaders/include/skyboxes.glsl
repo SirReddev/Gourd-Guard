@@ -217,59 +217,88 @@ vec3 tf_nebulaSky(vec3 d) {
 }
 
 // ==========================================
-// 2. SPOOKY STARRY HALLOWEEN (ID = 2)
-// Deep Spooky Dark Sky with Multi-Layered Twinkling Starfield & Shooting Stars
+// 2. SPOOKY FOGGY NIGHT (ID = 2)
+// Dark Stormy Clouds with Creeping Mist & Subtle Soft Stars
 // ==========================================
 
-// Fine Background Star Dust Layer
-vec3 tf_faintStarDust(vec2 uv, float t) {
+// Soft Natural Star Pinpricks (No harsh lens spikes)
+vec3 tf_softStars(vec2 uv, float t) {
     vec2 gridUv = fract(uv) - 0.5;
     vec2 id = floor(uv);
     
-    vec2 randPos = (tf_hash22(id + 13.37) - 0.5) * 0.8;
+    vec2 randPos = (tf_hash22(id) - 0.5) * 0.8;
     float dist = length(gridUv - randPos);
     
-    float brightness = tf_hash12(id + 99.41);
-    float twinkle = sin(t * 2.0 + brightness * 6.283) * 0.3 + 0.7;
+    float brightness = tf_hash12(id + 47.23);
+    float twinkle = sin(t * 1.4 + brightness * 6.283) * 0.25 + 0.75;
     
-    float star = smoothstep(0.045, 0.0, dist) * brightness * twinkle * 0.45;
-    return vec3(0.85, 0.90, 1.0) * star;
+    float star = smoothstep(0.038, 0.0, dist) * brightness * twinkle;
+    vec3 col = mix(vec3(0.85, 0.90, 1.0), vec3(1.0, 0.95, 0.85), fract(brightness * 7.1));
+    return star * col * 0.45;
+}
+
+// Volumetric Rolling Halloween Storm Clouds & Mist
+vec3 tf_spookyStormClouds(vec3 d, float t) {
+    if (d.y <= -0.10) return vec3(0.0);
+    
+    // Project sky dome onto planar cloud UVs
+    float planarDist = 1.0 / max(d.y + 0.18, 0.05);
+    vec2 cloudPos = d.xz * planarDist * 1.6;
+    
+    // Multi-speed slow wind drift
+    vec2 wind1 = vec2(t * 0.010, t * 0.005);
+    vec2 wind2 = vec2(-t * 0.007, t * 0.009);
+    
+    // Octave FBM cloud density
+    float fbm1 = tf_fbm(cloudPos * 0.75 + wind1);
+    float fbm2 = tf_fbm(cloudPos * 1.5 + wind2);
+    float cloudDensity = fbm1 * 0.65 + fbm2 * 0.35;
+    
+    // Soft thresholding for stormy cloud shapes
+    float cloudMask = smoothstep(0.30, 0.75, cloudDensity);
+    
+    // Cloud lighting (dark slate storm clouds with faint ambient highlight)
+    vec3 cloudShadow = vec3(0.006, 0.005, 0.009);
+    vec3 cloudHighlight = vec3(0.020, 0.018, 0.028);
+    vec3 cloudColor = mix(cloudShadow, cloudHighlight, smoothstep(0.38, 0.80, cloudDensity));
+    
+    // Horizon fade
+    float horizon = smoothstep(-0.08, 0.25, d.y);
+    return cloudColor * cloudMask * horizon;
 }
 
 vec3 tf_halloweenSky(vec3 d) {
     float t = GameTime * 2.0 * PI;
-    float gt = GameTime * 20.0;
     
-    // 1. Spooky Pitch-Black Night Sky Dome with Subtle Atmospheric Horizon
-    vec3 skyBase = vec3(0.0002, 0.0002, 0.0005);    // Pure dark night void
-    vec3 skyHorizon = vec3(0.0025, 0.0020, 0.0040); // Eerie dark ambient near horizon
+    // 1. Dark Slate Base Night Sky Ambient
+    vec3 zenithColor = vec3(0.0025, 0.0025, 0.0050); // Dark slate midnight
+    vec3 horizonColor = vec3(0.0080, 0.0075, 0.0120); // Moody atmospheric fog near trees/hills
     
-    float skyIntensity = smoothstep(-0.45, 0.05, d.y);
-    vec3 color = mix(skyBase, skyHorizon, clamp(1.0 - d.y * 1.5, 0.0, 1.0));
+    float skyFade = clamp(d.y * 1.6, 0.0, 1.0);
+    vec3 sky = mix(horizonColor, zenithColor, skyFade);
     
-    // 2. Faint Spooky Cosmic Mist Whispers
-    vec2 mistUv = (d.xz / (0.70 + 0.30 * max(d.y, -0.30))) * 2.8 + vec2(t * 0.003, t * 0.002);
-    float mist = tf_fbm(mistUv) * 0.6 + tf_fbm(mistUv * 2.2) * 0.4;
-    color += pow(mist, 2.5) * vec3(0.015, 0.012, 0.025) * skyIntensity;
+    // 2. Subtle Soft Starfield (Visible through cloud gaps)
+    vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 14.0;
+    vec2 starUv = tf_rotate(uv + vec2(2.0, -1.0), t * 0.005);
+    vec3 stars = tf_softStars(starUv, t) * smoothstep(-0.05, 0.20, d.y);
     
-    // 3. Multi-Layered Starfield:
-    // Layer A: Prominent Twinkling Stars
-    vec2 uv1 = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 11.5;
-    vec2 starUv1 = tf_rotate(uv1 + vec2(1.0, -4.0), t * 0.010);
-    color += tf_starField(starUv1, t, 1.1) * skyIntensity * 1.35;
+    // Cloud density calculation for masking stars
+    float planarDist = 1.0 / max(d.y + 0.18, 0.05);
+    vec2 cloudPos = d.xz * planarDist * 1.6;
+    vec2 wind1 = vec2(t * 0.010, t * 0.005);
+    float cloudDensity = tf_fbm(cloudPos * 0.75 + wind1);
+    float cloudCover = smoothstep(0.25, 0.70, cloudDensity);
     
-    // Layer B: Deep Faint Star Dust (Fine, distant twinkling stars)
-    vec2 uv2 = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 22.0;
-    vec2 starUv2 = tf_rotate(uv2 + vec2(-3.5, 7.2), -t * 0.007);
-    color += tf_faintStarDust(starUv2, t) * skyIntensity * 1.2;
+    // Stars get naturally obscured by thick rolling clouds
+    sky += stars * (1.0 - cloudCover * 0.88);
     
-    // 4. Subtle Falling Shooting Stars
-    color += tf_fallingStars(d, gt, 0) * 0.75;
+    // 3. Volumetric Spooky Rolling Storm Clouds & Mist
+    sky += tf_spookyStormClouds(d, t);
     
-    // 5. Ground Horizon Dark Vignette
-    color = mix(vec3(0.0001, 0.0001, 0.0002), color, smoothstep(-0.35, 0.05, d.y));
+    // 4. Ground/Horizon Fog Blend
+    sky = mix(vec3(0.003, 0.003, 0.005), sky, smoothstep(-0.35, 0.05, d.y));
     
-    return color;
+    return sky;
 }
 
 #endif // GOURD_GUARD_SKYBOXES_GLSL
