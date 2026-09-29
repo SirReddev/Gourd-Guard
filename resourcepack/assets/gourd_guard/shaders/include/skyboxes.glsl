@@ -217,125 +217,57 @@ vec3 tf_nebulaSky(vec3 d) {
 }
 
 // ==========================================
-// 2. SPOOKY NIGHT (ID = 2)
-// Dark Pitch Black Night Sky + Moon + Stars + Green & Blue Aurora Borealis
+// 2. SPOOKY STARRY HALLOWEEN (ID = 2)
+// Deep Spooky Dark Sky with Multi-Layered Twinkling Starfield & Shooting Stars
 // ==========================================
 
-// Glowing Celestial Moon with Atmospheric Halo & Shaded Surface Details
-vec3 tf_moon(vec3 d) {
-    // Moon positioned high in the night sky
-    vec3 moonDir = normalize(vec3(0.45, 0.65, -0.60));
-    float cosAngle = dot(d, moonDir);
-    float angle = acos(clamp(cosAngle, -1.0, 1.0));
+// Fine Background Star Dust Layer
+vec3 tf_faintStarDust(vec2 uv, float t) {
+    vec2 gridUv = fract(uv) - 0.5;
+    vec2 id = floor(uv);
     
-    float moonRadius = 0.065;
-    vec3 totalMoon = vec3(0.0);
+    vec2 randPos = (tf_hash22(id + 13.37) - 0.5) * 0.8;
+    float dist = length(gridUv - randPos);
     
-    // Soft atmospheric lunar halos
-    float wideHalo = exp(-pow(angle / 0.45, 1.6)) * 0.12;
-    float innerHalo = exp(-pow(angle / 0.14, 2.0)) * 0.45;
-    vec3 haloColor = vec3(0.60, 0.80, 1.0) * wideHalo + vec3(0.85, 0.93, 1.0) * innerHalo;
-    totalMoon += haloColor;
+    float brightness = tf_hash12(id + 99.41);
+    float twinkle = sin(t * 2.0 + brightness * 6.283) * 0.3 + 0.7;
     
-    if (angle < moonRadius * 1.5) {
-        vec3 up = vec3(0.0, 1.0, 0.0);
-        vec3 right = normalize(cross(up, moonDir));
-        vec3 mUp = cross(moonDir, right);
-        
-        vec2 mUv = vec2(dot(d, right), dot(d, mUp)) / moonRadius;
-        float r = length(mUv);
-        
-        if (r <= 1.0) {
-            float z = sqrt(1.0 - r * r);
-            
-            // Procedural lunar maria & crater details
-            float mareNoise = tf_fbm(mUv * 4.2 + vec2(2.1, 4.3)) * 0.35 + tf_fbm(mUv * 8.5) * 0.18;
-            float mare = smoothstep(0.36, 0.68, mareNoise);
-            
-            vec3 surface = mix(vec3(0.97, 0.98, 1.0), vec3(0.68, 0.74, 0.84), mare * 0.45);
-            float limbDarkening = pow(z, 0.30);
-            float antialias = smoothstep(1.0, 0.93, r);
-            
-            totalMoon += surface * limbDarkening * antialias * 2.5;
-        }
-    }
-    
-    float horizonFade = smoothstep(-0.06, 0.12, d.y);
-    return totalMoon * horizonFade;
-}
-
-// Vibrant Emerald Green & Cyan/Glacial Blue Aurora Borealis Ribbons
-vec3 tf_green_blue_aurora(vec3 d, float t) {
-    if (d.y <= -0.15 || d.y >= 0.85) return vec3(0.0);
-    
-    float heightFade = smoothstep(-0.15, 0.06, d.y);
-    float angle = atan(d.x, d.z);
-    vec3 totalAurora = vec3(0.0);
-    
-    const float centers[6]      = float[6](-2.85, -2.15, -0.85, -0.30,  1.40,  2.25);
-    const float widths[6]       = float[6]( 0.16,  0.20,  0.14,  0.18,  0.17,  0.21);
-    const float heightScales[6] = float[6]( 1.25,  1.40,  1.18,  1.32,  1.20,  1.45);
-    
-    for (int i = 0; i < 6; i++) {
-        float fi = float(i);
-        float speed = 0.35 + fi * 0.07;
-        float sway = sin(t * 0.30 * speed + fi * 2.3) * 0.08;
-        float c = centers[i] + sway;
-        
-        float diff = abs(angle - c);
-        diff = min(diff, TAU - diff);
-        
-        float mask = exp(-pow(diff / widths[i], 2.0) * 4.0);
-        if (mask < 0.005) continue;
-        
-        float topFade = pow(clamp(1.0 - d.y * heightScales[i], 0.0, 1.0), 1.4);
-        float rayCoord = diff * (22.0 + fi * 2.5) + sin(d.y * 2.2 + t * 0.28) * 0.28;
-        float rayDetail = tf_fbm(vec2(rayCoord, d.y * 2.2 - t * 0.40 * speed + fi * 1.8));
-        rayDetail = pow(rayDetail * 0.5 + 0.5, 1.7) * 1.25;
-        
-        // Lower curtain: Vibrant Emerald/Mint Green -> Mid: Cyan/Turquoise -> Upper: Glacial Blue
-        vec3 lowerColor = vec3(0.04, 0.94, 0.42);
-        vec3 midColor   = vec3(0.06, 0.72, 0.95);
-        vec3 upperColor = vec3(0.12, 0.35, 0.92);
-        
-        vec3 rayCol = mix(lowerColor, midColor, smoothstep(0.08, 0.36, d.y));
-        rayCol = mix(rayCol, upperColor, smoothstep(0.36, 0.68, d.y));
-        
-        float pulse = sin(t * (0.5 + fi * 0.12) + fi * 2.1) * 0.15 + 0.85;
-        
-        totalAurora += rayCol * mask * rayDetail * topFade * pulse * 0.95;
-    }
-    
-    return totalAurora * heightFade;
+    float star = smoothstep(0.045, 0.0, dist) * brightness * twinkle * 0.45;
+    return vec3(0.85, 0.90, 1.0) * star;
 }
 
 vec3 tf_halloweenSky(vec3 d) {
     float t = GameTime * 2.0 * PI;
     float gt = GameTime * 20.0;
     
-    // 1. Deep Dark Black Night Sky (Pure Obsidian Void with Subtle Horizon Glow)
-    vec3 skyBase = vec3(0.0004, 0.0006, 0.0012); // Pitch dark night void
-    vec3 skyHorizon = vec3(0.002, 0.005, 0.010); // Subtle deep navy horizon ambient
+    // 1. Spooky Pitch-Black Night Sky Dome with Subtle Atmospheric Horizon
+    vec3 skyBase = vec3(0.0002, 0.0002, 0.0005);    // Pure dark night void
+    vec3 skyHorizon = vec3(0.0025, 0.0020, 0.0040); // Eerie dark ambient near horizon
     
     float skyIntensity = smoothstep(-0.45, 0.05, d.y);
-    vec3 color = mix(skyBase, skyHorizon, clamp(1.0 - d.y * 1.6, 0.0, 1.0));
+    vec3 color = mix(skyBase, skyHorizon, clamp(1.0 - d.y * 1.5, 0.0, 1.0));
     
-    // 2. Crisp Twinkling Stars
-    vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 11.0;
-    vec2 starUv = tf_rotate(uv + vec2(1.0, -4.0), t * 0.015);
-    color += tf_starField(starUv, t, 1.15) * skyIntensity * 1.25;
+    // 2. Faint Spooky Cosmic Mist Whispers
+    vec2 mistUv = (d.xz / (0.70 + 0.30 * max(d.y, -0.30))) * 2.8 + vec2(t * 0.003, t * 0.002);
+    float mist = tf_fbm(mistUv) * 0.6 + tf_fbm(mistUv * 2.2) * 0.4;
+    color += pow(mist, 2.5) * vec3(0.015, 0.012, 0.025) * skyIntensity;
     
-    // 3. Glowing Celestial Moon
-    color += tf_moon(d);
+    // 3. Multi-Layered Starfield:
+    // Layer A: Prominent Twinkling Stars
+    vec2 uv1 = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 11.5;
+    vec2 starUv1 = tf_rotate(uv1 + vec2(1.0, -4.0), t * 0.010);
+    color += tf_starField(starUv1, t, 1.1) * skyIntensity * 1.35;
     
-    // 4. Vibrant Green and Blue Aurora Borealis
-    color += tf_green_blue_aurora(d, t);
+    // Layer B: Deep Faint Star Dust (Fine, distant twinkling stars)
+    vec2 uv2 = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 22.0;
+    vec2 starUv2 = tf_rotate(uv2 + vec2(-3.5, 7.2), -t * 0.007);
+    color += tf_faintStarDust(starUv2, t) * skyIntensity * 1.2;
     
-    // 5. Falling Shooting Stars & Comets (Emerald / Cyan / White)
-    color += tf_fallingStars(d, gt, 1) * 0.90;
+    // 4. Subtle Falling Shooting Stars
+    color += tf_fallingStars(d, gt, 0) * 0.75;
     
-    // 6. Horizon Void Vignette
-    color = mix(vec3(0.0001, 0.0002, 0.0004), color, smoothstep(-0.35, 0.05, d.y));
+    // 5. Ground Horizon Dark Vignette
+    color = mix(vec3(0.0001, 0.0001, 0.0002), color, smoothstep(-0.35, 0.05, d.y));
     
     return color;
 }
