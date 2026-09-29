@@ -218,7 +218,7 @@ vec3 tf_nebulaSky(vec3 d) {
 
 // ==========================================
 // 2. GOTHIC FANTASY NIGHT SKY (ID = 2)
-// High-Definition Photorealistic Full Moon, Concentric Halos & Deep Dark Indigo Sky
+// Exact match to Reference: Royal Blue Night Sky, Real Textured Golden Moon & Halos
 // ==========================================
 
 // Crisp Pinpoint Fantasy Stars (Small, Sharp & Twinkling)
@@ -230,44 +230,46 @@ vec3 tf_gothicStars(vec2 uv, float t) {
     float dist = length(gridUv - randPos);
     
     float brightness = tf_hash12(id + 88.71);
-    if (brightness < 0.38) return vec3(0.0);
+    if (brightness < 0.35) return vec3(0.0);
     
-    float twinkle = sin(t * 2.5 + brightness * 6.283) * 0.30 + 0.70;
+    float twinkle = sin(t * 2.5 + brightness * 6.283) * 0.25 + 0.75;
     
     // Crisp small pinprick star core + delicate soft micro-halo
-    float core = smoothstep(0.022, 0.0, dist) * 2.8;
-    float halo = smoothstep(0.075, 0.0, dist) * 0.45;
+    float core = smoothstep(0.022, 0.0, dist) * 2.4;
+    float halo = smoothstep(0.075, 0.0, dist) * 0.40;
     float star = (core + halo) * brightness * twinkle;
     
-    vec3 starCol = mix(vec3(1.0, 0.92, 0.65), vec3(0.88, 0.95, 1.0), fract(brightness * 13.1));
+    vec3 starCol = mix(vec3(1.0, 0.94, 0.70), vec3(0.90, 0.96, 1.0), fract(brightness * 13.1));
     return star * starCol;
 }
 
-// Ultra High-Definition Real Full Moon (Exact Lunar Geography & Concentric Ring Halo)
-vec3 tf_gothicMoon(vec3 d) {
+// Ultra High-Definition Real Golden Moon with Real Lunar Seas & Atmospheric Rings
+vec3 tf_gothicMoon(vec3 d, vec3 baseSky) {
     // Moon positioned high in the night sky
     vec3 moonDir = normalize(vec3(0.18, 0.68, -0.70));
     float cosAngle = dot(d, moonDir);
     float angle = acos(clamp(cosAngle, -1.0, 1.0));
     
-    float moonRadius = 0.110; // Large, prominent full moon disc
-    vec3 totalMoon = vec3(0.0);
+    float moonRadius = 0.105; // Prominent full moon disc matching reference
     
-    // Atmospheric Concentric Lunar Halos (Exact match to Reference #2)
-    // 1. Intense golden-white rim bloom
-    float innerBloom = exp(-pow(angle / (moonRadius * 1.25), 2.4)) * 0.95;
+    // Atmospheric Concentric Lunar Halos (Outside Moon Disk)
+    // 1. Warm golden bloom right around the moon edge
+    float haloDist = max(0.0, angle - moonRadius);
+    float innerBloom = exp(-pow(haloDist / 0.045, 2.0)) * 0.65;
     // 2. Concentric atmospheric ring glow (with dark gap in between)
-    float ringGlow   = exp(-pow((angle - moonRadius * 1.95) / 0.038, 2.0)) * 0.32;
+    float ringGlow   = exp(-pow((angle - moonRadius * 1.85) / 0.040, 2.0)) * 0.22;
     // 3. Wide subtle ambient moonlight
-    float wideGlow   = exp(-pow(angle / 0.55, 1.6)) * 0.25;
+    float wideGlow   = exp(-pow(angle / 0.55, 1.6)) * 0.15;
     
-    vec3 bloomCol = vec3(1.0, 0.96, 0.75) * innerBloom;
-    vec3 ringCol  = vec3(0.35, 0.40, 0.65) * ringGlow;
-    vec3 wideCol  = vec3(0.18, 0.22, 0.45) * wideGlow;
-    totalMoon += (bloomCol + ringCol + wideCol);
+    vec3 bloomCol = vec3(0.95, 0.85, 0.55) * innerBloom;
+    vec3 ringCol  = vec3(0.20, 0.25, 0.45) * ringGlow;
+    vec3 wideCol  = vec3(0.10, 0.14, 0.30) * wideGlow;
+    vec3 atmosphericHalos = (bloomCol + ringCol + wideCol);
     
-    // High-Resolution Lunar Disc with Real Lunar Seas & Craters
-    if (angle < moonRadius * 1.2) {
+    vec3 result = baseSky + atmosphericHalos;
+    
+    // Moon Disk with Real Lunar Geography (Never Blown Out!)
+    if (angle < moonRadius * 1.05) {
         vec3 up = vec3(0.0, 1.0, 0.0);
         vec3 right = normalize(cross(up, moonDir));
         vec3 mUp = cross(moonDir, right);
@@ -278,115 +280,87 @@ vec3 tf_gothicMoon(vec3 d) {
         if (r <= 1.0) {
             float z = sqrt(1.0 - r * r);
             
-            // Major Real Lunar Maria (Ocean of Storms, Sea of Rains, Sea of Tranquility, Sea of Serenity)
-            // 1. Oceanus Procellarum (Large western dark basin)
-            float mareProc = smoothstep(0.48, 0.10, length(mUv - vec2(-0.35, 0.10)) * vec2(1.1, 0.85).x);
+            // Major Real Lunar Maria (Exact Earth Moon geography from Reference Image #2)
+            // 1. Oceanus Procellarum (Large dark basin on west)
+            float mareProc = smoothstep(0.50, 0.12, length((mUv - vec2(-0.35, 0.08)) * vec2(1.1, 0.9)));
             // 2. Mare Imbrium (Round northern sea)
-            float mareImbr = smoothstep(0.32, 0.05, length(mUv - vec2(-0.18, 0.35)));
-            // 3. Mare Serenitatis & Tranquillitatis (Eastern seas)
-            float mareSeren = smoothstep(0.24, 0.04, length(mUv - vec2(0.18, 0.30)));
-            float mareTranq = smoothstep(0.28, 0.05, length(mUv - vec2(0.32, 0.05)));
-            // 4. Mare Crisium (Isolated eastern dark oval)
-            float mareCris = smoothstep(0.16, 0.02, length((mUv - vec2(0.55, 0.22)) * vec2(0.85, 1.3)));
+            float mareImbr = smoothstep(0.35, 0.08, length(mUv - vec2(-0.16, 0.36)));
+            // 3. Mare Serenitatis & Tranquillitatis (Eastern twin seas)
+            float mareSeren = smoothstep(0.26, 0.06, length(mUv - vec2(0.16, 0.30)));
+            float mareTranq = smoothstep(0.30, 0.06, length(mUv - vec2(0.30, 0.06)));
+            // 4. Mare Crisium (Isolated eastern dark sea)
+            float mareCris = smoothstep(0.18, 0.04, length((mUv - vec2(0.56, 0.22)) * vec2(0.9, 1.3)));
+            // 5. Mare Nubium & Humorum (Southern dark plains)
+            float mareNub = smoothstep(0.30, 0.06, length(mUv - vec2(-0.10, -0.25)));
             
-            float majorSeas = max(max(mareProc, mareImbr), max(max(mareSeren, mareTranq), mareCris));
+            float majorSeas = max(max(mareProc, mareImbr), max(max(mareSeren, mareTranq), max(mareCris, mareNub)));
             
-            // Multi-Octave High-Frequency Fractal Crater Shading
+            // Multi-Octave Fractal Crater Micro-Texture
             float fbm1 = tf_fbm(mUv * 4.5 + vec2(3.1, 7.4));
             float fbm2 = tf_fbm(mUv * 9.0 + vec2(1.2, 5.8));
             float fbm3 = tf_fbm(mUv * 18.0 + vec2(8.5, 2.1));
             float microTexture = fbm1 * 0.50 + fbm2 * 0.32 + fbm3 * 0.18;
             
-            // Combined Maria Pattern
-            float mariaPattern = clamp(majorSeas * 0.70 + microTexture * 0.45, 0.0, 1.0);
-            float mariaMask = smoothstep(0.32, 0.65, mariaPattern);
+            float mariaPattern = clamp(majorSeas * 0.72 + microTexture * 0.40, 0.0, 1.0);
+            float mariaMask = smoothstep(0.30, 0.65, mariaPattern);
             
-            // Tycho Crater Impact & Radial Ray System (Southern bright crater)
+            // Tycho Crater Impact & Bright Radial Rays (South-east bright crater)
             vec2 tychoPos = vec2(0.12, -0.52);
             vec2 toTycho = mUv - tychoPos;
             float tychoDist = length(toTycho);
             float tychoAngle = atan(toTycho.y, toTycho.x);
             float tychoRays = pow(sin(tychoAngle * 14.0 + fbm2 * 3.0) * 0.5 + 0.5, 4.0);
-            tychoRays *= smoothstep(0.75, 0.08, tychoDist) * 0.45;
-            float tychoCentralPeak = smoothstep(0.06, 0.0, tychoDist) * 1.5;
+            tychoRays *= smoothstep(0.75, 0.08, tychoDist) * 0.25;
+            float tychoPeak = smoothstep(0.06, 0.0, tychoDist) * 0.35;
             
-            // Surface Color Palette matching Reference #2 (Luminous Golden Ivory + Olive-Gold Craters)
-            vec3 highlands = vec3(1.0, 0.97, 0.85) + vec3(tychoRays + tychoCentralPeak);
-            vec3 mareBasin = vec3(0.68, 0.64, 0.42); // Olive-tan / golden-charcoal lunar sea
-            vec3 surfaceCol = mix(highlands, mareBasin, mariaMask * 0.68);
+            // Authentic Colors from Reference Image #2:
+            // Luminous golden ivory highlands + olive-gold/dark tan maria basins
+            vec3 highlands = vec3(1.0, 0.98, 0.82) + vec3(tychoRays + tychoPeak);
+            vec3 mareBasin = vec3(0.64, 0.62, 0.34); // Olive-gold / tan crater seas
+            vec3 darkBasin = vec3(0.48, 0.46, 0.22); // Deep crater interior
             
-            // Crisp 3D Spherical Normal Limb Shading
-            float limb = pow(z, 0.20);
-            // Ultra-sharp moon disk boundary
-            float diskAntialias = smoothstep(1.0, 0.985, r);
+            vec3 surfaceCol = mix(highlands, mareBasin, mariaMask);
+            surfaceCol = mix(surfaceCol, darkBasin, smoothstep(0.55, 0.90, mariaPattern) * 0.5);
             
-            totalMoon += surfaceCol * limb * diskAntialias * 3.4;
+            // Subtle spherical 3D shading
+            float limb = pow(z, 0.12);
+            surfaceCol *= limb;
+            
+            // Crisp, anti-aliased disk boundary
+            float diskMask = smoothstep(1.0, 0.982, r);
+            
+            // Directly replace sky with moon surface (prevents blowing out to pure white)
+            result = mix(result, surfaceCol, diskMask);
         }
     }
     
     float horizon = smoothstep(-0.06, 0.12, d.y);
-    return totalMoon * horizon;
-}
-
-// Crisp Twilight Cloud Wisps (Sharp High-Contrast Edges, Deep Indigo & Magenta Twilight)
-vec3 tf_gothicClouds(vec3 d, float t) {
-    if (d.y <= -0.10) return vec3(0.0);
-    
-    float planarDist = 1.0 / max(d.y + 0.20, 0.05);
-    vec2 cloudPos = d.xz * planarDist * 1.25;
-    
-    vec2 wind = vec2(t * 0.005, t * 0.0025);
-    float fbm1 = tf_fbm(cloudPos * 0.80 + wind);
-    float fbm2 = tf_fbm(cloudPos * 1.60 - wind * 0.5);
-    float cloudNoise = fbm1 * 0.70 + fbm2 * 0.30;
-    
-    // Crisp, sharp cloud threshold (prevents foggy blur across entire sky)
-    float cloudMask = smoothstep(0.46, 0.64, cloudNoise);
-    if (cloudMask <= 0.001) return vec3(0.0);
-    
-    // Cloud Colors matching Reference #1:
-    // Shadow side: Dark Midnight Indigo
-    // Highlight side: Rich Luminous Magenta / Plum Twilight
-    vec3 cloudShadow  = vec3(0.020, 0.015, 0.045);
-    vec3 cloudMagenta = vec3(0.18, 0.04, 0.12);
-    
-    float eastGlow = smoothstep(-0.2, 0.8, d.x);
-    vec3 cloudLit = mix(cloudShadow, cloudMagenta, eastGlow * smoothstep(0.48, 0.70, cloudNoise));
-    
-    float horizon = smoothstep(-0.08, 0.22, d.y);
-    return cloudLit * cloudMask * horizon;
+    return mix(baseSky, result, horizon);
 }
 
 vec3 tf_halloweenSky(vec3 d) {
     float t = GameTime * 2.0 * PI;
     
-    // 1. Deep Dark Midnight Indigo & Sapphire Sky (Dark, moody & high contrast)
-    vec3 zenithColor   = vec3(0.008, 0.010, 0.030); // Deep Dark Midnight Indigo (almost black)
-    vec3 midSkyColor   = vec3(0.016, 0.018, 0.055); // Deep Midnight Sapphire
-    vec3 horizonColor  = vec3(0.035, 0.022, 0.065); // Dark Twilight Violet Horizon
-    
-    // Subtle magenta-rose twilight glow on the horizon (matching Reference #1)
-    float horizonEast = smoothstep(-0.1, 0.9, d.x);
-    horizonColor = mix(horizonColor, vec3(0.085, 0.025, 0.065), horizonEast * 0.60);
+    // 1. Rich Royal Midnight Blue Sky (Exact match to Reference Images #1 & #2)
+    vec3 zenithColor   = vec3(0.045, 0.065, 0.200); // Deep Royal Midnight Sapphire
+    vec3 midSkyColor   = vec3(0.075, 0.095, 0.280); // Rich Royal Night Blue
+    vec3 horizonColor  = vec3(0.105, 0.090, 0.260); // Twilight Indigo Horizon
     
     float y = clamp(d.y, 0.0, 1.0);
     vec3 sky = mix(horizonColor, midSkyColor, smoothstep(0.0, 0.40, y));
     sky = mix(sky, zenithColor, smoothstep(0.40, 1.0, y));
     
-    // 2. Crisp Pinpoint Starfield
+    // 2. Crisp Pinpoint Fantasy Stars
     vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 13.5;
     vec2 starUv = tf_rotate(uv + vec2(1.2, -3.1), t * 0.005);
     vec3 stars = tf_gothicStars(starUv, t) * smoothstep(-0.05, 0.18, d.y);
-    sky += stars * 0.90;
+    sky += stars * 0.85;
     
-    // 3. High-Definition Photorealistic Moon with Concentric Halos
-    sky += tf_gothicMoon(d);
+    // 3. Ultra High-Definition Real Golden Moon with Concentric Halos
+    sky = tf_gothicMoon(d, sky);
     
-    // 4. Crisp Twilight Clouds
-    sky += tf_gothicClouds(d, t);
-    
-    // 5. Ground Horizon Blend
-    sky = mix(vec3(0.010, 0.008, 0.018), sky, smoothstep(-0.35, 0.05, d.y));
+    // 4. Ground Horizon Fog Blend
+    sky = mix(vec3(0.025, 0.025, 0.060), sky, smoothstep(-0.35, 0.05, d.y));
     
     return sky;
 }
