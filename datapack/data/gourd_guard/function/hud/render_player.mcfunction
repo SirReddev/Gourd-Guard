@@ -7,8 +7,13 @@ execute unless score @s coins_pop_type matches 0.. run scoreboard players set @s
 execute unless score .global timer_sec matches 0.. run scoreboard players set .global timer_sec 0
 execute unless score .global timer_min matches 0.. run scoreboard players set .global timer_min 5
 
-# If player has toggled HUD off (hud_toggle = 0), skip rendering
+# If player has toggled HUD off (hud_toggle = 0), clear actionbar and skip rendering
+execute if score @s hud_toggle matches 0 run title @s times 0 0 0
+execute if score @s hud_toggle matches 0 run title @s actionbar {"text":""}
 execute if score @s hud_toggle matches 0 run return 0
+
+# Pin actionbar on screen with zero fading for this player
+title @s times 0 100 0
 
 # Ensure player has an attached invisible head display with their username
 execute unless entity @e[type=item_display,tag=gg_player_head,distance=..2] run function gourd_guard:hud/init_player_head
