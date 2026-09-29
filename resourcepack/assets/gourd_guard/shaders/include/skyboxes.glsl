@@ -221,11 +221,69 @@ vec3 tf_nebulaSky(vec3 d) {
 // Exact match to The Legend of Zelda: Twilight Princess / Ocarina 3D Night Sky
 // ==========================================
 
-// Domain-warped natural lunar fractal noise (creates authentic organic crater seas)
-float tf_lunarNoise(vec2 p) {
-    vec2 q = vec2(tf_fbm(p + vec2(0.0, 0.0)), tf_fbm(p + vec2(5.2, 1.3)));
-    vec2 r = vec2(tf_fbm(p + 3.0 * q + vec2(1.7, 9.2)), tf_fbm(p + 3.0 * q + vec2(8.3, 2.8)));
-    return tf_fbm(p + 2.5 * r);
+// Exact 64x64 2-bit compressed moon crater texture extracted from user's moon image
+const uint tf_userMoonData[256] = uint[256](
+    0x00000000u, 0x0000000Au, 0xA0000000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 
+    0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x04000000u, 0x00000010u, 0x00000000u, 
+    0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00000000u, 
+    0x00000020u, 0x00000000u, 0x00000000u, 0x04000000u, 0x00000000u, 0x00000000u, 0x00000010u, 0x00000000u, 
+    0x00000000u, 0x00000000u, 0x00000054u, 0x00000000u, 0x00000010u, 0x00000000u, 0x00000014u, 0x10000000u, 
+    0x00000040u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00000140u, 0x00000000u, 0x00000000u, 0x00000000u, 
+    0x00000500u, 0x00000000u, 0x00000001u, 0x54000000u, 0x00081400u, 0x00000000u, 0x00000005u, 0x55401000u, 
+    0x00005500u, 0x00000000u, 0x00000005u, 0x55500000u, 0x00015540u, 0x00000000u, 0x00000001u, 0x55540000u, 
+    0x00015540u, 0x00000000u, 0x00000001u, 0x55550000u, 0x00015540u, 0x00000000u, 0x00000000u, 0x55550000u, 
+    0x02055540u, 0x00000000u, 0x00000000u, 0x15550040u, 0x00055540u, 0x00000000u, 0x00000000u, 0x01550000u, 
+    0x00055540u, 0x00000000u, 0x00000000u, 0x00550020u, 0x00050500u, 0x00000000u, 0x00000000u, 0x00050000u, 
+    0x00054000u, 0x00000000u, 0x00000000u, 0x00000000u, 0x00154100u, 0x00000000u, 0x00000000u, 0x00001400u, 
+    0x10554500u, 0x00000000u, 0x00000000u, 0x00001400u, 0x00554000u, 0x00000000u, 0x00000000u, 0x00000000u, 
+    0x00554001u, 0x40000000u, 0x00000000u, 0x10000150u, 0x00140001u, 0x00000000u, 0x00000000u, 0x00000154u, 
+    0x00000000u, 0x00000000u, 0x00000000u, 0x00000154u, 0x00000000u, 0x00000000u, 0x00000000u, 0x54000156u, 
+    0x00000000u, 0x00000000u, 0x00000001u, 0x55054156u, 0x80000000u, 0x00000000u, 0x00000001u, 0x55155555u, 
+    0x80000000u, 0x00000000u, 0x00000001u, 0x55555155u, 0x00000000u, 0x00000000u, 0x00000001u, 0x551551A6u, 
+    0x10000000u, 0x00000000u, 0x00000000u, 0x14555166u, 0x10000000u, 0x00000000u, 0x00000000u, 0x005A52A4u, 
+    0x10000000u, 0x00000000u, 0x00540000u, 0x01555294u, 0x14000000u, 0x00000000u, 0x00540000u, 0x05555190u, 
+    0x04140000u, 0x00000000u, 0x00000000u, 0x05555140u, 0x14040000u, 0x00000000u, 0x00000000u, 0x05555400u, 
+    0x05000000u, 0x00000000u, 0x00000000u, 0x05555540u, 0x05550000u, 0x00000000u, 0x00000050u, 0x05555540u, 
+    0x05550000u, 0x00000000u, 0x00000054u, 0x05555540u, 0x01550000u, 0x00000000u, 0x00000055u, 0x05555520u, 
+    0x01540005u, 0x40000000u, 0x00000014u, 0x45555500u, 0x02540155u, 0x54001000u, 0x00000001u, 0x41555440u, 
+    0x00550555u, 0x55501400u, 0x00001041u, 0x41555400u, 0x0010156Au, 0x95540015u, 0x54005445u, 0x41555000u, 
+    0x001415AAu, 0xAA950015u, 0x55405405u, 0x45554000u, 0x000415AAu, 0xAAA50156u, 0x95540000u, 0x05554000u, 
+    0x0009156Au, 0xAAA5056Au, 0xAA955415u, 0x55551000u, 0x0001556Au, 0xAA9405AAu, 0xAA655555u, 0x55550000u, 
+    0x0000555Au, 0xAA9405AAu, 0xAA955595u, 0x55540000u, 0x0000155Au, 0xAA9406AAu, 0xAA5556A5u, 0x55000000u, 
+    0x00000156u, 0xAAA506AAu, 0xAA555695u, 0x51400000u, 0x00000055u, 0xAAA516AAu, 0xA9555655u, 0x01400000u, 
+    0x00000015u, 0x6A541556u, 0x95555551u, 0x40000000u, 0x00000005u, 0x55500415u, 0x65551405u, 0x08000000u, 
+    0x00000000u, 0x55541105u, 0x55415540u, 0x00000000u, 0x00000000u, 0x01555541u, 0x55155540u, 0x00000000u, 
+    0x00000000u, 0x08015501u, 0x54155520u, 0x00000000u, 0x00000000u, 0x00000000u, 0x50055000u, 0x00000000u, 
+    0x00000000u, 0x00004000u, 0x00010000u, 0x00000000u, 0x00000000u, 0x00000002u, 0x80000000u, 0x00000000u
+);
+
+// Fetch raw 2-bit crater intensity from compressed moon data at integer grid coords (x, y) [0..63]
+float tf_fetchMoonPixel(int x, int y) {
+    x = clamp(x, 0, 63);
+    y = clamp(y, 0, 63);
+    int p = y * 64 + x;
+    int uintIdx = p >> 4;
+    int bitShift = (p & 15) * 2;
+    uint val = (tf_userMoonData[uintIdx] >> bitShift) & 3u;
+    return float(val) / 3.0;
+}
+
+// Bilinear filtered sampling of the user's moon crater texture
+float tf_sampleUserMoon(vec2 uv) {
+    vec2 pos = uv * 63.0;
+    vec2 f = fract(pos);
+    f = f * f * (3.0 - 2.0 * f); // smooth cubic interpolation
+    int x0 = int(floor(pos.x));
+    int y0 = int(floor(pos.y));
+    int x1 = min(x0 + 1, 63);
+    int y1 = min(y0 + 1, 63);
+    
+    float p00 = tf_fetchMoonPixel(x0, y0);
+    float p10 = tf_fetchMoonPixel(x1, y0);
+    float p01 = tf_fetchMoonPixel(x0, y1);
+    float p11 = tf_fetchMoonPixel(x1, y1);
+    
+    return mix(mix(p00, p10, f.x), mix(p01, p11, f.x), f.y);
 }
 
 // Soft Scattered Fantasy Stars (Warm Golden & Diamond White)
@@ -250,7 +308,7 @@ vec3 tf_tpStars(vec2 uv, float t) {
     return star * starCol * 0.85;
 }
 
-// Authentic Glowing Full Moon with Organic Lunar Texture & Subtle Spectral Halos
+// Authentic Glowing Full Moon with User's Exact Crater Texture & Soft Golden Halo
 vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
     // Moon positioned high in the night sky (upper right viewing angle)
     vec3 moonDir = normalize(vec3(0.22, 0.65, -0.72));
@@ -259,27 +317,18 @@ vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
     
     float moonRadius = 0.105;
     
-    // 1. Concentric Atmospheric Lunar Halos (Outside disk)
+    // 1. Soft Natural Golden Halos (Outside disk, no harsh rainbow/chromatic rings)
     float haloDist = max(0.0, angle - moonRadius);
-    // Smooth golden inner bloom
-    float innerBloom = exp(-pow(haloDist / 0.035, 1.6)) * 0.65;
+    float innerBloom = exp(-pow(haloDist / 0.045, 1.8)) * 0.70;
+    float wideGlow = exp(-pow(angle / 0.45, 1.6)) * 0.16;
     
-    // Subtle chromatic / spectral diffraction rings (as seen in Twilight Princess)
-    float ringR = exp(-pow((angle - moonRadius * 1.65) / 0.040, 2.0)) * 0.16;
-    float ringG = exp(-pow((angle - moonRadius * 1.85) / 0.040, 2.0)) * 0.18;
-    float ringB = exp(-pow((angle - moonRadius * 2.05) / 0.045, 2.0)) * 0.24;
-    vec3 spectralRing = vec3(ringR * 1.0, ringG * 0.95, ringB * 1.1);
-    
-    // Outer atmospheric ambient glow
-    float wideGlow = exp(-pow(angle / 0.50, 1.6)) * 0.18;
-    vec3 wideCol = vec3(0.12, 0.16, 0.35) * wideGlow;
-    
-    vec3 bloomCol = vec3(0.96, 0.90, 0.65) * innerBloom;
-    vec3 atmosphericHalos = bloomCol + spectralRing + wideCol;
+    vec3 bloomCol = vec3(0.96, 0.92, 0.72) * innerBloom;
+    vec3 wideCol = vec3(0.10, 0.14, 0.32) * wideGlow;
+    vec3 atmosphericHalos = bloomCol + wideCol;
     
     vec3 result = baseSky + atmosphericHalos;
     
-    // 2. Lunar Surface Disk with Organic Lunar Seas & Craters
+    // 2. Lunar Surface Disk with User's Exact Texture
     if (angle < moonRadius * 1.05) {
         vec3 up = vec3(0.0, 1.0, 0.0);
         vec3 right = normalize(cross(up, moonDir));
@@ -291,38 +340,31 @@ vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
         if (r <= 1.0) {
             float z = sqrt(1.0 - r * r);
             
-            // Continuous natural fractal lunar surface (Sea of Tranquility, Ocean of Storms)
-            float lunar1 = tf_lunarNoise(mUv * 2.8 + vec2(1.2, 3.4));
-            float lunar2 = tf_fbm(mUv * 6.5 + vec2(4.1, 7.8));
-            float lunar3 = tf_fbm(mUv * 14.0 + vec2(8.5, 2.3));
-            float surfaceDetail = lunar1 * 0.60 + lunar2 * 0.28 + lunar3 * 0.12;
+            // Map mUv [-1, 1] to user texture UV [0, 1]
+            vec2 texUv = vec2(mUv.x * 0.5 + 0.5, 0.5 - mUv.y * 0.5);
+            float craterVal = tf_sampleUserMoon(texUv);
             
-            // Tycho impact crater & subtle southern rays
-            vec2 tychoPos = vec2(0.15, -0.48);
-            vec2 toTycho = mUv - tychoPos;
-            float tychoDist = length(toTycho);
-            float tychoRays = pow(sin(atan(toTycho.y, toTycho.x) * 12.0 + lunar2 * 2.0) * 0.5 + 0.5, 3.0);
-            tychoRays *= smoothstep(0.65, 0.08, tychoDist) * 0.20;
-            float tychoPeak = smoothstep(0.05, 0.0, tychoDist) * 0.30;
+            // Subtle high-frequency micro-grain for tactile realism
+            float microGrain = (tf_fbm(mUv * 18.0) - 0.5) * 0.08;
+            craterVal = clamp(craterVal + microGrain, 0.0, 1.0);
             
-            // Colors matching Twilight Princess:
-            // Luminous golden-cream highlands + olive-tan / golden-gray lunar seas
-            vec3 highlands = vec3(0.98, 0.96, 0.84) + vec3(tychoRays + tychoPeak);
-            vec3 mareBasin = vec3(0.68, 0.64, 0.46);
-            vec3 darkBasin = vec3(0.52, 0.48, 0.34);
+            // Palette matching Twilight Princess & User Reference:
+            // Luminous golden-ivory highlands + soft olive-tan / golden-gray lunar seas
+            vec3 highlands = vec3(1.00, 0.98, 0.88);
+            vec3 mareBasin  = vec3(0.72, 0.68, 0.48);
+            vec3 darkBasin  = vec3(0.56, 0.52, 0.36);
             
-            float mariaMask = smoothstep(0.32, 0.68, surfaceDetail);
-            vec3 surfaceCol = mix(highlands, mareBasin, mariaMask);
-            surfaceCol = mix(surfaceCol, darkBasin, smoothstep(0.55, 0.85, surfaceDetail) * 0.4);
+            vec3 surfaceCol = mix(highlands, mareBasin, smoothstep(0.12, 0.65, craterVal));
+            surfaceCol = mix(surfaceCol, darkBasin, smoothstep(0.60, 0.95, craterVal) * 0.55);
             
             // 3D spherical limb darkening
-            float limb = pow(z, 0.14);
+            float limb = pow(z, 0.16);
             surfaceCol *= limb;
             
             // Crisp anti-aliased circular disk boundary
             float diskMask = smoothstep(1.0, 0.985, r);
             
-            // Replace sky directly with moon surface (avoids blowing out)
+            // Replace sky directly with moon surface (cleanly avoids blowout)
             result = mix(result, surfaceCol, diskMask);
         }
     }
