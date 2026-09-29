@@ -10,6 +10,13 @@ execute unless score .global timer_min matches 0.. run scoreboard players set .g
 # If player has toggled HUD off (hud_toggle = 0), skip rendering
 execute if score @s hud_toggle matches 0 run return 0
 
+# Ensure player has an attached invisible head display with their username
+execute unless entity @e[type=item_display,tag=gg_player_head,distance=..2] run function gourd_guard:hud/init_player_head
+
+# Copy player's username into macro storage (fallback to Sir_Reddev if loading)
+data modify storage gourd_guard:hud macro.player set value "Sir_Reddev"
+data modify storage gourd_guard:hud macro.player set from entity @e[type=item_display,tag=gg_player_head,distance=..2,limit=1] item.components."minecraft:profile".name
+
 # Set default macro backsteps
 data modify storage gourd_guard:hud macro.coins_back set value "\uF806"
 data modify storage gourd_guard:hud macro.pop_back set value "\uF80C"
