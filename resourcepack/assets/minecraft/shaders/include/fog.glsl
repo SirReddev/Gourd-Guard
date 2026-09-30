@@ -28,17 +28,17 @@ vec4 apply_fog(vec4 inColor, float sphericalVertexDistance, float cylindricalVer
         return inColor;
     }
 
-    // 7-block clear zone around the player, followed by dense black fog in the 3D world
-    float clearRadius = 7.0;   // 0% fog within 7 blocks of the player
-    float blackWall   = 16.0;  // 100% thick pitch-black fog by 16 blocks
+    // Expanded clear visibility bubble around player, smoothly fading into deep midnight fog
+    float clearRadius = 20.0;  // 0% fog within 20 blocks of the player
+    float blackWall   = 45.0;  // Smoothly fades into deep dark fog by 45 blocks
 
     float activeStart = min(renderDistanceStart, clearRadius);
     float activeEnd   = min(renderDistanceEnd, blackWall);
 
     float fogValue = total_fog_value(sphericalVertexDistance, cylindricalVertexDistance, environmentalStart, environmantalEnd, activeStart, activeEnd);
-    fogValue = pow(fogValue, 0.75); // Steep curve for heavy, dense mist
+    fogValue = pow(fogValue, 1.15); // Smooth natural falloff curve
 
-    vec3 blackFog = vec3(0.008, 0.008, 0.012); // Deep eerie black void
+    vec3 blackFog = vec3(0.006, 0.004, 0.018); // Deep eerie midnight purple-black void
 
     return vec4(mix(inColor.rgb, blackFog, fogValue * fogColor.a), inColor.a);
 }
