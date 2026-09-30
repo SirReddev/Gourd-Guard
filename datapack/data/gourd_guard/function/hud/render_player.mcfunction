@@ -15,14 +15,18 @@ execute if score @s hud_toggle matches 0 run return 0
 # Pin actionbar on screen with zero fading for this player
 title @s times 0 100 0
 
-# Ensure player has an attached head marker
+# Ensure player has an attached head passenger
 execute unless entity @s[tag=gg_has_head] run function gourd_guard:hud/init_player_head
 
-# Always ensure a valid fallback player username to prevent macro failures
-data modify storage gourd_guard:hud macro.player set value "Sir_Reddev"
+# Reset and extract exact player username from the mounted item_display passenger
+data remove storage gourd_guard:hud macro.player
+execute on passengers if entity @s[type=item_display,tag=gg_player_head] run data modify storage gourd_guard:hud macro.player set from entity @s item.components."minecraft:profile".name
+execute on passengers if entity @s[type=item_display,tag=gg_player_head] unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s item.components."minecraft:profile"
+execute on passengers if entity @s[type=item_display,tag=gg_player_head] unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s item.tag.SkullOwner.Name
+execute on passengers if entity @s[type=item_display,tag=gg_player_head] unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s item.tag.SkullOwner
 
-# Extract exact player username from passenger marker if present
-data modify storage gourd_guard:hud macro.player set from entity @s Passengers[{Tags:["gg_player_head"]}].data.name
+# Safe fallback if passenger is still mounting on the first tick
+execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set value "Sir_Reddev"
 
 # Set default macro backsteps
 data modify storage gourd_guard:hud macro.coins_back set value "\uF806"
