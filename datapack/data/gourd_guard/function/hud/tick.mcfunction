@@ -16,4 +16,4 @@ function gourd_guard:hud/objective/tick
 function gourd_guard:hud/wave/tick
 
 # 5. Render HUD for each player
-execute as @a run function gourd_guard:hud/render_player
+execute as @a at @s run function gourd_guard:hud/render_player

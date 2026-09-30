@@ -16,7 +16,7 @@ execute if score @s hud_toggle matches 0 run return 0
 title @s times 0 100 0
 
 # Ensure player has an attached head passenger
-execute unless entity @s[tag=gg_has_head] run function gourd_guard:hud/init_player_head
+execute unless entity @s[tag=gg_has_head] at @s run function gourd_guard:hud/init_player_head
 
 # Reset and extract exact player username from the mounted item_display passenger
 data remove storage gourd_guard:hud macro.player

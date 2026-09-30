@@ -12,12 +12,12 @@ loot replace entity @s enderchest.0 loot gourd_guard:player_head
 execute at @s run summon item_display ~ ~ ~ {Tags:["gg_player_head"],view_range:0.0f}
 
 # 4. Copy player_head from enderchest into item_display contents
-item replace entity @e[type=item_display,tag=gg_player_head,distance=..1,limit=1] contents from entity @s enderchest.0
+execute at @s run item replace entity @e[type=item_display,tag=gg_player_head,distance=..2,limit=1] contents from entity @s enderchest.0
 
 # 5. Clear player enderchest slot 0
 item replace entity @s enderchest.0 with air
 
 # 6. Mount item_display onto player @s
-ride @e[type=item_display,tag=gg_player_head,distance=..1,limit=1] mount @s
+execute at @s run ride @e[type=item_display,tag=gg_player_head,distance=..2,limit=1] mount @s
 
 tag @s add gg_has_head
