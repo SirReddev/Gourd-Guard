@@ -462,8 +462,8 @@ vec3 tf_tpClouds(vec3 d, float t) {
     float cloudDensity = smoothstep(0.36, 0.68, cloudNoise);
     
     // Deep midnight purple-blue clouds
-    vec3 cloudShadow = vec3(0.010, 0.008, 0.032);
-    vec3 cloudHighlight = vec3(0.030, 0.022, 0.075);
+    vec3 cloudShadow = vec3(0.006, 0.004, 0.022);
+    vec3 cloudHighlight = vec3(0.018, 0.010, 0.050);
     vec3 cloudColor = mix(cloudShadow, cloudHighlight, smoothstep(0.42, 0.70, cloudNoise));
     
     float horizon = smoothstep(-0.08, 0.20, d.y);
@@ -578,10 +578,10 @@ vec3 tf_halloweenSky(vec3 d) {
     float t = GameTime * 2.0 * PI;
     float gt = GameTime * 20.0;
     
-    // 1. Way Darker Spooky Purple-Blue Sky Gradient
-    vec3 zenithColor   = vec3(0.012, 0.010, 0.052); // Very Deep Dark Midnight Violet-Blue
-    vec3 midSkyColor   = vec3(0.024, 0.020, 0.095); // Deep Dark Spooky Purple-Blue
-    vec3 horizonColor  = vec3(0.040, 0.028, 0.125); // Dark Twilight Indigo-Purple Horizon
+    // 1. Darker Rich Purple-Dark Blue Sky Gradient
+    vec3 zenithColor   = vec3(0.008, 0.005, 0.038); // Deep Dark Midnight Violet-Blue
+    vec3 midSkyColor   = vec3(0.016, 0.010, 0.068); // Dark Spooky Purple-Navy Blue
+    vec3 horizonColor  = vec3(0.026, 0.015, 0.090); // Dark Purple-Indigo Horizon
     
     float y = clamp(d.y, 0.0, 1.0);
     vec3 sky = mix(horizonColor, midSkyColor, smoothstep(0.0, 0.40, y));
@@ -603,7 +603,7 @@ vec3 tf_halloweenSky(vec3 d) {
     sky = tf_tpMoon(d, sky);
     
     // 6. Dark Horizon Fog Blend
-    sky = mix(vec3(0.008, 0.006, 0.020), sky, smoothstep(-0.35, 0.05, d.y));
+    sky = mix(vec3(0.005, 0.003, 0.015), sky, smoothstep(-0.35, 0.05, d.y));
     
     return sky;
 }
