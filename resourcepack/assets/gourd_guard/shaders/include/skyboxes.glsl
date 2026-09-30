@@ -402,7 +402,7 @@ vec3 tf_tpStars(vec2 uv, float t) {
     return star * starCol * 0.85;
 }
 
-// Authentic Glowing Full Moon with User's Exact Texture & Soft Atmospheric Halo
+// Authentic Glowing Full Moon with User's Exact Texture & Soft Controlled Halo
 vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
     // Moon positioned high in the night sky (upper right viewing angle)
     vec3 moonDir = normalize(vec3(0.22, 0.65, -0.72));
@@ -411,18 +411,18 @@ vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
     
     float moonRadius = 0.110;
     
-    // 1. Soft Atmospheric Halos (Outside disk)
+    // 1. Soft, Dim Atmospheric Halos (Soft ambient glow, not blindingly bright)
     float haloDist = max(0.0, angle - moonRadius);
-    float innerBloom = exp(-pow(haloDist / 0.040, 1.6)) * 0.70;
-    float wideGlow   = exp(-pow(angle / 0.42, 1.5)) * 0.16;
+    float innerBloom = exp(-pow(haloDist / 0.032, 1.6)) * 0.30;
+    float wideGlow   = exp(-pow(angle / 0.38, 1.5)) * 0.08;
     
-    vec3 bloomCol = mix(vec3(0.92, 0.94, 1.00), vec3(1.00, 0.98, 0.90), 0.35) * innerBloom;
-    vec3 wideCol  = vec3(0.045, 0.035, 0.160) * wideGlow;
+    vec3 bloomCol = mix(vec3(0.85, 0.88, 0.98), vec3(0.95, 0.92, 0.85), 0.30) * innerBloom;
+    vec3 wideCol  = vec3(0.030, 0.025, 0.110) * wideGlow;
     vec3 atmosphericHalos = bloomCol + wideCol;
     
     vec3 result = baseSky + atmosphericHalos;
     
-    // 2. Lunar Surface Disk with Exact User Cutout Shapes
+    // 2. Lunar Surface Disk with Exact User Cutout Shapes (Controlled Soft Luminance)
     if (angle < moonRadius * 1.05) {
         vec3 up = vec3(0.0, 1.0, 0.0);
         vec3 right = normalize(cross(up, moonDir));
@@ -438,11 +438,10 @@ vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
             vec2 texUv = vec2(mUv.x * 0.5 + 0.5, 0.5 - mUv.y * 0.5);
             float craterVal = tf_sampleUserMoon(texUv);
             
-            // Exact colors from user's cutout image:
-            // White body + Soft Lavender craters + Darker Lavender core craters
-            vec3 moonBody    = vec3(0.985, 0.985, 1.000);
-            vec3 lightCrater = vec3(0.816, 0.804, 0.920);
-            vec3 darkCrater  = vec3(0.741, 0.725, 0.870);
+            // Exact colors from user cutout with balanced, non-blinding luminance
+            vec3 moonBody    = vec3(0.880, 0.880, 0.920);
+            vec3 lightCrater = vec3(0.700, 0.680, 0.820);
+            vec3 darkCrater  = vec3(0.580, 0.550, 0.720);
             
             vec3 surfaceCol = moonBody;
             if (craterVal > 0.05) {
@@ -454,7 +453,7 @@ vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
             
             // Subtle 3D spherical curvature
             float limb = pow(z, 0.08);
-            surfaceCol *= mix(0.93, 1.0, limb);
+            surfaceCol *= mix(0.90, 1.0, limb);
             
             // Crisp anti-aliased circular disk boundary
             float diskMask = smoothstep(1.0, 0.988, r);
@@ -467,6 +466,7 @@ vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
     float horizon = smoothstep(-0.06, 0.12, d.y);
     return mix(baseSky, result, horizon);
 }
+
 // Soft Layered Twilight Princess Clouds (Horizontal painterly midnight bands)
 vec3 tf_tpClouds(vec3 d, float t) {
     if (d.y <= -0.10) return vec3(0.0);
@@ -492,8 +492,98 @@ vec3 tf_tpClouds(vec3 d, float t) {
     return cloudColor * cloudDensity * horizon * 0.75;
 }
 
+// Large Blazing Fire & Cosmic Blue Comets Razing Through the Sky
+vec3 tf_halloweenComets(vec3 d, float gt) {
+    vec3 totalComets = vec3(0.0);
+    
+    for (int k = 0; k < 6; k++) {
+        float fk = float(k);
+        // Staggered timing for continuous epic activity
+        float period   = 3.2 + mod(fk * 0.75, 2.2);
+        float duration = 0.45 + mod(fk * 0.08, 0.18);
+        
+        float progress = mod(gt * 0.70 + fk * 1.67, period);
+        if (progress > duration) continue;
+        
+        float p = progress / duration;
+        float life = sin(p * PI);
+        
+        // Diverse sweeping trajectory angles across the upper sky dome
+        float startAngle = fk * 1.047 + mod(fk * 2.1, 1.4);
+        vec3 startDir = normalize(vec3(cos(startAngle) * 0.75, 0.90, sin(startAngle) * 0.75));
+        vec3 endDir   = normalize(vec3(cos(startAngle + 1.65) * 1.50, -0.15, sin(startAngle + 1.65) * 1.50));
+        
+        vec3 headDir = normalize(mix(startDir, endDir, p));
+        float tailLength = 0.75 + mod(fk * 0.12, 0.20);
+        vec3 tailDir = normalize(mix(startDir, endDir, max(0.0, p - tailLength)));
+        
+        vec3 N = cross(tailDir, headDir);
+        float nLen = length(N);
+        if (nLen < 0.0001) continue;
+        N /= nLen;
+        
+        vec3 T = cross(N, tailDir);
+        float arcAngle = acos(clamp(dot(tailDir, headDir), -1.0, 1.0));
+        if (arcAngle < 0.001) continue;
+        
+        float distToPlane = abs(dot(d, N));
+        float alongX = dot(d, tailDir);
+        float alongY = dot(d, T);
+        float angle = atan(alongY, alongX);
+        
+        float clampedAngle = clamp(angle, 0.0, arcAngle);
+        float distAlong = abs(angle - clampedAngle);
+        float distToArc = sqrt(distToPlane * distToPlane + distAlong * distAlong);
+        
+        float alongTail = clamp(angle / arcAngle, 0.0, 1.0);
+        
+        // Large comet scale
+        float sizeScale = 1.8 + mod(fk * 0.45, 0.8);
+        
+        // Flaming comet trail beam & plasma halo
+        float coreWidth = (0.0025 + alongTail * 0.0065) * sizeScale;
+        float coreBeam  = exp(-pow(distToArc / coreWidth, 2.0) * 3.5) * pow(alongTail, 1.1);
+        
+        float glowWidth = (0.0080 + alongTail * 0.0240) * sizeScale;
+        float haloGlow  = exp(-pow(distToArc / glowWidth, 1.8) * 2.0) * pow(alongTail, 1.3);
+        
+        // Blazing head
+        float distToHead = length(d - headDir);
+        float headCore = smoothstep(0.012 * sizeScale, 0.0, distToHead) * 4.0;
+        float headFlare = smoothstep(0.038 * sizeScale, 0.0, distToHead) * 1.8;
+        
+        // Alternate between Blazing Fire Comets and Cosmic Blue Comets
+        bool isFire = (int(mod(fk, 2.0)) == 0);
+        
+        vec3 whiteCore = vec3(1.0, 1.0, 1.0);
+        vec3 primaryCol, secondaryCol;
+        
+        if (isFire) {
+            // Blazing Fire Comet (Sun Gold / Flame Orange / Crimson)
+            primaryCol   = vec3(1.00, 0.50, 0.06); // Molten orange
+            secondaryCol = vec3(0.90, 0.15, 0.02); // Deep fiery red
+        } else {
+            // Cosmic Blue Comet (Electric Cyan / Sapphire / Royal Cobalt)
+            primaryCol   = vec3(0.25, 0.80, 1.00); // Radiant cyan
+            secondaryCol = vec3(0.08, 0.30, 0.95); // Royal cobalt blue
+        }
+        
+        vec3 trailCol = mix(secondaryCol, primaryCol, smoothstep(0.1, 0.7, alongTail));
+        trailCol      = mix(trailCol, whiteCore, smoothstep(0.75, 0.98, alongTail));
+        
+        vec3 headVisual  = whiteCore * headCore + primaryCol * headFlare;
+        vec3 trailVisual = whiteCore * coreBeam * 3.5 + trailCol * haloGlow * 1.6;
+        
+        float horizonFade = smoothstep(-0.20, 0.10, d.y);
+        totalComets += (headVisual + trailVisual) * life * horizonFade;
+    }
+    
+    return totalComets;
+}
+
 vec3 tf_halloweenSky(vec3 d) {
     float t = GameTime * 2.0 * PI;
+    float gt = GameTime * 20.0;
     
     // 1. Way Darker Spooky Purple-Blue Sky Gradient
     vec3 zenithColor   = vec3(0.012, 0.010, 0.052); // Very Deep Dark Midnight Violet-Blue
@@ -513,10 +603,13 @@ vec3 tf_halloweenSky(vec3 d) {
     // 3. Soft Painterly Twilight Clouds
     sky += tf_tpClouds(d, t);
     
-    // 4. Glowing Moon with User Cutout Texture
+    // 4. Large Blazing Fire & Blue Comets Razing Across the Sky
+    sky += tf_halloweenComets(d, gt);
+    
+    // 5. Glowing Moon with User Cutout Texture (Controlled Soft Luminance)
     sky = tf_tpMoon(d, sky);
     
-    // 5. Dark Horizon Fog Blend
+    // 6. Dark Horizon Fog Blend
     sky = mix(vec3(0.008, 0.006, 0.020), sky, smoothstep(-0.35, 0.05, d.y));
     
     return sky;
