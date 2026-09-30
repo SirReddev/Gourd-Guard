@@ -15,17 +15,18 @@ execute if score @s hud_toggle matches 0 run return 0
 # Pin actionbar on screen with zero fading for this player
 title @s times 0 100 0
 
-# Ensure player has an attached head passenger
-execute unless entity @s[tag=gg_has_head] at @s run function gourd_guard:hud/init_player_head
-
-# Reset and extract exact player username from the mounted item_display passenger
+# Clean up previous macro.player
 data remove storage gourd_guard:hud macro.player
-execute on passengers if entity @s[type=item_display,tag=gg_player_head] run data modify storage gourd_guard:hud macro.player set from entity @s item.components."minecraft:profile".name
-execute on passengers if entity @s[type=item_display,tag=gg_player_head] unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s item.components."minecraft:profile"
-execute on passengers if entity @s[type=item_display,tag=gg_player_head] unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s item.tag.SkullOwner.Name
-execute on passengers if entity @s[type=item_display,tag=gg_player_head] unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s item.tag.SkullOwner
 
-# Safe fallback if passenger is still mounting on the first tick
+# Resolve and extract exact player username from player's skull synchronously
+loot replace entity @s enderchest.0 loot gourd_guard:player_head
+data modify storage gourd_guard:hud macro.player set from entity @s EnderItems[{Slot:0b}].components."minecraft:profile".name
+execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s EnderItems[{Slot:0b}].components."minecraft:profile"
+execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s EnderItems[{Slot:0b}].tag.SkullOwner.Name
+execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s EnderItems[{Slot:0b}].tag.SkullOwner
+item replace entity @s enderchest.0 with air
+
+# Fallback if in offline/unauthenticated dev test
 execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set value "Sir_Reddev"
 
 # Set default macro backsteps
