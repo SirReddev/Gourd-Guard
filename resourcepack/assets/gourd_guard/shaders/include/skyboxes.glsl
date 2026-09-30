@@ -413,11 +413,11 @@ vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
     
     // 1. Soft Atmospheric Halos (Outside disk)
     float haloDist = max(0.0, angle - moonRadius);
-    float innerBloom = exp(-pow(haloDist / 0.040, 1.6)) * 0.75;
-    float wideGlow   = exp(-pow(angle / 0.42, 1.5)) * 0.18;
+    float innerBloom = exp(-pow(haloDist / 0.040, 1.6)) * 0.70;
+    float wideGlow   = exp(-pow(angle / 0.42, 1.5)) * 0.16;
     
     vec3 bloomCol = mix(vec3(0.92, 0.94, 1.00), vec3(1.00, 0.98, 0.90), 0.35) * innerBloom;
-    vec3 wideCol  = vec3(0.12, 0.16, 0.38) * wideGlow;
+    vec3 wideCol  = vec3(0.045, 0.035, 0.160) * wideGlow;
     vec3 atmosphericHalos = bloomCol + wideCol;
     
     vec3 result = baseSky + atmosphericHalos;
@@ -483,9 +483,9 @@ vec3 tf_tpClouds(vec3 d, float t) {
     
     float cloudDensity = smoothstep(0.36, 0.68, cloudNoise);
     
-    // Twilight Princess palette: deep midnight indigo & soft twilight purple
-    vec3 cloudShadow = vec3(0.025, 0.035, 0.095);
-    vec3 cloudHighlight = vec3(0.065, 0.060, 0.150);
+    // Deep midnight purple-blue clouds
+    vec3 cloudShadow = vec3(0.010, 0.008, 0.032);
+    vec3 cloudHighlight = vec3(0.030, 0.022, 0.075);
     vec3 cloudColor = mix(cloudShadow, cloudHighlight, smoothstep(0.42, 0.70, cloudNoise));
     
     float horizon = smoothstep(-0.08, 0.20, d.y);
@@ -495,10 +495,10 @@ vec3 tf_tpClouds(vec3 d, float t) {
 vec3 tf_halloweenSky(vec3 d) {
     float t = GameTime * 2.0 * PI;
     
-    // 1. Rich Twilight Royal Blue Sky Gradient (Exact match to Zelda / Hyrule Night Sky)
-    vec3 zenithColor   = vec3(0.035, 0.050, 0.160); // Deep Royal Midnight Sapphire
-    vec3 midSkyColor   = vec3(0.060, 0.080, 0.240); // Rich Royal Twilight Blue
-    vec3 horizonColor  = vec3(0.085, 0.080, 0.220); // Deep Indigo Horizon
+    // 1. Way Darker Spooky Purple-Blue Sky Gradient
+    vec3 zenithColor   = vec3(0.012, 0.010, 0.052); // Very Deep Dark Midnight Violet-Blue
+    vec3 midSkyColor   = vec3(0.024, 0.020, 0.095); // Deep Dark Spooky Purple-Blue
+    vec3 horizonColor  = vec3(0.040, 0.028, 0.125); // Dark Twilight Indigo-Purple Horizon
     
     float y = clamp(d.y, 0.0, 1.0);
     vec3 sky = mix(horizonColor, midSkyColor, smoothstep(0.0, 0.40, y));
@@ -508,16 +508,16 @@ vec3 tf_halloweenSky(vec3 d) {
     vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 13.0;
     vec2 starUv = tf_rotate(uv + vec2(1.2, -3.1), t * 0.005);
     vec3 stars = tf_tpStars(starUv, t) * smoothstep(-0.05, 0.18, d.y);
-    sky += stars * 0.85;
+    sky += stars * 0.90;
     
-    // 3. Soft Painterly Twilight Princess Clouds
+    // 3. Soft Painterly Twilight Clouds
     sky += tf_tpClouds(d, t);
     
-    // 4. Ultra High-Definition Glowing Full Moon with Spectral Halos
+    // 4. Glowing Moon with User Cutout Texture
     sky = tf_tpMoon(d, sky);
     
-    // 5. Ground Horizon Fog Blend
-    sky = mix(vec3(0.020, 0.020, 0.050), sky, smoothstep(-0.35, 0.05, d.y));
+    // 5. Dark Horizon Fog Blend
+    sky = mix(vec3(0.008, 0.006, 0.020), sky, smoothstep(-0.35, 0.05, d.y));
     
     return sky;
 }
