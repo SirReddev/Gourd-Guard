@@ -380,28 +380,6 @@ float tf_sampleUserMoon(vec2 uv) {
     return mix(mix(p00, p10, f.x), mix(p01, p11, f.x), f.y);
 }
 
-// Soft Scattered Fantasy Stars (Warm Golden & Diamond White)
-vec3 tf_tpStars(vec2 uv, float t) {
-    vec2 gridUv = fract(uv) - 0.5;
-    vec2 id = floor(uv);
-    
-    vec2 randPos = (tf_hash22(id + 43.19) - 0.5) * 0.82;
-    float dist = length(gridUv - randPos);
-    
-    float brightness = tf_hash12(id + 88.71);
-    if (brightness < 0.35) return vec3(0.0);
-    
-    float twinkle = sin(t * 2.0 + brightness * 6.283) * 0.25 + 0.75;
-    
-    // Soft glowing fairy star (round glowing bokeh dot)
-    float core = smoothstep(0.035, 0.0, dist) * 2.0;
-    float halo = smoothstep(0.110, 0.0, dist) * 0.5;
-    float star = (core + halo) * brightness * twinkle;
-    
-    vec3 starCol = mix(vec3(1.0, 0.92, 0.72), vec3(0.88, 0.95, 1.0), fract(brightness * 13.1));
-    return star * starCol * 0.85;
-}
-
 // Authentic Glowing Full Moon with User's Exact Texture & Soft Controlled Halo
 vec3 tf_tpMoon(vec3 d, vec3 baseSky) {
     // Moon positioned high in the night sky (upper right viewing angle)
@@ -594,11 +572,11 @@ vec3 tf_halloweenSky(vec3 d) {
     vec3 sky = mix(horizonColor, midSkyColor, smoothstep(0.0, 0.40, y));
     sky = mix(sky, zenithColor, smoothstep(0.40, 1.0, y));
     
-    // 2. Soft Scattered Fantasy Starfield
-    vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 13.0;
-    vec2 starUv = tf_rotate(uv + vec2(1.2, -3.1), t * 0.005);
-    vec3 stars = tf_tpStars(starUv, t) * smoothstep(-0.05, 0.18, d.y);
-    sky += stars * 0.90;
+    // 2. Crisp Twinkling Spiked Starfield (Exact match to Nebula shader)
+    vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 11.5;
+    vec2 starUv = tf_rotate(uv + vec2(1.0, -4.0), t * 0.015);
+    vec3 stars = tf_starField(starUv, t, 1.05) * smoothstep(-0.05, 0.18, d.y);
+    sky += stars;
     
     // 3. Soft Painterly Twilight Clouds
     sky += tf_tpClouds(d, t);
