@@ -470,17 +470,17 @@ vec3 tf_tpClouds(vec3 d, float t) {
     return cloudColor * cloudDensity * horizon * 0.75;
 }
 
-// Fast & Sleek Fire & Cosmic Blue Comets Razing Through the Sky
+// Fast & Sleek Roaring Fire & Cosmic Blue Fire Comets Razing Through the Sky
 vec3 tf_halloweenComets(vec3 d, float gt) {
     vec3 totalComets = vec3(0.0);
     
     for (int k = 0; k < 6; k++) {
         float fk = float(k);
         // Fast periodic intervals and quick ~0.8-1.0s flight time
-        float period   = 1.7 + mod(fk * 0.40, 1.1);
+        float period   = 1.6 + mod(fk * 0.40, 1.0);
         float duration = 0.10 + mod(fk * 0.015, 0.025);
         
-        float progress = mod(gt * 1.40 + fk * 1.25, period);
+        float progress = mod(gt * 1.45 + fk * 1.25, period);
         if (progress > duration) continue;
         
         float p = progress / duration;
@@ -515,42 +515,57 @@ vec3 tf_halloweenComets(vec3 d, float gt) {
         
         float alongTail = clamp(angle / arcAngle, 0.0, 1.0);
         
-        // Sleek, smaller comet scale
-        float sizeScale = 0.75 + mod(fk * 0.15, 0.25);
+        // Sleek comet size scale
+        float sizeScale = 0.80 + mod(fk * 0.15, 0.25);
         
-        // Flaming comet trail beam & plasma halo
-        float coreWidth = (0.0009 + alongTail * 0.0018) * sizeScale;
+        // Animated roaring flame turbulence along the tail
+        vec2 flameUv = vec2(alongTail * 16.0 - gt * 3.2, distToArc * 110.0 + fk * 5.3);
+        float flameN1 = tf_noise(flameUv);
+        float flameN2 = tf_noise(flameUv * 2.2 + vec2(-gt * 4.5, 0.0));
+        float flameTurbulence = flameN1 * 0.65 + flameN2 * 0.35;
+        
+        // Modulated flame widths for flickering tongues of fire
+        float coreWidth = (0.0009 + alongTail * 0.0022 * (0.6 + flameTurbulence * 0.8)) * sizeScale;
         float coreBeam  = exp(-pow(distToArc / coreWidth, 2.0) * 4.0) * pow(alongTail, 1.2);
         
-        float glowWidth = (0.0028 + alongTail * 0.0055) * sizeScale;
-        float haloGlow  = exp(-pow(distToArc / glowWidth, 2.0) * 2.5) * pow(alongTail, 1.4);
+        float fireGlowWidth = (0.0028 + alongTail * 0.0075 * (0.7 + flameTurbulence * 0.6)) * sizeScale;
+        float fireHalo      = exp(-pow(distToArc / fireGlowWidth, 2.0) * 2.2) * pow(alongTail, 1.4);
         
-        // Crisp blazing head
+        // Flying flickering sparks / embers trailing off the comet
+        vec2 emberUv = vec2(alongTail * 36.0 - gt * 7.0, distToArc * 260.0 + fk * 9.1);
+        float embers = pow(tf_noise(emberUv), 5.5) * smoothstep(0.25, 0.95, alongTail) * 3.5;
+        
+        // Blazing fireball head with turbulent flame boundary
         float distToHead = length(d - headDir);
-        float headCore = smoothstep(0.0045 * sizeScale, 0.0, distToHead) * 3.5;
-        float headFlare = smoothstep(0.0100 * sizeScale, 0.0, distToHead) * 1.2;
+        float headNoise  = tf_noise(d.xy * 90.0 + gt * 5.0);
+        float headCore   = smoothstep((0.0045 + headNoise * 0.0015) * sizeScale, 0.0, distToHead) * 3.8;
+        float headFire   = smoothstep((0.0120 + headNoise * 0.0035) * sizeScale, 0.0, distToHead) * 1.5;
         
-        // Alternate between Blazing Fire Comets and Cosmic Blue Comets
+        // Alternate between Roaring Fire Comets and Cosmic Blue Fire Comets
         bool isFire = (int(mod(fk, 2.0)) == 0);
         
         vec3 whiteCore = vec3(1.0, 1.0, 1.0);
-        vec3 primaryCol, secondaryCol;
+        vec3 innerFlame, midFlame, outerFlame;
         
         if (isFire) {
-            // Blazing Fire Comet (Sun Gold / Flame Orange / Crimson)
-            primaryCol   = vec3(1.00, 0.55, 0.08); // Molten orange-gold
-            secondaryCol = vec3(0.95, 0.20, 0.02); // Deep fiery red
+            // Roaring Fire (Golden Yellow -> Blazing Fire Orange -> Deep Fiery Red)
+            innerFlame = vec3(1.00, 0.78, 0.10); // Hot yellow
+            midFlame   = vec3(1.00, 0.30, 0.02); // Roaring orange flame
+            outerFlame = vec3(0.75, 0.06, 0.01); // Fiery red / dark ember
         } else {
-            // Cosmic Blue Comet (Electric Cyan / Sapphire / Royal Cobalt)
-            primaryCol   = vec3(0.28, 0.85, 1.00); // Radiant cyan
-            secondaryCol = vec3(0.10, 0.35, 0.95); // Royal cobalt blue
+            // Cosmic Blue Fire (Glacial Cyan -> Electric Sapphire -> Violet Flame)
+            innerFlame = vec3(0.20, 0.88, 1.00); // Vivid electric cyan
+            midFlame   = vec3(0.06, 0.38, 1.00); // Sapphire blue flame
+            outerFlame = vec3(0.22, 0.04, 0.85); // Violet flame edge
         }
         
-        vec3 trailCol = mix(secondaryCol, primaryCol, smoothstep(0.1, 0.7, alongTail));
-        trailCol      = mix(trailCol, whiteCore, smoothstep(0.70, 0.98, alongTail));
+        // Multi-layered flame color gradient
+        vec3 flameCol = mix(outerFlame, midFlame, smoothstep(0.1, 0.6, alongTail));
+        flameCol      = mix(flameCol, innerFlame, smoothstep(0.6, 0.92, alongTail));
+        flameCol     += innerFlame * embers;
         
-        vec3 headVisual  = whiteCore * headCore + primaryCol * headFlare;
-        vec3 trailVisual = whiteCore * coreBeam * 3.2 + trailCol * haloGlow * 1.2;
+        vec3 headVisual  = whiteCore * headCore + innerFlame * headFire;
+        vec3 trailVisual = whiteCore * coreBeam * 3.2 + flameCol * fireHalo * 1.5;
         
         float horizonFade = smoothstep(-0.20, 0.10, d.y);
         totalComets += (headVisual + trailVisual) * life * horizonFade;
