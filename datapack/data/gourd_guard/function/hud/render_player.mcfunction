@@ -16,11 +16,15 @@ execute if score @s hud_toggle matches 0 run return 0
 title @s times 0 100 0
 
 # Ensure player has an attached invisible head display with their username
-execute unless entity @e[type=item_display,tag=gg_player_head,distance=..2] run function gourd_guard:hud/init_player_head
+execute unless entity @s[tag=gg_has_head] run function gourd_guard:hud/init_player_head
+execute unless entity @e[type=item_display,tag=gg_player_head,distance=..1] run function gourd_guard:hud/init_player_head
 
-# Copy player's username into macro storage (fallback to Sir_Reddev if loading)
-data modify storage gourd_guard:hud macro.player set value "Sir_Reddev"
-data modify storage gourd_guard:hud macro.player set from entity @e[type=item_display,tag=gg_player_head,distance=..2,limit=1] item.components."minecraft:profile".name
+# Extract username from the item_display riding @s
+data remove storage gourd_guard:hud macro.player
+data modify storage gourd_guard:hud macro.player set from entity @e[type=item_display,tag=gg_player_head,distance=..0.5,limit=1] item.components."minecraft:profile".name
+execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @e[type=item_display,tag=gg_player_head,distance=..0.5,limit=1] item.components."minecraft:profile"
+execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @e[type=item_display,tag=gg_player_head,distance=..0.5,limit=1] item.tag.SkullOwner.Name
+execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @e[type=item_display,tag=gg_player_head,distance=..0.5,limit=1] item.tag.SkullOwner
 
 # Set default macro backsteps
 data modify storage gourd_guard:hud macro.coins_back set value "\uF806"

@@ -23,3 +23,7 @@ function gourd_guard:hud/objective/setup
 
 # Initialize Wave HUD
 function gourd_guard:hud/wave/setup
+
+# Reset player head display bindings
+tag @a remove gg_has_head
+kill @e[type=item_display,tag=gg_player_head]
