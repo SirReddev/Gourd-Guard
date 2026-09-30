@@ -587,11 +587,11 @@ vec3 tf_halloweenSky(vec3 d) {
     vec3 sky = mix(horizonColor, midSkyColor, smoothstep(0.0, 0.40, y));
     sky = mix(sky, zenithColor, smoothstep(0.40, 1.0, y));
     
-    // 2. Crisp Twinkling Spiked Starfield (Exact match to Nebula shader)
-    vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 11.5;
+    // 2. Crisp Twinkling Spiked Starfield (Exact match to Cosmic Nebula space shader)
+    float skyIntensity = smoothstep(-0.45, 0.05, d.y);
+    vec2 uv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 11.0;
     vec2 starUv = tf_rotate(uv + vec2(1.0, -4.0), t * 0.015);
-    vec3 stars = tf_starField(starUv, t, 1.05) * smoothstep(-0.05, 0.18, d.y);
-    sky += stars;
+    sky += tf_starField(starUv, t, 1.1) * skyIntensity;
     
     // 3. Soft Painterly Twilight Clouds
     sky += tf_tpClouds(d, t);
