@@ -65,6 +65,15 @@
             ]
         },
         {
+            "type": "bitmap",
+            "file": "custom:font/chatbox/shop/buy_indicator.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\ue306\ue307"
+            ]
+        },
+        {
             "type": "reference",
             "id": "custom:space"
         },
