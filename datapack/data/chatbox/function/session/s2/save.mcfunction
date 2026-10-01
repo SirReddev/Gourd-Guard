@@ -47,3 +47,4 @@ data modify storage chatbox:s2_shop Active set from storage chatbox:shop Active
 data modify storage chatbox:s2_shop Items set from storage chatbox:shop Items
 data modify storage chatbox:s2_shop Title set from storage chatbox:shop Title
 data modify storage chatbox:s2_shop SelectedSlot set from storage chatbox:shop SelectedSlot
+data modify storage chatbox:s2_shop FooterRow set from storage chatbox:shop FooterRow

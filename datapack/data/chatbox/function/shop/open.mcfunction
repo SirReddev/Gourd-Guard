@@ -45,11 +45,16 @@ execute if data storage chatbox:shop Items[8] unless data storage chatbox:shop I
 # Reset movement tracking objectives for exit detection
 scoreboard players set @s chatbox.walk 0
 scoreboard players set @s chatbox.sprint 0
+scoreboard players set @s chatbox.shop_icon_timer 0
+scoreboard players set @s chatbox.shop_icon_frame 0
 
 # Read initial selected hotbar slot (0..8) and cycle modulo item count
 execute store result score @s chatbox.selected_slot run data get entity @s SelectedItemSlot
 execute if score #chatbox.shop_items loy.value matches 1.. run scoreboard players operation @s chatbox.selected_slot %= #chatbox.shop_items loy.value
 scoreboard players operation @s chatbox.prev_slot = @s chatbox.selected_slot
+
+# Store FooterRow (row index directly after items)
+execute store result storage chatbox:shop FooterRow int 1 run scoreboard players get #chatbox.shop_items loy.value
 
 # Reset dialogue typewriter buffers and disable dialogue end icon during shop mode
 data modify storage chatbox:main Buffer set value []

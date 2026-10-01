@@ -30,3 +30,13 @@ $execute if score #chatbox.shop_items loy.value matches 6.. run bossbar set chat
 $execute if score #chatbox.shop_items loy.value matches 7.. run bossbar set chatbox:$(Session)_shop_6 players @s
 $execute if score #chatbox.shop_items loy.value matches 8.. run bossbar set chatbox:$(Session)_shop_7 players @s
 $execute if score #chatbox.shop_items loy.value matches 9.. run bossbar set chatbox:$(Session)_shop_8 players @s
+
+# Assign footer bossbar immediately after item count
+$execute if score #chatbox.shop_items loy.value matches 1 run bossbar set chatbox:$(Session)_shop_1 players @s
+$execute if score #chatbox.shop_items loy.value matches 2 run bossbar set chatbox:$(Session)_shop_2 players @s
+$execute if score #chatbox.shop_items loy.value matches 3 run bossbar set chatbox:$(Session)_shop_3 players @s
+$execute if score #chatbox.shop_items loy.value matches 4 run bossbar set chatbox:$(Session)_shop_4 players @s
+$execute if score #chatbox.shop_items loy.value matches 5 run bossbar set chatbox:$(Session)_shop_5 players @s
+$execute if score #chatbox.shop_items loy.value matches 6 run bossbar set chatbox:$(Session)_shop_6 players @s
+$execute if score #chatbox.shop_items loy.value matches 7 run bossbar set chatbox:$(Session)_shop_7 players @s
+$execute if score #chatbox.shop_items loy.value matches 8 run bossbar set chatbox:$(Session)_shop_8 players @s

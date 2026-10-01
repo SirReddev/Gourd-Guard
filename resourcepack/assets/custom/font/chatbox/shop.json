@@ -38,6 +38,33 @@
             ]
         },
         {
+            "type": "bitmap",
+            "file": "custom:font/chatbox/shop/controls.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\ue300\ue301"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "custom:font/chatbox/shop/cycle_indicator.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\ue302\ue303"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "custom:font/chatbox/shop/move_indicator.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\ue304\ue305"
+            ]
+        },
+        {
             "type": "reference",
             "id": "custom:space"
         },

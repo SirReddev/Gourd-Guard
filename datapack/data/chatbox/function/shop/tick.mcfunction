@@ -13,3 +13,7 @@ execute if data storage chatbox:shop {Active:1b} if score #chatbox.shop_items lo
 execute if data storage chatbox:shop {Active:1b} unless score @s chatbox.selected_slot = @s chatbox.prev_slot at @s run playsound minecraft:ui.button.click master @s ~ ~ ~ 0.35 1.25
 execute if data storage chatbox:shop {Active:1b} unless score @s chatbox.selected_slot = @s chatbox.prev_slot run function chatbox:shop/render
 execute if data storage chatbox:shop {Active:1b} unless score @s chatbox.selected_slot = @s chatbox.prev_slot run scoreboard players operation @s chatbox.prev_slot = @s chatbox.selected_slot
+
+# 4. Animate controls icon at bottom of shop (every 8 ticks, flips frames)
+execute if data storage chatbox:shop {Active:1b} run scoreboard players add @s chatbox.shop_icon_timer 1
+execute if data storage chatbox:shop {Active:1b} if score @s chatbox.shop_icon_timer matches 8.. run function chatbox:shop/animate_icons

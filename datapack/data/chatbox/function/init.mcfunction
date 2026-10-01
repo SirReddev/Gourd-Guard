@@ -27,6 +27,8 @@ scoreboard players set @a chatbox.sneak 0
 scoreboard objectives add chatbox.selected_slot dummy
 scoreboard objectives add chatbox.prev_slot dummy
 scoreboard objectives add chatbox.shop_items dummy
+scoreboard objectives add chatbox.shop_icon_timer dummy
+scoreboard objectives add chatbox.shop_icon_frame dummy
 scoreboard objectives add chatbox.walk minecraft.custom:minecraft.walk_one_cm
 scoreboard objectives add chatbox.sprint minecraft.custom:minecraft.sprint_one_cm
 

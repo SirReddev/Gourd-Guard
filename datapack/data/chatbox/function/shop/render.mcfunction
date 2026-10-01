@@ -20,3 +20,6 @@ execute if score #chatbox.shop_items loy.value matches 6 run function chatbox:sh
 execute if score #chatbox.shop_items loy.value matches 7 run function chatbox:shop/render/count_7
 execute if score #chatbox.shop_items loy.value matches 8 run function chatbox:shop/render/count_8
 execute if score #chatbox.shop_items loy.value matches 9 run function chatbox:shop/render/count_9
+
+# Render footer controls below item rows
+function chatbox:shop/render_footer with storage chatbox:shop
