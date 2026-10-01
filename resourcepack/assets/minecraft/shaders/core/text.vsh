@@ -256,9 +256,9 @@ void main() {
         // Strictly identified by ChatBox Shop UI color signatures and their unique drop shadows in vertical band [65.0, 260.0]
         bool isShop = (!isVignette && !isRotated && abs(pos.z) < 0.1 && abs(pos.x - (guiWidth * 0.5)) <= 350.0 && pos.y >= 65.0 && pos.y <= 260.0 &&
             (
-                // Shop Row Backgrounds & Item Icons (#FBFBA4 / #FBFBA5 / #FBFBA6) & drop shadows (b in 41..42)
-                (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 166)) ||
-                ((c.r == 62 || c.r == 63) && (c.g == 62 || c.g == 63) && (c.b == 41 || c.b == 42)) ||
+                // Shop Row Backgrounds & Item Icons & Footer (#FBFBA4 / #FBFBA5 / #FBFBA6 / #FBFBA7) & drop shadows (b in 41..43)
+                (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 167)) ||
+                ((c.r == 62 || c.r == 63) && (c.g == 62 || c.g == 63) && (c.b >= 41 && c.b <= 43)) ||
                 // Slot tags (#FFE082 / #A0887E) & drop shadows
                 (c.r == 255 && c.g == 224 && c.b == 130) ||
                 ((c.r == 63 || c.r == 64) && c.g == 56 && (c.b == 32 || c.b == 33)) ||
@@ -335,13 +335,13 @@ void main() {
 #if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
     sphericalVertexDistance = fog_spherical_distance(pos);
     cylindricalVertexDistance = fog_cylindrical_distance(pos);
-    if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 166)) {
+    if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 167)) {
         vertexColor = vec4(1.0, 1.0, 1.0, Color.a) * sample_lightmap(Sampler2, UV2);
     } else {
         vertexColor = Color * sample_lightmap(Sampler2, UV2);
     }
 #else
-    if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 166)) {
+    if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 167)) {
         vertexColor = vec4(1.0, 1.0, 1.0, Color.a);
     } else if (!isHud) {
         vertexColor = Color;
