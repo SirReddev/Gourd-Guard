@@ -1,4 +1,10 @@
-{
-	"replace": false,
-	"values": ["animated_java:global/on_load", "gourd_guard:load", "generic:init", "chatbox:init"]
+﻿{
+    "replace":  false,
+    "values":  [
+                   "animated_java:global/on_load",
+                   "gourd_guard:load",
+                   "worldradio:load",
+                   "generic:init",
+                   "chatbox:init"
+               ]
 }
