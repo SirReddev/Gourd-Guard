@@ -4,39 +4,30 @@
 # 1. Reset fall distance so mobs never accumulate fall damage on elevation changes
 data modify entity @s FallDistance set value 0.0f
 
-# --- SPIDERS (Wide Hitbox Specialized Non-Clipping Movement) ---
-# Pre-emptive Step-Up: Detect block in front before walking into it!
-# Full block in front: step UP 1.0b cleanly over the edge
-execute as @s[tag=path_spider] at @s unless block ^ ^0.1 ^0.2 #minecraft:air unless block ^ ^0.6 ^0.2 #minecraft:air run tp @s ~ ~1.0 ~
-
-# Slab/Stair in front: step UP 0.5b cleanly onto slab surface
-execute as @s[tag=path_spider] at @s unless block ^ ^0.1 ^0.2 #minecraft:air if block ^ ^0.6 ^0.2 #minecraft:air run tp @s ~ ~0.5 ~
-
-# Pre-emptive Step-Down: Clear block corner when descending 1-block drop
-execute as @s[tag=path_spider] at @s if block ~ ~-0.1 ~ #minecraft:air if block ~ ~-0.8 ~ #minecraft:air unless block ~ ~-1.8 ~ #minecraft:air run tp @s ^ ^-0.5 ^0.15
-
-# Slab & Stair Step-Down for spiders (descent onto half slabs)
-execute as @s[tag=path_spider] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~
-execute as @s[tag=path_spider] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:stairs[half=bottom] run tp @s ~ ~-0.25 ~
-
 # 2. Advance forward in facing direction (0.15 blocks/tick = 3 blocks/sec)
 tp @s ^ ^ ^0.15
 
-# --- NORMAL GROUND MOBS (Zombies, Skeletons, etc.) ---
-# Step-Up: If foot is inside a solid block, elevate smoothly onto top of block
-execute as @s[tag=!path_flyer,tag=!path_spider] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
+# --- GROUND MOBS (Zombies, Spiders, Skeletons, etc.) ---
+# Step-Up: If foot is inside a solid block, elevate onto top of block (spiders elevate 0.5b swiftly to clear hitboxes)
+execute as @s[tag=!path_flyer,tag=!path_spider] at @s unless block ~ ~0.05 ~ #minecraft:air if block ~ ~1.5 ~ #minecraft:air run tp @s ~ ~0.25 ~
+execute as @s[tag=path_spider] at @s unless block ~ ~0.05 ~ #minecraft:air if block ~ ~1.5 ~ #minecraft:air run tp @s ~ ~0.5 ~
 
 # Step-Down: Descend onto lower step ONLY if solid ground exists within 1.2b below (NEVER falls into the void)
-execute as @s[tag=!path_flyer,tag=!path_spider] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air run tp @s ~ ~-0.25 ~
+execute as @s[tag=!path_flyer] at @s if block ~ ~-0.05 ~ #minecraft:air unless block ~ ~-1.2 ~ #minecraft:air run tp @s ~ ~-0.25 ~
 
-# Slab & Stair Descent: Descend onto bottom slabs and bottom stairs
-execute as @s[tag=!path_flyer,tag=!path_spider] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~
-execute as @s[tag=!path_flyer,tag=!path_spider] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:stairs[half=bottom] run tp @s ~ ~-0.25 ~
+# Slab & Stair Descent: Descend onto bottom slabs and bottom stairs (prevents floating 0.5b above half-down slabs)
+execute as @s[tag=!path_flyer] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~
+execute as @s[tag=!path_flyer] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:stairs[half=bottom] run tp @s ~ ~-0.25 ~
 
-# --- SPIDER SAFETY NET ---
-# If spider somehow still intersects a block boundary, keep resistance active
-execute as @s[tag=path_spider] at @s unless block ~ ~0.5 ~ #minecraft:air run effect give @s minecraft:resistance 1 4 true
-execute as @s[tag=path_spider,nbt={HurtTime:10s}] at @s unless block ~ ~0.8 ~ #minecraft:air run effect give @s minecraft:instant_health 1 0 true
+# --- SPIDER SUFFOCATION PROTECTION ---
+# Spiders have a 1.4-wide hitbox and 0.65 eye height that can clip block edges during transitions.
+# Dynamic invulnerability protects them ONLY while actively stepping up, descending, or clearing a ledge.
+execute as @s[tag=path_spider] run data modify entity @s Invulnerable set value 0b
+execute as @s[tag=path_spider] at @s unless block ~ ~0.05 ~ #minecraft:air run data modify entity @s Invulnerable set value 1b
+execute as @s[tag=path_spider] at @s if block ~ ~-0.05 ~ #minecraft:air unless block ~ ~-1.2 ~ #minecraft:air run data modify entity @s Invulnerable set value 1b
+execute as @s[tag=path_spider] at @s unless block ^ ^0.3 ^-0.4 #minecraft:air run data modify entity @s Invulnerable set value 1b
+execute as @s[tag=path_spider] at @s unless block ^ ^0.3 ^0.4 #minecraft:air run data modify entity @s Invulnerable set value 1b
+execute as @s[tag=path_spider] at @s unless block ~ ~0.5 ~ #minecraft:air run data modify entity @s HurtTime set value 0s
 
 # --- FLYING MOBS (Phantoms, Blazes, Bats, Vexes, etc.) ---
 # Maintain close ~1.0-1.1 block hover above terrain at all times:
