@@ -12,10 +12,9 @@ execute at @s run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,
 scoreboard players operation @e[tag=path_node_new] path.route = #edit_route path.edit
 scoreboard players operation @e[tag=path_node_new] path.node = #next_node path.edit
 
-# Visual and sound confirmation at node position
-execute at @e[tag=path_node_new] run particle minecraft:end_rod ~ ~0.5 ~ 0.2 0.5 0.2 0.05 40
-execute at @e[tag=path_node_new] run particle minecraft:flame ~ ~0.2 ~ 0.2 0.2 0.2 0.02 20
-execute at @s run playsound minecraft:block.amethyst_block.hit master @s ~ ~ ~ 1 1.5
+# Visual particle indicator at node position
+execute at @e[tag=path_node_new] run particle minecraft:end_rod ~ ~0.5 ~ 0.1 0.1 0.1 0.05 20
+execute at @e[tag=path_node_new] run particle minecraft:flame ~ ~0.1 ~ 0.1 0.1 0.1 0.02 10
 
 # Remove temp tag
 tag @e[tag=path_node_new] remove path_node_new
