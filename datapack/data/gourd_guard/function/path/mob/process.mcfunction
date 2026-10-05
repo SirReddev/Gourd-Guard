@@ -17,11 +17,11 @@ execute unless entity @e[tag=path_target] run return 0
 execute at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
 
 # Advance to next node when in range:
-# Ground mobs advance at 1.2 blocks
-execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..1.2] run scoreboard players add @s path.node 1
+# Ground mobs advance at 1.5 blocks
+execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..1.5] run scoreboard players add @s path.node 1
 
-# Flying mobs (Phantoms) advance at 2.8 blocks (accounting for +2.5b vertical hover)
-execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..2.8] run scoreboard players add @s path.node 1
+# Flying mobs (Phantoms) advance at 3.0 blocks (accounting for vertical hover altitude)
+execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..3.0] run scoreboard players add @s path.node 1
 
 # Clean up temporary tag
 tag @e[tag=path_target] remove path_target
