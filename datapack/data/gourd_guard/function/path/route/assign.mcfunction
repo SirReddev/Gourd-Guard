@@ -1,10 +1,16 @@
 # Pathfinding - Assign a mob to a route
 # Usage: execute as <mob> run function gourd_guard:path/route/assign {route:1}
-# Example: /execute as @e[type=zombie,distance=..5,limit=1] run function gourd_guard:path/route/assign {route:1}
+
+scoreboard objectives add path.route dummy
+scoreboard objectives add path.node dummy
+scoreboard objectives add path.state dummy
 
 $scoreboard players set @s path.route $(route)
 scoreboard players set @s path.node 0
 scoreboard players set @s path.state 1
 tag @s add path_mob
 
-$tellraw @s [{"text":"[Path] Assigned to route ","color":"green"},{"text":"$(route)","color":"yellow","bold":true},{"text":" - walking!","color":"green"}]
+# Immediately process orientation towards Node 0
+execute at @s run function gourd_guard:path/mob/process
+
+$tellraw @a [{"text":"[Path] ","color":"dark_green"},{"text":"Assigned ","color":"green"},{"selector":"@s"},{"text":" to Route ","color":"green"},{"text":"$(route)","color":"yellow","bold":true}]
