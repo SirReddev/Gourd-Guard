@@ -9,12 +9,12 @@ tellraw @s [{"text":"  "},{"text":"[show {route:N}]","color":"aqua","bold":true,
 tellraw @s [{"text":"  "},{"text":"[clear {route:N}]","color":"red","bold":true,"click_event":{"action":"suggest_command","command":"/function gourd_guard:path/route/clear {route:1}"}},{"text":"  delete route nodes","color":"gray"}]
 tellraw @s [{"text":"  "},{"text":"[clear_all]","color":"dark_red","bold":true,"click_event":{"action":"run_command","command":"/function gourd_guard:path/route/clear_all"}},{"text":"  wipe all nodes","color":"gray"}]
 tellraw @s {"text":"────────────────────────────","color":"dark_gray"}
-tellraw @s {"text":"  Instant Mob Spawning (One Command):","color":"gold","bold":true}
-tellraw @s [{"text":"  • ","color":"dark_gray"},{"text":"/summon zombie ~ ~ ~ {Tags:[\"route_1\"]}","color":"yellow"}]
-tellraw @s [{"text":"  • ","color":"dark_gray"},{"text":"/function gourd_guard:path/spawn {mob:\"zombie\",route:1}","color":"yellow"}]
-tellraw @s [{"text":"  "},{"text":"[Spawn Zombie on Route 1]","color":"green","bold":true,"click_event":{"action":"run_command","command":"/function gourd_guard:path/spawn {mob:\"zombie\",route:1}"}}]
+tellraw @s {"text":"  Mob Spawning:","color":"gold","bold":true}
+tellraw @s [{"text":"  Add ","color":"gray"},{"text":"{Tags:[\"route_1\"]}","color":"yellow","bold":true},{"text":" to any summon command:","color":"gray"}]
+tellraw @s [{"text":"  "},{"text":"[Summon Zombie (Route 1)]","color":"green","bold":true,"click_event":{"action":"suggest_command","command":"/summon zombie ~ ~ ~ {Tags:[\"route_1\"]}"}}]
+tellraw @s [{"text":"  "},{"text":"[Summon Skeleton (Route 1)]","color":"green","bold":true,"click_event":{"action":"suggest_command","command":"/summon skeleton ~ ~ ~ {Tags:[\"route_1\"]}"}}]
 tellraw @s [{"text":"  "},{"text":"[diagnostics]","color":"yellow","bold":true,"click_event":{"action":"run_command","command":"/function gourd_guard:path/debug"}},{"text":"  view nodes and tracked mobs","color":"gray"}]
-tellraw @s [{"text":"────────────────────────────","color":"dark_gray"}
+tellraw @s {"text":"────────────────────────────","color":"dark_gray"}
 tellraw @s {"text":"  Base Health:","color":"gold","bold":true}
 tellraw @s [{"text":"  "},{"text":"[Set Base HP: 500]","color":"green","bold":true,"click_event":{"action":"run_command","command":"/function gourd_guard:hud/objective/set_max_hp {max_hp:500}"}},{"text":"  "},{"text":"[Heal Full]","color":"light_purple","bold":true,"click_event":{"action":"run_command","command":"/function gourd_guard:hud/objective/set_hp {hp:500}"}}]
 tellraw @s {"text":"════════════════════════════","color":"dark_gray"}
