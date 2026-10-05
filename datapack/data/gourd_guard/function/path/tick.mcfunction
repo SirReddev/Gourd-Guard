@@ -1,5 +1,7 @@
 # Pathfinding System - Main Tick
-# Movement (cheap) every tick, direction update (expensive) every 3 ticks
+
+# Auto-detect any newly spawned mobs with route tags (e.g. from summon commands or spawners)
+function gourd_guard:path/mob/auto_init
 
 # Every tick: walk forward in current facing direction
 execute as @e[tag=path_mob,scores={path.state=1..}] at @s run function gourd_guard:path/mob/walk
