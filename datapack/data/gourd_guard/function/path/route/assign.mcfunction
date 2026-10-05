@@ -6,9 +6,6 @@ scoreboard players set @s path.node 0
 scoreboard players set @s path.state 1
 tag @s add path_mob
 
-# Clean up initial summon tag for instant empty-table selector performance
-$tag @s remove route_$(route)
-
 # Immediately orient towards Node 0
 execute at @s run function gourd_guard:path/mob/process
 
