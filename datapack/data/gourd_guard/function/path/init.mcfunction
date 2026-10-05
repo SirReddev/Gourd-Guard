@@ -1,9 +1,9 @@
 # Pathfinding System - Initialization
-# Called once on datapack load
+# Called once on datapack load or on demand
 
-scoreboard objectives add path.route dummy "Path Route"
-scoreboard objectives add path.node  dummy "Path Node"
-scoreboard objectives add path.state dummy "Path Active"
-scoreboard objectives add path.cmp   dummy "Path Temp"
-scoreboard objectives add path.edit  dummy "Path Edit"
-scoreboard objectives add path.tick  dummy "Path Tick"
+scoreboard objectives add path.route dummy
+scoreboard objectives add path.node dummy
+scoreboard objectives add path.state dummy
+scoreboard objectives add path.cmp dummy
+scoreboard objectives add path.edit dummy
+scoreboard objectives add path.tick dummy
