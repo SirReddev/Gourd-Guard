@@ -8,8 +8,8 @@ tag @s remove path_mob
 # Deduct 10 damage from base healthbar objective
 scoreboard players remove .objective obj_hp 10
 
-# Play objective damage hit sound
-playsound gourd_guard:objective.hit hostile @a
+# Play objective damage hit sound globally for ALL players on the server
+execute as @a at @s run playsound gourd_guard:objective.hit hostile @s ~ ~ ~ 1 1
 
 # Refresh the healthbar UI
 function gourd_guard:hud/objective/tick
