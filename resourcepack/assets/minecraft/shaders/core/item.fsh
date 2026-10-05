@@ -63,6 +63,26 @@ void main() {
 #ifndef OIT_ALPHA_ONLY
     // If this fragment belongs to a procedural skybox model
     if (tf_skyId > 0) {
+        if (tf_skyId == 3) {
+            // Flat Procedural Purple Portal directly on this surface
+            float hCoord = (abs(dFdx(tf_pos.x)) + abs(dFdy(tf_pos.x)) > 0.0005) ? tf_pos.x : tf_pos.z;
+            float vCoord = tf_pos.y;
+            
+            vec2 uv;
+            if (abs(hCoord) <= 0.65 && abs(vCoord) <= 0.65) {
+                // Centered unit plane (from [-8, -8] to [8, 8] -> [-0.5, 0.5])
+                uv = vec2(hCoord, vCoord) * 2.0;
+            } else {
+                // Skybox box face (from [-16, -16] to [32, 32] -> center 0.5, span 1.5)
+                uv = (vec2(hCoord, vCoord) - vec2(0.5)) / 1.5;
+            }
+            
+            float gt = GameTime * 20.0;
+            vec3 portal = tf_flatPurplePortal(uv, gt);
+            fragColor = vec4(portal, 1.0);
+            return;
+        }
+
         vec3 nearPos = tf_nearPos.xyz / tf_nearPos.w;
         vec3 boxMin = vec3(-1.05);
         vec3 boxMax = vec3(2.05);
@@ -77,7 +97,6 @@ void main() {
 
         if (tf_skyId == 1) sky = tf_nebulaSky(dir);
         else if (tf_skyId == 2) sky = tf_halloweenSky(dir);
-        else if (tf_skyId == 3) sky = tf_purpleSky(dir);
 
         fragColor = vec4(sky, 1.0);
         return;
