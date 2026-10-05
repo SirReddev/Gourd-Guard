@@ -7,13 +7,28 @@ data modify entity @s FallDistance set value 0.0f
 # 2. Advance forward in facing direction (0.15 blocks/tick = 3 blocks/sec)
 tp @s ^ ^ ^0.15
 
-# --- GROUND MOBS (Zombies, Spiders, Skeletons, etc.) ---
+# --- NORMAL GROUND MOBS (Zombies, Skeletons, etc.) ---
 # Step-Up: If foot is inside a solid block, elevate smoothly onto top of block
-execute as @s[tag=!path_flyer] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
+execute as @s[tag=!path_flyer,tag=!path_spider] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
 
 # Step-Down: Descend onto lower step ONLY if solid ground exists within 1.2b below (NEVER falls into the void)
-execute as @s[tag=!path_flyer] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air run tp @s ~ ~-0.25 ~
+execute as @s[tag=!path_flyer,tag=!path_spider] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air run tp @s ~ ~-0.25 ~
+
+# --- SPIDERS (Wide Hitbox Specialized Terrain Climbing) ---
+# Step-Up: Nudge up immediately by 0.5b so spider never suffocates inside stairs/slabs/blocks
+execute as @s[tag=path_spider] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.5 ~
+
+# Step-Down: Smooth descent onto lower step without clipping edges
+execute as @s[tag=path_spider] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air run tp @s ~ ~-0.25 ~
 
 # Anti-Suffocation Protection: Prevent Spider suffocation when intersecting blocks
-execute as @s[tag=!path_flyer] at @s unless block ~ ~0.3 ~ #minecraft:air run effect give @s minecraft:resistance 1 4 true
-execute as @s[tag=!path_flyer] at @s if block ~ ~0.3 ~ #minecraft:air run effect clear @s minecraft:resistance
+execute as @s[tag=path_spider] at @s unless block ~ ~0.6 ~ air run effect give @s minecraft:resistance 1 4 true
+execute as @s[tag=path_spider,nbt={HurtTime:10s}] at @s unless block ~ ~0.8 ~ air run effect give @s minecraft:instant_health 1 0 true
+
+# --- FLYING MOBS (Phantoms, Blazes, Bats, Vexes, etc.) ---
+# Maintain exactly 1.5 blocks above terrain at all times:
+# 1. Terrain rises / flyer too low (< 1.5b above ground): smooth glide UP
+execute as @s[tag=path_flyer] at @s unless block ~ ~-1.45 ~ air run tp @s ~ ~0.15 ~
+
+# 2. Terrain drops / flyer too high (> 1.5b above ground): smooth glide DOWN (only if ground within 4b)
+execute as @s[tag=path_flyer] at @s if block ~ ~-1.55 ~ air unless block ~ ~-4.0 ~ air run tp @s ~ ~-0.15 ~

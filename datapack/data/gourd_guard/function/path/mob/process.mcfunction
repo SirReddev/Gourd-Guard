@@ -16,8 +16,8 @@ execute unless entity @e[tag=path_target] run return 0
 # 1. Re-orient Ground Mobs strictly horizontally (yaw only, pitch locked to 0)
 execute as @s[tag=!path_flyer] at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
 
-# 2. Re-orient Flying Mobs (Phantoms, Blazes, etc.) towards node eye-level in true 3D
-execute as @s[tag=path_flyer] at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ ~
+# 2. Re-orient Flying Mobs horizontally towards node (hover engine handles Y)
+execute as @s[tag=path_flyer] at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
 
 # 3. Execute smooth walk / flight step forward
 function gourd_guard:path/mob/walk
@@ -26,7 +26,7 @@ function gourd_guard:path/mob/walk
 # Ground mobs advance at 0.5 blocks of target node
 execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..0.5] run scoreboard players add @s path.node 1
 
-# Flying mobs advance when within 2.2 blocks of the ground node (equals 0.8b horizontal radius at 1.8b flight height)
+# Flying mobs advance when within 2.2 blocks of the ground node (1.5b height + 0.8b horizontal)
 execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..2.2] run scoreboard players add @s path.node 1
 
 # Clean up temporary tag
