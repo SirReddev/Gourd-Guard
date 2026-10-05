@@ -1,0 +1,39 @@
+{
+  "textures": {
+    "particle": "gourd_guard:item/portal/purple",
+    "texture": "gourd_guard:item/portal/purple"
+  },
+  "elements": [
+    {
+      "comment": "Upright Portal Plane",
+      "from": [-8, -8, 8],
+      "to": [8, 8, 8],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#texture"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#texture"}
+      }
+    }
+  ],
+  "display": {
+    "fixed": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    "head": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    "ground": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    "gui": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    }
+  }
+}

@@ -608,4 +608,86 @@ vec3 tf_halloweenSky(vec3 d) {
     return sky;
 }
 
+// ==========================================
+// 🌌 PROCEDURAL PURPLE VOID PORTAL
+// ==========================================
+vec4 tf_purplePortal(vec2 rawUv, float gt) {
+    // Portal oval shape: slightly taller than wide (classic doorway aspect)
+    vec2 p = vec2(rawUv.x * 1.15, rawUv.y * 0.95);
+    float r = length(p);
+    
+    // Discard outside bounding boundary
+    if (r > 1.25) {
+        return vec4(0.0);
+    }
+    
+    float theta = atan(p.y, p.x);
+    float t = gt * 0.15; // smooth rotation time
+    
+    // 1. Inward Spiral Vortex Distortion (swirls faster toward core)
+    float swirl = 4.2 / (r + 0.18) - t * 3.5;
+    float twistedTheta = theta + swirl;
+    
+    // 2. Swirling Galactic Arms (3 major energy arms)
+    float armAngle = twistedTheta * 3.0;
+    float spiralArms = pow(0.5 + 0.5 * sin(armAngle + r * 6.0), 2.5);
+    
+    // 3. Turbulent Swirling Plasma Noise
+    vec2 polarUv1 = vec2(r * 4.0 - t * 2.0, twistedTheta * 1.5);
+    vec2 polarUv2 = vec2(r * 8.0 - t * 4.0, twistedTheta * 3.0);
+    float noise1 = tf_noise(polarUv1);
+    float noise2 = tf_noise(polarUv2);
+    float plasma = noise1 * 0.65 + noise2 * 0.35;
+    
+    // Counter-rotating fine wisps
+    float counterSwirl = theta - 2.5 / (r + 0.3) + t * 2.0;
+    float counterWisps = pow(0.5 + 0.5 * sin(counterSwirl * 5.0 + r * 12.0), 3.0) * tf_noise(vec2(r * 6.0, counterSwirl * 2.0));
+    
+    // 4. Color Palette
+    vec3 deepVoid       = vec3(0.06, 0.01, 0.14); // Deep cosmic abyss
+    vec3 royalPurple    = vec3(0.42, 0.05, 0.72); // Saturated royal purple
+    vec3 electricViolet = vec3(0.70, 0.12, 0.98); // Vivid electric violet
+    vec3 neonMagenta    = vec3(0.98, 0.28, 0.85); // Neon magenta/pink
+    vec3 radiantWhite   = vec3(1.00, 0.95, 1.00); // Blazing white core
+    
+    // Build portal plasma field
+    vec3 col = deepVoid;
+    col = mix(col, royalPurple, smoothstep(0.1, 0.7, spiralArms * 0.7 + plasma * 0.5));
+    col = mix(col, electricViolet, smoothstep(0.35, 0.9, spiralArms * plasma + counterWisps * 0.5));
+    col = mix(col, neonMagenta, pow(spiralArms * plasma, 1.8) * 1.5);
+    
+    // 5. Blazing Singularity Spiral Core
+    float coreDist = r;
+    float coreGlow = exp(-pow(coreDist / 0.22, 2.0) * 3.5);
+    float coreSpiral = pow(0.5 + 0.5 * sin(twistedTheta * 2.0 + coreDist * 16.0), 2.0);
+    float hotCore = exp(-pow(coreDist / 0.12, 2.0) * 8.0);
+    
+    col += neonMagenta * coreGlow * (0.8 + coreSpiral * 0.6);
+    col += radiantWhite * hotCore * 2.5;
+    
+    // 6. Arcane Rune Halo Ring
+    float ringDist = abs(r - 0.85);
+    float ringBase = smoothstep(0.065, 0.0, ringDist);
+    // Segmented rune glyphs along the circle
+    float runeSegment = sin(theta * 18.0 + gt * 0.8);
+    float runePattern = smoothstep(0.2, 0.7, runeSegment) * tf_noise(vec2(theta * 8.0, gt * 0.3));
+    float runeGlow = ringBase * (0.4 + runePattern * 1.8);
+    
+    // Add pulsing rune light
+    col += mix(neonMagenta, radiantWhite, 0.6) * runeGlow * 1.6;
+    
+    // 7. Outer Swirling Wisps & Tendrils
+    float outerSmoke = smoothstep(0.7, 1.15, r) * tf_noise(vec2(theta * 4.0 - gt * 0.8, r * 5.0));
+    col += electricViolet * outerSmoke * 0.8;
+    
+    // 8. Ethereal Alpha Falloff (Completely transparent outside, soft feathering edge)
+    float alpha = smoothstep(1.15, 0.75, r);
+    alpha = max(alpha, runeGlow * 0.9);
+    
+    // Slight core opacity boost
+    alpha = clamp(alpha * 1.25, 0.0, 1.0);
+    
+    return vec4(col, alpha);
+}
+
 #endif // GOURD_GUARD_SKYBOXES_GLSL

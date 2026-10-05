@@ -1,9 +1,7 @@
 #version 330
 #extension GL_ARB_separate_shader_objects : require
 
-#ifdef GLINT
 #include <minecraft:globals.glsl>
-#endif
 #include <minecraft:fog.glsl>
 #include <minecraft:dynamictransforms.glsl>
 #include <minecraft:oit.glsl>
@@ -65,6 +63,18 @@ void main() {
 #ifndef OIT_ALPHA_ONLY
     // If this fragment belongs to a procedural skybox model
     if (tf_skyId > 0) {
+        if (tf_skyId == 3) {
+            vec2 uv = tf_pos.xy * 2.2;
+            float gt = GameTime * 20.0;
+            vec4 portal = tf_purplePortal(uv, gt);
+            if (portal.a <= 0.005) {
+                discard;
+            }
+            portal = apply_fog(portal, sphericalVertexDistance, cylindricalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd, FogColor);
+            fragColor = portal;
+            return;
+        }
+
         vec3 nearPos = tf_nearPos.xyz / tf_nearPos.w;
         vec3 boxMin = vec3(-1.05);
         vec3 boxMax = vec3(2.05);
