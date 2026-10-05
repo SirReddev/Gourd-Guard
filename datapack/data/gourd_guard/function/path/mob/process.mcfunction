@@ -13,15 +13,15 @@ execute as @e[tag=path_node] if score @s path.route = MobRoute path.cmp if score
 execute unless entity @e[tag=path_target] run function gourd_guard:path/mob/on_reach_end
 execute unless entity @e[tag=path_target] run return 0
 
-# Re-orient Ground Mobs towards target node (facing node feet with full 3D pitch for steps)
-execute as @s[tag=!path_flyer] at @s facing entity @e[tag=path_target,limit=1] feet run tp @s ~ ~ ~ ~ ~
-
-# Re-orient Flying Mobs (Phantoms etc.) towards target node eye-level in the air
-execute as @s[tag=path_flyer] at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ ~
+# Re-orient mob strictly horizontally (yaw only, pitch locked to 0 = flat ground walking)
+execute at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
 
 # Advance to next node when in range:
-execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..1.3] run scoreboard players add @s path.node 1
-execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..2.0] run scoreboard players add @s path.node 1
+# Ground mobs advance at 1.2 blocks
+execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..1.2] run scoreboard players add @s path.node 1
+
+# Flying mobs (Phantoms) advance at 2.8 blocks (accounting for +2.5b vertical hover)
+execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..2.8] run scoreboard players add @s path.node 1
 
 # Clean up temporary tag
 tag @e[tag=path_target] remove path_target
