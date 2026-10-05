@@ -14,8 +14,9 @@ execute if entity @s[type=allay] run tag @s add path_flyer
 execute if entity @s[type=ghast] run tag @s add path_flyer
 execute if entity @s[type=blaze] run tag @s add path_flyer
 
-# Disable vanilla flight AI on airborne mobs so they glide with 100% path precision
+# Disable vanilla circling/wander AI on airborne mobs and elevate to flight altitude
 execute if entity @s[tag=path_flyer] run data modify entity @s NoAI set value 1b
+execute if entity @s[tag=path_flyer] at @s run tp @s ~ ~1.8 ~
 
 # Immediately orient towards Node 0
 execute at @s run function gourd_guard:path/mob/process

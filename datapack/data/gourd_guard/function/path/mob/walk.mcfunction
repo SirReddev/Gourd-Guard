@@ -11,9 +11,9 @@ tp @s ^ ^ ^0.15
 # Step-Up: If foot is inside a solid block, elevate smoothly onto top of block
 execute as @s[tag=!path_flyer] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
 
-# Step-Down (Gravity): If in air above lower floor, descend smoothly until feet land on solid ground
-execute as @s[tag=!path_flyer] at @s if block ~ ~-0.05 ~ air run tp @s ~ ~-0.25 ~
+# Step-Down: Descend onto lower step ONLY if solid ground exists within 1.2b below (NEVER falls into the void)
+execute as @s[tag=!path_flyer] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air run tp @s ~ ~-0.25 ~
 
-# Anti-Suffocation Protection: Prevent Spider/wide-mob suffocation damage when stepping inside solid blocks
-execute as @s[tag=!path_flyer] at @s unless block ~ ~0.4 ~ #minecraft:air run effect give @s minecraft:resistance 1 4 true
-execute as @s[tag=!path_flyer] at @s if block ~ ~0.4 ~ #minecraft:air run effect clear @s minecraft:resistance
+# Anti-Suffocation Protection: Prevent Spider suffocation when intersecting blocks
+execute as @s[tag=!path_flyer] at @s unless block ~ ~0.3 ~ #minecraft:air run effect give @s minecraft:resistance 1 4 true
+execute as @s[tag=!path_flyer] at @s if block ~ ~0.3 ~ #minecraft:air run effect clear @s minecraft:resistance
