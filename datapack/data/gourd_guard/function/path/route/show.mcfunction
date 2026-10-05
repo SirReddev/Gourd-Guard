@@ -10,9 +10,9 @@ scoreboard players set FoundNodes path.cmp 0
 # Count matching nodes
 execute as @e[tag=path_node] if score @s path.route = ShowRoute path.cmp run scoreboard players add FoundNodes path.cmp 1
 
-# Render high-visibility particle markers at each node for this route
-execute as @e[tag=path_node] if score @s path.route = ShowRoute path.cmp at @s run particle minecraft:flame ~ ~0.3 ~ 0.1 0.4 0.1 0.02 40
-execute as @e[tag=path_node] if score @s path.route = ShowRoute path.cmp at @s run particle minecraft:end_rod ~ ~0.7 ~ 0.1 0.4 0.1 0.02 30
+# Render blue soul vault particles at each node for this route
+execute as @e[tag=path_node] if score @s path.route = ShowRoute path.cmp at @s run particle minecraft:soul_fire_flame ~ ~0.4 ~ 0.1 0.3 0.1 0.02 35
+execute as @e[tag=path_node] if score @s path.route = ShowRoute path.cmp at @s run particle minecraft:soul ~ ~0.6 ~ 0.1 0.3 0.1 0.02 15
 
 # Feedback messages
 $execute if score FoundNodes path.cmp matches 0 run tellraw @s [{"text":"[Path] ","color":"dark_red"},{"text":"No nodes found for route $(route). Run ","color":"red"},{"text":"/function gourd_guard:path/route/add_node","color":"yellow"},{"text":" to add nodes!","color":"red"}]

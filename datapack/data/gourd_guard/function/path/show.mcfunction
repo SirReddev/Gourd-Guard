@@ -4,8 +4,9 @@
 scoreboard objectives add path.route dummy
 scoreboard objectives add path.cmp dummy
 
-execute as @e[tag=path_node] at @s run particle minecraft:flame ~ ~0.3 ~ 0.1 0.4 0.1 0.02 40
-execute as @e[tag=path_node] at @s run particle minecraft:end_rod ~ ~0.7 ~ 0.1 0.4 0.1 0.02 30
+# Render blue soul vault particles at each node
+execute as @e[tag=path_node] at @s run particle minecraft:soul_fire_flame ~ ~0.4 ~ 0.1 0.3 0.1 0.02 35
+execute as @e[tag=path_node] at @s run particle minecraft:soul ~ ~0.6 ~ 0.1 0.3 0.1 0.02 15
 
 scoreboard players set FoundNodes path.cmp 0
 execute as @e[tag=path_node] run scoreboard players add FoundNodes path.cmp 1

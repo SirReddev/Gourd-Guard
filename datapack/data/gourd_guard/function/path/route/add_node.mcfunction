@@ -16,9 +16,9 @@ execute at @s run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,
 scoreboard players operation @e[tag=path_node_new] path.route = CurrentRoute path.edit
 scoreboard players operation @e[tag=path_node_new] path.node = NextNode path.edit
 
-# Visual particle indicator at node position
-execute at @e[tag=path_node_new] run particle minecraft:flame ~ ~0.2 ~ 0.1 0.1 0.1 0.02 25
-execute at @e[tag=path_node_new] run particle minecraft:end_rod ~ ~0.5 ~ 0.1 0.1 0.1 0.02 20
+# Visual blue soul particle indicator at node position
+execute at @e[tag=path_node_new] run particle minecraft:soul_fire_flame ~ ~0.2 ~ 0.1 0.1 0.1 0.02 25
+execute at @e[tag=path_node_new] run particle minecraft:soul ~ ~0.4 ~ 0.1 0.1 0.1 0.02 15
 
 # Remove temp tag
 tag @e[tag=path_node_new] remove path_node_new
