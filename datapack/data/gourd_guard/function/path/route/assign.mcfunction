@@ -4,7 +4,6 @@
 $scoreboard players set @s path.route $(route)
 scoreboard players set @s path.node 0
 scoreboard players set @s path.state 1
-scoreboard players set @s path.invuln 0
 tag @s add path_mob
 
 # Auto-detect flying mobs for specialized aerial navigation
@@ -14,10 +13,6 @@ execute if entity @s[type=vex] run tag @s add path_flyer
 execute if entity @s[type=allay] run tag @s add path_flyer
 execute if entity @s[type=ghast] run tag @s add path_flyer
 execute if entity @s[type=blaze] run tag @s add path_flyer
-
-# Auto-detect spiders for specialized wide-hitbox terrain handling
-execute if entity @s[type=spider] run tag @s add path_spider
-execute if entity @s[type=cave_spider] run tag @s add path_spider
 
 # Disable vanilla circling/wander AI on airborne mobs and elevate to flight altitude (1.0 block)
 execute if entity @s[tag=path_flyer] run data modify entity @s NoAI set value 1b
