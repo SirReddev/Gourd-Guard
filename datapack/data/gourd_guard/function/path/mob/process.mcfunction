@@ -22,12 +22,18 @@ execute as @s[tag=path_flyer] at @s facing entity @e[tag=path_target,limit=1] ey
 # 3. Execute smooth walk / flight step forward
 function gourd_guard:path/mob/walk
 
-# 4. Advance to next node when within range:
+# 4. Advance to next node when within range (sharp turns at the node, no early smoothing):
 # Ground mobs advance at 0.5 blocks of target node
-execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..0.5] run scoreboard players add @s path.node 1
+execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..0.5] run tag @s add path_advance
 
-# Flying mobs advance when within 1.8 blocks of the ground node (1.0b height + 0.8b horizontal)
-execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..1.8] run scoreboard players add @s path.node 1
+# Flying mobs advance when within 0.55 blocks horizontally of target node (matching ground mob timing)
+execute as @s[tag=path_flyer] at @s positioned ~ ~-1.0 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
+execute as @s[tag=path_flyer] at @s positioned ~ ~-0.5 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
+execute as @s[tag=path_flyer] at @s positioned ~ ~-1.5 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
+
+# Increment node index if arrived at node
+execute as @s[tag=path_advance] run scoreboard players add @s path.node 1
+tag @s remove path_advance
 
 # Clean up temporary tag
 tag @e[tag=path_target] remove path_target
