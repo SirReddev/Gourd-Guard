@@ -63,18 +63,6 @@ void main() {
 #ifndef OIT_ALPHA_ONLY
     // If this fragment belongs to a procedural skybox model
     if (tf_skyId > 0) {
-        if (tf_skyId == 3) {
-            vec2 uv = tf_pos.xy * 2.2;
-            float gt = GameTime * 20.0;
-            vec4 portal = tf_purplePortal(uv, gt);
-            if (portal.a <= 0.005) {
-                discard;
-            }
-            portal = apply_fog(portal, sphericalVertexDistance, cylindricalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd, FogColor);
-            fragColor = portal;
-            return;
-        }
-
         vec3 nearPos = tf_nearPos.xyz / tf_nearPos.w;
         vec3 boxMin = vec3(-1.05);
         vec3 boxMax = vec3(2.05);
@@ -89,6 +77,7 @@ void main() {
 
         if (tf_skyId == 1) sky = tf_nebulaSky(dir);
         else if (tf_skyId == 2) sky = tf_halloweenSky(dir);
+        else if (tf_skyId == 3) sky = tf_purpleSky(dir);
 
         fragColor = vec4(sky, 1.0);
         return;

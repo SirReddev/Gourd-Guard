@@ -1,0 +1,73 @@
+{
+  "textures": {
+    "particle": "gourd_guard:item/skybox/purple",
+    "texture": "gourd_guard:item/skybox/purple"
+  },
+  "elements": [
+    {
+      "comment": "Inner North Wall",
+      "from": [-16, -16, 32],
+      "to": [32, 32, 32],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#texture"}
+      }
+    },
+    {
+      "comment": "Inner South Wall",
+      "from": [-16, -16, -16],
+      "to": [32, 32, -16],
+      "faces": {
+        "south": {"uv": [0, 0, 16, 16], "texture": "#texture"}
+      }
+    },
+    {
+      "comment": "Inner East Wall",
+      "from": [-16, -16, -16],
+      "to": [-16, 32, 32],
+      "faces": {
+        "east": {"uv": [0, 0, 16, 16], "texture": "#texture"}
+      }
+    },
+    {
+      "comment": "Inner West Wall",
+      "from": [32, -16, -16],
+      "to": [32, 32, 32],
+      "faces": {
+        "west": {"uv": [0, 0, 16, 16], "texture": "#texture"}
+      }
+    },
+    {
+      "comment": "Inner Floor",
+      "from": [-16, -16, -16],
+      "to": [32, -16, 32],
+      "faces": {
+        "up": {"uv": [0, 0, 16, 16], "texture": "#texture"}
+      }
+    },
+    {
+      "comment": "Inner Ceiling",
+      "from": [-16, 32, -16],
+      "to": [32, 32, 32],
+      "faces": {
+        "down": {"uv": [0, 0, 16, 16], "texture": "#texture"}
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [0, 0, 0],
+      "scale": [0.35, 0.35, 0.35]
+    },
+    "fixed": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    "head": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    }
+  }
+}

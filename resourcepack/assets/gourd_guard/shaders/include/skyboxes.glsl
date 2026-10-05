@@ -690,4 +690,81 @@ vec4 tf_purplePortal(vec2 rawUv, float gt) {
     return vec4(col, alpha);
 }
 
+// ==========================================
+// 3. PURPLE PORTAL / VOID SKYBOX (ID = 3)
+// Massive Celestial Swirling Void Rift overhead
+// ==========================================
+vec3 tf_purpleSky(vec3 d) {
+    float t = GameTime * 2.0 * PI;
+    float gt = GameTime * 20.0;
+    
+    // Polar coordinates centered at Zenith (overhead)
+    float zenithDist = length(d.xz);
+    float angle = atan(d.z, d.x);
+    
+    // Project hemisphere coordinates: r=0 at zenith, expanding downward
+    float r = zenithDist / (max(d.y, -0.2) + 0.45);
+    
+    // 1. Inward Spiral Vortex Swirl (swirls faster toward singularity core)
+    float rotTime = gt * 0.12;
+    float swirl = 4.2 / (r + 0.22) - rotTime * 2.6;
+    float twistedAngle = angle + swirl;
+    
+    // 2. Swirling Galactic Energy Arms (3 major cosmic spiral arms)
+    float arms = pow(0.5 + 0.5 * sin(twistedAngle * 3.0 + r * 5.0), 2.2);
+    
+    // 3. Multi-frequency Turbulent Plasma Flow
+    vec2 polarUv1 = vec2(r * 3.2 - rotTime * 1.6, twistedAngle * 1.5);
+    vec2 polarUv2 = vec2(r * 6.5 - rotTime * 3.2, twistedAngle * 3.0);
+    float plasma = tf_noise(polarUv1) * 0.65 + tf_noise(polarUv2) * 0.35;
+    
+    // Counter-rotating fine ethereal wisps
+    float counterSwirl = angle - 2.8 / (r + 0.35) + rotTime * 1.8;
+    float counterWisps = pow(0.5 + 0.5 * sin(counterSwirl * 5.0 + r * 9.0), 3.0) * tf_noise(vec2(r * 4.5, counterSwirl * 2.0));
+    
+    // 4. Color Palette
+    vec3 deepVoid       = vec3(0.012, 0.004, 0.032); // Midnight void background
+    vec3 royalPurple    = vec3(0.38, 0.04, 0.68);    // Saturated royal purple
+    vec3 electricViolet = vec3(0.68, 0.10, 0.95);    // Vivid electric violet
+    vec3 neonMagenta    = vec3(0.98, 0.25, 0.85);    // Radiant neon magenta
+    vec3 blazingWhite   = vec3(1.00, 0.96, 1.00);    // Core hot singularity
+    
+    // Composite the swirling portal body
+    vec3 sky = deepVoid;
+    sky = mix(sky, royalPurple, smoothstep(0.12, 0.75, arms * 0.7 + plasma * 0.5));
+    sky = mix(sky, electricViolet, smoothstep(0.35, 0.90, arms * plasma + counterWisps * 0.5));
+    sky = mix(sky, neonMagenta, pow(arms * plasma, 1.8) * 1.5);
+    
+    // 5. Arcane Rune Rings in the Celestial Dome
+    float ring1 = smoothstep(0.05, 0.0, abs(r - 0.85));
+    float ring2 = smoothstep(0.035, 0.0, abs(r - 1.45));
+    float runeSegment = sin(angle * 18.0 + gt * 0.7);
+    float runePattern = smoothstep(0.2, 0.7, runeSegment) * tf_noise(vec2(angle * 6.0, gt * 0.25));
+    float runes = ring1 * (0.4 + runePattern * 1.8) + ring2 * 0.6 * runePattern;
+    sky += mix(neonMagenta, blazingWhite, 0.6) * runes * 1.4;
+    
+    // 6. Blazing Singularity Spiral Core at Zenith
+    float coreDist = r;
+    float coreGlow = exp(-pow(coreDist / 0.32, 2.0) * 3.2);
+    float coreSpiral = pow(0.5 + 0.5 * sin(twistedAngle * 2.0 + coreDist * 14.0), 2.0);
+    float hotCore = exp(-pow(coreDist / 0.15, 2.0) * 7.5);
+    sky += neonMagenta * coreGlow * (0.8 + coreSpiral * 0.6);
+    sky += blazingWhite * hotCore * 2.8;
+    
+    // 7. Twinkling Cosmic Stars in the Outer Sky / Horizon
+    float skyIntensity = smoothstep(-0.40, 0.10, d.y);
+    vec2 starUv = (d.xz / (0.65 + 0.35 * max(d.y, -0.35))) * 10.0;
+    starUv = tf_rotate(starUv + vec2(2.0, -1.0), t * 0.015);
+    vec3 stars = tf_starField(starUv, t, 1.2) * skyIntensity;
+    sky += stars * mix(vec3(0.7, 0.5, 1.0), vec3(1.0, 0.7, 0.9), tf_hash12(floor(starUv)));
+    
+    // 8. Falling Void Meteors plunging toward the ground
+    sky += tf_fallingStars(d, gt, 0) * vec3(0.9, 0.5, 1.0);
+    
+    // 9. Deep Dark Horizon Fog Blend
+    sky = mix(vec3(0.008, 0.003, 0.020), sky, smoothstep(-0.35, 0.05, d.y));
+    
+    return sky;
+}
+
 #endif // GOURD_GUARD_SKYBOXES_GLSL

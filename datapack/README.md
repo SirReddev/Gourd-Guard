@@ -123,6 +123,19 @@ Procedural, raymarched volumetric shader environments that can be summoned direc
 
 ---
 
+### 🌌 3. Purple Portal / Void Rift
+```mcfunction
+/summon item_display ~ ~ ~ {item:{id:"minecraft:carved_pumpkin",components:{"minecraft:item_model":"gourd_guard:skybox_purple"}},transformation:{scale:[1000f,1000f,1000f]},Tags:["skybox"]}
+```
+* **Features**:
+  * **Colossal Swirling Void Vortex**: Giant purple cosmic singularity directly overhead at the zenith.
+  * **Galactic Energy Spiral Arms**: Radiant electric violet, neon magenta, and royal purple streams spiraling inward.
+  * **Arcane Rune Rings**: Orbiting magical halo rings pulsating with arcane glyphs across the celestial dome.
+  * **Falling Void Meteors**: Cosmic shooting meteors plunging from the rift.
+  * **Deep Midnight Horizon Fog**: Seamless transition into dark void fog at the horizon.
+
+---
+
 ### 🧹 Remove Active Skybox
 ```mcfunction
 /kill @e[type=item_display,tag=skybox]
