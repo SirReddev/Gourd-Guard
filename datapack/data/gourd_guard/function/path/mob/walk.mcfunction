@@ -14,12 +14,20 @@ execute as @s[tag=!path_flyer,tag=!path_spider] at @s unless block ~ ~0.05 ~ air
 # Step-Down: Descend onto lower step ONLY if solid ground exists within 1.2b below (NEVER falls into the void)
 execute as @s[tag=!path_flyer,tag=!path_spider] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air run tp @s ~ ~-0.25 ~
 
+# Slab & Stair Descent: Descend onto bottom slabs and bottom stairs (prevents floating 0.5b above half-down slabs)
+execute as @s[tag=!path_flyer,tag=!path_spider] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~
+execute as @s[tag=!path_flyer,tag=!path_spider] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:stairs[half=bottom] run tp @s ~ ~-0.25 ~
+
 # --- SPIDERS (Wide Hitbox Specialized Terrain Climbing) ---
 # Step-Up: Nudge up immediately by 0.5b so spider never suffocates inside stairs/slabs/blocks
 execute as @s[tag=path_spider] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.5 ~
 
 # Step-Down: Smooth descent onto lower step without clipping edges
 execute as @s[tag=path_spider] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air run tp @s ~ ~-0.25 ~
+
+# Slab & Stair Descent for Spiders
+execute as @s[tag=path_spider] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~
+execute as @s[tag=path_spider] at @s if block ~ ~ ~ #minecraft:air if block ~ ~-0.05 ~ #minecraft:stairs[half=bottom] run tp @s ~ ~-0.25 ~
 
 # Anti-Suffocation Protection: Prevent Spider suffocation when intersecting blocks
 execute as @s[tag=path_spider] at @s unless block ~ ~0.6 ~ air run effect give @s minecraft:resistance 1 4 true
