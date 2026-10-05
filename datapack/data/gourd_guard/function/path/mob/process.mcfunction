@@ -13,15 +13,21 @@ execute as @e[tag=path_node] if score @s path.route = MobRoute path.cmp if score
 execute unless entity @e[tag=path_target] run function gourd_guard:path/mob/on_reach_end
 execute unless entity @e[tag=path_target] run return 0
 
-# Re-orient mob horizontally towards target node
-execute at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
+# 1. Re-orient Ground Mobs strictly horizontally (yaw only, pitch locked to 0)
+execute as @s[tag=!path_flyer] at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
 
-# Execute smooth walk step forward
+# 2. Re-orient Flying Mobs (Phantoms, Blazes, etc.) towards node eye-level in true 3D
+execute as @s[tag=path_flyer] at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ ~
+
+# 3. Execute smooth walk / flight step forward
 function gourd_guard:path/mob/walk
 
-# Advance to next node when within range
-execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..1.2] run scoreboard players add @s path.node 1
-execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..2.5] run scoreboard players add @s path.node 1
+# 4. Advance to next node when within 0.5 blocks of target:
+# Ground mobs advance when within 0.5 blocks of the waypoint node
+execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..0.5] run scoreboard players add @s path.node 1
+
+# Flying mobs advance when within 0.6 blocks of the waypoint node's 3D eye position (~1.62b high)
+execute as @s[tag=path_flyer] at @s positioned as @e[tag=path_target,limit=1] positioned ~ ~1.62 ~ if entity @s[distance=..0.6] run scoreboard players add @s path.node 1
 
 # Clean up temporary tag
 tag @e[tag=path_target] remove path_target
