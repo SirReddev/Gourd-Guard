@@ -21,17 +21,17 @@ execute if score .global wave_hud_toggle matches 0 run return 0
 data modify storage gourd_guard:hud macro.wave_sign set value "\uE200"
 data modify storage gourd_guard:hud macro.wave_sign_back set value "\uF81A"
 data modify storage gourd_guard:hud macro.wave_text set value "WAVE "
-# Ghost Icon: 12px -> backstep \uF80C (-12px)
+# Ghost Icon: 12px -> backstep \uF808\uF802 (-10px, shifted +2px right)
 data modify storage gourd_guard:hud macro.wave_ghost set value "\uE201"
-data modify storage gourd_guard:hud macro.wave_ghost_back set value "\uF80C"
+data modify storage gourd_guard:hud macro.wave_ghost_back set value "\uF808\uF802"
 
 # Dynamic exact backstep for WAVE <score> (25px + digits)
 execute if score .global wave matches 0..9 run data modify storage gourd_guard:hud macro.wave_text_back set value "\uF81C\uF802\uF801"
 execute if score .global wave matches 10..99 run data modify storage gourd_guard:hud macro.wave_text_back set value "\uF822\uF802\uF801"
 execute if score .global wave matches 100.. run data modify storage gourd_guard:hud macro.wave_text_back set value "\uF828\uF802\uF801"
 
-# Dynamic exact backstep for <wave_mobs>
-execute if score .global wave_mobs matches 0..9 run data modify storage gourd_guard:hud macro.wave_mobs_back set value "\uF806"
-execute if score .global wave_mobs matches 10..99 run data modify storage gourd_guard:hud macro.wave_mobs_back set value "\uF80C"
-execute if score .global wave_mobs matches 100..999 run data modify storage gourd_guard:hud macro.wave_mobs_back set value "\uF810\uF802"
-execute if score .global wave_mobs matches 1000.. run data modify storage gourd_guard:hud macro.wave_mobs_back set value "\uF818"
+# Dynamic exact backstep for <wave_mobs> (shifted +2px right)
+execute if score .global wave_mobs matches 0..9 run data modify storage gourd_guard:hud macro.wave_mobs_back set value "\uF808"
+execute if score .global wave_mobs matches 10..99 run data modify storage gourd_guard:hud macro.wave_mobs_back set value "\uF80E"
+execute if score .global wave_mobs matches 100..999 run data modify storage gourd_guard:hud macro.wave_mobs_back set value "\uF814"
+execute if score .global wave_mobs matches 1000.. run data modify storage gourd_guard:hud macro.wave_mobs_back set value "\uF81A"
