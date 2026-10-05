@@ -34,9 +34,13 @@ execute as @s[tag=path_spider] at @s unless block ~ ~0.6 ~ air run effect give @
 execute as @s[tag=path_spider,nbt={HurtTime:10s}] at @s unless block ~ ~0.8 ~ air run effect give @s minecraft:instant_health 1 0 true
 
 # --- FLYING MOBS (Phantoms, Blazes, Bats, Vexes, etc.) ---
-# Maintain exactly 1.5 blocks above terrain at all times:
-# 1. Terrain rises / flyer too low (< 1.5b above ground): smooth glide UP
-execute as @s[tag=path_flyer] at @s unless block ~ ~-1.45 ~ air run tp @s ~ ~0.15 ~
+# Maintain close ~1.0-1.1 block hover above terrain at all times:
+# 1. Terrain rises / flyer too low (< 1.0b above ground): smooth glide UP
+execute as @s[tag=path_flyer] at @s unless block ~ ~-1.0 ~ #minecraft:air run tp @s ~ ~0.15 ~
 
-# 2. Terrain drops / flyer too high (> 1.5b above ground): smooth glide DOWN (only if ground within 4b)
-execute as @s[tag=path_flyer] at @s if block ~ ~-1.55 ~ air unless block ~ ~-4.0 ~ air run tp @s ~ ~-0.15 ~
+# 2. Terrain drops / flyer too high (> 1.15b above ground): smooth glide DOWN
+execute as @s[tag=path_flyer] at @s if block ~ ~-1.15 ~ #minecraft:air run tp @s ~ ~-0.15 ~
+
+# 3. Descend onto lower bottom slabs & bottom stairs
+execute as @s[tag=path_flyer] at @s if block ~ ~-0.65 ~ #minecraft:air if block ~ ~-1.15 ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.15 ~
+execute as @s[tag=path_flyer] at @s if block ~ ~-0.65 ~ #minecraft:air if block ~ ~-1.15 ~ #minecraft:stairs[half=bottom] run tp @s ~ ~-0.15 ~

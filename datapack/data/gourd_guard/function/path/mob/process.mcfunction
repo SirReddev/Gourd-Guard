@@ -26,8 +26,8 @@ function gourd_guard:path/mob/walk
 # Ground mobs advance at 0.5 blocks of target node
 execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..0.5] run scoreboard players add @s path.node 1
 
-# Flying mobs advance when within 2.2 blocks of the ground node (1.5b height + 0.8b horizontal)
-execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..2.2] run scoreboard players add @s path.node 1
+# Flying mobs advance when within 1.8 blocks of the ground node (1.0b height + 0.8b horizontal)
+execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..1.8] run scoreboard players add @s path.node 1
 
 # Clean up temporary tag
 tag @e[tag=path_target] remove path_target
