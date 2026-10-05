@@ -4,6 +4,7 @@
 $scoreboard players set @s path.route $(route)
 scoreboard players set @s path.node 0
 scoreboard players set @s path.state 1
+scoreboard players set @s path.invuln 0
 tag @s add path_mob
 
 # Auto-detect flying mobs for specialized aerial navigation

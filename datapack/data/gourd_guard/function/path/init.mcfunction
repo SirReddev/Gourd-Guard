@@ -7,3 +7,4 @@ scoreboard objectives add path.state dummy
 scoreboard objectives add path.cmp dummy
 scoreboard objectives add path.edit dummy
 scoreboard objectives add path.tick dummy
+scoreboard objectives add path.invuln dummy
