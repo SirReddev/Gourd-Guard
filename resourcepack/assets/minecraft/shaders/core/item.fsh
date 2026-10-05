@@ -1,7 +1,9 @@
 #version 330
 #extension GL_ARB_separate_shader_objects : require
 
+#ifdef GLINT
 #include <minecraft:globals.glsl>
+#endif
 #include <minecraft:fog.glsl>
 #include <minecraft:dynamictransforms.glsl>
 #include <minecraft:oit.glsl>
@@ -84,9 +86,6 @@ void main() {
 #endif
 
     vec4 color = texture(Sampler0, texCoord0);
-    if (color.a < 0.05) {
-        discard;
-    }
     #ifdef ALPHA_CUTOUT
     if (color.a < ALPHA_CUTOUT) {
         discard;
