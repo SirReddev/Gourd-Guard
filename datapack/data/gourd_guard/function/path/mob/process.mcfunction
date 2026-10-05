@@ -1,10 +1,6 @@
 # Pathfinding - Direction Update + Node Advance (runs every 3 ticks)
 # Runs as each active path mob, at the mob's position.
 
-scoreboard objectives add path.route dummy
-scoreboard objectives add path.node dummy
-scoreboard objectives add path.cmp dummy
-
 # Cache this mob's route and node for entity selector comparison
 scoreboard players operation MobRoute path.cmp = @s path.route
 scoreboard players operation MobNode path.cmp = @s path.node
