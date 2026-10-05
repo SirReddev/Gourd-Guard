@@ -1,12 +1,7 @@
 # Pathfinding System - Main Tick
 
-# Auto-detect any newly spawned mobs with route tags (e.g. from summon commands or spawners)
+# 1. Auto-detect any newly spawned mobs with route tags
 function gourd_guard:path/mob/auto_init
 
-# Every tick: walk forward in current facing direction
-execute as @e[tag=path_mob,scores={path.state=1..}] at @s run function gourd_guard:path/mob/walk
-
-# Every 3 ticks: update facing + check node advance
-scoreboard players add #path_tick path.tick 1
-execute if score #path_tick path.tick matches 3.. run scoreboard players set #path_tick path.tick 0
-execute if score #path_tick path.tick matches 0 run execute as @e[tag=path_mob,scores={path.state=1..}] at @s run function gourd_guard:path/mob/process
+# 2. Process all active path mobs
+execute as @e[tag=path_mob,scores={path.state=1..}] at @s run function gourd_guard:path/mob/process

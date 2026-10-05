@@ -1,21 +1,14 @@
-# Pathfinding - Clean Ground-Planted Walking & 3D Flight Engine
-# Runs as each active path mob, every tick.
+# Pathfinding - Direct Step & Terrain Navigation
+# Runs as each active path mob, at the mob's position.
 
-# 1. Reset fall distance so mobs never accumulate fall damage on elevation changes
+# 1. Reset fall distance so mobs never take fall damage
 data modify entity @s FallDistance set value 0.0f
 
-# 2. Advance forward in facing direction (0.15 blocks/tick = 3 blocks/sec)
+# 2. Walk forward horizontally along facing direction (0.15 blocks/tick = 3 blocks/sec)
 tp @s ^ ^ ^0.15
 
-# --- GROUND MOBS (Zombies, Spiders, Skeletons, etc.) ---
-# Predictive Step-Up: Look ahead 0.25b and elevate BEFORE entering block face (prevents Spider head suffocation)
-execute as @s[tag=!path_flyer] at @s positioned ^ ^ ^0.25 unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.35 ~
-
-# Ground Collision Step-Up fallback
+# 3. Ground Mobs: Step-Up onto solid block / stair / slab
 execute as @s[tag=!path_flyer] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
 
-# Step-Down (Gravity): If in air above lower floor, descend smoothly until feet land on solid ground
+# 4. Ground Mobs: Step-Down (gravity) if in air above lower floor
 execute as @s[tag=!path_flyer] at @s if block ~ ~-0.05 ~ air run tp @s ~ ~-0.25 ~
-
-# Anti-Suffocation Protection: If a wide mob's head is briefly inside a solid wall, grant momentary resistance
-execute as @s[tag=!path_flyer] at @s unless block ~ ~0.3 ~ air run effect give @s minecraft:resistance 1 4 true
