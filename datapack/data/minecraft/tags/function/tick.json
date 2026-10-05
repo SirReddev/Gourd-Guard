@@ -1,10 +1,11 @@
-﻿{
+{
     "replace":  false,
     "values":  [
                    "animated_java:global/data_manager/on_tick",
                    "gourd_guard:tick",
                    "worldradio:tick",
                    "animated_java:global/on_tick",
-                   "chatbox:tick"
+                   "chatbox:tick",
+                   "gourd_guard:path/tick"
                ]
 }
