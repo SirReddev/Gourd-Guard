@@ -20,8 +20,8 @@ execute unless entity @e[tag=path_target] run return 0
 # Re-orient mob towards its target node (including natural 3D elevation pitch)
 execute at @s facing entity @e[tag=path_target,limit=1] feet run tp @s ~ ~ ~ ~ ~
 
-# Advance to next node when within 1.8 blocks
-execute at @s if entity @e[tag=path_target,distance=..1.8] run scoreboard players add @s path.node 1
+# Advance to next node when within 0.7 blocks (sharp, exact waypoint turning)
+execute at @s if entity @e[tag=path_target,distance=..0.7] run scoreboard players add @s path.node 1
 
 # Clean up temporary tag
 tag @e[tag=path_target] remove path_target
