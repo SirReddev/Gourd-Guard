@@ -1,7 +1,10 @@
 # Ensure scores are initialized
 execute unless score .global wave matches 1.. run scoreboard players set .global wave 1
-execute unless score .global wave_mobs matches 0.. run scoreboard players set .global wave_mobs 0
 execute unless score .global wave_hud_toggle matches 0..1 run scoreboard players set .global wave_hud_toggle 1
+
+# Live-count active path mobs for the Ghost Mob UI counter
+scoreboard players set .global wave_mobs 0
+execute as @e[tag=path_mob,scores={path.state=1..}] run scoreboard players add .global wave_mobs 1
 
 # If HUD is toggled OFF (0), clear storage
 execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_sign set value ""
