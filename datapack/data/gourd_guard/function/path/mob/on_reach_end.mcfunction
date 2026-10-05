@@ -17,5 +17,6 @@ function gourd_guard:hud/objective/tick
 # Announce in chat with remaining base health
 tellraw @a [{"text":"[!] ","color":"dark_red"},{"selector":"@s"},{"text":" reached the goal! Dealt ","color":"red"},{"text":"10 DMG","color":"yellow","bold":true},{"text":" to Base (HP: ","color":"gray"},{"score":{"name":".objective","objective":"obj_hp"},"color":"green","bold":true},{"text":")","color":"gray"}]
 
-# Kill the mob
+# Teleport far into the void so no death particles, smoke, or item drops appear on the map
+tp @s ~ -500 ~
 kill @s
