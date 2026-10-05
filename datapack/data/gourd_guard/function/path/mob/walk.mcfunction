@@ -8,16 +8,16 @@ scoreboard objectives add path.invuln dummy
 data modify entity @s FallDistance set value 0.0f
 
 # --- SPIDER WALL-CLIMBING ENGINE (Going UP full blocks) ---
-# Start Climbing: Detect full block wall ahead (ignoring slabs and stairs)
-execute as @s[tag=path_spider,tag=!path_spider_climbing] at @s unless block ^ ^0.2 ^0.15 air unless block ^ ^0.2 ^0.15 #minecraft:slabs unless block ^ ^0.2 ^0.15 #minecraft:stairs if block ^ ^1.2 ^0.15 air run tag @s add path_spider_climbing
+# Start Climbing: When spider hits a full block step-up (ignoring slabs and stairs)
+execute as @s[tag=path_spider,tag=!path_spider_climbing] at @s unless block ~ ~0.05 ~ air unless block ~ ~0.05 ~ #minecraft:slabs unless block ~ ~0.05 ~ #minecraft:stairs if block ~ ~1.5 ~ air run tag @s add path_spider_climbing
 
-# Stop Climbing: Once feet clear the top of the wall into open air
-execute as @s[tag=path_spider_climbing] at @s if block ^ ^0.2 ^0.15 air if block ~ ~0.05 ~ air run tag @s remove path_spider_climbing
+# Execute Climbing: Ascend smoothly up the wall face (+0.25b) and nudge forward onto the ledge (+0.06b)
+execute as @s[tag=path_spider_climbing] at @s run tp @s ^ ^0.25 ^0.06
 
-# Execute Climbing: Ascend smoothly up the wall face without walking horizontally into solid stone
-execute as @s[tag=path_spider_climbing] at @s run tp @s ~ ~0.2 ~
+# Stop Climbing: Once spider is standing firmly on solid ground at the new elevation
+execute as @s[tag=path_spider_climbing] at @s if block ~ ~0.05 ~ air unless block ~ ~-0.05 ~ air run tag @s remove path_spider_climbing
 
-# 2. Advance forward in facing direction (only when not actively climbing a wall face)
+# 2. Advance forward in facing direction (normal ground walking when not climbing a full block)
 execute as @s[tag=!path_spider_climbing] run tp @s ^ ^ ^0.15
 
 # --- GROUND MOBS (Zombies, Spiders, Skeletons, etc.) ---
@@ -27,8 +27,8 @@ execute as @s[tag=!path_flyer,tag=!path_spider] at @s unless block ~ ~0.05 ~ air
 # Step-Up for Spiders on Slabs & Stairs ONLY:
 execute as @s[tag=path_spider] at @s unless block ~ ~0.05 ~ air if block ~ ~0.05 ~ #minecraft:slabs run tp @s ~ ~0.5 ~
 execute as @s[tag=path_spider] at @s unless block ~ ~0.05 ~ air if block ~ ~0.05 ~ #minecraft:stairs run tp @s ~ ~0.5 ~
-# Fallback step-up if spider is inside a block
-execute as @s[tag=path_spider] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.5 ~
+# Fallback step-up if spider is inside a block (when not climbing)
+execute as @s[tag=path_spider,tag=!path_spider_climbing] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.5 ~
 
 # Step-Down: Descend onto lower step ONLY if solid ground exists within 1.2b below (NEVER falls into the void)
 execute as @s[tag=!path_flyer] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air run tp @s ~ ~-0.25 ~
