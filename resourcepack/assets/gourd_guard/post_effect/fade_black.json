@@ -12,7 +12,7 @@
     },
     "passes": [
         {
-            "vertex_shader": "minecraft:core/screentriangle",
+            "vertex_shader": "minecraft:core/screenquad",
             "fragment_shader": "gourd_guard:post/fade_timer",
             "inputs": [
                 {
@@ -23,7 +23,7 @@
             "output": "timer_swap"
         },
         {
-            "vertex_shader": "minecraft:core/screentriangle",
+            "vertex_shader": "minecraft:core/screenquad",
             "fragment_shader": "minecraft:post/blit",
             "inputs": [
                 {
@@ -36,14 +36,14 @@
                     {
                         "name": "ColorModulate",
                         "type": "vec4",
-                        "value": [1.0, 1.0, 1.0, 1.0]
+                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
                     }
                 ]
             },
             "output": "timer"
         },
         {
-            "vertex_shader": "minecraft:core/screentriangle",
+            "vertex_shader": "minecraft:core/screenquad",
             "fragment_shader": "gourd_guard:post/fade_black",
             "inputs": [
                 {
@@ -58,7 +58,7 @@
             "output": "swap"
         },
         {
-            "vertex_shader": "minecraft:core/screentriangle",
+            "vertex_shader": "minecraft:core/screenquad",
             "fragment_shader": "minecraft:post/blit",
             "inputs": [
                 {
@@ -71,7 +71,7 @@
                     {
                         "name": "ColorModulate",
                         "type": "vec4",
-                        "value": [1.0, 1.0, 1.0, 1.0]
+                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
                     }
                 ]
             },
