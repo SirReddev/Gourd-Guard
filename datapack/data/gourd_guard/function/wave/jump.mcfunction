@@ -1,4 +1,4 @@
-# Jump to a specific wave
+# Jump to a specific wave on active map
 # Usage: /function gourd_guard:wave/jump {wave:15}
 $scoreboard players set .global wave $(wave)
 function gourd_guard:hud/wave/tick

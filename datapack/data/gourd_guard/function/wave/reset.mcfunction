@@ -6,6 +6,7 @@ scoreboard players set .wave spawn_timer 0
 scoreboard players set .wave spawn_done 0
 
 # 2. Reset Wave Number & Active Mobs
+execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 scoreboard players set .global wave 1
 scoreboard players set .global wave_mobs 0
 
