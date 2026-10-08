@@ -15,5 +15,5 @@ function gourd_guard:hud/objective/tick
 # 4. Update Wave HUD
 function gourd_guard:hud/wave/tick
 
-# 5. Render HUD for each player
-execute as @a at @s run function gourd_guard:hud/render_player
+# 5. Render HUD for each player (paused during screen fade transitions)
+execute unless score .hud hidden matches 1 as @a at @s run function gourd_guard:hud/render_player

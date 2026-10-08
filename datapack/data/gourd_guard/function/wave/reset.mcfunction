@@ -39,6 +39,7 @@ execute as @e[type=item] if data entity @s Item.components."minecraft:custom_dat
 # 7. Stop Sounds & Clear Screen Titles
 title @a clear
 title @a reset
+scoreboard players set .hud hidden 0
 stopsound @a record gourd_guard:game.over
 stopsound @a record gourd_guard:game.won
 stopsound @a record gourd_guard:hud.timer10s
