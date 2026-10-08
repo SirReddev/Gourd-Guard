@@ -7,7 +7,9 @@ scoreboard objectives add math dummy
 
 execute unless score .objective obj_max_hp matches 1.. run scoreboard players set .objective obj_max_hp 1000
 execute unless score .objective obj_hp matches 0.. run scoreboard players set .objective obj_hp 1000
-execute unless score .global obj_hud_toggle matches 0..1 run scoreboard players set .global obj_hud_toggle 1
+# Health bar only shows when waves are active (state 1 or 2)
+execute if score .wave state matches 1..2 run scoreboard players set .global obj_hud_toggle 1
+execute unless score .wave state matches 1..2 run scoreboard players set .global obj_hud_toggle 0
 
 # Clamp obj_hp between 0 and obj_max_hp
 execute if score .objective obj_hp matches ..-1 run scoreboard players set .objective obj_hp 0

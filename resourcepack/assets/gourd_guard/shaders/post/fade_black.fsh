@@ -30,18 +30,18 @@ void main() {
 
     float t = float(elapsedTicks);
 
-    // Smooth cinematic curve tied to game ticks (20 ticks = 1.0 second):
-    // 0t -> 30t   (0.0s -> 1.5s): Smooth fade into pure black behind title
-    // 30t -> 90t  (1.5s -> 4.5s): Solid black hold (title stays shining above, map/base resets)
-    // 90t -> 120t (4.5s -> 6.0s): Smooth fade from black back to normal world
-    // >= 120t: Screen is 100% normal
+    // Exact requested timing (20 ticks = 1.0 second):
+    // 0t -> 40t   (0.0s -> 2.0s) : Smooth 2s fade into solid black
+    // 40t -> 200t (2.0s -> 10.0s): Full 8s solid black hold (allows title display & game reset)
+    // 200t -> 240t(10.0s -> 12.0s): Smooth 2s fade from black back to normal
+    // >= 240t: 100% normal scene
     float blackness = 0.0;
-    if (t < 30.0) {
-        blackness = smoothstep(0.0, 30.0, t);
-    } else if (t < 90.0) {
+    if (t < 40.0) {
+        blackness = smoothstep(0.0, 40.0, t);
+    } else if (t < 200.0) {
         blackness = 1.0;
-    } else if (t < 120.0) {
-        blackness = 1.0 - smoothstep(90.0, 120.0, t);
+    } else if (t < 240.0) {
+        blackness = 1.0 - smoothstep(200.0, 240.0, t);
     } else {
         blackness = 0.0;
     }

@@ -1,6 +1,8 @@
 # Ensure scores are initialized
 execute unless score .global wave matches 1.. run scoreboard players set .global wave 1
-execute unless score .global wave_hud_toggle matches 0..1 run scoreboard players set .global wave_hud_toggle 1
+# Wave HUD only shows when waves are active (state 1 or 2)
+execute if score .wave state matches 1..2 run scoreboard players set .global wave_hud_toggle 1
+execute unless score .wave state matches 1..2 run scoreboard players set .global wave_hud_toggle 0
 
 # Live-count active path mobs for the Ghost Mob UI counter
 scoreboard players set .global wave_mobs 0

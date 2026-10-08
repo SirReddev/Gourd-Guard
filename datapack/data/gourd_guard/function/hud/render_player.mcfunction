@@ -11,6 +11,10 @@ execute unless score .global timer_min matches 0.. run scoreboard players set .g
 execute if score @s hud_toggle matches 0 run title @s actionbar {"text":""}
 execute if score @s hud_toggle matches 0 run return 0
 
+# Hide all HUD elements during Game Over (4) or Victory (3)
+execute if score .wave state matches 3..4 run title @s actionbar {"text":""}
+execute if score .wave state matches 3..4 run return 0
+
 
 # Clean up previous macro.player
 data remove storage gourd_guard:hud macro.player
