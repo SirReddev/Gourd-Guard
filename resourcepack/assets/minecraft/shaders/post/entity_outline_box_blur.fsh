@@ -12,9 +12,8 @@ layout(std140) uniform BlurConfig {
 
 uniform sampler2D InSampler;
 
-in vec2 texCoord;
-
-out vec4 fragColor;
+layout(location = 0) in vec2 texCoord;
+layout(location = 0) out vec4 fragColor;
 
 void main() {
     vec2 oneTexel = 1.0 / InSize;
