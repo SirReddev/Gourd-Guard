@@ -9,18 +9,18 @@ stopsound @a record gourd_guard:hud.timer10s
 kill @e[tag=path_mob]
 kill @e[tag=gg_mob]
 
-# Play custom Game Over sound effect
+# 1. Play custom Game Over sound effect & Title together
 playsound gourd_guard:game.over record @a ~ ~ ~ 1.0 1.0 1
 
-# Display brief Defeat title
-title @a times 5 45 15
+# Defeat title plays alongside the 7.5s sound effect
+title @a times 5 140 10
 title @a title {"text":"DEFEAT","color":"dark_red","bold":true}
 title @a subtitle [{"text":"The Pumpkin Objective was destroyed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
 
-tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"GAME OVER! The base was overwhelmed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":". Resetting for next game...","color":"gray"}]
+tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"GAME OVER! The base was overwhelmed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
 
-# Schedule cinematic black fade (2 seconds / 40 ticks)
-schedule function gourd_guard:wave/transition/fade_black 40t
+# 2. After the sound finishes (~7.5s / 155 ticks), trigger the cinematic black fade transition
+schedule function gourd_guard:wave/transition/fade_black 155t
 
-# Schedule full playthrough reset while screen is black (4.5 seconds / 90 ticks)
-schedule function gourd_guard:wave/transition/game_over_reset 90t
+# 3. Reset the game state during the solid black transition (180 ticks)
+schedule function gourd_guard:wave/transition/game_over_reset 180t
