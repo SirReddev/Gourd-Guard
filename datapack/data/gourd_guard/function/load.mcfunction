@@ -15,6 +15,9 @@ function gourd_guard:hud/setup
 scoreboard objectives add map dummy
 scoreboard objectives add wave dummy
 scoreboard objectives add wave_mobs dummy
+scoreboard objectives add state dummy
+scoreboard objectives add spawn_timer dummy
+scoreboard objectives add spawn_done dummy
 scoreboard objectives add wave.state dummy
 scoreboard objectives add wave.timer dummy
 scoreboard objectives add wave.spawn_timer dummy

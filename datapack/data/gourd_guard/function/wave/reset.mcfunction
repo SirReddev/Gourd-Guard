@@ -26,8 +26,8 @@ scoreboard players set .global timer_ticks 0
 scoreboard players set .global timer_active 0
 function gourd_guard:hud/wave/tick
 
-# 6. Audio & Chat Notification
+# 6. Audio & Chat Notification (Clear screen titles, clean chat message)
+title @a clear
+title @a reset
 playsound minecraft:block.beacon.deactivate master @a ~ ~ ~ 1.0 1.0 1
-title @a title {"text":"WAVES RESET","color":"yellow","bold":true}
-title @a subtitle {"text":"Wave 1 ready. Base HP restored to 1000.","color":"gray"}
 tellraw @a [{"text":"[Wave System] ","color":"dark_green"},{"text":"All waves, active mobs, timers, and Base HP (1000) have been reset!","color":"green"}]
