@@ -1,7 +1,5 @@
-# Reset Game State behind black screen curtain
-function gourd_guard:wave/reset
+# Reset Game State behind black screen curtain silently
+function gourd_guard:wave/reset_data
 
-# Optional Teleport to lobby
+# Teleport to lobby behind black curtain
 function gourd_guard:wave/transition/teleport_lobby
-
-tellraw @a [{"text":"[Wave System] ","color":"green"},{"text":"Game reset. Ready for next playthrough!","color":"gray"}]
