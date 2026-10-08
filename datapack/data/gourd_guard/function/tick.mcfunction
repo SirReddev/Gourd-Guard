@@ -2,6 +2,7 @@
 function gourd_guard:item_glow/tick
 function gourd_guard:candy/tick
 function gourd_guard:hud/tick
+function gourd_guard:wave/tick
 function gourd_guard:npc/witchstand/tick
 function gourd_guard:npc/archerstand/tick
 function gourd_guard:npc/blacksmithstand/tick

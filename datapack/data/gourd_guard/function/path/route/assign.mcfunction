@@ -27,4 +27,4 @@ execute if entity @s[tag=path_flyer] at @s run tp @s ~ ~1.0 ~
 # Immediately orient towards Node 0
 execute at @s run function gourd_guard:path/mob/process
 
-$tellraw @a [{"text":"[Path] ","color":"dark_green"},{"text":"Assigned ","color":"green"},{"selector":"@s"},{"text":" to Map $(map) Path $(path)","color":"yellow","bold":true}]
+$execute if score .debug path.debug matches 1 run tellraw @a [{"text":"[Path] ","color":"dark_green"},{"text":"Assigned ","color":"green"},{"selector":"@s"},{"text":" to Map $(map) Path $(path)","color":"yellow","bold":true}]

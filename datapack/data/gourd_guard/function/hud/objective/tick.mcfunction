@@ -5,8 +5,8 @@ scoreboard objectives add obj_step dummy
 scoreboard objectives add obj_hud_toggle dummy
 scoreboard objectives add math dummy
 
-execute unless score .objective obj_max_hp matches 1.. run scoreboard players set .objective obj_max_hp 100
-execute unless score .objective obj_hp matches 0.. run scoreboard players set .objective obj_hp 100
+execute unless score .objective obj_max_hp matches 1.. run scoreboard players set .objective obj_max_hp 1000
+execute unless score .objective obj_hp matches 0.. run scoreboard players set .objective obj_hp 1000
 execute unless score .global obj_hud_toggle matches 0..1 run scoreboard players set .global obj_hud_toggle 1
 
 # Clamp obj_hp between 0 and obj_max_hp

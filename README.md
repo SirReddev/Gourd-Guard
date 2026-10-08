@@ -149,6 +149,28 @@ Custom bitmap font glyphs are defined across `minecraft:default` and `gourd_guar
 | `/function gourd_guard:hud/wave/show` | Force show Wave HUD. |
 | `/function gourd_guard:hud/wave/hide` | Force hide Wave HUD. |
 
+### Wave System Commands (40-Wave Tower Defense Engine)
+| Command | Description |
+| :--- | :--- |
+| `/function gourd_guard:wave/start` | Starts the active wave (begins spawn sequence and pathing). |
+| `/function gourd_guard:wave/skip` | Skips the intermission countdown and starts the next wave immediately. |
+| `/function gourd_guard:wave/reset` | Resets all waves to 1, kills active mobs, restores Base HP to 1000, and resets timers. |
+| `/function gourd_guard:wave/jump {wave:<1-40>}` | Jumps directly to any wave 1..40 and starts it immediately. |
+
+#### Wave Progression & Features:
+- **40 Total Waves** with dual-path assault on Map 1 (`m1_p1` and `m1_p2`).
+- **High-HP Mobs**: Scaled health so player fists do negligible damage, relying on defense towers.
+- **Candy Death Loot Tables**: Mobs drop arcade candy bursts (`single`, `small`, `medium`, `large`, `boss`).
+- **Camo / Stealth Mobs (`gg_camo`)**: Starting at Wave 11, stealth mobs spawn with purple outlines and `gg_camo`/`gg_stealth` tags requiring future tower upgrades.
+- **Boss Waves**:
+  - **Wave 10**: Mini-Boss *Warlord Malakor* (2,500 HP).
+  - **Wave 20**: Mid-Boss *Beast of the Mire* Ravager (6,000 HP).
+  - **Wave 30**: High-Boss *Leviathan of the Depths* Elder Guardian (12,000 HP).
+  - **Waves 31-39**: Boss Rush build-up with multiple Nether Titans, Void Wardens, and Dual Ravagers.
+  - **Wave 40**: Final Big Boss ***THE GOURD COLOSSUS*** (75,000 HP, Scale 3.0, Blood Red Outline)!
+- **Intermission Timer**: Automatically counts down 15s between waves on the Timer HUD, auto-advancing when it expires.
+- **Base Objective HP**: Base starts with 1,000 HP. Mobs reaching the end deal leak damage (10 for grunts, 30 for heavies, 100 for bosses, 250 for final boss). Base reaching 0 triggers Game Over.
+
 ### Global HUD Visibility
 | Command | Description |
 | :--- | :--- |
