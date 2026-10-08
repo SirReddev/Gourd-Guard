@@ -13,8 +13,9 @@ scoreboard players set .global timer_sec 15
 scoreboard players set .global timer_ticks 0
 scoreboard players set .global timer_active 1
 
-# Play celebration fanfare
+# Play celebration fanfare & brief title (2.25s total)
 playsound minecraft:ui.toast.challenge_complete player @a ~ ~ ~ 1.0 1.0 1
+title @a times 5 30 10
 title @a title {"text":"WAVE CLEARED!","color":"green","bold":true}
 title @a subtitle [{"text":"Next wave in ","color":"gray"},{"text":"15s","color":"yellow","bold":true}]
 

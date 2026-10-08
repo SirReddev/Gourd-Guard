@@ -1,4 +1,9 @@
 # Full Reset of Wave System, Mobs, Base HP, Timers, and HUD
+scoreboard objectives add map dummy
+scoreboard objectives add wave dummy
+scoreboard objectives add state dummy
+scoreboard objectives add spawn_timer dummy
+scoreboard objectives add spawn_done dummy
 
 # 1. Stop Wave System
 scoreboard players set .wave state 0

@@ -5,15 +5,21 @@
 scoreboard objectives add map dummy
 scoreboard objectives add wave dummy
 scoreboard objectives add wave_mobs dummy
+scoreboard objectives add state dummy
+scoreboard objectives add spawn_timer dummy
+scoreboard objectives add spawn_done dummy
 scoreboard objectives add wave.state dummy
 scoreboard objectives add wave.timer dummy
 scoreboard objectives add wave.spawn_timer dummy
 scoreboard objectives add wave.spawn_done dummy
+scoreboard objectives add timer dummy
 scoreboard objectives add path.map dummy
 scoreboard objectives add path.route dummy
 scoreboard objectives add path.node dummy
 scoreboard objectives add path.cmp dummy
 scoreboard objectives add path.state dummy
+scoreboard objectives add obj_hp dummy
+scoreboard objectives add obj_max_hp dummy
 
 # Ensure default map if unset
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1
@@ -70,6 +76,5 @@ execute if score .wave state matches 1 if score .global map matches 2 run functi
 execute if score .wave state matches 1 if score .wave spawn_done matches 1 if score .global wave_mobs matches 0 run function gourd_guard:wave/complete
 
 # 2. State 2: Intermission Countdown Timer handling
-# When timer hits 0:00 during intermission, trigger intermission_end
 execute if score .wave state matches 2 if score .global timer_active matches 1 if score .global timer_min matches 0 if score .global timer_sec matches 0 if score .global timer_ticks matches 0 run function gourd_guard:wave/intermission_end
 

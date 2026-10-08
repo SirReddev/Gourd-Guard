@@ -1,62 +1,50 @@
 # Wave 38 Spawning Sequence
-# Total spawns: 52 mobs across Path 1 & Path 2
+# Total spawns: 41 mobs across Path 1 & Path 2
+execute if score .wave spawn_timer matches 1 run title @a times 5 30 10
 execute if score .wave spawn_timer matches 1 run title @a title {"text":"WAVE 38","color":"gold","bold":true}
-execute if score .wave spawn_timer matches 1 run title @a subtitle {"text":"Defend the Gourd!","color":"gray"}
-execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.experience_orb.pickup player @a ~ ~ ~ 1.0 1.0 1
-execute if score .wave spawn_timer matches 1 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 13 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 15 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 25 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 31 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 37 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 47 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 49 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 61 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 63 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 73 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 79 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 85 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 95 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 97 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 109 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 111 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 121 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 127 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 133 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 143 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 145 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 157 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 159 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 169 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 175 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 181 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 191 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 193 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 205 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 207 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 217 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 223 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 229 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 239 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 241 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 253 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 255 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 265 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 271 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 277 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 287 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 289 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 301 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 303 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
-execute if score .wave spawn_timer matches 310 run function gourd_guard:wave/spawn/boss_titan {map:1,path:1}
-execute if score .wave spawn_timer matches 310 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1
-execute if score .wave spawn_timer matches 310 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Nether Titan ","color":"yellow","bold":true},{"text":"has spawned on Path 1!","color":"gray"}]
-execute if score .wave spawn_timer matches 313 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 319 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
-execute if score .wave spawn_timer matches 325 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 330 run function gourd_guard:wave/spawn/boss_titan {map:1,path:2}
-execute if score .wave spawn_timer matches 330 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1
-execute if score .wave spawn_timer matches 330 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Nether Titan ","color":"yellow","bold":true},{"text":"has spawned on Path 2!","color":"gray"}]
-execute if score .wave spawn_timer matches 337 run function gourd_guard:wave/spawn/brute {map:1,path:1}
-execute if score .wave spawn_timer matches 349 run function gourd_guard:wave/spawn/brute {map:1,path:2}
-execute if score .wave spawn_timer matches 350 run scoreboard players set .wave spawn_done 1
+execute if score .wave spawn_timer matches 1 run title @a subtitle {"text":"BOSS WAVE INCOMING!","color":"red","bold":true}
+execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.wither.spawn hostile @a ~ ~ ~ 1.0 1.0 1
+execute if score .wave spawn_timer matches 1 run function gourd_guard:wave/spawn/boss_warden {map:1,path:2}
+execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1
+execute if score .wave spawn_timer matches 1 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Harbinger of the Void ","color":"yellow","bold":true},{"text":"has spawned on Path 2!","color":"gray"}]
+execute if score .wave spawn_timer matches 20 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 32 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 40 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
+execute if score .wave spawn_timer matches 44 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 56 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 58 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
+execute if score .wave spawn_timer matches 68 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 76 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
+execute if score .wave spawn_timer matches 80 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 92 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 94 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
+execute if score .wave spawn_timer matches 104 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 112 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
+execute if score .wave spawn_timer matches 116 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 128 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 130 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
+execute if score .wave spawn_timer matches 140 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 148 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
+execute if score .wave spawn_timer matches 152 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 164 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 166 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
+execute if score .wave spawn_timer matches 176 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 184 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
+execute if score .wave spawn_timer matches 188 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 200 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 202 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
+execute if score .wave spawn_timer matches 212 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 220 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
+execute if score .wave spawn_timer matches 224 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 236 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 238 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
+execute if score .wave spawn_timer matches 248 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 256 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}
+execute if score .wave spawn_timer matches 260 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 272 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 274 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:2}
+execute if score .wave spawn_timer matches 284 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 296 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 308 run function gourd_guard:wave/spawn/brute {map:1,path:1}
+execute if score .wave spawn_timer matches 320 run function gourd_guard:wave/spawn/brute {map:1,path:2}
+execute if score .wave spawn_timer matches 321 run scoreboard players set .wave spawn_done 1

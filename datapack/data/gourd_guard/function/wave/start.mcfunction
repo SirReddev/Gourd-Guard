@@ -9,6 +9,7 @@ scoreboard objectives add wave.state dummy
 scoreboard objectives add wave.timer dummy
 scoreboard objectives add wave.spawn_timer dummy
 scoreboard objectives add wave.spawn_done dummy
+scoreboard objectives add timer dummy
 scoreboard objectives add path.map dummy
 scoreboard objectives add path.route dummy
 scoreboard objectives add path.node dummy
