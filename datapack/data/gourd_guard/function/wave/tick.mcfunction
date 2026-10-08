@@ -2,10 +2,21 @@
 # State machine: 0 = Idle, 1 = Wave Active, 2 = Intermission, 3 = Victory, 4 = Defeat
 
 # Initialize objectives if missing
+scoreboard objectives add map dummy
+scoreboard objectives add wave dummy
+scoreboard objectives add wave_mobs dummy
 scoreboard objectives add wave.state dummy
 scoreboard objectives add wave.timer dummy
 scoreboard objectives add wave.spawn_timer dummy
 scoreboard objectives add wave.spawn_done dummy
+scoreboard objectives add path.map dummy
+scoreboard objectives add path.route dummy
+scoreboard objectives add path.node dummy
+scoreboard objectives add path.cmp dummy
+scoreboard objectives add path.state dummy
+
+# Ensure default map if unset
+execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 
 # 1. State 1: Active Wave Spawning & Progression
 execute if score .wave state matches 1 run scoreboard players add .wave spawn_timer 1

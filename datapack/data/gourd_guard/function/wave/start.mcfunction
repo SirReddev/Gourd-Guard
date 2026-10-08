@@ -1,4 +1,19 @@
 # Start Current Wave on Active Map
+scoreboard objectives add map dummy
+scoreboard objectives add wave dummy
+scoreboard objectives add wave_mobs dummy
+scoreboard objectives add wave.state dummy
+scoreboard objectives add wave.timer dummy
+scoreboard objectives add wave.spawn_timer dummy
+scoreboard objectives add wave.spawn_done dummy
+scoreboard objectives add path.map dummy
+scoreboard objectives add path.route dummy
+scoreboard objectives add path.node dummy
+scoreboard objectives add path.cmp dummy
+scoreboard objectives add path.state dummy
+scoreboard objectives add obj_hp dummy
+scoreboard objectives add obj_max_hp dummy
+
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 execute unless score .global wave matches 1..40 run scoreboard players set .global wave 1
 

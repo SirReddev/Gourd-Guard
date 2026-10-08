@@ -1,5 +1,7 @@
 # Jump to a specific wave on a specific map
 # Usage: /function gourd_guard:wave/jump_map {map:1,wave:10}
+scoreboard objectives add map dummy
+scoreboard objectives add wave dummy
 $scoreboard players set .global map $(map)
 $scoreboard players set .global wave $(wave)
 function gourd_guard:hud/wave/tick

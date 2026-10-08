@@ -1,5 +1,7 @@
 # Set Active Map
 # Usage: /function gourd_guard:wave/set_map {map:1}
+scoreboard objectives add map dummy
+scoreboard objectives add wave dummy
 $scoreboard players set .global map $(map)
 scoreboard players set .global wave 1
 function gourd_guard:hud/wave/tick

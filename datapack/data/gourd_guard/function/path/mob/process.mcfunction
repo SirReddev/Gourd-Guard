@@ -2,6 +2,7 @@
 # Runs as each active path mob, at the mob's position.
 
 # Safety default if path.map is unset
+scoreboard objectives add path.cmp dummy
 execute unless score @s path.map matches 1.. run scoreboard players set @s path.map 1
 
 # Cache this mob's map, route and node index
