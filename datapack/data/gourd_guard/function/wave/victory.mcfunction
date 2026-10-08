@@ -19,8 +19,8 @@ title @a subtitle {"text":"YOU DEFENDED THE GOURD FROM ALL 40 WAVES!","color":"y
 
 tellraw @a [{"text":"[Wave System] ","color":"gold","bold":true},{"text":" CONGRATULATIONS! You successfully completed all 40 Waves! The Pumpkin is saved!","color":"yellow"}]
 
-# 2. After the sound finishes (~13s / 265 ticks), trigger the cinematic black fade transition
+# 2. After the sound finishes (~13s / 265 ticks), trigger the Screen-fading transition
 schedule function gourd_guard:wave/transition/fade_black 265t
 
-# 3. Reset the game state during the solid black transition (265t + 60t = 325 ticks)
-schedule function gourd_guard:wave/transition/victory_reset 325t
+# 3. Reset the game state during the Screen-fading transition (267 ticks)
+schedule function gourd_guard:wave/transition/victory_reset 267t

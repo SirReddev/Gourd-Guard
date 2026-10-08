@@ -19,8 +19,8 @@ title @a subtitle [{"text":"The Pumpkin Objective was destroyed on Wave ","color
 
 tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"GAME OVER! The base was overwhelmed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
 
-# 2. After the sound finishes (~7.5s / 155 ticks), trigger the cinematic black fade transition
+# 2. After the sound finishes (~7.5s / 155 ticks), trigger the Screen-fading transition
 schedule function gourd_guard:wave/transition/fade_black 155t
 
-# 3. Reset the game state during the solid black transition (155t + 60t = 215 ticks)
-schedule function gourd_guard:wave/transition/game_over_reset 215t
+# 3. Reset the game state during the Screen-fading transition (157 ticks)
+schedule function gourd_guard:wave/transition/game_over_reset 157t
