@@ -1,3 +1,2 @@
-# Remove posteffect transition and resume HUD
+# Remove posteffect transition
 posteffect remove @a gourd_guard:fade_black
-scoreboard players set .hud hidden 0

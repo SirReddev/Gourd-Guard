@@ -40,7 +40,6 @@ execute as @e[type=item] if data entity @s Item.components."minecraft:custom_dat
 title @a clear
 title @a reset
 posteffect remove @a gourd_guard:fade_black
-scoreboard players set .hud hidden 0
 stopsound @a record gourd_guard:game.over
 stopsound @a record gourd_guard:game.won
 stopsound @a record gourd_guard:hud.timer10s
