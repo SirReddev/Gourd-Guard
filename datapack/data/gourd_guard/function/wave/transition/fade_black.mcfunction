@@ -2,9 +2,8 @@
 scoreboard players set .hud hidden 1
 title @a actionbar ""
 
-# 2. Smooth Screen Fading transition (Screen-fading texturepack)
-title @a times 15 30 15
-title @a title ""
+# 2. Add native posteffect fade transition (smooth to black and back to normal)
+posteffect add @a gourd_guard:fade_black
 
-# 3. Auto-clear and unpause HUD after 60 ticks (3.0s)
-schedule function gourd_guard:wave/transition/clear 60t
+# 3. Schedule posteffect cleanup and unpause HUD after 65 ticks (3.25s)
+schedule function gourd_guard:wave/transition/clear 65t

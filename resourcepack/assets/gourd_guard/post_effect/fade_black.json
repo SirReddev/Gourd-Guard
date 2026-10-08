@@ -1,0 +1,81 @@
+{
+    "targets": {
+        "swap": {},
+        "timer": {
+            "persistent": true,
+            "clear_color": [0.0, 0.0, 0.0, 0.0]
+        },
+        "timer_swap": {
+            "persistent": true,
+            "clear_color": [0.0, 0.0, 0.0, 0.0]
+        }
+    },
+    "passes": [
+        {
+            "vertex_shader": "minecraft:core/screentriangle",
+            "fragment_shader": "gourd_guard:post/fade_timer",
+            "inputs": [
+                {
+                    "sampler_name": "TimerIn",
+                    "target": "timer"
+                }
+            ],
+            "output": "timer_swap"
+        },
+        {
+            "vertex_shader": "minecraft:core/screentriangle",
+            "fragment_shader": "minecraft:post/blit",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "timer_swap"
+                }
+            ],
+            "uniforms": {
+                "BlitConfig": [
+                    {
+                        "name": "ColorModulate",
+                        "type": "vec4",
+                        "value": [1.0, 1.0, 1.0, 1.0]
+                    }
+                ]
+            },
+            "output": "timer"
+        },
+        {
+            "vertex_shader": "minecraft:core/screentriangle",
+            "fragment_shader": "gourd_guard:post/fade_black",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "minecraft:main"
+                },
+                {
+                    "sampler_name": "TimerState",
+                    "target": "timer_swap"
+                }
+            ],
+            "output": "swap"
+        },
+        {
+            "vertex_shader": "minecraft:core/screentriangle",
+            "fragment_shader": "minecraft:post/blit",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "swap"
+                }
+            ],
+            "uniforms": {
+                "BlitConfig": [
+                    {
+                        "name": "ColorModulate",
+                        "type": "vec4",
+                        "value": [1.0, 1.0, 1.0, 1.0]
+                    }
+                ]
+            },
+            "output": "minecraft:main"
+        }
+    ]
+}
