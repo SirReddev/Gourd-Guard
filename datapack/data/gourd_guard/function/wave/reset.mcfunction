@@ -1,4 +1,5 @@
 # Manual Full Reset: Reset all data, stop sounds, clear screen titles & posteffects
+scoreboard players set .wave state 0
 function gourd_guard:wave/reset_data
 
 # Stop Sounds & Clear Screen Titles

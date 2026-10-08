@@ -12,9 +12,11 @@ execute as @e[tag=path_mob,scores={path.state=1..}] run scoreboard players add .
 execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_sign set value ""
 execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_sign_back set value ""
 execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_text set value ""
+execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_num set value '{"text":""}'
 execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_text_back set value ""
 execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_ghost set value ""
 execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_ghost_back set value ""
+execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_mobs_display set value '{"text":""}'
 execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_mobs_back set value ""
 execute if score .global wave_hud_toggle matches 0 run return 0
 
@@ -23,9 +25,11 @@ execute if score .global wave_hud_toggle matches 0 run return 0
 data modify storage gourd_guard:hud macro.wave_sign set value "\uE200"
 data modify storage gourd_guard:hud macro.wave_sign_back set value "\uF81A"
 data modify storage gourd_guard:hud macro.wave_text set value "WAVE "
+data modify storage gourd_guard:hud macro.wave_num set value '{"score":{"name":".global","objective":"wave"},"font":"gourd_guard:minecrafter","color":"#01BB04","shadow_color":-16699900}'
 # Ghost Icon: 12px -> backstep \uF808\uF802 (-10px, shifted +2px right)
 data modify storage gourd_guard:hud macro.wave_ghost set value "\uE201"
 data modify storage gourd_guard:hud macro.wave_ghost_back set value "\uF808\uF802"
+data modify storage gourd_guard:hud macro.wave_mobs_display set value '{"score":{"name":".global","objective":"wave_mobs"},"font":"gourd_guard:minecrafter","color":"#01BB03","shadow_color":-16699901}'
 
 # Dynamic exact backstep for WAVE <score> (25px + digits)
 execute if score .global wave matches 0..9 run data modify storage gourd_guard:hud macro.wave_text_back set value "\uF81C\uF802\uF801"
