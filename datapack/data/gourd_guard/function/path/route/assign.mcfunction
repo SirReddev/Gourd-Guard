@@ -1,7 +1,13 @@
-# Pathfinding - Assign a mob to a route
-# Usage: execute as <mob> run function gourd_guard:path/route/assign {route:1}
+# Pathfinding - Assign a mob to a specific map and path
+# Usage: execute as <mob> run function gourd_guard:path/route/assign {map:1,path:1}
 
-$scoreboard players set @s path.route $(route)
+scoreboard objectives add path.map dummy
+scoreboard objectives add path.route dummy
+scoreboard objectives add path.node dummy
+scoreboard objectives add path.state dummy
+
+$scoreboard players set @s path.map $(map)
+$scoreboard players set @s path.route $(path)
 scoreboard players set @s path.node 0
 scoreboard players set @s path.state 1
 tag @s add path_mob
@@ -21,4 +27,4 @@ execute if entity @s[tag=path_flyer] at @s run tp @s ~ ~1.0 ~
 # Immediately orient towards Node 0
 execute at @s run function gourd_guard:path/mob/process
 
-$tellraw @a [{"text":"[Path] ","color":"dark_green"},{"text":"Assigned ","color":"green"},{"selector":"@s"},{"text":" to Route ","color":"green"},{"text":"$(route)","color":"yellow","bold":true}]
+$tellraw @a [{"text":"[Path] ","color":"dark_green"},{"text":"Assigned ","color":"green"},{"selector":"@s"},{"text":" to Map $(map) Path $(path)","color":"yellow","bold":true}]

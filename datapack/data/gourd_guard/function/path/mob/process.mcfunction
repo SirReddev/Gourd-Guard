@@ -1,13 +1,17 @@
 # Pathfinding - Per-Mob Orientation, Movement, and Node Advance
 # Runs as each active path mob, at the mob's position.
 
-# Cache this mob's route and node index
+# Safety default if path.map is unset
+execute unless score @s path.map matches 1.. run scoreboard players set @s path.map 1
+
+# Cache this mob's map, route and node index
+scoreboard players operation MobMap path.cmp = @s path.map
 scoreboard players operation MobRoute path.cmp = @s path.route
 scoreboard players operation MobNode path.cmp = @s path.node
 
 # Find and tag the target node for this mob
 tag @e[tag=path_node] remove path_target
-execute as @e[tag=path_node] if score @s path.route = MobRoute path.cmp if score @s path.node = MobNode path.cmp run tag @s add path_target
+execute as @e[tag=path_node] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp if score @s path.node = MobNode path.cmp run tag @s add path_target
 
 # No matching node = mob has passed the last node -> trigger goal reach
 execute unless entity @e[tag=path_target] run function gourd_guard:path/mob/on_reach_end

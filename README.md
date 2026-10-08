@@ -157,6 +157,27 @@ Custom bitmap font glyphs are defined across `minecraft:default` and `gourd_guar
 | `/function gourd_guard:hud/hide` | Force hide full HUD. |
 | `/function gourd_guard:hud/reset` | Reset all HUD elements to default states. |
 
+### Pathfinding & Waypoint Commands (Multi-Map & Multi-Path)
+| Command | Description |
+| :--- | :--- |
+| `/function gourd_guard:path/route/begin {map:1,path:1}` | Selects a map and path for waypoint recording. |
+| `/function gourd_guard:path/route/add_node` | Places a waypoint node at feet for the selected map & path. |
+| `/function gourd_guard:path/route/show {map:1,path:1}` | Spawns blue soul flame particles along a specific map & path. |
+| `/function gourd_guard:path/route/show_map {map:1}` | Spawns particles along all paths on a specific map. |
+| `/function gourd_guard:path/show` | Visualizes all nodes across all maps and paths. |
+| `/function gourd_guard:path/route/clear {map:1,path:1}` | Deletes all nodes on a specific map and path. |
+| `/function gourd_guard:path/route/clear_map {map:1}` | Deletes all nodes across all paths on a specific map. |
+| `/function gourd_guard:path/route/clear_all` | Deletes all nodes and path mobs across all maps and paths. |
+| `/function gourd_guard:path/debug` | Prints pathfinding diagnostics, active mobs, and nearby nodes. |
+| `/function gourd_guard:path/route/assign {map:1,path:1}` | Assigns executing entity to a specific map & path. |
+
+#### Wave Mob Spawning Tags:
+Mobs spawned with tags are automatically detected and assigned:
+- **Map 1**: `m1_p1` .. `m1_p10` (or `map1_path1` .. `map1_path10`)
+- **Map 2**: `m2_p1` .. `m2_p10` (or `map2_path1` .. `map2_path10`)
+- **Map 3**: `m3_p1` .. `m3_p10` (or `map3_path1` .. `map3_path10`)
+- **Map 4 & 5**: `m4_p1` .. `m4_p10`, `m5_p1` .. `m5_p10`
+
 ---
 
 ## Custom Items with Glowing Color Outlines
