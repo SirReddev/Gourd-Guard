@@ -11,3 +11,4 @@ execute if entity @e[type=minecraft:interaction,tag=gg_witch_interaction,distanc
 execute if entity @e[type=minecraft:interaction,tag=gg_archer_interaction,distance=..2.5,limit=1] run function gourd_guard:npc/interact/archer
 execute if entity @e[type=minecraft:interaction,tag=gg_blacksmith_interaction,distance=..2.5,limit=1] run function gourd_guard:npc/interact/blacksmith
 execute if entity @e[type=minecraft:interaction,tag=gg_gravedigger_interaction,distance=..2.5,limit=1] run function gourd_guard:npc/interact/gravedigger
+execute if entity @e[type=minecraft:interaction,tag=gg_peeves_interaction,distance=..2.5,limit=1] run function gourd_guard:cutscene/talk

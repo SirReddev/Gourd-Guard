@@ -28,6 +28,11 @@ execute if data storage chatbox:main CurrentPart{Avatar:"gravedigger"} run data 
 execute if data storage chatbox:main CurrentPart{Avatar:"dante"} run data modify storage chatbox:main Character set value ['{"text":"\\ue003","font": "custom:chatbox/character","color":"#FBFBFB"}']
 execute if data storage chatbox:main CurrentPart{Avatar:"3"} run data modify storage chatbox:main Character set value ['{"text":"\\ue003","font": "custom:chatbox/character","color":"#FBFBFB"}']
 
+# Avatar selection: Peeves / Ghost (\ue004)
+execute if data storage chatbox:main CurrentPart{Avatar:"peeves"} run data modify storage chatbox:main Character set value ['{"text":"\\ue004","font": "custom:chatbox/character","color":"#FBFBFB"}']
+execute if data storage chatbox:main CurrentPart{Avatar:"ghost"} run data modify storage chatbox:main Character set value ['{"text":"\\ue004","font": "custom:chatbox/character","color":"#FBFBFB"}']
+execute if data storage chatbox:main CurrentPart{Avatar:"4"} run data modify storage chatbox:main Character set value ['{"text":"\\ue004","font": "custom:chatbox/character","color":"#FBFBFB"}']
+
 # Disable avatar if "none"
 execute if data storage chatbox:main CurrentPart{Avatar:"none"} run scoreboard players set #chatbox.character.flag loy.value 0
 execute if data storage chatbox:main CurrentPart{Avatar:"none"} run scoreboard players set #chatbox.pre.length loy.value 16

@@ -27,6 +27,13 @@
             "ascent": -4,
             "height": 64,
             "chars": ["\ue003"]
+        },
+        {
+            "type": "bitmap",
+            "file": "custom:font/chatbox/character/peeves.png",
+            "ascent": -4,
+            "height": 64,
+            "chars": ["\ue004"]
         }
     ]
 }

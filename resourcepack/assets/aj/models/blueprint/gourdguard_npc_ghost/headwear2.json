@@ -1,0 +1,50 @@
+{
+	"textures": {
+		"0": "aj:blueprint/npc/gourdguard_npc_ghost",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [0, 0, 2],
+			"to": [16, 16, 3],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, -16, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [7.75, 12, 11.75, 16],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [7.5, 12, 7.75, 16],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [12, 12, 16, 16],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [11.75, 12, 12, 16],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [11.75, 12, 7.75, 11.75],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [15.75, 11.75, 11.75, 12],
+					"texture": "#0"
+				}
+			},
+			"light_emission": 12
+		}
+	]
+}
