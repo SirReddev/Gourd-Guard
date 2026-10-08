@@ -1,4 +1,4 @@
-# Full Reset of Wave System, Mobs, Base HP, Timers, and HUD
+# Full Reset of Wave System, Mobs, Base HP, Timers, Candy, and HUD
 scoreboard objectives add map dummy
 scoreboard objectives add wave dummy
 scoreboard objectives add state dummy
@@ -31,8 +31,19 @@ scoreboard players set .global timer_ticks 0
 scoreboard players set .global timer_active 0
 function gourd_guard:hud/wave/tick
 
-# 6. Audio & Chat Notification (Clear screen titles, clean chat message)
+# 6. Reset Candy / Coins & Clear Dropped Candies
+function gourd_guard:hud/reset_candy
+kill @e[tag=gg_candy]
+execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".candy run kill @s
+
+# 7. Stop Sounds, Clear Screen Titles & Effects
 title @a clear
 title @a reset
+effect clear @a minecraft:darkness
+effect clear @a minecraft:blindness
+stopsound @a record gourd_guard:game.over
+stopsound @a record gourd_guard:game.won
+stopsound @a record gourd_guard:hud.timer10s
+
 playsound minecraft:block.beacon.deactivate master @a ~ ~ ~ 1.0 1.0 1
-tellraw @a [{"text":"[Wave System] ","color":"dark_green"},{"text":"All waves, active mobs, timers, and Base HP (1000) have been reset!","color":"green"}]
+tellraw @a [{"text":"[Wave System] ","color":"dark_green"},{"text":"All waves, active mobs, candies, timers, and Base HP (1000) have been reset!","color":"green"}]

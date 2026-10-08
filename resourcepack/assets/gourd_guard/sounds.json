@@ -131,5 +131,23 @@
         "stream": false
       }
     ]
+  },
+  "game.won": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "gourd_guard:game/game_won",
+        "stream": true
+      }
+    ]
+  },
+  "game.over": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "gourd_guard:game/game_over",
+        "stream": true
+      }
+    ]
   }
 }
