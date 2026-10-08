@@ -22,5 +22,5 @@ tellraw @a [{"text":"[Wave System] ","color":"gold","bold":true},{"text":" CONGR
 # 2. After the sound finishes (~13s / 265 ticks), trigger the Screen-fading transition
 schedule function gourd_guard:wave/transition/fade_black 265t
 
-# 3. Reset the game state during the Screen-fading transition (267 ticks)
-schedule function gourd_guard:wave/transition/victory_reset 267t
+# 3. Reset the game state during the Screen-fading transition (290 ticks)
+schedule function gourd_guard:wave/transition/victory_reset 290t

@@ -22,5 +22,5 @@ tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"GAME OVER! The base was 
 # 2. After the sound finishes (~7.5s / 155 ticks), trigger the Screen-fading transition
 schedule function gourd_guard:wave/transition/fade_black 155t
 
-# 3. Reset the game state during the Screen-fading transition (157 ticks)
-schedule function gourd_guard:wave/transition/game_over_reset 157t
+# 3. Reset the game state during the Screen-fading transition (180 ticks)
+schedule function gourd_guard:wave/transition/game_over_reset 180t

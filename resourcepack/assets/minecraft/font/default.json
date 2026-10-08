@@ -40,7 +40,7 @@
     { "type": "bitmap", "file": "gourd_guard:gui/hud/wave_sign.png", "ascent": 22, "height": 22, "chars": ["\uE200"] },
     { "type": "bitmap", "file": "gourd_guard:gui/hud/ghost.png", "ascent": 10, "height": 12, "chars": ["\uE201"] },
     { "type": "bitmap", "file": "gourd_guard:font/tag_npc.png", "ascent": 8, "height": 9, "chars": ["\uE300"] },
-    { "type": "bitmap", "file": "minecraft:transition/fade.png", "ascent": 128, "height": 1280, "size": 10000.0, "chars": ["\uE802"] },
+    { "type": "bitmap", "file": "minecraft:transition/fade.png", "ascent": 128, "height": 1280, "chars": ["\uE802"] },
     {
       "type": "space",
       "advances": {
