@@ -32,5 +32,9 @@ execute if entity @e[tag=cs_start_npc] as @e[tag=peeves_ghost_root] at @e[tag=cs
 execute as @e[tag=peeves_ghost_root] run function aj:gourdguard_npc_ghost/animations/idle/play_exclusive
 execute as @e[tag=aj.gourdguard_npc_ghost.entity] run data modify entity @s Invulnerable set value 1b
 
+# Make Peeves glow white during cutscene
+team join gg_glow_white @e[tag=aj.gourdguard_npc_ghost.entity]
+execute as @e[type=item_display,tag=aj.gourdguard_npc_ghost.entity] run data modify entity @s Glowing set value 1b
+
 # 5. Fallback teleport if cs_player_start wasn't set (positions player facing Peeves)
 execute unless entity @e[tag=cs_target_start] if entity @e[tag=cs_start_npc] as @a[tag=cs_viewer] at @e[tag=cs_start_npc,limit=1] positioned ^ ^ ^-3 rotated ~ 0 run tp @s ~ ~ ~ ~ 0

@@ -15,3 +15,7 @@ scoreboard players set .global cs.state 4
 # Clear fade and ensure session released
 posteffect remove @a gourd_guard:cutscene_fade
 execute as @a[tag=cs_viewer] run function chatbox:session/release
+
+# Remove cutscene white glow from Peeves
+execute as @e[tag=aj.gourdguard_npc_ghost.entity] run data modify entity @s Glowing set value 0b
+team leave @e[tag=aj.gourdguard_npc_ghost.entity]

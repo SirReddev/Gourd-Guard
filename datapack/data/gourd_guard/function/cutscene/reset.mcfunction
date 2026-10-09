@@ -7,6 +7,8 @@ function chatbox:selection/close
 function chatbox:shop/close
 
 # Remove camera & Peeves entities
+execute as @e[tag=aj.gourdguard_npc_ghost.entity] run data modify entity @s Glowing set value 0b
+team leave @e[tag=aj.gourdguard_npc_ghost.entity]
 kill @e[tag=gg_cutscene_cam]
 kill @e[tag=peeves_mount]
 kill @e[tag=aj.gourdguard_npc_ghost.entity]
