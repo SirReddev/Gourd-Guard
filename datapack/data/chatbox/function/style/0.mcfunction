@@ -12,15 +12,15 @@ scoreboard players set #chatbox.sound.id loy.value -1
 # Sound interval (ticks between playing sound effect)
 scoreboard players set #chatbox.sound.interval loy.value 1
 
-# Background width in font pixels (236px texture + 1px spacing = 237)
-scoreboard players set #chatbox.background.length loy.value 237
+# Background width in font pixels (236px texture)
+scoreboard players set #chatbox.background.length loy.value 236
 # Background texture component
 data modify storage chatbox:main Background set value '{"text":"\\ue000","font": "custom:chatbox/background","color":"#FBFBFB"}'
 
 # Character avatar enabled flag (1 = enabled, 0 = disabled)
 scoreboard players set #chatbox.character.flag loy.value 1
-# Character avatar display width (64px texture + 1px spacing = 65)
-scoreboard players set #chatbox.character.length loy.value 65
+# Character avatar display width (64px texture)
+scoreboard players set #chatbox.character.length loy.value 64
 # Character avatar animation duration per frame (in ticks)
 scoreboard players set #chatbox.character.duration loy.value 1
 # Character avatar horizontal offset relative to chatbox start position
@@ -30,11 +30,11 @@ data modify storage chatbox:main Character set value ['{"text":"\\ue000","font":
 
 # End indicator icon enabled flag (1 = enabled, 0 = disabled)
 scoreboard players set #chatbox.icon.flag loy.value 1
-# End indicator icon display width (86px texture + 1px spacing = 87)
-scoreboard players set #chatbox.icon.length loy.value 87
+# End indicator icon display width (86px texture)
+scoreboard players set #chatbox.icon.length loy.value 86
 # End indicator icon animation duration per frame (in ticks)
 scoreboard players set #chatbox.icon.duration loy.value 8
-# End indicator icon horizontal offset relative to chatbox start position (centered: (237 - 87) / 2 = 75)
+# End indicator icon horizontal offset relative to chatbox start position (centered: (236 - 86) / 2 = 75)
 scoreboard players set #chatbox.icon.offset loy.value 75
 # End indicator icon animation frames (idle, idle, pressed-down)
 data modify storage chatbox:main Icon set value ['{"text":"\\ue000","font": "custom:chatbox/icon","color":"#FBFBFB"}','{"text":"\\ue000","font": "custom:chatbox/icon","color":"#FBFBFB"}','{"text":"\\ue001","font": "custom:chatbox/icon","color":"#FBFBFB"}']

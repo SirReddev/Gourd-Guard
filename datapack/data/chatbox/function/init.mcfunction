@@ -13,7 +13,7 @@ scoreboard players set #chatbox.bossbar.flag loy.value 0
 scoreboard players set #chatbox.current.line loy.value 0
 scoreboard players set #chatbox.sound.timer loy.value 0
 scoreboard players set #chatbox.vignette.flag loy.value 1
-execute unless score #chatbox.text.interval loy.value matches -2147483648..2147483647 run function chatbox:style/0
+function chatbox:style/0
 
 # Initialize sneak detection objectives for Shift-to-Advance dialogs
 scoreboard objectives add chatbox.sneak minecraft.custom:minecraft.sneak_time

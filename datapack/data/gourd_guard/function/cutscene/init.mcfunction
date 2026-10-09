@@ -15,3 +15,4 @@ execute unless score NextNode cs.edit matches 0.. run scoreboard players set Nex
 # Ensure glowing team exists with white outline
 team add gg_glow_white
 team modify gg_glow_white color white
+function chatbox:style/0
