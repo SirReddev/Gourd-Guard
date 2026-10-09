@@ -246,10 +246,22 @@ void main() {
         bool isVignette = (!isRotated && c.r == 251 && c.g == 251 && c.b == 250);
 
         if (isVignette) {
-            bool isLeft = (pos.x < guiWidth * 0.5);
-            bool isTop = (pos.y < guiHeight * 0.5);
-            pos.xy = vec2(isLeft ? 0.0 : guiWidth, isTop ? 0.0 : guiHeight);
-            vignetteCoord = vec2(isLeft ? 0.0 : 1.0, isTop ? 0.0 : 1.0);
+            int corner = gl_VertexID % 4;
+            if (corner == 0) {
+                pos.xy = vec2(0.0, 0.0);
+                vignetteCoord = vec2(0.0, 0.0);
+            } else if (corner == 1) {
+                pos.xy = vec2(0.0, guiHeight);
+                vignetteCoord = vec2(0.0, 1.0);
+            } else if (corner == 2) {
+                pos.xy = vec2(guiWidth, guiHeight);
+                vignetteCoord = vec2(1.0, 1.0);
+            } else {
+                pos.xy = vec2(guiWidth, 0.0);
+                vignetteCoord = vec2(1.0, 0.0);
+            }
+            pos.z = 0.0;
+            custom = 2.0;
         }
 
         // 2. Shop rows in bossbars 4..12:
@@ -335,13 +347,17 @@ void main() {
 #if !defined(IS_GUI) && !defined(IS_SEE_THROUGH)
     sphericalVertexDistance = fog_spherical_distance(pos);
     cylindricalVertexDistance = fog_cylindrical_distance(pos);
-    if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 167)) {
+    if (isVignette) {
+        vertexColor = Color;
+    } else if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 167)) {
         vertexColor = vec4(1.0, 1.0, 1.0, Color.a) * sample_lightmap(Sampler2, UV2);
     } else {
         vertexColor = Color * sample_lightmap(Sampler2, UV2);
     }
 #else
-    if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 167)) {
+    if (isVignette) {
+        vertexColor = Color;
+    } else if (c.r == 251 && c.g == 251 && (c.b >= 164 && c.b <= 167)) {
         vertexColor = vec4(1.0, 1.0, 1.0, Color.a);
     } else if (!isHud) {
         vertexColor = Color;

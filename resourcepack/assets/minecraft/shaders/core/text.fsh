@@ -30,15 +30,8 @@ layout(location = 0) out vec4 fragColor;
 
 
 void main() {
-    if (custom > 0.5) {
-        fragColor = portraitRender(texCoord0, 68./70., GameTime);
-        if (fragColor.a < 0.1) discard;
-        fragColor.a = vertexColor.a;
-        return;
-    }
-
     ivec4 c = ivec4(round(vertexColor * 255.0));
-    bool isVignette = (c.r == 251 && c.g == 251 && c.b == 250);
+    bool isVignette = (custom > 1.5 || (c.r == 251 && c.g == 251 && c.b == 250));
 
     if (isVignette) {
         vec2 uv = vignetteCoord;
@@ -60,6 +53,14 @@ void main() {
         fragColor = vec4(0.0, 0.0, 0.0, alpha * ColorModulator.a);
         return;
     }
+
+    if (custom > 0.5) {
+        fragColor = portraitRender(texCoord0, 68./70., GameTime);
+        if (fragColor.a < 0.1) discard;
+        fragColor.a = vertexColor.a;
+        return;
+    }
+
 
 #ifdef IS_GRAYSCALE
     vec4 texColor = texture(Sampler0, texCoord0).rrrr;
