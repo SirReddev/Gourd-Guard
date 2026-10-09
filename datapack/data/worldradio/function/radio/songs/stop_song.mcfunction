@@ -1,6 +1,5 @@
 # WorldRadio - Global Stop Song Dispatcher (stops all songs to clear tags and scores)
 function worldradio:radio/songs/bat_cave/stop
-function worldradio:radio/songs/celebrawl/stop
 function worldradio:radio/songs/creaking_tree/stop
 function worldradio:radio/songs/ghost_giggles/stop
 function worldradio:radio/songs/gourd_dance/stop

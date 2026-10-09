@@ -27,11 +27,8 @@ tag @e[type=minecraft:item_display,tag=aj.worldradio_jukebox.root] remove worldr
 tag @e[type=minecraft:item_display,tag=aj.worldradio_jukebox.root] remove worldradio.busy
 
 tag @e[type=minecraft:item_display] remove nbs_steamgarde
-tag @e[type=minecraft:item_display] remove nbs_Celebrawl
 scoreboard players reset @e[type=minecraft:item_display] nbs_steamgarde
 scoreboard players reset @e[type=minecraft:item_display] nbs_steamgarde_t
-scoreboard players reset @e[type=minecraft:item_display] nbs_Celebrawl
-scoreboard players reset @e[type=minecraft:item_display] nbs_Celebrawl_t
 
 # 3. Reset all config scores to defaults
 scoreboard players set #song worldradio.data 1

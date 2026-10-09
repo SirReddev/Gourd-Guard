@@ -6,6 +6,10 @@ scoreboard objectives add worldradio.jb_timer dummy
 scoreboard objectives add worldradio.jb_phase dummy
 scoreboard objectives add worldradio.jb_variant dummy
 
+# Clean up removed song objectives
+scoreboard objectives remove nbs_Celebrawl
+scoreboard objectives remove nbs_Celebrawl_t
+
 # Register and load all songs
 function worldradio:radio/songs/registry
 
