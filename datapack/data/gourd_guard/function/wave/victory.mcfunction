@@ -2,8 +2,10 @@
 scoreboard players set .wave state 3
 scoreboard players set .global timer_active 0
 
-# Stop timer audio
+# Stop timer audio & reset intermission timer
 stopsound @a record gourd_guard:hud.timer10s
+scoreboard players set .wave timer_sec 0
+scoreboard players set .wave timer_ticks 0
 
 # Clean remaining mobs
 kill @e[tag=path_mob]

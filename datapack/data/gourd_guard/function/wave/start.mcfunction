@@ -26,10 +26,16 @@ scoreboard players set .wave state 1
 scoreboard players set .wave spawn_timer 0
 scoreboard players set .wave spawn_done 0
 
-# Pause intermission timer
-scoreboard players set .global timer_active 0
-scoreboard players set .global timer_min 0
-scoreboard players set .global timer_sec 0
+# Ensure game timer is active (counting up)
+execute unless score .global timer_active matches 1 run scoreboard players set .global timer_min 0
+execute unless score .global timer_active matches 1 run scoreboard players set .global timer_sec 0
+execute unless score .global timer_active matches 1 run scoreboard players set .global timer_ticks 0
+scoreboard players set .global timer_active 1
+
+# Reset and stop intermission timer
+scoreboard players set .wave timer_sec 0
+scoreboard players set .wave timer_ticks 0
+stopsound @a record gourd_guard:hud.timer10s
 
 # Refresh wave HUD
 function gourd_guard:hud/wave/tick

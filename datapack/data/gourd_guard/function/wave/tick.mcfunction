@@ -8,4 +8,4 @@ execute unless score .global map matches 1..5 run scoreboard players set .global
 execute if score .wave state matches 1 run function gourd_guard:wave/active_tick
 
 # 2. State 2: Intermission Countdown Timer handling
-execute if score .wave state matches 2 if score .global timer_active matches 1 if score .global timer_min matches 0 if score .global timer_sec matches 0 if score .global timer_ticks matches 0 run function gourd_guard:wave/intermission_end
+execute if score .wave state matches 2 run function gourd_guard:wave/intermission_tick

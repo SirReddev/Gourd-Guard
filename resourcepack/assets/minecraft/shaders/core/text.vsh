@@ -120,6 +120,41 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 46) ? vec3(0.18) : vec3(0.70, 0.70, 0.70); // Gray
             }
+            // #01BB05: Wave Timer Extension Tab (\uE202) - 114x66px at Top-Right
+            else if (bByte == 5) {
+                bool isLeft = (originX < 9.5);
+                bool isTop = (originY < -5.5);
+                pos.x = isLeft ? (guiWidth - 256.0) : (guiWidth - 142.0);
+                pos.y = isTop ? 24.0 : 90.0;
+                pos.z = 0.0;
+                vertexColor = vec4(1.0);
+            }
+            // #01BB06: Wave Timer Stopwatch Icon (\uE003) - Scaled 1.25x inside Extension Tab
+            else if (bByte == 6) {
+                pos.x = (originX + 8.0) * 1.25 + (guiWidth - 238.0);
+                pos.y = (originY + 12.0) * 1.25 + 48.0;
+                pos.z = 0.0;
+                vertexColor = vec4(1.0);
+            }
+            // #01BB10..13 (Main) / #012E10..13 (Shadow): Wave Intermission Timer Digits - Scaled 1.4x at (X: guiWidth - 210px, Y: 55px)
+            else if (bByte >= 16 && bByte <= 19) {
+                float timerScale = 1.4;
+                pos.x = originX * timerScale + (guiWidth - 210.0);
+                pos.y = originY * timerScale + 55.0;
+                pos.z = 0.0;
+                bool isShadow = (gByte == 46);
+                if (isShadow) {
+                    if (bByte == 16) vertexColor.rgb = vec3(0.0825, 0.25, 0.0825);      // Green Shadow
+                    else if (bByte == 17) vertexColor.rgb = vec3(0.25, 0.25, 0.0825); // Yellow Shadow
+                    else if (bByte == 18) vertexColor.rgb = vec3(0.25, 0.1675, 0.0);   // Orange Shadow
+                    else if (bByte == 19) vertexColor.rgb = vec3(0.25, 0.0625, 0.0625); // Red Shadow
+                } else {
+                    if (bByte == 16) vertexColor.rgb = vec3(0.33, 1.0, 0.33);      // Green
+                    else if (bByte == 17) vertexColor.rgb = vec3(1.0, 1.0, 0.33); // Yellow
+                    else if (bByte == 18) vertexColor.rgb = vec3(1.0, 0.67, 0.0);  // Orange
+                    else if (bByte == 19) vertexColor.rgb = vec3(1.0, 0.25, 0.25); // Red
+                }
+            }
         }
         // --- SECTION B: Top-Left Match HUD ---
         // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px..134px, Y: 2px..190px)
@@ -165,23 +200,13 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (bByte == 60) ? vec3(0.25, 0.0625, 0.0625) : vec3(1.0, 0.25, 0.25);
             }
-            // Timer Digits: at (X: 69px, Y: 38px)
+            // Timer Digits: at (X: 69px, Y: 38px) - Avatar Game Timer (Always Pure White)
             else {
                 pos.x = originX + 69.0;
                 pos.y = originY + 38.0;
                 pos.z = 0.0;
                 bool isShadow = (bByte == 63);
-                if (isShadow) {
-                    if (gByte == 0) vertexColor.rgb = vec3(0.0825, 0.25, 0.0825);      // Green Shadow
-                    else if (gByte == 1) vertexColor.rgb = vec3(0.25, 0.25, 0.0825); // Yellow Shadow
-                    else if (gByte == 2) vertexColor.rgb = vec3(0.25, 0.1675, 0.0);   // Orange Shadow
-                    else if (gByte == 3) vertexColor.rgb = vec3(0.25, 0.0625, 0.0625); // Red Shadow
-                } else {
-                    if (gByte == 0) vertexColor.rgb = vec3(0.33, 1.0, 0.33);      // Green (> 2m)
-                    else if (gByte == 1) vertexColor.rgb = vec3(1.0, 1.0, 0.33); // Yellow (1m-2m)
-                    else if (gByte == 2) vertexColor.rgb = vec3(1.0, 0.67, 0.0);  // Orange (30s-1m)
-                    else if (gByte == 3) vertexColor.rgb = vec3(1.0, 0.25, 0.25); // Red (< 30s)
-                }
+                vertexColor.rgb = isShadow ? vec3(0.25) : vec3(1.0);
             }
         }
         // Candy Row: Main (gByte == 255 || gByte == 254) or Shadow (gByte == 62)

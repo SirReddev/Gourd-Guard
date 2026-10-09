@@ -29,6 +29,9 @@ scoreboard players set .global timer_min 0
 scoreboard players set .global timer_sec 0
 scoreboard players set .global timer_ticks 0
 scoreboard players set .global timer_active 0
+scoreboard players set .wave timer_sec 0
+scoreboard players set .wave timer_ticks 0
+stopsound @a record gourd_guard:hud.timer10s
 function gourd_guard:hud/wave/tick
 
 # 6. Reset Candy / Coins & Clear Dropped Candies

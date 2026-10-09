@@ -5,7 +5,7 @@ execute unless score @s coins_diff matches 0.. run scoreboard players set @s coi
 execute unless score @s coins_pop matches 0.. run scoreboard players set @s coins_pop 0
 execute unless score @s coins_pop_type matches 0.. run scoreboard players set @s coins_pop_type 0
 execute unless score .global timer_sec matches 0.. run scoreboard players set .global timer_sec 0
-execute unless score .global timer_min matches 0.. run scoreboard players set .global timer_min 5
+execute unless score .global timer_min matches 0.. run scoreboard players set .global timer_min 0
 
 # If player has toggled HUD off (hud_toggle = 0), clear actionbar and skip rendering
 execute if score @s hud_toggle matches 0 run title @s actionbar {"text":""}
@@ -41,15 +41,5 @@ execute if score @s coins_diff matches 10..99 run data modify storage gourd_guar
 execute if score @s coins_diff matches 100..999 run data modify storage gourd_guard:hud macro.pop_back set value "\uF814\uF804"
 execute if score @s coins_diff matches 1000..9999 run data modify storage gourd_guard:hud macro.pop_back set value "\uF81C\uF802"
 
-# Route dynamically based on remaining match time:
-# > 2:00 remaining -> Green (#0100FF)
-execute if score .global timer_min matches 2.. run function gourd_guard:hud/render/green with storage gourd_guard:hud macro
-
-# 1:00 - 1:59 remaining -> Yellow (#0101FF)
-execute if score .global timer_min matches 1..1 run function gourd_guard:hud/render/yellow with storage gourd_guard:hud macro
-
-# 0:30 - 0:59 remaining -> Orange (#0102FF)
-execute if score .global timer_min matches 0..0 if score .global timer_sec matches 30..59 run function gourd_guard:hud/render/orange with storage gourd_guard:hud macro
-
-# 0:00 - 0:29 remaining -> Red (#0103FF)
-execute if score .global timer_min matches 0..0 if score .global timer_sec matches 0..29 run function gourd_guard:hud/render/red with storage gourd_guard:hud macro
+# Render HUD (Game Timer stays white via shader)
+function gourd_guard:hud/render/green with storage gourd_guard:hud macro

@@ -7,11 +7,10 @@ execute if score .global wave matches 40.. run return run function gourd_guard:w
 scoreboard players set .wave state 2
 scoreboard players set .wave spawn_done 0
 
-# Set Intermission Timer: 15 Seconds countdown on Timer HUD
-scoreboard players set .global timer_min 0
-scoreboard players set .global timer_sec 15
-scoreboard players set .global timer_ticks 0
-scoreboard players set .global timer_active 1
+# Set Intermission Timer: 15 Seconds countdown on Wave Intermission HUD
+scoreboard players set .wave timer_min 0
+scoreboard players set .wave timer_sec 15
+scoreboard players set .wave timer_ticks 0
 
 # Play celebration fanfare & brief title (2.25s total)
 playsound minecraft:ui.toast.challenge_complete player @a ~ ~ ~ 1.0 1.0 1
