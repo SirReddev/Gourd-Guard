@@ -5,6 +5,7 @@ data modify storage chatbox:shop Active set value 0b
 function chatbox:shop/close_bossbars with storage chatbox:shop
 
 # Reset movement scores
+scoreboard players set @s chatbox.open_grace 0
 scoreboard players set @s chatbox.walk 0
 scoreboard players set @s chatbox.sprint 0
 

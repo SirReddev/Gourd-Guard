@@ -43,6 +43,8 @@ execute if data storage chatbox:shop Items[8] unless data storage chatbox:shop I
 execute if data storage chatbox:shop Items[8] unless data storage chatbox:shop Items[8].SpaceAfterPrice run data modify storage chatbox:shop Items[8].SpaceAfterPrice set value ""
 
 # Reset movement tracking objectives for exit detection
+scoreboard objectives add chatbox.open_grace dummy
+scoreboard players set @s chatbox.open_grace 10
 scoreboard players set @s chatbox.walk 0
 scoreboard players set @s chatbox.sprint 0
 scoreboard players set @s chatbox.shop_icon_timer 0

@@ -3,10 +3,6 @@
 
 function chatbox:selection/close
 
-tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Stopping the waves and resetting the game!","color":"yellow"}]
+# Run game over sequence: plays defeat sound, shows DEFEAT title, triggers screen fade transition, and resets to lobby
+function gourd_guard:wave/game_over
 
-# Run wave reset to stop mobs, timers, and waves
-function gourd_guard:wave/reset
-
-# Reset cutscene state so Peeves can be spoken with again to start
-scoreboard players set .global cs.state 4

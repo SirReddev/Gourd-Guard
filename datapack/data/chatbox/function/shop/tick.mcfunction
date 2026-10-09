@@ -1,7 +1,11 @@
 # Per-tick shop management for player @s with active shop
-# 1. Exit when walking or sprinting forward
-execute if score @s chatbox.walk matches 1.. if data storage chatbox:shop {Active:1b} at @s run function chatbox:shop/close
-execute if score @s chatbox.sprint matches 1.. if data storage chatbox:shop {Active:1b} at @s run function chatbox:shop/close
+# 1. Exit when walking or sprinting forward (with 10-tick grace period & threshold to prevent inertia micro-drifts)
+execute if score @s chatbox.open_grace matches 1.. run scoreboard players remove @s chatbox.open_grace 1
+execute if score @s chatbox.open_grace matches 1.. run scoreboard players set @s chatbox.walk 0
+execute if score @s chatbox.open_grace matches 1.. run scoreboard players set @s chatbox.sprint 0
+
+execute unless score @s chatbox.open_grace matches 1.. if score @s chatbox.walk matches 6.. if data storage chatbox:shop {Active:1b} at @s run function chatbox:shop/close
+execute unless score @s chatbox.open_grace matches 1.. if score @s chatbox.sprint matches 1.. if data storage chatbox:shop {Active:1b} at @s run function chatbox:shop/close
 scoreboard players set @s chatbox.walk 0
 scoreboard players set @s chatbox.sprint 0
 

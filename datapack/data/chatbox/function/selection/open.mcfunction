@@ -34,6 +34,8 @@ execute if data storage chatbox:selection Items[7] unless data storage chatbox:s
 execute if data storage chatbox:selection Items[8] unless data storage chatbox:selection Items[8].SpaceAfterName run data modify storage chatbox:selection Items[8].SpaceAfterName set value "\uf107\uf102\uf101\uf100"
 
 # Reset movement tracking objectives for exit detection
+scoreboard objectives add chatbox.open_grace dummy
+scoreboard players set @s chatbox.open_grace 10
 scoreboard players set @s chatbox.walk 0
 scoreboard players set @s chatbox.sprint 0
 scoreboard players set @s chatbox.shop_icon_timer 0
