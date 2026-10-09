@@ -1,6 +1,9 @@
 # Initialize previous balance if missing
 execute unless score @s coins_prev matches 0.. run scoreboard players operation @s coins_prev = @s coins
 
+# Fast exit if balance is unchanged and no active pop animation
+execute if score @s coins = @s coins_prev unless score @s coins_pop matches 1.. run return 0
+
 # === 1. Detect Coin Gain (+) ===
 execute if score @s coins > @s coins_prev run scoreboard players operation .delta math = @s coins
 execute if score @s coins > @s coins_prev run scoreboard players operation .delta math -= @s coins_prev

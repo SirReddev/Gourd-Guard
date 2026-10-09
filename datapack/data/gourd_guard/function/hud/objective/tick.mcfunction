@@ -1,15 +1,15 @@
-# Ensure scores and objectives are initialized
-scoreboard objectives add obj_hp dummy
-scoreboard objectives add obj_max_hp dummy
-scoreboard objectives add obj_step dummy
-scoreboard objectives add obj_hud_toggle dummy
-scoreboard objectives add math dummy
-
 execute unless score .objective obj_max_hp matches 1.. run scoreboard players set .objective obj_max_hp 1000
 execute unless score .objective obj_hp matches 0.. run scoreboard players set .objective obj_hp 1000
+
 # Health bar only shows when waves are active (state 1 or 2)
-execute if score .wave state matches 1..2 run scoreboard players set .global obj_hud_toggle 1
+execute unless score .wave state matches 1..2 if score .global obj_hud_toggle matches 0 run return 0
 execute unless score .wave state matches 1..2 run scoreboard players set .global obj_hud_toggle 0
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.pumpkin set value ""
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.bar set value ""
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.backstep set value ""
+execute unless score .wave state matches 1..2 run return 0
+
+scoreboard players set .global obj_hud_toggle 1
 
 # Clamp obj_hp between 0 and obj_max_hp
 execute if score .objective obj_hp matches ..-1 run scoreboard players set .objective obj_hp 0
@@ -20,12 +20,6 @@ scoreboard players operation .objective obj_step = .objective obj_hp
 scoreboard players set .temp math 100
 scoreboard players operation .objective obj_step *= .temp math
 scoreboard players operation .objective obj_step /= .objective obj_max_hp
-
-# If HUD is toggled OFF (0), clear storage
-execute if score .global obj_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.pumpkin set value ""
-execute if score .global obj_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.bar set value ""
-execute if score .global obj_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.backstep set value ""
-execute if score .global obj_hud_toggle matches 0 run return 0
 
 # If HUD is toggled ON (1), populate storage
 # Pumpkin icon (28px) + Health Bar (86px)

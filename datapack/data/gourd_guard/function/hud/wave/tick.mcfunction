@@ -1,24 +1,25 @@
 # Ensure scores are initialized
 execute unless score .global wave matches 1.. run scoreboard players set .global wave 1
+
 # Wave HUD only shows when waves are active (state 1 or 2)
-execute if score .wave state matches 1..2 run scoreboard players set .global wave_hud_toggle 1
+execute unless score .wave state matches 1..2 if score .global wave_hud_toggle matches 0 run return 0
 execute unless score .wave state matches 1..2 run scoreboard players set .global wave_hud_toggle 0
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_sign set value ""
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_sign_back set value ""
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_text set value ""
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_num set value '{"text":""}'
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_text_back set value ""
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_ghost set value ""
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_ghost_back set value ""
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_mobs_display set value '{"text":""}'
+execute unless score .wave state matches 1..2 run data modify storage gourd_guard:hud macro.wave_mobs_back set value ""
+execute unless score .wave state matches 1..2 run return 0
+
+scoreboard players set .global wave_hud_toggle 1
 
 # Live-count active path mobs for the Ghost Mob UI counter
 scoreboard players set .global wave_mobs 0
 execute as @e[tag=path_mob,scores={path.state=1..}] run scoreboard players add .global wave_mobs 1
-
-# If HUD is toggled OFF (0), clear storage
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_sign set value ""
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_sign_back set value ""
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_text set value ""
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_num set value '{"text":""}'
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_text_back set value ""
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_ghost set value ""
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_ghost_back set value ""
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_mobs_display set value '{"text":""}'
-execute if score .global wave_hud_toggle matches 0 run data modify storage gourd_guard:hud macro.wave_mobs_back set value ""
-execute if score .global wave_hud_toggle matches 0 run return 0
 
 # If HUD is toggled ON (1), populate storage
 # Wave Sign: 26px -> backstep \uF81A (-26px)

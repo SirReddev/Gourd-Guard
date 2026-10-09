@@ -1,4 +1,6 @@
 # Pathfinding - Auto-detect and initialize newly spawned mobs with map and path tags
+# Early exit if no unassigned mobs exist in the world
+execute unless entity @e[tag=gg_mob,tag=!path_mob] run return 0
 
 # --- Map 1 ---
 execute as @e[tag=m1_p1,tag=!path_mob] run function gourd_guard:path/route/assign {map:1,path:1}

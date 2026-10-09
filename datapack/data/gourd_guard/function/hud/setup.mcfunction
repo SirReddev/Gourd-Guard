@@ -28,3 +28,4 @@ function gourd_guard:hud/wave/setup
 tag @a remove gg_has_head
 kill @e[type=item_display,tag=gg_player_head]
 kill @e[type=marker,tag=gg_player_head]
+data remove storage gourd_guard:hud macro.player

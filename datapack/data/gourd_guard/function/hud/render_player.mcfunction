@@ -20,19 +20,9 @@ execute if score .global cs.state matches 1..3 run title @s actionbar {"text":""
 execute if score .global cs.state matches 1..3 run return 0
 
 
-# Clean up previous macro.player
-data remove storage gourd_guard:hud macro.player
-
-# Resolve and extract exact player username from player's skull synchronously
-loot replace entity @s enderchest.0 loot gourd_guard:player_head
-data modify storage gourd_guard:hud macro.player set from entity @s EnderItems[{Slot:0b}].components."minecraft:profile".name
-execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s EnderItems[{Slot:0b}].components."minecraft:profile"
-execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s EnderItems[{Slot:0b}].tag.SkullOwner.Name
-execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set from entity @s EnderItems[{Slot:0b}].tag.SkullOwner
-item replace entity @s enderchest.0 with air
-
-# Fallback if in offline/unauthenticated dev test
-execute unless data storage gourd_guard:hud macro.player run data modify storage gourd_guard:hud macro.player set value "Sir_Reddev"
+# Resolve player username (cached in storage for singleplayer; refreshed in multiplayer)
+execute unless data storage gourd_guard:hud macro.player run function gourd_guard:hud/fetch_player_name
+execute if entity @a[limit=2] run function gourd_guard:hud/fetch_player_name
 
 # Set default macro backsteps
 data modify storage gourd_guard:hud macro.coins_back set value "\uF806"

@@ -1,11 +1,6 @@
 # Pathfinding - Assign a mob to a specific map and path
 # Usage: execute as <mob> run function gourd_guard:path/route/assign {map:1,path:1}
 
-scoreboard objectives add path.map dummy
-scoreboard objectives add path.route dummy
-scoreboard objectives add path.node dummy
-scoreboard objectives add path.state dummy
-
 $scoreboard players set @s path.map $(map)
 $scoreboard players set @s path.route $(path)
 scoreboard players set @s path.node 0

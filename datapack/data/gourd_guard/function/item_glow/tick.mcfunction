@@ -1,6 +1,9 @@
 # Ensure color teams exist
 execute unless score .init glow_init matches 1 run function gourd_guard:item_glow/setup_teams
 
+# Early exit if no untagged items exist
+execute unless entity @e[type=item,tag=!glow_checked] run return 0
+
 # 1-Time evaluation of newly dropped items
 execute as @e[type=item,tag=!glow_checked] if data entity @s Item.components."minecraft:custom_data".glow_red run function gourd_guard:item_glow/colors/red
 execute as @e[type=item,tag=!glow_checked] if data entity @s Item.components."minecraft:custom_data".glow_gold run function gourd_guard:item_glow/colors/gold
