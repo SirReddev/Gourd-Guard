@@ -1,4 +1,5 @@
 scoreboard objectives add gg.timer dummy
+scoreboard objectives add gg.xp_pts dummy
 
 # Clean up legacy first-interaction objectives if they exist
 scoreboard objectives remove gg.talked_witch
