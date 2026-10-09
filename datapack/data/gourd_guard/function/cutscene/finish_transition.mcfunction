@@ -11,7 +11,7 @@ execute if entity @e[tag=cs_spawn_target] at @e[tag=cs_spawn_target,limit=1] run
 execute unless entity @e[tag=cs_spawn_target] at @e[tag=peeves_mount,limit=1] positioned ^ ^ ^-3.5 facing entity @e[tag=peeves_mount,limit=1] eyes run tp @a ~ ~ ~ ~ 0
 
 # 2. Restore players out of Spectator Mode
-spectate @s @a
+execute as @a run spectate
 gamemode adventure @a
 
 # 3. Clean up cutscene camera

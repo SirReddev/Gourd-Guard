@@ -13,5 +13,5 @@ kill @e[tag=gg_peeves_interaction]
 posteffect remove @a gourd_guard:cutscene_fade
 
 # Restore players from spectator if needed
-spectate @s @a[gamemode=spectator]
+execute as @a[gamemode=spectator] run spectate
 gamemode adventure @a[gamemode=spectator]

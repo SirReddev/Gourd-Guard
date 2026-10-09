@@ -22,7 +22,7 @@ execute unless entity @e[tag=gg_cutscene_cam] at @p positioned ^ ^2.5 ^-4.5 run 
 
 # 4. Put all players in Spectator and attach to Camera
 gamemode spectator @a
-spectate @e[tag=gg_cutscene_cam,limit=1] @a
+execute as @a run spectate @e[tag=gg_cutscene_cam,limit=1]
 
 # 5. Summon Peeves invisible hover mount (silverfish)
 execute if entity @e[tag=cs_start_npc] at @e[tag=cs_start_npc,limit=1] run summon silverfish ~ ~0.5 ~ {NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Tags:["peeves_mount","peeves_mount_new"],ActiveEffects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b}]}
