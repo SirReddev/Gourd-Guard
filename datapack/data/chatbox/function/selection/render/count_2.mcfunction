@@ -1,1 +1,6 @@
-data modify storage chatbox:selection Items[0].Row set value 0\ndata modify storage chatbox:selection Items[0].DisplaySlot set value 1\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[0]\ndata modify storage chatbox:selection Items[1].Row set value 1\ndata modify storage chatbox:selection Items[1].DisplaySlot set value 2\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[1]\n\n
+data modify storage chatbox:selection Items[0].Row set value 0
+data modify storage chatbox:selection Items[0].DisplaySlot set value 1
+function chatbox:selection/render_row/item with storage chatbox:selection Items[0]
+data modify storage chatbox:selection Items[1].Row set value 1
+data modify storage chatbox:selection Items[1].DisplaySlot set value 2
+function chatbox:selection/render_row/item with storage chatbox:selection Items[1]

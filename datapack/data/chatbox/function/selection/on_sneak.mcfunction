@@ -33,4 +33,4 @@ execute if score #chatbox.sneak.handled loy.value matches 0 if score @s chatbox.
 
 execute if score #chatbox.sneak.handled loy.value matches 0 if score @s chatbox.selected_slot matches 8 if data storage chatbox:selection Items[8] run data modify storage chatbox:selection Temp set from storage chatbox:selection Items[8]
 execute if score #chatbox.sneak.handled loy.value matches 0 if score @s chatbox.selected_slot matches 8 if data storage chatbox:selection Items[8] run function chatbox:selection/execute_action with storage chatbox:selection Temp
-execute if score #chatbox.sneak.handled loy.value matches 0 if score @s chatbox.selected_slot matches 8 if data storage chatbox:selection Items[8] run scoreboard players set #chatbox.sneak.handled loy.value 1\n
+execute if score #chatbox.sneak.handled loy.value matches 0 if score @s chatbox.selected_slot matches 8 if data storage chatbox:selection Items[8] run scoreboard players set #chatbox.sneak.handled loy.value 1

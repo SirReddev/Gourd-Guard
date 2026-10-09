@@ -26,4 +26,4 @@ $execute unless data storage chatbox:main {SequenceActive:1b} run bossbar set ch
 $execute unless data storage chatbox:main {SequenceActive:1b} run bossbar set chatbox:$(Session)_frame players
 $execute unless data storage chatbox:main {SequenceActive:1b} run bossbar set chatbox:$(Session)_line_0 players
 $execute unless data storage chatbox:main {SequenceActive:1b} run bossbar set chatbox:$(Session)_line_1 players
-$execute unless data storage chatbox:main {SequenceActive:1b} run bossbar set chatbox:$(Session)_line_2 players\n
+$execute unless data storage chatbox:main {SequenceActive:1b} run bossbar set chatbox:$(Session)_line_2 players

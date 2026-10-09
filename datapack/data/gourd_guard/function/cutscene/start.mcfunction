@@ -29,8 +29,8 @@ scoreboard players set .global cs.state 1
 # 5. At 15t (screen is solid black), execute setup: teleports player to start spot and spawns Peeves
 schedule function gourd_guard:cutscene/setup 15t
 
-# 6. At 55t (screen has smoothly faded back to clear), begin Dialogue 1
-schedule function gourd_guard:cutscene/dialogue_1 55t
+# 6. At 50t (screen fade back is complete), cleanly clear post-effect so shader is inactive
+schedule function gourd_guard:cutscene/clear_posteffect 50t
 
-# 7. At 60t, cleanly clear post-effect
-schedule function gourd_guard:cutscene/clear_posteffect 60t
+# 7. At 55t (screen is clear and no shader active), begin Dialogue 1
+schedule function gourd_guard:cutscene/dialogue_1 55t

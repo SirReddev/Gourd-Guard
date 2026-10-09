@@ -73,4 +73,4 @@ function chatbox:selection/render
 function chatbox:session/save
 
 # Play subtle UI chime
-playsound minecraft:ui.toast.in master @s ~ ~ ~ 0.4 1.1\n
+playsound minecraft:ui.toast.in master @s ~ ~ ~ 0.4 1.1

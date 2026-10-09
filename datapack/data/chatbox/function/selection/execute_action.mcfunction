@@ -5,4 +5,4 @@ playsound minecraft:ui.button.click master @s ~ ~ ~ 0.45 1.4
 function chatbox:selection/close
 
 # Run action
-$$(Action)\n
+$$(Action)

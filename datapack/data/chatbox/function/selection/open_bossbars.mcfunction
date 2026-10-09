@@ -55,4 +55,4 @@ $execute if score #chatbox.selection_items loy.value matches 4 run bossbar set c
 $execute if score #chatbox.selection_items loy.value matches 5 run bossbar set chatbox:$(Session)_shop_5 players @s
 $execute if score #chatbox.selection_items loy.value matches 6 run bossbar set chatbox:$(Session)_shop_6 players @s
 $execute if score #chatbox.selection_items loy.value matches 7 run bossbar set chatbox:$(Session)_shop_7 players @s
-$execute if score #chatbox.selection_items loy.value matches 8 run bossbar set chatbox:$(Session)_shop_8 players @s\n
+$execute if score #chatbox.selection_items loy.value matches 8 run bossbar set chatbox:$(Session)_shop_8 players @s

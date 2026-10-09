@@ -3,8 +3,7 @@
 
 scoreboard players set .global cs.state 0
 scoreboard players set .global cs.timer 0
-function chatbox:selection/close
-function chatbox:shop/close
+function chatbox:reset
 
 # Remove camera & Peeves entities
 execute as @e[tag=aj.gourdguard_npc_ghost.entity] run data modify entity @s Glowing set value 0b

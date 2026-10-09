@@ -22,4 +22,4 @@ execute if score #chatbox.selection_items loy.value matches 8 run function chatb
 execute if score #chatbox.selection_items loy.value matches 9 run function chatbox:selection/render/count_9
 
 # Render footer controls below item rows
-function chatbox:selection/render_footer with storage chatbox:selection\n
+function chatbox:selection/render_footer with storage chatbox:selection

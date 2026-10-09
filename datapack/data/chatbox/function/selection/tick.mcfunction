@@ -16,4 +16,4 @@ execute if data storage chatbox:selection {Active:1b} unless score @s chatbox.se
 
 # 4. Animate controls icon at bottom of selection UI (every 8 ticks, flips frames)
 execute if data storage chatbox:selection {Active:1b} run scoreboard players add @s chatbox.shop_icon_timer 1
-execute if data storage chatbox:selection {Active:1b} if score @s chatbox.shop_icon_timer matches 8.. run function chatbox:selection/animate_icons\n
+execute if data storage chatbox:selection {Active:1b} if score @s chatbox.shop_icon_timer matches 8.. run function chatbox:selection/animate_icons

@@ -1,1 +1,24 @@
-data modify storage chatbox:selection Items[0].Row set value 0\ndata modify storage chatbox:selection Items[0].DisplaySlot set value 1\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[0]\ndata modify storage chatbox:selection Items[1].Row set value 1\ndata modify storage chatbox:selection Items[1].DisplaySlot set value 2\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[1]\ndata modify storage chatbox:selection Items[2].Row set value 2\ndata modify storage chatbox:selection Items[2].DisplaySlot set value 3\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[2]\ndata modify storage chatbox:selection Items[3].Row set value 3\ndata modify storage chatbox:selection Items[3].DisplaySlot set value 4\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[3]\ndata modify storage chatbox:selection Items[4].Row set value 4\ndata modify storage chatbox:selection Items[4].DisplaySlot set value 5\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[4]\ndata modify storage chatbox:selection Items[5].Row set value 5\ndata modify storage chatbox:selection Items[5].DisplaySlot set value 6\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[5]\ndata modify storage chatbox:selection Items[6].Row set value 6\ndata modify storage chatbox:selection Items[6].DisplaySlot set value 7\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[6]\ndata modify storage chatbox:selection Items[7].Row set value 7\ndata modify storage chatbox:selection Items[7].DisplaySlot set value 8\nfunction chatbox:selection/render_row/item with storage chatbox:selection Items[7]\n\n
+data modify storage chatbox:selection Items[0].Row set value 0
+data modify storage chatbox:selection Items[0].DisplaySlot set value 1
+function chatbox:selection/render_row/item with storage chatbox:selection Items[0]
+data modify storage chatbox:selection Items[1].Row set value 1
+data modify storage chatbox:selection Items[1].DisplaySlot set value 2
+function chatbox:selection/render_row/item with storage chatbox:selection Items[1]
+data modify storage chatbox:selection Items[2].Row set value 2
+data modify storage chatbox:selection Items[2].DisplaySlot set value 3
+function chatbox:selection/render_row/item with storage chatbox:selection Items[2]
+data modify storage chatbox:selection Items[3].Row set value 3
+data modify storage chatbox:selection Items[3].DisplaySlot set value 4
+function chatbox:selection/render_row/item with storage chatbox:selection Items[3]
+data modify storage chatbox:selection Items[4].Row set value 4
+data modify storage chatbox:selection Items[4].DisplaySlot set value 5
+function chatbox:selection/render_row/item with storage chatbox:selection Items[4]
+data modify storage chatbox:selection Items[5].Row set value 5
+data modify storage chatbox:selection Items[5].DisplaySlot set value 6
+function chatbox:selection/render_row/item with storage chatbox:selection Items[5]
+data modify storage chatbox:selection Items[6].Row set value 6
+data modify storage chatbox:selection Items[6].DisplaySlot set value 7
+function chatbox:selection/render_row/item with storage chatbox:selection Items[6]
+data modify storage chatbox:selection Items[7].Row set value 7
+data modify storage chatbox:selection Items[7].DisplaySlot set value 8
+function chatbox:selection/render_row/item with storage chatbox:selection Items[7]

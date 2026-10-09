@@ -10,4 +10,4 @@ data modify storage chatbox:selection Active set value 0b
 data modify storage chatbox:selection Items set value []
 
 playsound minecraft:ui.toast.out master @s ~ ~ ~ 0.35 1.05
-function chatbox:session/release\n
+function chatbox:session/release
