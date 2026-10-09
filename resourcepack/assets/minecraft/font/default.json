@@ -39,7 +39,7 @@
     { "type": "bitmap", "file": "gourd_guard:gui/hud/healthbar/bar_20.png", "ascent": 10, "height": 10, "chars": ["\uE115"] },
     { "type": "bitmap", "file": "gourd_guard:gui/hud/wave_sign.png", "ascent": 22, "height": 22, "chars": ["\uE200"] },
     { "type": "bitmap", "file": "gourd_guard:gui/hud/ghost.png", "ascent": 10, "height": 12, "chars": ["\uE201"] },
-    { "type": "bitmap", "file": "gourd_guard:gui/hud/wave_timer_tab.png", "ascent": 11, "height": 11, "chars": ["\uE202"] },
+    { "type": "bitmap", "file": "gourd_guard:gui/hud/wave_timer_tab.png", "ascent": 7, "height": 7, "chars": ["\uE202"] },
     { "type": "bitmap", "file": "gourd_guard:font/tag_npc.png", "ascent": 8, "height": 9, "chars": ["\uE300"] },
     {
       "type": "space",

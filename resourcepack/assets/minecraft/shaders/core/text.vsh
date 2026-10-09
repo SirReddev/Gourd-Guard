@@ -120,27 +120,27 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 46) ? vec3(0.18) : vec3(0.70, 0.70, 0.70); // Gray
             }
-            // #01BB05: Wave Timer Extension Tab (\uE202) - 72x66px at Top-Right
+            // #01BB05: Wave Timer Extension Tab (\uE202) - 66x42px at Top-Right
             else if (bByte == 5) {
-                bool isLeft = (originX < 6.0);
-                bool isTop = (originY < -5.5);
-                pos.x = isLeft ? (guiWidth - 214.0) : (guiWidth - 142.0);
-                pos.y = isTop ? 24.0 : 90.0;
+                bool isLeft = (originX < 5.5);
+                bool isTop = (originY < -3.5);
+                pos.x = isLeft ? (guiWidth - 208.0) : (guiWidth - 142.0);
+                pos.y = isTop ? 36.0 : 78.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB06: Wave Timer Stopwatch Icon (\uE003) - Scaled 0.85x, aligned with digits inside Tab
+            // #01BB06: Wave Timer Stopwatch Icon (\uE003) - Scaled 0.8x, centered inside Tab
             else if (bByte == 6) {
-                pos.x = (originX + 8.0) * 1.0 + (guiWidth - 166.0);
-                pos.y = (originY + 12.0) * 0.85 + 47.7;
+                pos.x = (originX + 8.0) * 1.0 + (guiWidth - 223.0);
+                pos.y = (originY + 12.0) * 0.8 + 51.4;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
             // #01BB10..13 (Main) / #012E10..13 (Shadow): Wave Intermission Timer Digits - Scaled 1.15x, centered with icon
             else if (bByte >= 16 && bByte <= 19) {
                 float timerScale = 1.15;
-                pos.x = originX * timerScale + (guiWidth - 137.0);
-                pos.y = originY * timerScale + 56.5;
+                pos.x = originX * timerScale + (guiWidth - 194.0);
+                pos.y = originY * timerScale + 59.9;
                 pos.z = 0.0;
                 bool isShadow = (gByte == 46);
                 if (isShadow) {
