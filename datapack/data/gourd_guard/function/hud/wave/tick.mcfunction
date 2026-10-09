@@ -62,7 +62,7 @@ execute if score .wave state matches 1 run data modify storage gourd_guard:hud m
 
 # When intermission is active (State 2), show intermission timer extension
 execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_tab set value "\uE202"
-execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_tab_back set value "\uF814"
+execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_tab_back set value "\uF80C\uF801"
 execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_icon set value "\uE003"
 execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_icon_back set value "\uF810"
 execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_back set value "\uF814\uF804"
