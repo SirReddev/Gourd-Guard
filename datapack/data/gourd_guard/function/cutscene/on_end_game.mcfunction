@@ -3,6 +3,7 @@
 
 function chatbox:selection/close
 
-# Run game over sequence: plays defeat sound, shows DEFEAT title, triggers screen fade transition, and resets to lobby
-function gourd_guard:wave/game_over
+# Run game ended sequence: plays game over sound, shows GAME ENDED title, triggers screen fade transition, and resets to lobby
+function gourd_guard:wave/game_ended
+
 
