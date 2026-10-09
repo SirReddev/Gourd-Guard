@@ -4,11 +4,11 @@ scoreboard players set #chatbox.pre.length loy.value 80
 scoreboard players set #chatbox.content.length loy.value 220
 # Total length including leading whitespace, text content, and trailing whitespace
 scoreboard players set #chatbox.max.length loy.value 220
-# Default tick interval between characters (0 = instant, 1 = normal, 2 = slower)
-scoreboard players set #chatbox.text.interval loy.value 1
+# Default tick interval between characters (0 = faster/1 char per tick, 1 = normal, 2 = slower)
+scoreboard players set #chatbox.text.interval loy.value 0
 
-# Sound ID (negative number means no sound, 0 = default, 1 = sans, 2 = niko)
-scoreboard players set #chatbox.sound.id loy.value -1
+# Sound ID (negative number means no sound, 0 = sans blip)
+scoreboard players set #chatbox.sound.id loy.value 0
 # Sound interval (ticks between playing sound effect)
 scoreboard players set #chatbox.sound.interval loy.value 1
 
