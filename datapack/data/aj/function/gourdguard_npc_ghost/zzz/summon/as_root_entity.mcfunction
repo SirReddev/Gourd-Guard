@@ -50,7 +50,7 @@ data modify storage animated_java:temp entry.data.uuids_by_name.left_leg set fro
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_npc_ghost/zzz/set_default_pose
-execute if data storage animated_java:temp args.variant run function aj:gourdguard_npc_ghost/zzz/summon/zzz/variant_arg/no_variants_warning
+execute if data storage animated_java:temp args.variant unless data storage animated_java:temp {args:{variant:""}} run function aj:gourdguard_npc_ghost/zzz/summon/zzz/variant_arg/no_variants_warning
 execute if score #success aj.i matches 0 run return fail
 execute if data storage animated_java:temp args.animation run function aj:gourdguard_npc_ghost/zzz/summon/animation_arg/process with storage animated_java:temp args
 execute if score #success aj.i matches 0 run return fail

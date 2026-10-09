@@ -4,8 +4,8 @@
 
 function gourd_guard:cutscene/init
 
-# Summon invisible marker armor stand at player feet
-execute at @s run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,Marker:1b,Tags:["cs_npc_node","cs_node_new"]}
+# Summon invisible marker at player feet
+execute at @s run summon minecraft:marker ~ ~ ~ {Tags:["cs_npc_node","cs_node_new"]}
 
 # Assign map and node index
 scoreboard players operation @e[tag=cs_node_new] cs.map = CurrentMap cs.edit

@@ -7,4 +7,4 @@ scoreboard players set .global cs.state 0
 tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Get ready, the first wave is approaching!","color":"yellow"}]
 
 # Start wave 1 on current map
-function gourd_guard:wave/start_map
+function gourd_guard:wave/start

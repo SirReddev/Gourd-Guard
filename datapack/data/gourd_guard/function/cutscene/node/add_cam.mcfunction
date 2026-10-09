@@ -5,7 +5,7 @@
 function gourd_guard:cutscene/init
 
 # Summon marker capturing player position and rotation
-execute at @s run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,Marker:1b,Tags:["cs_cam_node","cs_cam_new"]}
+execute at @s run summon minecraft:marker ~ ~ ~ {Tags:["cs_cam_node","cs_cam_new"]}
 
 # Copy rotation
 execute at @s run tp @e[tag=cs_cam_new] ~ ~ ~ ~ ~
