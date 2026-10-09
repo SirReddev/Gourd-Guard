@@ -1,7 +1,8 @@
 # Cutscene System - Finish Transition & Enable Dialogue Hitbox
 # Called after Dialogue 2 at the Sacred Pumpkin
 
-# Ensure Peeves remains at Pumpkin in looping Idle
+# Ensure Peeves remains at Pumpkin in looping Idle and upright (pitch 0)
+execute as @e[tag=peeves_ghost_root] at @s run tp @s ~ ~ ~ ~ 0
 execute as @e[tag=peeves_ghost_root] run function aj:gourdguard_npc_ghost/animations/idle/play_exclusive
 
 # Summon talk interaction hitbox on Peeves

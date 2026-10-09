@@ -25,8 +25,8 @@ execute unless entity @e[tag=cs_start_npc] at @a[tag=cs_viewer,limit=1] position
 # Tag root entity across entire world so it is guaranteed tagged
 tag @e[type=item_display,tag=aj.gourdguard_npc_ghost.root] add peeves_ghost_root
 
-# Align Peeves rotation to match Node 0's recorded rotation
-execute if entity @e[tag=cs_start_npc] as @e[tag=peeves_ghost_root] at @e[tag=cs_start_npc,limit=1] run tp @s ~ ~0.6 ~ ~ ~
+# Align Peeves rotation to match Node 0's recorded facing (pitch 0)
+execute if entity @e[tag=cs_start_npc] as @e[tag=peeves_ghost_root] at @e[tag=cs_start_npc,limit=1] run tp @s ~ ~0.6 ~ ~ 0
 
 # Play idle animation and protect
 execute as @e[tag=peeves_ghost_root] run function aj:gourdguard_npc_ghost/animations/idle/play_exclusive

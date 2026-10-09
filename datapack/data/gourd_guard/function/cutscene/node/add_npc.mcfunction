@@ -4,9 +4,9 @@
 
 function gourd_guard:cutscene/init
 
-# Summon invisible marker at player feet and copy player rotation
+# Summon invisible marker at player feet and copy player horizontal facing (pitch 0)
 execute at @s run summon minecraft:marker ~ ~ ~ {Tags:["cs_npc_node","cs_node_new"]}
-execute at @s run tp @e[tag=cs_node_new] ~ ~ ~ ~ ~
+execute at @s run tp @e[tag=cs_node_new] ~ ~ ~ ~ 0
 
 # Assign map and node index
 scoreboard players operation @e[tag=cs_node_new] cs.map = CurrentMap cs.edit

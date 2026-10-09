@@ -1,8 +1,8 @@
 # Cutscene System - Advance Node
 # Called when Peeves reaches a checkpoint
 
-# 1. Snap Peeves to checkpoint position (+0.6) and apply the checkpoint's recorded rotation!
-execute as @e[tag=peeves_ghost_root] at @e[tag=cs_target,limit=1] run tp @s ~ ~0.6 ~ ~ ~
+# 1. Snap Peeves to checkpoint position (+0.6) and apply checkpoint horizontal rotation (pitch 0)
+execute as @e[tag=peeves_ghost_root] at @e[tag=cs_target,limit=1] run tp @s ~ ~0.6 ~ ~ 0
 
 # 2. Increment TargetNode
 scoreboard players add TargetNode cs.cmp 1
