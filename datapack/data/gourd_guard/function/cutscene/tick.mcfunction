@@ -4,9 +4,8 @@
 # Only run movement logic during state 2 (walking phase)
 execute unless score .global cs.state matches 2 run return 0
 
-# Steer and move Peeves towards waypoint (gliding at +0.6 blocks)
-execute if entity @e[tag=cs_target] as @e[tag=peeves_ghost_root] at @s facing entity @e[tag=cs_target,limit=1] feet run tp @s ~ ~ ~ ~ 0
-execute if entity @e[tag=cs_target] as @e[tag=peeves_ghost_root] at @s run tp @s ^ ^ ^0.18
+# Steer and move Peeves towards waypoint (gliding at +0.6 blocks, pitch 0)
+execute if entity @e[tag=cs_target] as @e[tag=peeves_ghost_root] at @s facing entity @e[tag=cs_target,limit=1] feet rotated ~ 0 run tp @s ^ ^ ^0.18 ~ 0
 
-# Advance waypoint when Peeves is within 0.8 blocks of current target
-execute as @e[tag=peeves_ghost_root] at @s if entity @e[tag=cs_target,distance=..0.8] run function gourd_guard:cutscene/advance_node
+# Advance waypoint when Peeves is within 1.3 blocks of current target
+execute as @e[tag=peeves_ghost_root] at @s if entity @e[tag=cs_target,distance=..1.3] run function gourd_guard:cutscene/advance_node
