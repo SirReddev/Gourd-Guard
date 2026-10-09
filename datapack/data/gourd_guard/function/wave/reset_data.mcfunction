@@ -36,5 +36,3 @@ function gourd_guard:hud/reset_candy
 kill @e[tag=gg_candy]
 execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".candy run kill @s
 
-# 7. Reset Cutscene entities & camera
-function gourd_guard:cutscene/reset
