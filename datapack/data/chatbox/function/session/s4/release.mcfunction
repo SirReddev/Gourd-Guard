@@ -53,6 +53,11 @@ data modify storage chatbox:s4_shop Items set value []
 data modify storage chatbox:s4_shop Title set value '{"text":"SHOP"}'
 data modify storage chatbox:s4_shop SelectedSlot set value 0
 
+data modify storage chatbox:s4_selection Active set value 0b
+data modify storage chatbox:s4_selection Items set value []
+data modify storage chatbox:s4_selection Title set value '{"text":"SELECT"}'
+data modify storage chatbox:s4_selection SelectedSlot set value 0
+
 scoreboard players set #chatbox.s4.busy loy.value 0
 scoreboard players set #chatbox.s4.bossbar.flag loy.value 0
 scoreboard players set #chatbox.s4.current.line loy.value 0

@@ -11,5 +11,6 @@ execute at @e[tag=peeves_ghost_root,limit=1] run summon minecraft:interaction ~ 
 # Cutscene state 4 (Waiting for player to talk to Peeves & start waves)
 scoreboard players set .global cs.state 4
 
-# Clear fade
+# Clear fade and ensure session released
 posteffect remove @a gourd_guard:cutscene_fade
+execute as @a[tag=cs_viewer] run function chatbox:session/release

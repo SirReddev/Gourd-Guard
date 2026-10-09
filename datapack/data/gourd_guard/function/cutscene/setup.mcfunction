@@ -1,5 +1,5 @@
-# Cutscene System - Setup Peeves
-# Runs behind quick fade curtain
+# Cutscene System - Setup Peeves & Teleport Player
+# Runs at 15t behind solid black curtain
 
 scoreboard players operation TargetMap cs.cmp = .global map
 
@@ -13,7 +13,12 @@ kill @e[tag=gg_peeves_interaction]
 tag @e[tag=cs_npc_node] remove cs_start_npc
 execute as @e[tag=cs_npc_node] if score @s cs.map = TargetMap cs.cmp if score @s cs.node matches 0 run tag @s add cs_start_npc
 
-# 3. Summon Animated Java Peeves Ghost Model (Hovers at node + 0.6 blocks)
+# 3. Teleport player to start place (set via /function gourd_guard:cutscene/node/set_start)
+tag @e[tag=cs_player_start] remove cs_target_start
+execute as @e[tag=cs_player_start] if score @s cs.map = TargetMap cs.cmp run tag @s add cs_target_start
+execute if entity @e[tag=cs_target_start] as @a[tag=cs_viewer] at @e[tag=cs_target_start,limit=1] run tp @s ~ ~ ~ ~ ~
+
+# 4. Summon Animated Java Peeves Ghost Model (Hovers at node + 0.6 blocks)
 execute if entity @e[tag=cs_start_npc] at @e[tag=cs_start_npc,limit=1] positioned ~ ~0.6 ~ rotated ~ 0 run function aj:gourdguard_npc_ghost/summon {args:{animation:"idle",start_animation:true}}
 execute unless entity @e[tag=cs_start_npc] at @a[tag=cs_viewer,limit=1] positioned ^ ^0.6 ^3 rotated ~ 0 run function aj:gourdguard_npc_ghost/summon {args:{animation:"idle",start_animation:true}}
 
@@ -27,5 +32,5 @@ execute if entity @e[tag=cs_start_npc] as @e[tag=peeves_ghost_root] at @e[tag=cs
 execute as @e[tag=peeves_ghost_root] run function aj:gourdguard_npc_ghost/animations/idle/play_exclusive
 execute as @e[tag=aj.gourdguard_npc_ghost.entity] run data modify entity @s Invulnerable set value 1b
 
-# 4. Start Dialogue 1 as player regains view
-schedule function gourd_guard:cutscene/dialogue_1 15t
+# 5. Fallback teleport if cs_player_start wasn't set (positions player facing Peeves)
+execute unless entity @e[tag=cs_target_start] if entity @e[tag=cs_start_npc] as @a[tag=cs_viewer] at @e[tag=cs_start_npc,limit=1] positioned ^ ^ ^-3 rotated ~ 0 run tp @s ~ ~ ~ ~ 0

@@ -40,3 +40,7 @@ data modify storage chatbox:main PreviousFormat set value '{"text":"","bold":fal
 data modify storage chatbox:shop Active set value 0b
 data modify storage chatbox:shop Items set value []
 data modify storage chatbox:shop SelectedSlot set value 0
+
+data modify storage chatbox:selection Active set value 0b
+data modify storage chatbox:selection Items set value []
+data modify storage chatbox:selection SelectedSlot set value 0

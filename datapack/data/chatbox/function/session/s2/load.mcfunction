@@ -24,6 +24,13 @@ data modify storage chatbox:shop SelectedSlot set from storage chatbox:s2_shop S
 data modify storage chatbox:shop FooterRow set from storage chatbox:s2_shop FooterRow
 data modify storage chatbox:shop Session set value "s2"
 
+data modify storage chatbox:selection Active set from storage chatbox:s2_selection Active
+data modify storage chatbox:selection Items set from storage chatbox:s2_selection Items
+data modify storage chatbox:selection Title set from storage chatbox:s2_selection Title
+data modify storage chatbox:selection SelectedSlot set from storage chatbox:s2_selection SelectedSlot
+data modify storage chatbox:selection FooterRow set from storage chatbox:s2_selection FooterRow
+data modify storage chatbox:selection Session set value "s2"
+
 scoreboard players operation #chatbox.bossbar.flag loy.value = #chatbox.s2.bossbar.flag loy.value
 scoreboard players operation #chatbox.current.line loy.value = #chatbox.s2.current.line loy.value
 scoreboard players operation #chatbox.text.length loy.value = #chatbox.s2.text.length loy.value

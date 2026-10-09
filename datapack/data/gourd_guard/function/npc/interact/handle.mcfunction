@@ -4,8 +4,13 @@
 # Clear interaction data on the hitbox so it doesn't queue up
 execute as @e[type=minecraft:interaction,tag=gg_npc_interaction,distance=..2.5] run data remove entity @s interaction
 
-# Prevent opening another dialogue/shop if player is already in an active session
-execute if score @s chatbox.session matches 1..4 run return 0
+# Prevent opening another dialogue/shop if player is currently in an active sequence, shop, or selection
+execute if data storage chatbox:main {SequenceActive:1b} run return 0
+execute if data storage chatbox:shop {Active:1b} run return 0
+execute if data storage chatbox:selection {Active:1b} run return 0
+
+# If player had a lingering session score without an active UI, release it cleanly
+execute if score @s chatbox.session matches 1..4 run function chatbox:session/release
 
 execute if entity @e[type=minecraft:interaction,tag=gg_witch_interaction,distance=..2.5,limit=1] run function gourd_guard:npc/interact/witch
 execute if entity @e[type=minecraft:interaction,tag=gg_archer_interaction,distance=..2.5,limit=1] run function gourd_guard:npc/interact/archer

@@ -48,3 +48,9 @@ data modify storage chatbox:s1_shop Items set from storage chatbox:shop Items
 data modify storage chatbox:s1_shop Title set from storage chatbox:shop Title
 data modify storage chatbox:s1_shop SelectedSlot set from storage chatbox:shop SelectedSlot
 data modify storage chatbox:s1_shop FooterRow set from storage chatbox:shop FooterRow
+
+data modify storage chatbox:s1_selection Active set from storage chatbox:selection Active
+data modify storage chatbox:s1_selection Items set from storage chatbox:selection Items
+data modify storage chatbox:s1_selection Title set from storage chatbox:selection Title
+data modify storage chatbox:s1_selection SelectedSlot set from storage chatbox:selection SelectedSlot
+data modify storage chatbox:s1_selection FooterRow set from storage chatbox:selection FooterRow

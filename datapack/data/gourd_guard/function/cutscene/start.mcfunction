@@ -19,24 +19,18 @@ execute unless entity @a[tag=cs_viewer] run tag @p add cs_viewer
 # 2. Put viewer into Adventure mode
 gamemode adventure @a[tag=cs_viewer]
 
-# 3. Add black fade post-effect transition
+# 3. Add black fade post-effect transition (0t..15t fade to black, 15t..40t solid black, 40t..55t fade back to clear)
 posteffect add @a[tag=cs_viewer] gourd_guard:cutscene_fade
 
-# 4. Teleport player to start place (set via /function gourd_guard:cutscene/node/set_start)
-scoreboard players operation TargetMap cs.cmp = .global map
-tag @e[tag=cs_player_start] remove cs_target_start
-execute as @e[tag=cs_player_start] if score @s cs.map = TargetMap cs.cmp run tag @s add cs_target_start
-execute if entity @e[tag=cs_target_start] as @a[tag=cs_viewer] at @e[tag=cs_target_start,limit=1] run tp @s ~ ~ ~ ~ ~
-
-# 5. Reset timer & set cutscene state (1 = Dialogue 1)
+# 4. Reset timer & set cutscene state
 scoreboard players set .global cs.timer 0
 scoreboard players set .global cs.state 1
 
-# 6. Setup and spawn Peeves at Node 0
-function gourd_guard:cutscene/setup
+# 5. At 15t (screen is solid black), execute setup: teleports player to start spot and spawns Peeves
+schedule function gourd_guard:cutscene/setup 15t
 
-# 7. Fallback teleport if cs_player_start wasn't set (positions player facing Peeves)
-execute unless entity @e[tag=cs_target_start] if entity @e[tag=cs_start_npc] as @a[tag=cs_viewer] at @e[tag=cs_start_npc,limit=1] positioned ^ ^ ^-3 rotated ~ 0 run tp @s ~ ~ ~ ~ 0
+# 6. At 55t (screen has smoothly faded back to clear), begin Dialogue 1
+schedule function gourd_guard:cutscene/dialogue_1 55t
 
-# 8. Clear black fade transition after screen fade completes (15 ticks)
-schedule function gourd_guard:cutscene/clear_posteffect 15t
+# 7. At 60t, cleanly clear post-effect
+schedule function gourd_guard:cutscene/clear_posteffect 60t
