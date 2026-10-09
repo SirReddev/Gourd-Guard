@@ -7,6 +7,7 @@ scoreboard players operation TargetMap cs.cmp = CurrentMap cs.edit
 execute as @e[tag=cs_npc_node] if score @s cs.map = TargetMap cs.cmp run kill @s
 execute as @e[tag=cs_cam_node] if score @s cs.map = TargetMap cs.cmp run kill @s
 execute as @e[tag=cs_player_spawn] if score @s cs.map = TargetMap cs.cmp run kill @s
+execute as @e[tag=cs_player_start] if score @s cs.map = TargetMap cs.cmp run kill @s
 
 scoreboard players set NextNode cs.edit 0
 

@@ -1,14 +1,7 @@
 # Cutscene System - Main Tick Loop
 # Runs each tick from gourd_guard:tick
 
-# Dialogue auto-advance timer during states 1 and 3 (every 70 ticks = 3.5s)
-execute if score .global cs.state matches 1 run scoreboard players add .global cs.timer 1
-execute if score .global cs.state matches 3 run scoreboard players add .global cs.timer 1
-
-execute if score .global cs.timer matches 70.. as @a[tag=cs_viewer,limit=1] run function chatbox:sequence/on_sneak
-execute if score .global cs.timer matches 70.. run scoreboard players set .global cs.timer 0
-
-# Only run movement logic during state 2
+# Only run movement logic during state 2 (walking phase)
 execute unless score .global cs.state matches 2 run return 0
 
 # Steer and move Peeves towards waypoint (gliding at +0.6 blocks)

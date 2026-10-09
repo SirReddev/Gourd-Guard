@@ -1,0 +1,9 @@
+$bossbar set chatbox:$(Session)_shop_0 visible false
+$bossbar set chatbox:$(Session)_shop_1 visible false
+$bossbar set chatbox:$(Session)_shop_2 visible false
+$bossbar set chatbox:$(Session)_shop_3 visible false
+$bossbar set chatbox:$(Session)_shop_4 visible false
+$bossbar set chatbox:$(Session)_shop_5 visible false
+$bossbar set chatbox:$(Session)_shop_6 visible false
+$bossbar set chatbox:$(Session)_shop_7 visible false
+$bossbar set chatbox:$(Session)_shop_8 visible false\n

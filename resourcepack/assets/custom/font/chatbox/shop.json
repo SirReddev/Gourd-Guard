@@ -48,6 +48,15 @@
         },
         {
             "type": "bitmap",
+            "file": "custom:font/chatbox/shop/controls_selection.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\ue308\ue309"
+            ]
+        },
+        {
+            "type": "bitmap",
             "file": "custom:font/chatbox/shop/cycle_indicator.png",
             "ascent": 8,
             "height": 12,

@@ -8,6 +8,7 @@ scoreboard players operation TargetMap cs.cmp = CurrentMap cs.edit
 execute as @e[tag=cs_npc_node] if score @s cs.map = TargetMap cs.cmp at @s run particle minecraft:soul_fire_flame ~ ~0.5 ~ 0.1 0.2 0.1 0.02 20
 execute as @e[tag=cs_cam_node] if score @s cs.map = TargetMap cs.cmp at @s run particle minecraft:end_rod ~ ~ ~ 0.1 0.1 0.1 0.02 20
 execute as @e[tag=cs_player_spawn] if score @s cs.map = TargetMap cs.cmp at @s run particle minecraft:portal ~ ~1 ~ 0.2 0.4 0.2 0.05 30
+execute as @e[tag=cs_player_start] if score @s cs.map = TargetMap cs.cmp at @s run particle minecraft:happy_villager ~ ~0.5 ~ 0.2 0.3 0.2 0.02 20
 
 scoreboard players set FoundNodes cs.cmp 0
 execute as @e[tag=cs_npc_node] if score @s cs.map = TargetMap cs.cmp run scoreboard players add FoundNodes cs.cmp 1

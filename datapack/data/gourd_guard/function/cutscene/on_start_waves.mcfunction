@@ -1,7 +1,7 @@
 # Cutscene System - Start Map Waves from Peeves
 # Called when player confirms "Start now!" in Peeves dialogue
 
-function chatbox:shop/close
+function chatbox:selection/close
 scoreboard players set .global cs.state 0
 
 tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Get ready, the first wave is approaching!","color":"yellow"}]
