@@ -29,8 +29,8 @@ vec4 apply_fog(vec4 inColor, float sphericalVertexDistance, float cylindricalVer
     }
 
     // Spacious visibility zone around player, smoothly fading into deep midnight fog in the distance
-    float clearRadius = 50.0;  // 0% fog within 50 blocks of the player
-    float blackWall   = 85.0;  // Deep dark fog enveloping everything by 85 blocks
+    float clearRadius = 80.0;  // 0% fog within 80 blocks of the player
+    float blackWall   = 130.0; // Deep dark fog enveloping everything by 130 blocks
 
     float activeStart = min(renderDistanceStart, clearRadius);
     float activeEnd   = min(renderDistanceEnd, blackWall);

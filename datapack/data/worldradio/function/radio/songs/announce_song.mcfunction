@@ -7,7 +7,6 @@ execute if score #announce_mode worldradio.data matches 0..1 if score #song worl
 execute if score #announce_mode worldradio.data matches 0..1 if score #song worldradio.data matches 5 run title @a actionbar ["",{"text":"Now Playing: ","color":"gray"},{"text":"Gourd Dance","color":"aqua","bold":true}]
 execute if score #announce_mode worldradio.data matches 0..1 if score #song worldradio.data matches 6 run title @a actionbar ["",{"text":"Now Playing: ","color":"gray"},{"text":"Midnight Mystery","color":"aqua","bold":true}]
 execute if score #announce_mode worldradio.data matches 0..1 if score #song worldradio.data matches 7 run title @a actionbar ["",{"text":"Now Playing: ","color":"gray"},{"text":"Night Fade","color":"aqua","bold":true}]
-execute if score #announce_mode worldradio.data matches 0..1 if score #song worldradio.data matches 8 run title @a actionbar ["",{"text":"Now Playing: ","color":"gray"},{"text":"Wraith Serenade","color":"aqua","bold":true}]
 
 # Chat Notification (0 = Both, 2 = Chat Only)
 execute if score #announce_mode worldradio.data matches 0 if score #song worldradio.data matches 1 run tellraw @a [{"text":"[WorldRadio] ","color":"green","bold":true},{"text":"Now Playing: ","color":"gray"},{"text":"Bat Cave","color":"dark_green","bold":true}]
@@ -24,5 +23,3 @@ execute if score #announce_mode worldradio.data matches 0 if score #song worldra
 execute if score #announce_mode worldradio.data matches 2 if score #song worldradio.data matches 6 run tellraw @a [{"text":"[WorldRadio] ","color":"green","bold":true},{"text":"Now Playing: ","color":"gray"},{"text":"Midnight Mystery","color":"dark_green","bold":true}]
 execute if score #announce_mode worldradio.data matches 0 if score #song worldradio.data matches 7 run tellraw @a [{"text":"[WorldRadio] ","color":"green","bold":true},{"text":"Now Playing: ","color":"gray"},{"text":"Night Fade","color":"dark_green","bold":true}]
 execute if score #announce_mode worldradio.data matches 2 if score #song worldradio.data matches 7 run tellraw @a [{"text":"[WorldRadio] ","color":"green","bold":true},{"text":"Now Playing: ","color":"gray"},{"text":"Night Fade","color":"dark_green","bold":true}]
-execute if score #announce_mode worldradio.data matches 0 if score #song worldradio.data matches 8 run tellraw @a [{"text":"[WorldRadio] ","color":"green","bold":true},{"text":"Now Playing: ","color":"gray"},{"text":"Wraith Serenade","color":"dark_green","bold":true}]
-execute if score #announce_mode worldradio.data matches 2 if score #song worldradio.data matches 8 run tellraw @a [{"text":"[WorldRadio] ","color":"green","bold":true},{"text":"Now Playing: ","color":"gray"},{"text":"Wraith Serenade","color":"dark_green","bold":true}]

@@ -6,5 +6,5 @@ execute as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,tag=nbs
 
 execute as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,tag=nbs_Celebrawl,tag=!worldradio.local_zone,limit=1] run scoreboard players operation #radio nbs_Celebrawl_t = @s nbs_Celebrawl_t
 
-# Natural finish when end of song is reached
-execute if score #radio nbs_Celebrawl matches 341760.. run scoreboard players set #radio_has_song worldradio.data 0
+execute unless entity @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,tag=nbs_Celebrawl,tag=!worldradio.local_zone] run scoreboard players set #radio_has_song worldradio.data 0
+execute if score #radio nbs_Celebrawl_t matches 1310.. run scoreboard players set #radio_has_song worldradio.data 0

@@ -29,10 +29,6 @@ execute if score @s worldradio.jb_song matches 7 at @s run scoreboard players op
 execute if score @s worldradio.jb_song matches 7 at @s run scoreboard players operation @s nbs_nightfade_t = @e[type=minecraft:item_display,tag=aj.worldradio_jukebox.root,scores={worldradio.jb_state=1},limit=1,sort=nearest] nbs_nightfade_t
 execute if score @s worldradio.jb_song matches 7 run tag @s add nbs_nightfade
 execute if score @s worldradio.jb_song matches 7 run function aj:worldradio_jukebox/animations/playing/play
-execute if score @s worldradio.jb_song matches 8 at @s run scoreboard players operation @s nbs_wraithsere = @e[type=minecraft:item_display,tag=aj.worldradio_jukebox.root,scores={worldradio.jb_state=1},limit=1,sort=nearest] nbs_wraithsere
-execute if score @s worldradio.jb_song matches 8 at @s run scoreboard players operation @s nbs_wraithsere_t = @e[type=minecraft:item_display,tag=aj.worldradio_jukebox.root,scores={worldradio.jb_state=1},limit=1,sort=nearest] nbs_wraithsere_t
-execute if score @s worldradio.jb_song matches 8 run tag @s add nbs_wraithsere
-execute if score @s worldradio.jb_song matches 8 run function aj:worldradio_jukebox/animations/playing/play
 execute at @s run scoreboard players operation @s aj.playing.frame = @e[type=minecraft:item_display,tag=aj.worldradio_jukebox.root,scores={worldradio.jb_state=1},limit=1,sort=nearest] aj.playing.frame
 execute store result storage animated_java:temp args.frame int 1 run scoreboard players get @s aj.playing.frame
 execute at @s run function aj:worldradio_jukebox/animations/playing/set_frame with storage animated_java:temp args

@@ -6,4 +6,5 @@ execute as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,tag=nbs
 
 execute as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,tag=nbs_batcave,tag=!worldradio.local_zone,limit=1] run scoreboard players operation #radio nbs_batcave_t = @s nbs_batcave_t
 
-execute if score #radio nbs_batcave matches 341760.. run scoreboard players set #radio_has_song worldradio.data 0
+execute unless entity @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,tag=nbs_batcave,tag=!worldradio.local_zone] run scoreboard players set #radio_has_song worldradio.data 0
+execute if score #radio nbs_batcave_t matches 2014.. run scoreboard players set #radio_has_song worldradio.data 0

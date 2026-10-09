@@ -14,7 +14,6 @@ execute if score #song worldradio.data matches 4 run tellraw @a [{"text":" Curre
 execute if score #song worldradio.data matches 5 run tellraw @a [{"text":" Current Song: ","color":"gray"},{"text":"Gourd Dance","color":"gold","bold":true},{"text":" (5/","color":"dark_gray"},{"score":{"name":"#total_songs","objective":"worldradio.data"},"color":"dark_gray"},{"text":")","color":"dark_gray"}]
 execute if score #song worldradio.data matches 6 run tellraw @a [{"text":" Current Song: ","color":"gray"},{"text":"Midnight Mystery","color":"gold","bold":true},{"text":" (6/","color":"dark_gray"},{"score":{"name":"#total_songs","objective":"worldradio.data"},"color":"dark_gray"},{"text":")","color":"dark_gray"}]
 execute if score #song worldradio.data matches 7 run tellraw @a [{"text":" Current Song: ","color":"gray"},{"text":"Night Fade","color":"gold","bold":true},{"text":" (7/","color":"dark_gray"},{"score":{"name":"#total_songs","objective":"worldradio.data"},"color":"dark_gray"},{"text":")","color":"dark_gray"}]
-execute if score #song worldradio.data matches 8 run tellraw @a [{"text":" Current Song: ","color":"gray"},{"text":"Wraith Serenade","color":"gold","bold":true},{"text":" (8/","color":"dark_gray"},{"score":{"name":"#total_songs","objective":"worldradio.data"},"color":"dark_gray"},{"text":")","color":"dark_gray"}]
 
 # State info
 execute if score #state worldradio.data matches 0 run tellraw @a [{"text":" Playback State: ","color":"gray"},{"text":"STOPPED","color":"red","bold":true}]

@@ -21,8 +21,5 @@ $execute at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,
 execute if score @s worldradio.jb_song matches 7 run tag @s remove nbs_nightfade
 $execute at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run tag @s remove nbs_nightfade
 $execute at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run function aj:worldradio_boombox/animations/playing/stop
-execute if score @s worldradio.jb_song matches 8 run tag @s remove nbs_wraithsere
-$execute at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run tag @s remove nbs_wraithsere
-$execute at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run function aj:worldradio_boombox/animations/playing/stop
 $execute at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run function aj:worldradio_boombox/animations/pause_all
 $execute at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] at @s as @e[type=minecraft:text_display,tag=aj.worldradio_boombox.text_display,distance=..1] run data modify entity @s text set value {text:"......",bold:true,color:"white"}

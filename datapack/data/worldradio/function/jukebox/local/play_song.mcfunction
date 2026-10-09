@@ -55,11 +55,3 @@ $execute if score @s worldradio.jb_song matches 7 at @s as @e[type=minecraft:ite
 $execute if score @s worldradio.jb_song matches 7 at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run scoreboard players set @s nbs_nightfade_t -1
 $execute if score @s worldradio.jb_song matches 7 at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run function aj:worldradio_boombox/animations/playing/play
 $execute if score @s worldradio.jb_song matches 7 at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] at @s as @e[type=minecraft:text_display,tag=aj.worldradio_boombox.text_display,distance=..1] run data modify entity @s text set value {text:"",extra:[{text:"Playing: ",color:"green"},{text:"Night Fade",color:"dark_green"}]}
-execute if score @s worldradio.jb_song matches 8 run tag @s add nbs_wraithsere
-execute if score @s worldradio.jb_song matches 8 run scoreboard players set @s nbs_wraithsere 0
-execute if score @s worldradio.jb_song matches 8 run scoreboard players set @s nbs_wraithsere_t -1
-$execute if score @s worldradio.jb_song matches 8 at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run tag @s add nbs_wraithsere
-$execute if score @s worldradio.jb_song matches 8 at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run scoreboard players set @s nbs_wraithsere 0
-$execute if score @s worldradio.jb_song matches 8 at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run scoreboard players set @s nbs_wraithsere_t -1
-$execute if score @s worldradio.jb_song matches 8 at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] run function aj:worldradio_boombox/animations/playing/play
-$execute if score @s worldradio.jb_song matches 8 at @s as @e[type=minecraft:item_display,tag=aj.worldradio_boombox.root,distance=..$(radius)] at @s as @e[type=minecraft:text_display,tag=aj.worldradio_boombox.text_display,distance=..1] run data modify entity @s text set value {text:"",extra:[{text:"Playing: ",color:"green"},{text:"Wraith Serenade",color:"dark_green"}]}
