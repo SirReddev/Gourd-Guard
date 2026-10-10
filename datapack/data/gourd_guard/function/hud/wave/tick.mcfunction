@@ -65,7 +65,7 @@ execute if score .wave state matches 2 run data modify storage gourd_guard:hud m
 execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_tab_back set value "\uF80C"
 execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_icon set value "\uE003"
 execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_icon_back set value "\uF810"
-execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_back set value "\uF814\uF804"
+execute if score .wave state matches 2 run data modify storage gourd_guard:hud macro.wave_timer_back set value "\uF814\uF801"
 
 # Color 1: Green (> 10s remaining)
 execute if score .wave state matches 2 if score .wave timer_min matches 1.. if score .wave timer_sec matches 10.. run data modify storage gourd_guard:hud macro.wave_timer_display set value '{"score":{"name":".wave","objective":"timer_min"},"font":"gourd_guard:minecrafter","color":"#01BB10","shadow_color":-16699888,"extra":[{"text":":"},{"score":{"name":".wave","objective":"timer_sec"}}]}'

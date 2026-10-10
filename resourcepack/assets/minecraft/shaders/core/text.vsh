@@ -122,7 +122,7 @@ void main() {
             }
             // #01BB05: Wave Timer Extension Tab (\uE202) - 66x42px at Top-Right
             else if (bByte == 5) {
-                bool isLeft = (originX < 5.5);
+                bool isLeft = (originX < 11.0);
                 bool isTop = (originY < -3.5);
                 pos.x = isLeft ? (guiWidth - 208.0) : (guiWidth - 142.0);
                 pos.y = isTop ? 36.0 : 78.0;
@@ -168,8 +168,8 @@ void main() {
         }
         // #010000: JNNGL GUI Avatar (56x56px at X: 42px..98px, Y: 68px..124px)
         else if (Color.g < 0.05 && Color.b < 0.05 && bByte == 0) {
-            bool isLeft = (originX < 0.0);
-            bool isTop = (originY < -2.0);
+            bool isLeft = (originX < 4.0);
+            bool isTop = (originY < -4.0);
             texCoord0 = vec2(isLeft ? 0.0 : 1.0, isTop ? 0.0 : 1.0);
             custom = 1.0;
             pos.x = isLeft ? 42.0 : 98.0;
