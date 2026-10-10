@@ -122,10 +122,8 @@ void main() {
             }
             // #01BB05: Wave Timer Extension Tab (\uE202) - 90x60px (15x10 texture) at Top-Right
             else if (bByte == 5) {
-                bool isLeft = (originX < 7.5);
-                bool isTop = (originY < -5.0);
-                pos.x = isLeft ? (guiWidth - 232.0) : (guiWidth - 142.0);
-                pos.y = isTop ? 27.0 : 87.0;
+                pos.x = (originX + 8.0) * 6.0 + (guiWidth - 232.0);
+                pos.y = (originY + 10.0) * 6.0 + 27.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
