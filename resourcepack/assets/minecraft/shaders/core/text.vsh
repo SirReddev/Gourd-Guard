@@ -122,23 +122,23 @@ void main() {
             }
             // #01BB05: Wave Timer Extension Tab (\uE202) - 90x60px (15x10 texture) at Top-Right
             else if (bByte == 5) {
-                pos.x = (originX + 8.0) * 6.0 + (guiWidth - 234.0);
-                pos.y = (originY + 10.0) * 6.0 + 23.0;
+                pos.x = (originX + 8.0) * 6.0 + (guiWidth - 238.0);
+                pos.y = (originY + 10.0) * 6.0 + 5.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
             // #01BB06: Wave Timer Stopwatch Icon (\uE003) - Scaled 0.8x, centered inside Tab
             else if (bByte == 6) {
-                pos.x = (originX + 8.0) * 1.0 + (guiWidth - 223.0);
-                pos.y = (originY + 12.0) * 0.8 + 51.4;
+                pos.x = (originX + 8.0) * 1.0 + (guiWidth - 227.0);
+                pos.y = (originY + 12.0) * 0.8 + 33.4;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
             // #01BB10..13 (Main) / #012E10..13 (Shadow): Wave Intermission Timer Digits - Scaled 1.15x, centered with icon
             else if (bByte >= 16 && bByte <= 19) {
                 float timerScale = 1.15;
-                pos.x = originX * timerScale + (guiWidth - 194.0);
-                pos.y = originY * timerScale + 59.9;
+                pos.x = originX * timerScale + (guiWidth - 198.0);
+                pos.y = originY * timerScale + 41.9;
                 pos.z = 0.0;
                 bool isShadow = (gByte == 46);
                 if (isShadow) {
