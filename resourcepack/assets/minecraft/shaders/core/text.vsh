@@ -127,18 +127,19 @@ void main() {
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB06: Wave Timer Stopwatch Icon (\uE003) - Scaled 0.8x, centered inside Tab
+            // #01BB06: Wave Timer Stopwatch Icon (\uE003) - Scaled 0.8x, positioned left of digits inside Tab
             else if (bByte == 6) {
-                pos.x = (originX + 8.0) * 1.0 + (guiWidth - 229.0);
-                pos.y = (originY + 12.0) * 0.8 + 43.4;
+                float iconScale = 0.8;
+                pos.x = (originX + 8.0) * iconScale + (guiWidth - 227.0);
+                pos.y = (originY + 12.0) * iconScale + 45.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
-            // #01BB10..13 (Main) / #012E10..13 (Shadow): Wave Intermission Timer Digits - Scaled 1.15x, centered with icon
+            // #01BB10..13 (Main) / #012E10..13 (Shadow): Wave Intermission Timer Digits - Scaled 1.15x, positioned right of icon inside Tab
             else if (bByte >= 16 && bByte <= 19) {
                 float timerScale = 1.15;
-                pos.x = originX * timerScale + (guiWidth - 213.0);
-                pos.y = originY * timerScale + 51.9;
+                pos.x = originX * timerScale + (guiWidth - 197.0);
+                pos.y = originY * timerScale + 53.0;
                 pos.z = 0.0;
                 bool isShadow = (gByte == 46);
                 if (isShadow) {
