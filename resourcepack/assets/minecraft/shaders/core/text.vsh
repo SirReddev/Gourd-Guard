@@ -131,7 +131,7 @@ void main() {
             else if (bByte == 6) {
                 float iconScale = 0.8;
                 pos.x = (originX + 8.0) * iconScale + (guiWidth - 208.0);
-                pos.y = (originY + 12.0) * iconScale + 45.0;
+                pos.y = (originY + 12.0) * iconScale + 48.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -139,7 +139,7 @@ void main() {
             else if (bByte >= 16 && bByte <= 19) {
                 float timerScale = 1.15;
                 pos.x = originX * timerScale + (guiWidth - 183.0);
-                pos.y = originY * timerScale + 53.0;
+                pos.y = originY * timerScale + 56.5;
                 pos.z = 0.0;
                 bool isShadow = (gByte == 46);
                 if (isShadow) {
