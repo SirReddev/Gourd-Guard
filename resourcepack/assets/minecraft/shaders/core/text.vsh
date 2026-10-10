@@ -130,7 +130,7 @@ void main() {
             // #01BB06: Wave Timer Stopwatch Icon (\uE003) - Scaled 0.8x, positioned left of digits inside Tab
             else if (bByte == 6) {
                 float iconScale = 0.8;
-                pos.x = (originX + 8.0) * iconScale + (guiWidth - 213.0);
+                pos.x = (originX + 8.0) * iconScale + (guiWidth - 216.0);
                 pos.y = (originY + 12.0) * iconScale + 45.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
