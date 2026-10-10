@@ -130,7 +130,7 @@ void main() {
             // #01BB06: Wave Timer Stopwatch Icon (\uE003) - Scaled 0.8x, positioned left of digits inside Tab
             else if (bByte == 6) {
                 float iconScale = 0.8;
-                pos.x = (originX + 8.0) * iconScale + (guiWidth - 216.0);
+                pos.x = (originX + 8.0) * iconScale + (guiWidth - 219.0);
                 pos.y = (originY + 12.0) * iconScale + 45.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
@@ -138,7 +138,7 @@ void main() {
             // #01BB10..13 (Main) / #012E10..13 (Shadow): Wave Intermission Timer Digits - Scaled 1.15x, positioned right of icon inside Tab
             else if (bByte >= 16 && bByte <= 19) {
                 float timerScale = 1.15;
-                pos.x = originX * timerScale + (guiWidth - 188.5);
+                pos.x = originX * timerScale + (guiWidth - 194.0);
                 pos.y = originY * timerScale + 53.0;
                 pos.z = 0.0;
                 bool isShadow = (gByte == 46);
