@@ -105,10 +105,10 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 46) ? vec3(0.0, 0.1675, 0.1675) : vec3(0.0, 0.67, 0.67); // Dark Aqua (#00AAAA)
             }
-            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 108px..guiWidth - 94px, Y: 100px..114px)
+            // #01BB02: Bottom Board Ghost Icon (\uE201) - 14x14px at (X: guiWidth - 108px..guiWidth - 94px, Y: 98px..112px)
             else if (bByte == 2) {
                 pos.x = originX * (14.0 / 12.0) + (guiWidth - 108.0);
-                pos.y = (originY + 10.0) * (14.0 / 12.0) + 100.0;
+                pos.y = (originY + 10.0) * (14.0 / 12.0) + 98.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -120,12 +120,12 @@ void main() {
                 pos.z = 0.0;
                 vertexColor.rgb = (gByte == 46) ? vec3(0.18) : vec3(0.70, 0.70, 0.70); // Gray
             }
-            // #01BB05: Wave Timer Extension Tab (\uE202) - 66x42px at Top-Right
+            // #01BB05: Wave Timer Extension Tab (\uE202) - 90x60px (15x10 texture) at Top-Right
             else if (bByte == 5) {
-                bool isLeft = (originX < 11.0);
-                bool isTop = (originY < -3.5);
-                pos.x = isLeft ? (guiWidth - 208.0) : (guiWidth - 142.0);
-                pos.y = isTop ? 36.0 : 78.0;
+                bool isLeft = (originX < 13.5);
+                bool isTop = (originY < -5.0);
+                pos.x = isLeft ? (guiWidth - 232.0) : (guiWidth - 142.0);
+                pos.y = isTop ? 27.0 : 87.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
