@@ -1,4 +1,4 @@
-﻿# Wave 18 Spawning Sequence
+# Wave 18 Spawning Sequence
 # Total spawns: 32 mobs across Path 1 & Path 2
 execute if score .wave spawn_timer matches 1 run title @a times 5 30 10
 execute if score .wave spawn_timer matches 1 run title @a title {"text":"WAVE 18","color":"gold","bold":true}
