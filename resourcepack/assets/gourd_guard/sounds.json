@@ -149,5 +149,25 @@
         "stream": true
       }
     ]
+  },
+  "npc.peeves.laugh": {
+    "category": "master",
+    "subtitle": "subtitles.gourd_guard.npc.peeves.laugh",
+    "sounds": [
+      {
+        "name": "gourd_guard:npc/peeves/peeves_laugh",
+        "stream": false
+      }
+    ]
+  },
+  "peeves.laugh": {
+    "category": "master",
+    "subtitle": "subtitles.gourd_guard.npc.peeves.laugh",
+    "sounds": [
+      {
+        "name": "gourd_guard:npc/peeves/peeves_laugh",
+        "stream": false
+      }
+    ]
   }
 }
