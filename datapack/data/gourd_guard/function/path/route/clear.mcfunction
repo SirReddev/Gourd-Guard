@@ -17,4 +17,10 @@ execute as @e[tag=path_node] if score @s path.map = ClearMap path.cmp if score @
 execute as @e[tag=path_mob] if score @s path.map = ClearMap path.cmp if score @s path.route = ClearRoute path.cmp run scoreboard players set @s path.state 0
 execute as @e[tag=path_mob] if score @s path.map = ClearMap path.cmp if score @s path.route = ClearRoute path.cmp run tag @s remove path_mob
 
-$tellraw @s [{"text":"[Path] ","color":"dark_red"},{"text":"Cleared ","color":"red"},{"score":{"name":"ClearedNodes","objective":"path.cmp"},"color":"yellow","bold":true},{"text":" nodes for Map $(map) Path $(path)","color":"red"}]
+# Reset route editor state so adding nodes starts cleanly at Shared Start Node 0
+$scoreboard players set CurrentMap path.edit $(map)
+$scoreboard players set CurrentRoute path.edit $(path)
+scoreboard players set CurrentBranch path.edit 0
+scoreboard players set NextNode path.edit 0
+
+$tellraw @s [{"text":"[Path] ","color":"dark_red"},{"text":"Cleared ","color":"red"},{"score":{"name":"ClearedNodes","objective":"path.cmp"},"color":"yellow","bold":true},{"text":" nodes for Map $(map) Path $(path). Ready at [Shared Start] Node 0.","color":"red"}]

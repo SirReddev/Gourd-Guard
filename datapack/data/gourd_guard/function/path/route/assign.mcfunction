@@ -11,7 +11,10 @@ scoreboard players set @s path.branch 0
 scoreboard players set @s path.node 0
 scoreboard players set @s path.state 1
 
-# Alternate split option 50/50 (1, 2, 1, 2...) per Map & Path so equal numbers take each branch
+# If Shared Start Node 0 does not exist, check if Shared Start starts at Node 1
+$execute unless entity @e[tag=path_node,scores={path.map=$(map),path.route=$(path),path.branch=0,path.node=0}] if entity @e[tag=path_node,scores={path.map=$(map),path.route=$(path),path.branch=0,path.node=1}] run scoreboard players set @s path.node 1
+
+# Alternate split option 50/50 (1, 2, 1, 2...) per Map & Path
 $execute unless score #split_m$(map)_p$(path) path.cmp matches 1..2 run scoreboard players set #split_m$(map)_p$(path) path.cmp 1
 $scoreboard players operation @s path.option = #split_m$(map)_p$(path) path.cmp
 $execute if score #split_m$(map)_p$(path) path.cmp matches 1 run scoreboard players set #next_opt path.cmp 2
@@ -32,7 +35,18 @@ execute if entity @s[type=blaze] run tag @s add path_flyer
 execute if entity @s[tag=path_flyer] run data modify entity @s NoAI set value 1b
 execute if entity @s[tag=path_flyer] at @s run tp @s ~ ~1.0 ~
 
-# Immediately orient towards Node 0
+# If this route has no Shared Start (branch 0) nodes and splits right from the start, resolve split & teleport to that entrance
+scoreboard players operation MobMap path.cmp = @s path.map
+scoreboard players operation MobRoute path.cmp = @s path.route
+scoreboard players operation MobBranch path.cmp = @s path.branch
+scoreboard players operation MobNode path.cmp = @s path.node
+$execute unless entity @e[tag=path_node,scores={path.map=$(map),path.route=$(path),path.branch=0}] run tag @e[tag=path_node] remove path_target
+$execute unless entity @e[tag=path_node,scores={path.map=$(map),path.route=$(path),path.branch=0}] run function gourd_guard:path/mob/resolve_next_branch
+$execute unless entity @e[tag=path_node,scores={path.map=$(map),path.route=$(path),path.branch=0}] if entity @e[tag=path_target] at @e[tag=path_target,limit=1] run tp @s ~ ~ ~
+$execute unless entity @e[tag=path_node,scores={path.map=$(map),path.route=$(path),path.branch=0}] if entity @s[tag=path_flyer] at @s run tp @s ~ ~1.0 ~
+tag @e[tag=path_target] remove path_target
+
+# Immediately orient towards first node
 execute at @s run function gourd_guard:path/mob/process
 
 $execute if score .debug path.debug matches 1 run tellraw @a [{"text":"[Path] ","color":"dark_green"},{"text":"Assigned ","color":"green"},{"selector":"@s"},{"text":" to Map $(map) Path $(path)","color":"yellow","bold":true}]
