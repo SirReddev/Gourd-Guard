@@ -5,7 +5,7 @@ execute store result storage animated_java:temp args.id int 1 run scoreboard pla
 function animated_java:global/data_manager/read with storage animated_java:temp args
 function aj:gourdguard_npc_ghost/animations/pause_all
 tag @s add aj.gourdguard_npc_ghost.animation.move.playing
-scoreboard players set @s aj.move.frame 0
+scoreboard players set @s aj.gourdguard_npc_ghost.move.frame 0
 tag @s add aj.transforms_only
 execute at @s run function aj:gourdguard_npc_ghost/animations/move/zzz/set_frame {frame: 0}
 tag @s remove aj.transforms_only

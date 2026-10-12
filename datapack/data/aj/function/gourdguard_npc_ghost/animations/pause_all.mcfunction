@@ -3,3 +3,4 @@ tag @s remove aj.gourdguard_npc_ghost.animation.start_move.playing
 tag @s remove aj.gourdguard_npc_ghost.animation.move.playing
 tag @s remove aj.gourdguard_npc_ghost.animation.end_move.playing
 tag @s remove aj.gourdguard_npc_ghost.animation.idle.playing
+tag @s remove aj.pause_after_tween

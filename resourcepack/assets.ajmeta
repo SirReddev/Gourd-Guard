@@ -332,7 +332,6 @@
 				"assets/aj/items/blueprint/gourdguard_npc_ghost/body.json",
 				"assets/aj/items/blueprint/gourdguard_npc_ghost/bodywear.json",
 				"assets/aj/items/blueprint/gourdguard_npc_ghost/head.json",
-				"assets/aj/items/blueprint/gourdguard_npc_ghost/headwear.json",
 				"assets/aj/items/blueprint/gourdguard_npc_ghost/headwear2.json",
 				"assets/aj/items/blueprint/gourdguard_npc_ghost/left_leg.json",
 				"assets/aj/items/blueprint/gourdguard_npc_ghost/mirrored.json",
@@ -342,7 +341,6 @@
 				"assets/aj/models/blueprint/gourdguard_npc_ghost/body.json",
 				"assets/aj/models/blueprint/gourdguard_npc_ghost/bodywear.json",
 				"assets/aj/models/blueprint/gourdguard_npc_ghost/head.json",
-				"assets/aj/models/blueprint/gourdguard_npc_ghost/headwear.json",
 				"assets/aj/models/blueprint/gourdguard_npc_ghost/headwear2.json",
 				"assets/aj/models/blueprint/gourdguard_npc_ghost/left_leg.json",
 				"assets/aj/models/blueprint/gourdguard_npc_ghost/mirrored.json",
@@ -531,8 +529,7 @@
 				"assets/aj/models/blueprint/gourdguard_pumpkin/main/default/gourdguard_pumpkin_on.json",
 				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default.json",
 				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_hit.json",
-				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_on.json",
-				"assets/aj/textures/blueprint/gourdguard_pumpkin/gourdguard_pumpkin_on.png"
+				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_on.json"
 			]
 		}
 	}

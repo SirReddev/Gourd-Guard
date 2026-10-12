@@ -12,35 +12,32 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_npc_ghost"
-data modify storage animated_java:temp entry.data.rig_hash set value "d3209af1e9ca007d7237fc80b1a6532ff91e0318178db0ac73a22171b40cc402"
+data modify storage animated_java:temp entry.data.rig_hash set value "2e2ed2a18d0521334d6a48c29a1a1c3dae58a62ab0f8a4447c0280551aa47802"
 tp @s ~ ~ ~ ~ ~
 execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.text_display] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/text_display
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.text_display set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.head] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/head
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.head set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.nose] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/nose
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.nose set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.headwear2] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/headwear2
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.headwear2 set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.headwear] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/headwear
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.headwear set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.head] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/head
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.head set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.body] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/body
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.body set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.bodywear] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/bodywear
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.bodywear set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.mirrored] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/mirrored
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.mirrored set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.arms] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/arms
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.arms set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.mirrored] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/mirrored
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.mirrored set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_npc_ghost.node.right_leg] run function aj:gourdguard_npc_ghost/zzz/summon/as_node/right_leg
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.right_leg set from storage animated_java:gu out
@@ -50,7 +47,7 @@ data modify storage animated_java:temp entry.data.uuids_by_name.left_leg set fro
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_npc_ghost/zzz/set_default_pose
-execute if data storage animated_java:temp args.variant unless data storage animated_java:temp {args:{variant:""}} run function aj:gourdguard_npc_ghost/zzz/summon/zzz/variant_arg/no_variants_warning
+execute if data storage animated_java:temp args.variant run function aj:gourdguard_npc_ghost/zzz/summon/zzz/variant_arg/no_variants_warning
 execute if score #success aj.i matches 0 run return fail
 execute if data storage animated_java:temp args.animation run function aj:gourdguard_npc_ghost/zzz/summon/animation_arg/process with storage animated_java:temp args
 execute if score #success aj.i matches 0 run return fail

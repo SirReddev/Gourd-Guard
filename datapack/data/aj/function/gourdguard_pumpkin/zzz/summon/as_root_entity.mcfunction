@@ -12,7 +12,7 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_pumpkin"
-data modify storage animated_java:temp entry.data.rig_hash set value "61965c92d7c10af60ab941105f4a34e9a5914844be4cdffd39db65f456ada2fa"
+data modify storage animated_java:temp entry.data.rig_hash set value "75696a687a6acd47555ef48c807874ff04fa6ac26ec808f6871e91640913794c"
 tp @s ~ ~ ~ ~ ~
 execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.text_display] run function aj:gourdguard_pumpkin/zzz/summon/as_node/text_display
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out

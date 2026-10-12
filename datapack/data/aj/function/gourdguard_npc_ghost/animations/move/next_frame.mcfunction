@@ -3,8 +3,8 @@
 execute store result storage animated_java:temp args.id int 1 run scoreboard players get @s aj.id
 # Data Manager: Read
 function animated_java:global/data_manager/read with storage animated_java:temp args
-execute if score @s aj.move.frame matches 41.. run scoreboard players set @s aj.move.frame 1
+execute if score @s aj.gourdguard_npc_ghost.move.frame matches 41.. run scoreboard players set @s aj.gourdguard_npc_ghost.move.frame 1
 data remove storage animated_java:temp args
-execute store result storage animated_java:temp args.frame int 1 run scoreboard players get @s aj.move.frame
+execute store result storage animated_java:temp args.frame int 1 run scoreboard players get @s aj.gourdguard_npc_ghost.move.frame
 execute at @s run function aj:gourdguard_npc_ghost/animations/move/zzz/apply_frame with storage animated_java:temp args
-scoreboard players add @s aj.move.frame 1
+scoreboard players add @s aj.gourdguard_npc_ghost.move.frame 1
