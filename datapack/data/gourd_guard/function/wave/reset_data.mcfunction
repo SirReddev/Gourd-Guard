@@ -35,8 +35,9 @@ scoreboard players set .wave timer_ticks 0
 stopsound @a record gourd_guard:hud.timer10s
 function gourd_guard:hud/wave/tick
 
-# 6. Reset Candy / Coins & Clear Dropped Candies
+# 6. Reset Candy / Coins, Clear Dropped Candies, Remove Placed Towers & Clear Player Inventories
 function gourd_guard:hud/reset_candy
 kill @e[tag=gg_candy]
 execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".candy run kill @s
+function gourd_guard:tower/reset_all
 
