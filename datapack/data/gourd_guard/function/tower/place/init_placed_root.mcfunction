@@ -12,6 +12,7 @@ execute if score @s gg.tower_type matches 1 run scoreboard players set @s gg.tow
 
 # Update the text_display passenger with LVL:1, Name, [MOVE], and [SELL:10]
 function gourd_guard:tower/placed/update_text
+execute on passengers if entity @s[type=text_display] run data modify entity @s view_range set value 0.09375f
 
 # Summon the two clickable interaction hitboxes for [MOVE] and [SELL]
 summon minecraft:interaction ~ ~3.0 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
