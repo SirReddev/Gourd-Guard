@@ -12,4 +12,4 @@ execute if score #direct_terracotta math matches 1 run return run function gourd
 execute if entity @s[gamemode=creative] run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] 1
 execute if score #spawn_type gg.tower_type matches 1 run function gourd_guard:tower/give/firework_cannon
 playsound minecraft:block.note_block.bass master @s ~ ~ ~ 0.8 0.7
-title @s actionbar {"text":"Must be placed on an empty 2x2 Black Glazed Terracotta platform!","color":"red"}
+tellraw @s [{"text":"[Tower] ","color":"red"},{"text":"Must be placed on an empty 2x2 Black Glazed Terracotta platform!","color":"yellow"}]
