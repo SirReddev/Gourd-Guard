@@ -4,8 +4,9 @@
 
 function gourd_guard:cutscene/init
 
-# Summon invisible marker at player feet and copy player horizontal facing (pitch 0)
-execute at @s run summon minecraft:marker ~ ~ ~ {Tags:["cs_npc_node","cs_node_new"]}
+# Summon invisible marker at player feet, copy player horizontal facing (pitch 0), and keep chunk force-loaded
+execute at @s run forceload add ~ ~
+execute at @s run summon minecraft:marker ~ ~ ~ {Tags:["cs_npc_node","cs_node_new","gg_forceloaded"]}
 execute at @s run tp @e[tag=cs_node_new] ~ ~ ~ ~ 0
 
 # Assign map and node index

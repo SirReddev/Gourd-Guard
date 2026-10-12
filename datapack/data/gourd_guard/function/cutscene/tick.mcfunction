@@ -1,6 +1,16 @@
 # Cutscene System - Main Tick Loop
 # Runs each tick from gourd_guard:tick
 
+# Keep chunks with cutscene markers and path nodes force-loaded so starting from outside the map (lobby) always finds them
+execute as @e[tag=cs_player_start,tag=!gg_forceloaded] at @s run forceload add ~ ~
+execute as @e[tag=cs_player_start,tag=!gg_forceloaded] run tag @s add gg_forceloaded
+execute as @e[tag=cs_npc_node,tag=!gg_forceloaded] at @s run forceload add ~ ~
+execute as @e[tag=cs_npc_node,tag=!gg_forceloaded] run tag @s add gg_forceloaded
+execute as @e[tag=cs_player_spawn,tag=!gg_forceloaded] at @s run forceload add ~ ~
+execute as @e[tag=cs_player_spawn,tag=!gg_forceloaded] run tag @s add gg_forceloaded
+execute as @e[tag=path_node,tag=!gg_forceloaded] at @s run forceload add ~ ~
+execute as @e[tag=path_node,tag=!gg_forceloaded] run tag @s add gg_forceloaded
+
 # Only run movement logic during state 2 (walking phase)
 execute unless score .global cs.state matches 2 run return 0
 

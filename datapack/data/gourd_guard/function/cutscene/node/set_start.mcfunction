@@ -8,8 +8,9 @@ function gourd_guard:cutscene/init
 scoreboard players operation TargetMap cs.cmp = CurrentMap cs.edit
 execute as @e[tag=cs_player_start] if score @s cs.map = TargetMap cs.cmp run kill @s
 
-# Summon new start marker capturing position and rotation
-execute at @s run summon minecraft:marker ~ ~ ~ {Tags:["cs_player_start","cs_start_new"]}
+# Summon new start marker capturing position and rotation, and keep chunk force-loaded
+execute at @s run forceload add ~ ~
+execute at @s run summon minecraft:marker ~ ~ ~ {Tags:["cs_player_start","cs_start_new","gg_forceloaded"]}
 execute at @s run tp @e[tag=cs_start_new] ~ ~ ~ ~ ~
 
 scoreboard players operation @e[tag=cs_start_new] cs.map = CurrentMap cs.edit
