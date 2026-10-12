@@ -1,5 +1,6 @@
 # Gourd Guard Tick Router
 function gourd_guard:player/clear_xp
+function gourd_guard:player/tick
 function gourd_guard:item_glow/tick
 function gourd_guard:candy/tick
 function gourd_guard:hud/tick
