@@ -1,8 +1,7 @@
-# Wave 33 Spawning Sequence
+﻿# Wave 33 Spawning Sequence
 # Total spawns: 32 mobs across Path 1 & Path 2
 execute if score .wave spawn_timer matches 1 run title @a times 5 30 10
 execute if score .wave spawn_timer matches 1 run title @a title {"text":"WAVE 33","color":"gold","bold":true}
-execute if score .wave spawn_timer matches 1 run title @a subtitle {"text":"Defend the Gourd!","color":"gray"}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.experience_orb.pickup player @a ~ ~ ~ 1.0 1.0 1
 execute if score .wave spawn_timer matches 1 run function gourd_guard:wave/spawn/boss_elder {map:1,path:1}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1

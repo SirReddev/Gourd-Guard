@@ -1,8 +1,7 @@
-# Wave 11 Spawning Sequence
+﻿# Wave 11 Spawning Sequence
 # Total spawns: 30 mobs across Path 1 & Path 2
 execute if score .wave spawn_timer matches 1 run title @a times 5 30 10
 execute if score .wave spawn_timer matches 1 run title @a title {"text":"WAVE 11","color":"gold","bold":true}
-execute if score .wave spawn_timer matches 1 run title @a subtitle {"text":"WARNING: Camo Stealth Mobs Detected!","color":"light_purple"}
 execute if score .wave spawn_timer matches 1 run function gourd_guard:wave/spawn/camo_grunt {map:1,path:1}
 execute if score .wave spawn_timer matches 10 run function gourd_guard:wave/spawn/grunt {map:1,path:1}
 execute if score .wave spawn_timer matches 23 run function gourd_guard:wave/spawn/camo_grunt {map:1,path:2}

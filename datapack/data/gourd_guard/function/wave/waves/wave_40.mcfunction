@@ -1,8 +1,7 @@
-# Wave 40 Spawning Sequence
+﻿# Wave 40 Spawning Sequence
 # Total spawns: 25 mobs across Path 1 & Path 2
 execute if score .wave spawn_timer matches 1 run title @a times 5 30 10
 execute if score .wave spawn_timer matches 1 run title @a title {"text":"WAVE 40","color":"gold","bold":true}
-execute if score .wave spawn_timer matches 1 run title @a subtitle {"text":"FINAL WAVE: THE GOURD COLOSSUS","color":"dark_red","bold":true}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.ender_dragon.growl hostile @a ~ ~ ~ 1.0 0.6 1
 execute if score .wave spawn_timer matches 1 run function gourd_guard:wave/spawn/boss_final {map:1,path:1}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1
