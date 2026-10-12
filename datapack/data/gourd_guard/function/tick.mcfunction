@@ -11,4 +11,5 @@ function gourd_guard:npc/gravediggerstand/tick
 function gourd_guard:npc/interact/tick
 function gourd_guard:prop/windmill/tick
 function gourd_guard:prop/waterwheel/tick
+function gourd_guard:pumpkin/tick
 function gourd_guard:cutscene/tick

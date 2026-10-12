@@ -1,0 +1,7 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"parent": "aj:blueprint/gourdguard_pumpkin/leafstem1/default",
+	"textures": {
+		"slot_default": "aj:blueprint/generic/gourdguard_pumpkin_on"
+	}
+}

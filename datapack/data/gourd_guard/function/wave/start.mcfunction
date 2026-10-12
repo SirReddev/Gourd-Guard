@@ -37,6 +37,9 @@ scoreboard players set .wave timer_sec 0
 scoreboard players set .wave timer_ticks 0
 stopsound @a record gourd_guard:hud.timer10s
 
+# Switch Pumpkin Objective to 'on' variant
+function gourd_guard:pumpkin/set_on
+
 # Refresh wave HUD
 function gourd_guard:hud/wave/tick
 

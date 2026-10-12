@@ -14,7 +14,8 @@ execute unless entity @s[tag=gg_boss,tag=gg_heavy,tag=gg_final_boss] run scorebo
 # Play objective damage hit sound globally for ALL players on the server
 execute as @a at @s run playsound gourd_guard:objective.hit hostile @s ~ ~ ~ 1 1
 
-# Refresh the healthbar UI
+# Flash Pumpkin Objective to 'hit' variant briefly and refresh healthbar UI
+function gourd_guard:pumpkin/hit
 function gourd_guard:hud/objective/tick
 
 # Announce in chat with remaining base health

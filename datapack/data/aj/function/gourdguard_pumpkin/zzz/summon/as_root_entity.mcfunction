@@ -12,30 +12,35 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_pumpkin"
-data modify storage animated_java:temp entry.data.rig_hash set value "a502caf1e82a7bccfc20559f03c55658a3739d9f4ad4ef8d5367b79cb5f2b937"
+data modify storage animated_java:temp entry.data.rig_hash set value "61965c92d7c10af60ab941105f4a34e9a5914844be4cdffd39db65f456ada2fa"
 tp @s ~ ~ ~ ~ ~
-execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.leaf1] run function aj:gourdguard_pumpkin/zzz/summon/as_node/leaf1
+execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.text_display] run function aj:gourdguard_pumpkin/zzz/summon/as_node/text_display
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.leaf1 set from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.text_display set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.main] run function aj:gourdguard_pumpkin/zzz/summon/as_node/main
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.main set from storage animated_java:gu out
-execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.leaf] run function aj:gourdguard_pumpkin/zzz/summon/as_node/leaf
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.leaf set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.stem] run function aj:gourdguard_pumpkin/zzz/summon/as_node/stem
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.stem set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.leafstem] run function aj:gourdguard_pumpkin/zzz/summon/as_node/leafstem
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.leafstem set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.leaf1] run function aj:gourdguard_pumpkin/zzz/summon/as_node/leaf1
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.leaf1 set from storage animated_java:gu out
 execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.leafstem1] run function aj:gourdguard_pumpkin/zzz/summon/as_node/leafstem1
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.uuids_by_name.leafstem1 set from storage animated_java:gu out
+execute on passengers if entity @s[tag=aj.gourdguard_pumpkin.node.leaf] run function aj:gourdguard_pumpkin/zzz/summon/as_node/leaf
+data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
+data modify storage animated_java:temp entry.data.uuids_by_name.leaf set from storage animated_java:gu out
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_pumpkin/zzz/set_default_pose
-execute if data storage animated_java:temp args.variant run function aj:gourdguard_pumpkin/zzz/summon/zzz/variant_arg/no_variants_warning
+execute if data storage animated_java:temp args.variant run function aj:gourdguard_pumpkin/zzz/summon/variant_arg/process with storage animated_java:temp args
+execute if score #success aj.i matches 0 run return fail
+execute if data storage animated_java:temp args.animation run function aj:gourdguard_pumpkin/zzz/summon/animation_arg/process with storage animated_java:temp args
 execute if score #success aj.i matches 0 run return fail
 execute on passengers run rotate @s ~ ~
 data modify entity @s teleport_duration set value 1

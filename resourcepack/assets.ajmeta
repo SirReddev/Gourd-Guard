@@ -514,12 +514,25 @@
 				"assets/aj/items/blueprint/gourdguard_pumpkin/leafstem1.json",
 				"assets/aj/items/blueprint/gourdguard_pumpkin/main.json",
 				"assets/aj/items/blueprint/gourdguard_pumpkin/stem.json",
-				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf.json",
-				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf1.json",
-				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem.json",
-				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem1.json",
-				"assets/aj/models/blueprint/gourdguard_pumpkin/main.json",
-				"assets/aj/models/blueprint/gourdguard_pumpkin/stem.json"
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf/default.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf/default/gourdguard_pumpkin_hit.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf/default/gourdguard_pumpkin_on.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf1/default.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf1/default/gourdguard_pumpkin_hit.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leaf1/default/gourdguard_pumpkin_on.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem/default.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem/default/gourdguard_pumpkin_hit.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem/default/gourdguard_pumpkin_on.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem1/default.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem1/default/gourdguard_pumpkin_hit.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/leafstem1/default/gourdguard_pumpkin_on.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/main/default.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/main/default/gourdguard_pumpkin_hit.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/main/default/gourdguard_pumpkin_on.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_hit.json",
+				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_on.json",
+				"assets/aj/textures/blueprint/gourdguard_pumpkin/gourdguard_pumpkin_on.png"
 			]
 		}
 	}

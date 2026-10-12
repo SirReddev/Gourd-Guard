@@ -7,9 +7,10 @@ stopsound @a record gourd_guard:hud.timer10s
 scoreboard players set .wave timer_sec 0
 scoreboard players set .wave timer_ticks 0
 
-# Stop all remaining mobs
+# Stop all remaining mobs & reset Pumpkin variant
 kill @e[tag=path_mob]
 kill @e[tag=gg_mob]
+function gourd_guard:pumpkin/set_default
 
 # 1. Play custom Game Over sound effect & Title together
 playsound gourd_guard:game.over record @a ~ ~ ~ 1.0 1.0 1

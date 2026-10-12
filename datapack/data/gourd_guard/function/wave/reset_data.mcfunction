@@ -19,9 +19,10 @@ scoreboard players set .global wave_mobs 0
 kill @e[tag=path_mob]
 kill @e[tag=gg_mob]
 
-# 4. Reset Objective Base Healthbar (1000 HP)
+# 4. Reset Objective Base Healthbar (1000 HP) & Pumpkin Variant
 scoreboard players set .objective obj_max_hp 1000
 scoreboard players set .objective obj_hp 1000
+function gourd_guard:pumpkin/set_default
 function gourd_guard:hud/objective/tick
 
 # 5. Reset Timers & HUD
