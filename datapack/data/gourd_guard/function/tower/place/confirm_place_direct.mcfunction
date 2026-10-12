@@ -1,5 +1,6 @@
 # Consume 1 tower item from inventory if the player is in Creative mode
-execute if entity @s[gamemode=creative] run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] 1
+execute if entity @s[gamemode=creative] if items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] run item modify entity @s weapon.mainhand {function:"minecraft:set_count",count:-1,add:true}
+execute if entity @s[gamemode=creative] unless items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] 1
 
 # Snap directly from the armor_stand position onto the 2x2 black_glazed_terracotta center
 scoreboard players set #snapped math 0

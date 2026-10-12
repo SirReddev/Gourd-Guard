@@ -4,6 +4,7 @@ scoreboard players operation @s gg.tower_type = #spawn_type gg.tower_type
 scoreboard players set @s gg.tower_lvl 1
 
 # Explicitly ensure default variant texture on all passenger bones
+execute if score @s gg.tower_type matches 1 run function aj:gourdguard_tower_firework_cannon/variants/default/apply
 execute if score @s gg.tower_type matches 1 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_firework_cannon"
 
 # Set default sell value per tower type (Firework Cannon = 10 Candy)

@@ -1,5 +1,6 @@
 # Consume 1 tower item from inventory if the player is in Creative mode (Survival/Adventure already consumed 1 on right-click)
-execute if entity @s[gamemode=creative] run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] 1
+execute if entity @s[gamemode=creative] if items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] run item modify entity @s weapon.mainhand {function:"minecraft:set_count",count:-1,add:true}
+execute if entity @s[gamemode=creative] unless items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] 1
 
 # Locate this player's snapped preview hologram and spawn the real tower there!
 tag @e[type=item_display,tag=gg_tower_preview] remove gg_place_target
