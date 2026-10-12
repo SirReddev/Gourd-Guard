@@ -21,6 +21,7 @@ gamemode adventure @a[tag=cs_viewer]
 
 # 3. Add black fade post-effect transition (0t..15t fade to black, 15t..40t solid black, 40t..55t fade back to clear)
 posteffect add @a[tag=cs_viewer] gourd_guard:cutscene_fade
+execute as @a at @s run playsound minecraft:block.beacon.power_select master @s ~ ~ ~ 1 0.25 1
 
 # 4. Reset timer & set cutscene state
 scoreboard players set .global cs.timer 0
