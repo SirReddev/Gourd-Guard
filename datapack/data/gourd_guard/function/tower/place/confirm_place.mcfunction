@@ -9,5 +9,6 @@ execute at @e[type=item_display,tag=gg_place_target,limit=1] run function gourd_
 
 # Remove the preview hologram now that the tower is placed
 execute as @e[type=item_display,tag=gg_place_target] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=interaction,tag=gg_tower_place_btn] if score @s gg.tower_pid = #cur_pid gg.tower_pid run kill @s
 scoreboard players set @s gg.tower_valid 0
 scoreboard players set @s gg.tower_hold 0

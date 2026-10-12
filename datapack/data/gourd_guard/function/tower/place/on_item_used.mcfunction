@@ -1,4 +1,4 @@
-# Executed as & at the spawned armor_stand entity when a player right-clicks with the tower item
+# Fallback handler if an armor_stand entity was directly spawned
 scoreboard players set #spawn_type gg.tower_type 1
 execute if entity @s[tag=gg_tower_spawn_type_1] run scoreboard players set #spawn_type gg.tower_type 1
 

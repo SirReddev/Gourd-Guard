@@ -11,14 +11,16 @@ scoreboard players set @a gg.tower_hold 0
 execute as @a if items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b}] run function gourd_guard:tower/player_hold_main
 execute as @a[scores={gg.tower_hold=0}] if items entity @s weapon.offhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b}] run function gourd_guard:tower/player_hold_off
 
-# 4. Handle right-click placement FIRST before updating or cleaning up previews!
+# 4. Handle right-click placement (via crosshair interaction entity in ANY gamemode, or fallback armor_stand) FIRST!
+execute as @e[type=interaction,tag=gg_tower_place_btn] if data entity @s interaction at @s run function gourd_guard:tower/place/on_click_place_btn
 execute as @e[type=armor_stand,tag=gg_tower_spawn_item] at @s run function gourd_guard:tower/place/on_item_used
 
-# 5. Update active raycast previews for players holding a tower item
+# 5. Update active raycast previews & crosshair click hitboxes for players holding a tower item
 execute as @a[scores={gg.tower_hold=1..}] at @s run function gourd_guard:tower/preview/update_player
 
-# 6. Clean up preview holograms for players no longer holding a tower item
+# 6. Clean up preview holograms and placement hitboxes for players no longer holding a tower item
 execute as @e[type=item_display,tag=gg_tower_preview] run function gourd_guard:tower/preview/check_owner
+execute as @e[type=interaction,tag=gg_tower_place_btn] run function gourd_guard:tower/preview/check_btn_owner
 
 # 7. Clean up any stray/untagged tower models that are neither placed nor active previews
 execute as @e[type=item_display,tag=aj.gourdguard_tower_firework_cannon.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single

@@ -1,0 +1,14 @@
+# Remove 1 tower item from the player's inventory (works identically in Adventure, Survival, and Creative mode)
+execute if score #spawn_type gg.tower_type matches 1 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] 1
+
+# Locate this player's snapped preview hologram and spawn the real tower there!
+tag @e[type=item_display,tag=gg_tower_preview] remove gg_place_target
+execute as @e[type=item_display,tag=gg_tower_preview] if score @s gg.tower_pid = #cur_pid gg.tower_pid run tag @s add gg_place_target
+
+execute at @e[type=item_display,tag=gg_place_target,limit=1] run function gourd_guard:tower/place/spawn_tower
+
+# Remove the preview hologram and placement hitbox now that the tower is placed
+execute as @e[type=item_display,tag=gg_place_target] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=interaction,tag=gg_tower_place_btn] if score @s gg.tower_pid = #cur_pid gg.tower_pid run kill @s
+scoreboard players set @s gg.tower_valid 0
+scoreboard players set @s gg.tower_hold 0
