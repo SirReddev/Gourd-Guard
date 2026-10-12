@@ -36,6 +36,13 @@
       "chars": ["\uE300"]
     },
     {
+      "type": "bitmap",
+      "file": "gourd_guard:font/tag_objective.png",
+      "ascent": 8,
+      "height": 9,
+      "chars": ["\uE301"]
+    },
+    {
       "type": "reference",
       "id": "minecraft:include/default"
     },
