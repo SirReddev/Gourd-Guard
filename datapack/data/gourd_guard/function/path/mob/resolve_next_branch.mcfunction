@@ -83,8 +83,14 @@ execute if score MobBranch path.cmp matches 21..22 if entity @e[tag=path_target]
 
 # ==============================================================================
 # 6. From any branch (0, 1, 2, 11..13, 21..23) -> Common End (branch 3)
+#    If this branch already ended at the Gourd (or at a later Common End node),
+#    do NOT send the mob back to Common End Node 1 — let it finish here!
 # ==============================================================================
-execute unless entity @e[tag=path_target] unless score MobBranch path.cmp matches 3 as @e[tag=path_node,scores={path.branch=3,path.node=1}] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp run tag @s add path_target
+scoreboard players set #already_at_goal path.cmp 0
+execute at @s if entity @e[tag=aj.gourdguard_pumpkin.root,distance=..4.0] run scoreboard players set #already_at_goal path.cmp 1
+execute at @s as @e[tag=path_node,scores={path.branch=3,path.node=2..},distance=..3.0] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp run scoreboard players set #already_at_goal path.cmp 1
+
+execute if score #already_at_goal path.cmp matches 0 unless entity @e[tag=path_target] unless score MobBranch path.cmp matches 3 as @e[tag=path_node,scores={path.branch=3,path.node=1}] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp run tag @s add path_target
 execute unless score MobBranch path.cmp matches 3 if entity @e[tag=path_target] if score @e[tag=path_target,limit=1] path.branch matches 3 run scoreboard players set @s path.branch 3
 execute unless score MobBranch path.cmp matches 3 if entity @e[tag=path_target] if score @e[tag=path_target,limit=1] path.branch matches 3 run scoreboard players set @s path.node 1
 execute unless score MobBranch path.cmp matches 3 if entity @e[tag=path_target] if score @e[tag=path_target,limit=1] path.branch matches 3 run scoreboard players set MobNode path.cmp 1
