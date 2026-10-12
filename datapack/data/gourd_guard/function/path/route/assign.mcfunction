@@ -22,6 +22,7 @@ $execute if score #split_m$(map)_p$(path) path.cmp matches 2 run scoreboard play
 $scoreboard players operation #split_m$(map)_p$(path) path.cmp = #next_opt path.cmp
 
 tag @s add path_mob
+data modify entity @s PersistenceRequired set value 1b
 
 # Auto-detect flying mobs for specialized aerial navigation
 execute if entity @s[type=phantom] run tag @s add path_flyer

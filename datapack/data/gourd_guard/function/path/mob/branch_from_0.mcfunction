@@ -7,13 +7,13 @@ execute as @e[tag=path_node,scores={path.branch=1..22,path.node=1}] if score @s 
 # If no split branches exist on this route, fall through to Common End / Goal check
 execute unless entity @e[tag=path_fork_opt] run return run function gourd_guard:path/mob/branch_to_end
 
-# Read & initialize per-route 1/2 toggle stored on the first fork node
+# Read & initialize per-route 1/2 toggle stored on the fork nodes
 execute as @e[tag=path_fork_opt,limit=1] unless score @s path.edit matches 1..2 run scoreboard players set @s path.edit 1
 scoreboard players operation TryBranch path.cmp = @e[tag=path_fork_opt,limit=1] path.edit
 
-# Flip the per-route toggle for the next mob arriving at this fork (1 <-> 2)
-execute if score TryBranch path.cmp matches 1 as @e[tag=path_fork_opt,limit=1] run scoreboard players set @s path.edit 2
-execute if score TryBranch path.cmp matches 2 as @e[tag=path_fork_opt,limit=1] run scoreboard players set @s path.edit 1
+# Flip the per-route toggle on ALL fork nodes of this route for the next mob (1 <-> 2)
+execute if score TryBranch path.cmp matches 1 as @e[tag=path_fork_opt] run scoreboard players set @s path.edit 2
+execute if score TryBranch path.cmp matches 2 as @e[tag=path_fork_opt] run scoreboard players set @s path.edit 1
 
 # 1. If chosen side is Option 1 (TryBranch = 1): try branch 1 first, then subsplit_1 (11/12) if branch 1 has no nodes
 execute if score TryBranch path.cmp matches 1 as @e[tag=path_fork_opt,scores={path.branch=1}] run tag @s add path_target

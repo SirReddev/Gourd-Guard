@@ -13,9 +13,9 @@ execute unless score CurrentRoute path.edit matches 1.. run scoreboard players s
 execute unless score CurrentBranch path.edit matches 0..23 run scoreboard players set CurrentBranch path.edit 0
 execute unless score NextNode path.edit matches 0.. run scoreboard players set NextNode path.edit 0
 
-# Summon invisible marker armor stand at player's feet and force-load its chunk permanently
-execute at @s run forceload add ~ ~
-execute at @s run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,Marker:1b,Tags:["path_node","path_node_new","gg_forceloaded"]}
+# Summon invisible marker armor stand at player's feet and force-load its 5x5 chunk area permanently
+execute at @s run forceload add ~-32 ~-32 ~32 ~32
+execute at @s run summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,NoGravity:1b,Marker:1b,Tags:["path_node","path_node_new","gg_forceloaded","gg_forceloaded_5x5"]}
 
 # Assign map, route, branch and node index scores
 scoreboard players operation @e[tag=path_node_new] path.map = CurrentMap path.edit

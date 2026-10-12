@@ -7,13 +7,13 @@ execute as @e[tag=path_node,scores={path.branch=21..22,path.node=1}] if score @s
 # If neither Option 2A nor Option 2B exists on this route, exit immediately
 execute unless entity @e[tag=path_sub2_opt] run return 0
 
-# Read & initialize per-route 2A/2B toggle (21 or 22) stored on the first sub-option node
+# Read & initialize per-route 2A/2B toggle (21 or 22) stored on the sub-option nodes
 execute as @e[tag=path_sub2_opt,limit=1] unless score @s path.option matches 21..22 run scoreboard players set @s path.option 21
 scoreboard players operation TrySub path.cmp = @e[tag=path_sub2_opt,limit=1] path.option
 
-# Flip the per-route toggle for the next mob (21 <-> 22)
-execute if score TrySub path.cmp matches 21 as @e[tag=path_sub2_opt,limit=1] run scoreboard players set @s path.option 22
-execute if score TrySub path.cmp matches 22 as @e[tag=path_sub2_opt,limit=1] run scoreboard players set @s path.option 21
+# Flip the per-route toggle on ALL sub-option nodes for the next mob (21 <-> 22)
+execute if score TrySub path.cmp matches 21 as @e[tag=path_sub2_opt] run scoreboard players set @s path.option 22
+execute if score TrySub path.cmp matches 22 as @e[tag=path_sub2_opt] run scoreboard players set @s path.option 21
 
 # Tag the chosen sub-branch Node 1 (or fallback to whichever of 21/22 exists)
 execute as @e[tag=path_sub2_opt] if score @s path.branch = TrySub path.cmp run tag @s add path_target
