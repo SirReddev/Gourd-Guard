@@ -10,7 +10,7 @@ scoreboard players set .wave timer_ticks 0
 # Stop all remaining mobs & reset Pumpkin variant (after hit flash if active)
 kill @e[tag=path_mob]
 kill @e[tag=gg_mob]
-execute unless score #pumpkin_hit gg.timer matches 1.. run function gourd_guard:pumpkin/set_default
+function gourd_guard:pumpkin/set_default
 
 # 1. Play custom Game Over sound effect & Title together
 playsound gourd_guard:game.over record @a ~ ~ ~ 1.0 1.0 1

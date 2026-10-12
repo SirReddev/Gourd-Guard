@@ -37,3 +37,9 @@ scoreboard objectives add path.cmp dummy
 execute unless score .global map matches 1.. run scoreboard players set .global map 1
 execute unless score .global wave matches 1.. run scoreboard players set .global wave 1
 execute unless score .wave state matches 0.. run scoreboard players set .wave state 0
+
+# Re-register existing Gourd Guard Pumpkins in Animated Java data_manager and sync variant with wave state
+data modify storage animated_java:temp args set value {variant:'', animation:'idle', frame: 0}
+execute as @e[type=item_display,tag=aj.gourdguard_pumpkin.root] at @s run function aj:gourdguard_pumpkin/zzz/summon/as_root_entity
+execute if score .wave state matches 1..2 run function gourd_guard:pumpkin/set_on
+execute unless score .wave state matches 1..2 run function gourd_guard:pumpkin/set_default
