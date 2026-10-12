@@ -25,8 +25,18 @@ execute unless data storage gourd_guard:hud macro.player run function gourd_guar
 execute if entity @a[limit=2] run function gourd_guard:hud/fetch_player_name
 
 # Set default macro backsteps
+data modify storage gourd_guard:hud macro.timer_pad set value "\uF80E"
+data modify storage gourd_guard:hud macro.timer_back set value "\uF81A"
 data modify storage gourd_guard:hud macro.coins_back set value "\uF806"
 data modify storage gourd_guard:hud macro.pop_back set value "\uF80C"
+
+# Calculate dynamic padding & backstep for match timer minutes (6px per digit)
+execute if score .global timer_min matches 0..9 run data modify storage gourd_guard:hud macro.timer_pad set value "\uF80E"
+execute if score .global timer_min matches 0..9 run data modify storage gourd_guard:hud macro.timer_back set value "\uF81A"
+execute if score .global timer_min matches 10..99 run data modify storage gourd_guard:hud macro.timer_pad set value "\uF810\uF801"
+execute if score .global timer_min matches 10..99 run data modify storage gourd_guard:hud macro.timer_back set value "\uF81C\uF801"
+execute if score .global timer_min matches 100.. run data modify storage gourd_guard:hud macro.timer_pad set value "\uF814"
+execute if score .global timer_min matches 100.. run data modify storage gourd_guard:hud macro.timer_back set value "\uF820"
 
 # Calculate dynamic backstep for coins digits (6px per digit)
 execute if score @s coins matches 0..9 run data modify storage gourd_guard:hud macro.coins_back set value "\uF806"

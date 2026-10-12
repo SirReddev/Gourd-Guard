@@ -56,23 +56,22 @@ void main() {
         // Base Actionbar text center normalization
         float originX = pos.x - (guiWidth * 0.5);
         float originY = pos.y - (guiHeight - 68.0);
+        int hudCorner = int(gl_VertexIndex) % 4;
+        bool cornerLeft = (hudCorner == 0 || hudCorner == 1);
+        bool cornerTop = (hudCorner == 0 || hudCorner == 3);
 
         // --- SECTION A: Bottom-Left Objective HUD (#01AAxx, gByte == 170) ---
         if (gByte == 170) {
             // #01AA00: Pumpkin Icon (\uE100) - 28x28px at (X: 20px..48px, Y: guiHeight - 46px..guiHeight - 18px)
             if (bByte == 0) {
-                bool isLeft = (originX < 9.0);
-                bool isTop = (originY < -6.0);
-                pos.x = isLeft ? 20.0 : 48.0;
-                pos.y = isTop ? (guiHeight - 46.0) : (guiHeight - 18.0);
+                pos.x = cornerLeft ? 20.0 : 48.0;
+                pos.y = cornerTop ? (guiHeight - 46.0) : (guiHeight - 18.0);
                 pos.z = 0.0;
             }
             // #01AA01: Health Bar (\uE101 to \uE115) - 86x16px at (X: 54px..140px, Y: guiHeight - 40px..guiHeight - 24px)
             else if (bByte == 1) {
-                bool isLeft = (originX < 43.0);
-                bool isTop = (originY < -5.0);
-                pos.x = isLeft ? 54.0 : 140.0;
-                pos.y = isTop ? (guiHeight - 40.0) : (guiHeight - 24.0);
+                pos.x = cornerLeft ? 54.0 : 140.0;
+                pos.y = cornerTop ? (guiHeight - 40.0) : (guiHeight - 24.0);
                 pos.z = 0.0;
             }
             vertexColor = vec4(1.0);
@@ -82,10 +81,8 @@ void main() {
         else if (gByte == 187 || gByte == 46) {
             // #01BB00: Hanging Sign Background (\uE200) - 156x132px at Top-Right (X: guiWidth - 172px..guiWidth - 16px, Y: 0px..132px)
             if (bByte == 0) {
-                bool isLeft = (originX < 13.0);
-                bool isTop = (originY < -11.0);
-                pos.x = isLeft ? (guiWidth - 172.0) : (guiWidth - 16.0);
-                pos.y = isTop ? 0.0 : 132.0;
+                pos.x = cornerLeft ? (guiWidth - 172.0) : (guiWidth - 16.0);
+                pos.y = cornerTop ? 0.0 : 132.0;
                 pos.z = 0.0;
                 vertexColor = vec4(1.0);
             }
@@ -158,21 +155,17 @@ void main() {
         // --- SECTION B: Top-Left Match HUD ---
         // #01FFFF: Wooden Background Frame (\uE001) - 132x188px at (X: 2px..134px, Y: 2px..190px)
         else if (Color.g > 0.8 && Color.b > 0.8) {
-            bool isLeft = (originX < 66.0);
-            bool isTop = (originY < -58.0);
-            pos.x = isLeft ? 2.0 : 134.0;
-            pos.y = isTop ? 2.0 : 190.0;
+            pos.x = cornerLeft ? 2.0 : 134.0;
+            pos.y = cornerTop ? 2.0 : 190.0;
             pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
         // #010000: JNNGL GUI Avatar (56x56px at X: 42px..98px, Y: 68px..124px)
         else if (Color.g < 0.05 && Color.b < 0.05 && bByte == 0) {
-            bool isLeft = (originX < 4.0);
-            bool isTop = (originY < -4.0);
-            texCoord0 = vec2(isLeft ? 0.0 : 1.0, isTop ? 0.0 : 1.0);
+            texCoord0 = vec2(cornerLeft ? 0.0 : 1.0, cornerTop ? 0.0 : 1.0);
             custom = 1.0;
-            pos.x = isLeft ? 42.0 : 98.0;
-            pos.y = isTop ? 68.0 : 124.0;
+            pos.x = cornerLeft ? 42.0 : 98.0;
+            pos.y = cornerTop ? 68.0 : 124.0;
             pos.z = 0.0;
             vertexColor = vec4(1.0);
         }
