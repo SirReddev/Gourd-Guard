@@ -1,0 +1,26 @@
+{
+	"model": {
+		"type": "minecraft:select",
+		"property": "minecraft:custom_model_data",
+		"index": 0,
+		"cases": [
+			{
+				"when": "gourdguard_tower_firework_cannon_placeholder",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar/default/gourdguard_tower_firework_cannon_placeholder",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			}
+		],
+		"fallback": {
+			"type": "minecraft:model",
+			"model": "aj:blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar/default",
+			"tints": [
+				{"type": "minecraft:dye", "default": [1, 1, 1]}
+			]
+		}
+	}
+}

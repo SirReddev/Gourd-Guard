@@ -13,6 +13,7 @@ function gourd_guard:path/init
 function gourd_guard:cutscene/init
 function gourd_guard:item_glow/setup_teams
 function gourd_guard:hud/setup
+function gourd_guard:tower/init
 
 # Wave System Objectives
 scoreboard objectives add map dummy

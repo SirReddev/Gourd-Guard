@@ -531,6 +531,24 @@
 				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_hit.json",
 				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_on.json"
 			]
+		},
+		"aj:gourdguard_tower_firework_cannon": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar.json",
+				"assets/aj/items/blueprint/gourdguard_tower_firework_cannon/cannon_barrel.json",
+				"assets/aj/items/blueprint/gourdguard_tower_firework_cannon/stone_base.json",
+				"assets/aj/items/blueprint/gourdguard_tower_firework_cannon/wood_mount.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar/default/gourdguard_tower_firework_cannon_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/cannon_barrel/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/cannon_barrel/default/gourdguard_tower_firework_cannon_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/stone_base/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/stone_base/default/gourdguard_tower_firework_cannon_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/wood_mount/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/wood_mount/default/gourdguard_tower_firework_cannon_placeholder.json",
+				"assets/aj/textures/blueprint/gourdguard_tower_firework_cannon/gourdguard_tower_firework_cannon_placeholder.png"
+			]
 		}
 	}
 }

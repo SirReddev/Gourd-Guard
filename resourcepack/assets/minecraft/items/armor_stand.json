@@ -1,0 +1,23 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+      {
+        "when": [
+          "firework_cannon",
+          "gourdguard_tower_firework_cannon"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_firework_cannon"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/armor_stand"
+    }
+  }
+}
