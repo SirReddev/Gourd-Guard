@@ -541,13 +541,18 @@
 				"assets/aj/items/blueprint/gourdguard_tower_firework_cannon/wood_mount.json",
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar/default/gourdguard_tower_firework_cannon_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar/default/gourdguard_tower_firework_cannon_placeholder_fail.json",
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/cannon_barrel/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/cannon_barrel/default/gourdguard_tower_firework_cannon_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/cannon_barrel/default/gourdguard_tower_firework_cannon_placeholder_fail.json",
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/stone_base/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/stone_base/default/gourdguard_tower_firework_cannon_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/stone_base/default/gourdguard_tower_firework_cannon_placeholder_fail.json",
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/wood_mount/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/wood_mount/default/gourdguard_tower_firework_cannon_placeholder.json",
-				"assets/aj/textures/blueprint/gourdguard_tower_firework_cannon/gourdguard_tower_firework_cannon_placeholder.png"
+				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/wood_mount/default/gourdguard_tower_firework_cannon_placeholder_fail.json",
+				"assets/aj/textures/blueprint/gourdguard_tower_firework_cannon/gourdguard_tower_firework_cannon_placeholder.png",
+				"assets/aj/textures/blueprint/gourdguard_tower_firework_cannon/gourdguard_tower_firework_cannon_placeholder_fail.png"
 			]
 		}
 	}
