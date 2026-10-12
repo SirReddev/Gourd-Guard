@@ -11,6 +11,11 @@ scoreboard players set FoundNodes path.cmp 0
 # Count matching nodes
 execute as @e[tag=path_node] if score @s path.map = ShowMap path.cmp run scoreboard players add FoundNodes path.cmp 1
 
+# Clear any previous floating labels and spawn new 3D labels above each node on this map (lasts 15s)
+function gourd_guard:path/route/hide_labels
+execute as @e[tag=path_node] if score @s path.map = ShowMap path.cmp at @s run function gourd_guard:path/route/spawn_label
+schedule function gourd_guard:path/route/hide_labels 300t replace
+
 # Render section-colored particles at each node on this map
 execute as @e[tag=path_node,scores={path.branch=0}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:soul_fire_flame ~ ~0.4 ~ 0.1 0.3 0.1 0.02 35
 execute as @e[tag=path_node,scores={path.branch=0}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:soul ~ ~0.6 ~ 0.1 0.3 0.1 0.02 15

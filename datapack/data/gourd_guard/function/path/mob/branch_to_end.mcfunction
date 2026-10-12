@@ -14,13 +14,15 @@ execute at @s if entity @e[tag=aj.gourdguard_pumpkin.root,distance=..6.0] unless
 execute if score #already_at_goal path.cmp matches 1 run tag @e[tag=path_route_node] remove path_route_node
 execute if score #already_at_goal path.cmp matches 1 run return 0
 
-# 2. If a sub-branch (11..13) ended where it meets Option 2 (branch 2) and Common End Node 1 isn't right here (..4.5),
-#    hop onto the nearest Option 2 node within 5.5 blocks so it merges seamlessly into Option 2!
+# 2. If a sub-branch (11..13) ended where it meets Option 2 (branch 2) or Option 1 (branch 1, node 2+) and Common End Node 1 isn't right here (..4.5),
+#    hop onto the nearest Option 2 or Option 1 node within 5.5 blocks so it merges seamlessly!
 execute if score StartBranch path.cmp matches 11..13 at @s unless entity @e[tag=path_route_node,scores={path.branch=3,path.node=1},distance=..4.5] as @e[tag=path_route_node,scores={path.branch=2},distance=..5.5,sort=nearest,limit=1] run tag @s add path_target
+execute unless entity @e[tag=path_target] if score StartBranch path.cmp matches 11..13 at @s unless entity @e[tag=path_route_node,scores={path.branch=3,path.node=1},distance=..4.5] as @e[tag=path_route_node,scores={path.branch=1,path.node=2..},distance=..5.5,sort=nearest,limit=1] run tag @s add path_target
 
-# 3. Likewise, if a sub-branch (21..23) ended where it meets Option 1 (branch 1) and Common End Node 1 isn't right here (..4.5),
-#    hop onto the nearest Option 1 node within 5.5 blocks!
+# 3. Likewise, if a sub-branch (21..23) ended where it meets Option 1 (branch 1) or Option 2 (branch 2, node 2+) and Common End Node 1 isn't right here (..4.5),
+#    hop onto the nearest Option 1 or Option 2 node within 5.5 blocks!
 execute unless entity @e[tag=path_target] if score StartBranch path.cmp matches 21..23 at @s unless entity @e[tag=path_route_node,scores={path.branch=3,path.node=1},distance=..4.5] as @e[tag=path_route_node,scores={path.branch=1},distance=..5.5,sort=nearest,limit=1] run tag @s add path_target
+execute unless entity @e[tag=path_target] if score StartBranch path.cmp matches 21..23 at @s unless entity @e[tag=path_route_node,scores={path.branch=3,path.node=1},distance=..4.5] as @e[tag=path_route_node,scores={path.branch=2,path.node=2..},distance=..5.5,sort=nearest,limit=1] run tag @s add path_target
 
 # 4. Otherwise, transition to Common End (branch 3, node 1) if it exists on this route
 execute unless entity @e[tag=path_target] as @e[tag=path_route_node,scores={path.branch=3,path.node=1},limit=1] run tag @s add path_target
