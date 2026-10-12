@@ -28,6 +28,8 @@ scoreboard objectives add obj_hp dummy
 scoreboard objectives add obj_max_hp dummy
 scoreboard objectives add path.map dummy
 scoreboard objectives add path.route dummy
+scoreboard objectives add path.branch dummy
+scoreboard objectives add path.option dummy
 scoreboard objectives add path.node dummy
 scoreboard objectives add path.state dummy
 scoreboard objectives add path.cmp dummy

@@ -1,20 +1,28 @@
 # Pathfinding - Per-Mob Orientation, Movement, and Node Advance
 # Runs as each active path mob, at the mob's position.
 
-# Safety default if path.map is unset
+# Safety default if path.map or path.branch is unset
 scoreboard objectives add path.cmp dummy
+scoreboard objectives add path.branch dummy
+scoreboard objectives add path.option dummy
 execute unless score @s path.map matches 1.. run scoreboard players set @s path.map 1
+execute unless score @s path.branch matches 0..3 run scoreboard players set @s path.branch 0
+execute unless score @s path.option matches 1..2 run scoreboard players set @s path.option 1
 
-# Cache this mob's map, route and node index
+# Cache this mob's map, route, branch and node index
 scoreboard players operation MobMap path.cmp = @s path.map
 scoreboard players operation MobRoute path.cmp = @s path.route
+scoreboard players operation MobBranch path.cmp = @s path.branch
 scoreboard players operation MobNode path.cmp = @s path.node
 
 # Find and tag the target node for this mob
 tag @e[tag=path_node] remove path_target
-execute as @e[tag=path_node] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp if score @s path.node = MobNode path.cmp run tag @s add path_target
+execute as @e[tag=path_node] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp if score @s path.branch = MobBranch path.cmp if score @s path.node = MobNode path.cmp run tag @s add path_target
 
-# No matching node = mob has passed the last node -> trigger goal reach
+# If no matching node in current section, transition to Split Option (1 or 2) or Common End (3)
+execute unless entity @e[tag=path_target] run function gourd_guard:path/mob/resolve_next_branch
+
+# No matching node after branch transitions = mob has passed the final node -> trigger goal reach
 execute unless entity @e[tag=path_target] run function gourd_guard:path/mob/on_reach_end
 execute unless entity @e[tag=path_target] run return 0
 

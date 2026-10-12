@@ -1,10 +1,23 @@
 # Pathfinding - Assign a mob to a specific map and path
 # Usage: execute as <mob> run function gourd_guard:path/route/assign {map:1,path:1}
 
+scoreboard objectives add path.branch dummy
+scoreboard objectives add path.option dummy
+scoreboard objectives add path.cmp dummy
+
 $scoreboard players set @s path.map $(map)
 $scoreboard players set @s path.route $(path)
+scoreboard players set @s path.branch 0
 scoreboard players set @s path.node 0
 scoreboard players set @s path.state 1
+
+# Alternate split option 50/50 (1, 2, 1, 2...) per Map & Path so equal numbers take each branch
+$execute unless score #split_m$(map)_p$(path) path.cmp matches 1..2 run scoreboard players set #split_m$(map)_p$(path) path.cmp 1
+$scoreboard players operation @s path.option = #split_m$(map)_p$(path) path.cmp
+$execute if score #split_m$(map)_p$(path) path.cmp matches 1 run scoreboard players set #next_opt path.cmp 2
+$execute if score #split_m$(map)_p$(path) path.cmp matches 2 run scoreboard players set #next_opt path.cmp 1
+$scoreboard players operation #split_m$(map)_p$(path) path.cmp = #next_opt path.cmp
+
 tag @s add path_mob
 
 # Auto-detect flying mobs for specialized aerial navigation
