@@ -38,3 +38,6 @@ execute as @e[type=item_display,tag=aj.gourdguard_npc_ghost.entity] run data mod
 
 # 5. Fallback teleport if cs_player_start wasn't set (positions player facing Peeves)
 execute unless entity @e[tag=cs_target_start] if entity @e[tag=cs_start_npc] as @a[tag=cs_viewer] at @e[tag=cs_start_npc,limit=1] positioned ^ ^ ^-3 rotated ~ 0 run tp @s ~ ~ ~ ~ 0
+
+# 6. Play transition sound right after the player is teleported so it isn't cut off by distance
+execute as @a[tag=cs_viewer] at @s run playsound minecraft:block.beacon.power_select master @s ~ ~ ~ 1 0.25 1
