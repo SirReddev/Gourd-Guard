@@ -1,5 +1,4 @@
 # Executed as a placed tower root entity (@s)
-# Store level and sell value into storage gourd_guard:tower macro for dynamic text_display formatting
 execute store result storage gourd_guard:tower macro.lvl int 1 run scoreboard players get @s gg.tower_lvl
 execute store result storage gourd_guard:tower macro.sell int 1 run scoreboard players get @s gg.tower_sell
 

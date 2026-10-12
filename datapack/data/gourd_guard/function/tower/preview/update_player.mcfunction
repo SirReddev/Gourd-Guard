@@ -11,6 +11,9 @@ execute as @e[type=item_display,tag=gg_tower_preview] if score @s gg.tower_pid =
 execute as @e[type=item_display,tag=gg_my_preview] unless score @s gg.tower_type = #cur_type gg.tower_type run function gourd_guard:tower/preview/remove_single
 execute unless entity @e[type=item_display,tag=gg_my_preview] run function gourd_guard:tower/preview/spawn
 
+# Enforce placeholder variant on all passenger bones of the preview hologram
+execute as @e[type=item_display,tag=gg_my_preview] run function gourd_guard:tower/preview/enforce_placeholder
+
 # Raycast from player eye position along view vector (up to 6.5 blocks, step 0.25)
 scoreboard players set #ray_steps math 26
 scoreboard players set #ray_hit math 0

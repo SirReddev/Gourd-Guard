@@ -12,13 +12,8 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_tower_firework_cannon"
-data modify storage animated_java:temp entry.data.rig_hash set value "63d2bdf38df4b910290ca987430e36532197d4735ed25c2300428ba7448c0c28"
+data modify storage animated_java:temp entry.data.rig_hash set value "abf160ab8507dbbe893992a7e151f795f7f3849b2747fca6622e00f829067c7d"
 tp @s ~ ~ ~ ~ ~
-summon minecraft:marker ^0 ^0 ^0 {Tags:["aj.global.bone.anvil_cannon.child","aj.global.bone.anvil_cannon.child.locator","aj.global.bone.anvil_cannon.decendant","aj.global.bone.anvil_cannon.decendant.locator","aj.global.bone.anvil_cannon.tree","aj.global.entity","aj.global.locator","aj.global.node","aj.global.node.locator2","aj.gourdguard_tower_firework_cannon.bone.anvil_cannon.child","aj.gourdguard_tower_firework_cannon.bone.anvil_cannon.child.locator","aj.gourdguard_tower_firework_cannon.bone.anvil_cannon.decendant","aj.gourdguard_tower_firework_cannon.bone.anvil_cannon.decendant.locator","aj.gourdguard_tower_firework_cannon.bone.anvil_cannon.tree","aj.gourdguard_tower_firework_cannon.entity","aj.gourdguard_tower_firework_cannon.locator","aj.gourdguard_tower_firework_cannon.locator.locator2","aj.gourdguard_tower_firework_cannon.node","aj.gourdguard_tower_firework_cannon.node.locator2","aj.new"]}
-execute as @n[ type=minecraft:marker, tag=aj.gourdguard_tower_firework_cannon.locator.locator2, tag=aj.new, distance=..1 ] run function aj:gourdguard_tower_firework_cannon/zzz/summon/as_locator/locator2
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.uuids_by_name.locator2 set from storage animated_java:gu out
-data modify storage animated_java:temp entry.data.locators.locator2.uuid set from storage animated_java:gu out
 summon minecraft:marker ^0 ^2.6655 ^0.0129 {Tags:["aj.global.bone.anvil_cannon.decendant","aj.global.bone.anvil_cannon.decendant.locator","aj.global.bone.anvil_cannon.tree","aj.global.bone.cannon_barrel.child","aj.global.bone.cannon_barrel.child.locator","aj.global.bone.cannon_barrel.decendant","aj.global.bone.cannon_barrel.decendant.locator","aj.global.bone.cannon_barrel.tree","aj.global.entity","aj.global.locator","aj.global.node","aj.global.node.locator","aj.gourdguard_tower_firework_cannon.bone.anvil_cannon.decendant","aj.gourdguard_tower_firework_cannon.bone.anvil_cannon.decendant.locator","aj.gourdguard_tower_firework_cannon.bone.anvil_cannon.tree","aj.gourdguard_tower_firework_cannon.bone.cannon_barrel.child","aj.gourdguard_tower_firework_cannon.bone.cannon_barrel.child.locator","aj.gourdguard_tower_firework_cannon.bone.cannon_barrel.decendant","aj.gourdguard_tower_firework_cannon.bone.cannon_barrel.decendant.locator","aj.gourdguard_tower_firework_cannon.bone.cannon_barrel.tree","aj.gourdguard_tower_firework_cannon.entity","aj.gourdguard_tower_firework_cannon.locator","aj.gourdguard_tower_firework_cannon.locator.locator","aj.gourdguard_tower_firework_cannon.node","aj.gourdguard_tower_firework_cannon.node.locator","aj.new"]}
 execute as @n[ type=minecraft:marker, tag=aj.gourdguard_tower_firework_cannon.locator.locator, tag=aj.new, distance=..4 ] run function aj:gourdguard_tower_firework_cannon/zzz/summon/as_locator/locator
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
@@ -54,9 +49,7 @@ function aj:gourdguard_tower_firework_cannon/zzz/summon/zzz/0 with storage anima
 execute store result storage animated_java:temp args.id int 1 run scoreboard players get @s aj.id
 # Data Manager: Read
 function animated_java:global/data_manager/read with storage animated_java:temp args
-function aj:gourdguard_tower_firework_cannon/zzz/summon/zzz/1 with storage animated_java:temp entry.data.locators.locator2
-data modify storage animated_java:temp entry.data.uuids append from storage animated_java:temp uuids
-function aj:gourdguard_tower_firework_cannon/zzz/summon/zzz/2 with storage animated_java:temp entry.data.locators.locator
+function aj:gourdguard_tower_firework_cannon/zzz/summon/zzz/1 with storage animated_java:temp entry.data.locators.locator
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:temp uuids
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
