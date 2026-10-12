@@ -1,0 +1,2 @@
+# Give the player a Candy Magnet item (pulls dropped candy within 30 blocks when held)
+give @s minecraft:warped_fungus_on_a_stick[minecraft:item_name={text:"Candy Magnet",color:"aqua",bold:true,italic:false},minecraft:lore=[{text:"Hold to attract all dropped Candy",color:"gray",italic:false},{text:"within a 30-block radius!",color:"yellow",italic:false}],minecraft:item_model="gourd_guard:magnet",minecraft:custom_model_data={floats:[123.0f],strings:["magnet"]},minecraft:custom_data={gg_magnet:1b},minecraft:max_stack_size=1,minecraft:unbreakable={}] 1

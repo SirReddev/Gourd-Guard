@@ -1,4 +1,5 @@
 # Get player position in millimeters
+tag @s add gg_being_pulled
 execute store result score .px math run data get entity @p Pos[0] 1000
 execute store result score .py math run data get entity @p Pos[1] 1000
 execute store result score .pz math run data get entity @p Pos[2] 1000
