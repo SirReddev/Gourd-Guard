@@ -6,7 +6,7 @@ scoreboard objectives add path.cmp dummy
 scoreboard objectives add path.branch dummy
 scoreboard objectives add path.option dummy
 execute unless score @s path.map matches 1.. run scoreboard players set @s path.map 1
-execute unless score @s path.branch matches 0..3 run scoreboard players set @s path.branch 0
+execute unless score @s path.branch matches 0..23 run scoreboard players set @s path.branch 0
 execute unless score @s path.option matches 1..2 run scoreboard players set @s path.option 1
 
 # Cache this mob's map, route, branch and node index

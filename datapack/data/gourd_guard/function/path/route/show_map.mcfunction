@@ -15,7 +15,9 @@ execute as @e[tag=path_node] if score @s path.map = ShowMap path.cmp run scorebo
 execute as @e[tag=path_node,scores={path.branch=0}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:soul_fire_flame ~ ~0.4 ~ 0.1 0.3 0.1 0.02 35
 execute as @e[tag=path_node,scores={path.branch=0}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:soul ~ ~0.6 ~ 0.1 0.3 0.1 0.02 15
 execute as @e[tag=path_node,scores={path.branch=1}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:happy_villager ~ ~0.4 ~ 0.15 0.3 0.15 0.05 35
+execute as @e[tag=path_node,scores={path.branch=11..13}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:happy_villager ~ ~0.4 ~ 0.15 0.3 0.15 0.05 35
 execute as @e[tag=path_node,scores={path.branch=2}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:witch ~ ~0.4 ~ 0.15 0.3 0.15 0.05 40
+execute as @e[tag=path_node,scores={path.branch=21..23}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:witch ~ ~0.4 ~ 0.15 0.3 0.15 0.05 40
 execute as @e[tag=path_node,scores={path.branch=3}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:flame ~ ~0.4 ~ 0.1 0.3 0.1 0.02 35
 execute as @e[tag=path_node,scores={path.branch=3}] if score @s path.map = ShowMap path.cmp at @s run particle minecraft:lava ~ ~0.6 ~ 0.1 0.2 0.1 0.02 10
 
