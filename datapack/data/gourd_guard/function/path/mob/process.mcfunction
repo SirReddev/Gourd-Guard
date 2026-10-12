@@ -41,9 +41,6 @@ execute as @s[tag=path_flyer] at @s positioned ~ ~-1.0 ~ if entity @e[tag=path_t
 execute as @s[tag=path_flyer] at @s positioned ~ ~-0.5 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
 execute as @s[tag=path_flyer] at @s positioned ~ ~-1.5 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
 
-# Check if a split/sub-branch forks off the middle of Shared Start, Option 1, or Option 2 at this node
-execute as @s[tag=path_advance] at @s if score MobBranch path.cmp matches 0..2 run function gourd_guard:path/mob/check_mid_subsplit
-
 # Increment node index if arrived at node
 execute as @s[tag=path_advance] run scoreboard players add @s path.node 1
 tag @s remove path_advance
