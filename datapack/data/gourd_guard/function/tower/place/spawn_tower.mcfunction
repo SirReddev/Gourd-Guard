@@ -18,4 +18,4 @@ execute if score #spawn_type gg.tower_type matches 1 run particle minecraft:happ
 execute if score #spawn_type gg.tower_type matches 2 run playsound minecraft:block.copper.place master @a[distance=..16] ~ ~ ~ 1.0 1.0
 execute if score #spawn_type gg.tower_type matches 2 run particle minecraft:wax_off ~ ~0.5 ~ 0.4 0.3 0.4 0.05 16
 execute if score #spawn_type gg.tower_type matches 3 run playsound minecraft:event.raid.horn master @a[distance=..16] ~ ~ ~ 0.8 1.1
-execute if score #spawn_type gg.tower_type matches 3 run particle minecraft:ominous_spawning ~ ~0.5 ~ 0.4 0.3 0.4 0.05 16
+execute if score #spawn_type gg.tower_type matches 3 run particle minecraft:raid_omen ~ ~0.8 ~ 0.4 0.3 0.4 0.0 16

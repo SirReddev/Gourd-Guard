@@ -12,4 +12,4 @@ scoreboard players operation @s path.option = #rnd gg.calc
 
 # Audio & visual feedback at route spawn entrance
 playsound minecraft:entity.ravager.celebrate master @a[distance=..24] ~ ~ ~ 0.9 1.0
-particle minecraft:ominous_spawning ~ ~1 ~ 0.4 0.4 0.4 0.05 15
+particle minecraft:raid_omen ~ ~1.5 ~ 0.4 0.4 0.4 0.0 15
