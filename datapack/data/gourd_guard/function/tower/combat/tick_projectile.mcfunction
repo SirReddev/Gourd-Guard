@@ -59,8 +59,7 @@ kill @e[type=marker,tag=gg_fw_helper]
 # Spawn trail along the arc (firework sparks for fireworks, copper scrape & wax for golem statues)
 execute if entity @s[tag=!gg_cg_proj] at @s run particle minecraft:firework ~ ~ ~ 0.04 0.04 0.04 0.01 2
 execute if entity @s[tag=!gg_cg_proj] at @s run particle minecraft:flame ~ ~ ~ 0.02 0.02 0.02 0.005 1
-execute if entity @s[tag=gg_cg_proj] at @s run particle minecraft:scrape ~ ~ ~ 0.04 0.04 0.04 0.02 2
-execute if entity @s[tag=gg_cg_proj] at @s run particle minecraft:wax_off ~ ~ ~ 0.03 0.03 0.03 0.01 1
+execute if entity @s[tag=gg_cg_proj] at @s run particle minecraft:wax_off ~ ~ ~ 0.05 0.05 0.05 0.02 3
 
 # Mid-flight mob collision detection (steps 2..13):
 # If the heavy projectile collides with any wave mob along its flight path, trigger impact immediately!

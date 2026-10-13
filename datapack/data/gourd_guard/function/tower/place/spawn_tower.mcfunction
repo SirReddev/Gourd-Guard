@@ -10,6 +10,8 @@ execute if score #spawn_type gg.tower_type matches 2 run function aj:gourdguard_
 execute as @n[type=item_display,tag=aj.gourdguard_tower_firework_cannon.root,tag=!gg_tower_preview,tag=!gg_tower_placed,distance=..0.5] run function gourd_guard:tower/place/init_placed_root
 execute as @n[type=item_display,tag=aj.gourdguard_tower_copper_golem_launcher.root,tag=!gg_tower_preview,tag=!gg_tower_placed,distance=..0.5] run function gourd_guard:tower/place/init_placed_root
 
-# Play placement sound
-playsound minecraft:block.anvil.place master @a[distance=..16] ~ ~ ~ 0.7 1.2
-particle minecraft:happy_villager ~ ~0.5 ~ 0.4 0.3 0.4 0.05 10
+# Play placement sound & particles (happy_villager for cannon, wax_off for copper golem launcher)
+execute if score #spawn_type gg.tower_type matches 1 run playsound minecraft:block.anvil.place master @a[distance=..16] ~ ~ ~ 0.7 1.2
+execute if score #spawn_type gg.tower_type matches 1 run particle minecraft:happy_villager ~ ~0.5 ~ 0.4 0.3 0.4 0.05 10
+execute if score #spawn_type gg.tower_type matches 2 run playsound minecraft:block.copper.place master @a[distance=..16] ~ ~ ~ 1.0 1.0
+execute if score #spawn_type gg.tower_type matches 2 run particle minecraft:wax_off ~ ~0.5 ~ 0.4 0.3 0.4 0.05 16

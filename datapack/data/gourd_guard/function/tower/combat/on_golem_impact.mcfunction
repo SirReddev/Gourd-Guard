@@ -3,9 +3,7 @@
 playsound minecraft:block.copper.hit master @a[distance=..24] ~ ~ ~ 1.0 0.8
 playsound minecraft:entity.iron_golem.damage master @a[distance=..24] ~ ~ ~ 0.9 1.1
 playsound minecraft:block.anvil.land master @a[distance=..24] ~ ~ ~ 0.5 1.5
-particle minecraft:scrape ~ ~ ~ 0.3 0.3 0.3 0.1 16
-particle minecraft:wax_off ~ ~ ~ 0.4 0.4 0.4 0.1 20
-particle minecraft:copper_firework ~ ~ ~ 0.25 0.25 0.25 0.08 12
+particle minecraft:wax_off ~ ~ ~ 0.5 0.5 0.5 0.1 40
 
 # Ensure non-zero damage values even if projectile scores were uninitialized
 execute unless score @s gg.fw_dmg matches 1.. run scoreboard players set @s gg.fw_dmg 60
