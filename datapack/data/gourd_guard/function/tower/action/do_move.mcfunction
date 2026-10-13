@@ -8,6 +8,7 @@ execute unless entity @e[type=item_display,tag=gg_target_tower] run return 0
 # Get tower type and give the matching tower armor_stand item back to the player (into active hand slot if empty)
 execute store result score #move_type gg.tower_type run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_type
 execute if score #move_type gg.tower_type matches 1 run function gourd_guard:tower/place/restore_firework_cannon
+execute if score #move_type gg.tower_type matches 2 run function gourd_guard:tower/place/restore_copper_golem_launcher
 
 # Play pickup sound & chat message
 playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.8 1.2

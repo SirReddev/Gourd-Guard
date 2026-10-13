@@ -37,4 +37,5 @@ execute unless score #next gg.mob_next_id matches 1.. run scoreboard players set
 # Clean up any leftover preview holograms or placement hitboxes on reload
 execute as @e[type=item_display,tag=gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_firework_cannon.root,tag=!gg_tower_placed] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_copper_golem_launcher.root,tag=!gg_tower_placed] run function gourd_guard:tower/preview/remove_single
 kill @e[type=interaction,tag=gg_tower_place_btn]

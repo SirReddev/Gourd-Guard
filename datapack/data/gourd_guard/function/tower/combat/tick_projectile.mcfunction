@@ -56,10 +56,13 @@ execute at @s facing entity @n[type=marker,tag=gg_fw_helper] feet run tp @s ~ ~ 
 execute rotated as @s at @n[type=marker,tag=gg_fw_helper] run tp @s ~ ~ ~ ~ ~
 kill @e[type=marker,tag=gg_fw_helper]
 
-# Spawn firework spark trail along the arc
-execute at @s run particle minecraft:firework ~ ~ ~ 0.04 0.04 0.04 0.01 2
-execute at @s run particle minecraft:flame ~ ~ ~ 0.02 0.02 0.02 0.005 1
+# Spawn trail along the arc (firework sparks for fireworks, copper scrape & wax for golem statues)
+execute if entity @s[tag=!gg_cg_proj] at @s run particle minecraft:firework ~ ~ ~ 0.04 0.04 0.04 0.01 2
+execute if entity @s[tag=!gg_cg_proj] at @s run particle minecraft:flame ~ ~ ~ 0.02 0.02 0.02 0.005 1
+execute if entity @s[tag=gg_cg_proj] at @s run particle minecraft:scrape ~ ~ ~ 0.04 0.04 0.04 0.02 2
+execute if entity @s[tag=gg_cg_proj] at @s run particle minecraft:wax_off ~ ~ ~ 0.03 0.03 0.03 0.01 1
 
-# On step 14 (impact!), detonate the firework and damage the target + nearby splash mobs
-execute if score @s gg.fw_step matches 14.. at @s run function gourd_guard:tower/combat/on_impact
+# On step 14 (impact!), detonate and damage the target + nearby splash mobs
+execute if score @s gg.fw_step matches 14.. if entity @s[tag=!gg_cg_proj] at @s run function gourd_guard:tower/combat/on_impact
+execute if score @s gg.fw_step matches 14.. if entity @s[tag=gg_cg_proj] at @s run function gourd_guard:tower/combat/on_golem_impact
 tag @e remove gg_fw_lock

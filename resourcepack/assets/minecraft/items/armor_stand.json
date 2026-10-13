@@ -13,6 +13,16 @@
           "type": "minecraft:model",
           "model": "gourd_guard:item/tower_firework_cannon"
         }
+      },
+      {
+        "when": [
+          "copper_golem_launcher",
+          "gourdguard_tower_copper_golem_launcher"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_copper_golem_launcher"
+        }
       }
     ],
     "fallback": {

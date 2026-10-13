@@ -532,6 +532,25 @@
 				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_on.json"
 			]
 		},
+		"aj:gourdguard_tower_copper_golem_launcher": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_tower_copper_golem_launcher/base.json",
+				"assets/aj/items/blueprint/gourdguard_tower_copper_golem_launcher/knob.json",
+				"assets/aj/items/blueprint/gourdguard_tower_copper_golem_launcher/lid.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/base/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/base/default/gourdguard_tower_copper_golem_launcher_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/base/default/gourdguard_tower_copper_golem_launcher_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/knob/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/knob/default/gourdguard_tower_copper_golem_launcher_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/knob/default/gourdguard_tower_copper_golem_launcher_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/lid/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/lid/default/gourdguard_tower_copper_golem_launcher_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_copper_golem_launcher/lid/default/gourdguard_tower_copper_golem_launcher_placeholder_fail.json",
+				"assets/aj/textures/blueprint/gourdguard_tower_copper_golem_launcher/gourdguard_tower_copper_golem_launcher_placeholder.png",
+				"assets/aj/textures/blueprint/gourdguard_tower_copper_golem_launcher/gourdguard_tower_copper_golem_launcher_placeholder_fail.png"
+			]
+		},
 		"aj:gourdguard_tower_firework_cannon": {
 			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
 			"versionedFiles": [

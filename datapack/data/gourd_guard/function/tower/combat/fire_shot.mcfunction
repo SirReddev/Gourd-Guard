@@ -7,5 +7,6 @@ scoreboard players operation #shot_dmg gg.fw_dmg = @s gg.tower_dmg
 scoreboard players operation #shot_splash gg.fw_splash = @s gg.tower_splash
 scoreboard players operation #shot_tid gg.fw_tid = @n[tag=gg_tower_target] gg.mob_id
 
-# Launch audio & muzzle effects oriented toward the target
-execute facing entity @n[tag=gg_tower_target] eyes rotated ~ 0 positioned ^0 ^2.0 ^0.55 run function gourd_guard:tower/combat/spawn_projectile
+# Launch audio & projectile oriented toward the target
+execute if score @s gg.tower_type matches 1 facing entity @n[tag=gg_tower_target] eyes rotated ~ 0 positioned ^0 ^2.0 ^0.55 run function gourd_guard:tower/combat/spawn_projectile
+execute if score @s gg.tower_type matches 2 facing entity @n[tag=gg_tower_target] eyes rotated ~ 0 positioned ^0 ^1.6 ^0 run function gourd_guard:tower/combat/spawn_golem_projectile

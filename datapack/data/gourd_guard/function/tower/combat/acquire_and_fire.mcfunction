@@ -9,6 +9,15 @@ execute if score @s gg.tower_lvl matches 3 run tag @e[tag=gg_mob,distance=..8.0]
 execute if score @s gg.tower_lvl matches 4 run tag @e[tag=gg_mob,distance=..9.0] add gg_in_range
 execute if score @s gg.tower_lvl matches 5 run tag @e[tag=gg_mob,distance=..10.5] add gg_in_range
 
+# Handle Type 2 (Copper Golem Launcher) open/close animation states
+# When mobs enter range and tower is closed -> play open animation
+execute if score @s gg.tower_type matches 2 if entity @e[tag=gg_in_range] unless entity @s[tag=gg_tower_open] run function aj:gourdguard_tower_copper_golem_launcher/animations/open/play_exclusive
+execute if score @s gg.tower_type matches 2 if entity @e[tag=gg_in_range] run tag @s add gg_tower_open
+
+# When NO mobs are left in range and tower is open -> play close animation
+execute if score @s gg.tower_type matches 2 unless entity @e[tag=gg_in_range] if entity @s[tag=gg_tower_open] run function aj:gourdguard_tower_copper_golem_launcher/animations/close/play_exclusive
+execute if score @s gg.tower_type matches 2 unless entity @e[tag=gg_in_range] run tag @s remove gg_tower_open
+
 # Early exit if no wave mobs are within range
 execute unless entity @e[tag=gg_in_range] run return 0
 
@@ -17,8 +26,8 @@ scoreboard players set #best_prog gg.mob_prog -1
 execute as @e[tag=gg_in_range] if score @s gg.mob_prog > #best_prog gg.mob_prog run scoreboard players operation #best_prog gg.mob_prog = @s gg.mob_prog
 execute as @e[tag=gg_in_range] if score @s gg.mob_prog = #best_prog gg.mob_prog run tag @s add gg_tower_target
 
-# Aim the cannon's wooden mount and barrel horizontally toward the leading target mob!
-execute facing entity @n[tag=gg_tower_target] eyes rotated ~ 0 on passengers if entity @s[tag=!aj.gourdguard_tower_firework_cannon.node.stone_base,tag=!aj.gourdguard_tower_firework_cannon.node.text_display] run rotate @s ~ 0
+# Aim Type 1 cannon's wooden mount and barrel horizontally toward the leading target mob
+execute if score @s gg.tower_type matches 1 facing entity @n[tag=gg_tower_target] eyes rotated ~ 0 on passengers if entity @s[tag=!aj.gourdguard_tower_firework_cannon.node.stone_base,tag=!aj.gourdguard_tower_firework_cannon.node.text_display] run rotate @s ~ 0
 
-# If cooldown is ready (0), fire an arcing firework rocket at the target!
+# If cooldown is ready (0), fire at the target!
 execute if score @s gg.tower_cd matches ..0 run function gourd_guard:tower/combat/fire_shot
