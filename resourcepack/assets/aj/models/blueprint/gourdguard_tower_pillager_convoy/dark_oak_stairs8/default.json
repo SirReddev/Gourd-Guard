@@ -1,0 +1,86 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"particle": "minecraft:item/pufferfish",
+		"slot_default": "aj:blueprint/towers/gourdguard_tower_pillager_convoy"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [11.69231, 31.07692, 17.23077],
+			"to": [13.53846, 32, 19.07692],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0.45714, 0.30769],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [0, 0, 0.45714, 0.30769],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [0, 0, 0.45714, 0.30769],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [0.45714, 13.23077, 7.77143, 15.69231],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [0, 0, 0.45714, 0.30769],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [0.45714, 10.76923, 7.77143, 15.69231],
+					"texture": "#slot_default"
+				}
+			}
+		},
+		{
+			"from": [12.61538, 30.15385, 17.23077],
+			"to": [13.53846, 31.07692, 19.07692],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [0, 0, 0.45714, 0.30769],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [0, 0, 0.45714, 0.30769],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [0, 0, 0.45714, 0.30769],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [0.45714, 10.76923, 7.77143, 13.23077],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [0, 0, 0.45714, 0.30769],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [4.11429, 10.76923, 7.77143, 15.69231],
+					"texture": "#slot_default"
+				}
+			}
+		}
+	]
+}

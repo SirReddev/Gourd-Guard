@@ -25,12 +25,16 @@ execute as @e[type=interaction,tag=gg_tower_place_btn] run function gourd_guard:
 # 7. Clean up any stray/untagged tower models that are neither placed nor active previews
 execute as @e[type=item_display,tag=aj.gourdguard_tower_firework_cannon.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_copper_golem_launcher.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_pillager_convoy.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 
 # 8. Tick placed towers (6-block text visibility, MOVE/SELL hitboxes, target acquisition & firework firing)
 execute as @e[type=item_display,tag=gg_tower_placed] at @s run function gourd_guard:tower/placed/tick_tower
 
-# 9. Tick active arcing firework projectiles
+# 9. Tick active arcing projectiles
 execute as @e[type=item_display,tag=gg_fw_proj] at @s run function gourd_guard:tower/combat/tick_projectile
+
+# 9b. Tick active Pillager Convoys (collision detection against wave mobs & HP exchange)
+execute as @e[tag=gg_convoy] at @s run function gourd_guard:tower/convoy/tick
 
 # 10. Check for player clicks (right-click OR left-click) on [MOVE] and [SELL] interaction buttons
 execute as @e[type=interaction,tag=gg_tower_btn] if data entity @s interaction at @s run function gourd_guard:tower/action/on_interact

@@ -1,6 +1,9 @@
 # Pathfinding - Mob Reached End of Path (Goal reached)
 # Runs as the mob that passed the last node on its route
 
+# Pillager Convoys defend the objective; they safely despawn at the pumpkin without damaging it!
+execute if entity @s[tag=gg_convoy] run return run function gourd_guard:tower/convoy/on_reach_end
+
 # Stop mob from continuing path logic
 scoreboard players set @s path.state 0
 tag @s remove path_mob

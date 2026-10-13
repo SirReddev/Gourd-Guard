@@ -30,6 +30,8 @@ scoreboard objectives add gg.fw_tx dummy
 scoreboard objectives add gg.fw_ty dummy
 scoreboard objectives add gg.fw_tz dummy
 
+scoreboard objectives add gg.calc dummy
+
 execute unless score #next gg.tower_next_pid matches 1.. run scoreboard players set #next gg.tower_next_pid 1
 execute unless score #next gg.tower_next_id matches 1.. run scoreboard players set #next gg.tower_next_id 1
 execute unless score #next gg.mob_next_id matches 1.. run scoreboard players set #next gg.mob_next_id 1
@@ -38,4 +40,5 @@ execute unless score #next gg.mob_next_id matches 1.. run scoreboard players set
 execute as @e[type=item_display,tag=gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_firework_cannon.root,tag=!gg_tower_placed] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_copper_golem_launcher.root,tag=!gg_tower_placed] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_pillager_convoy.root,tag=!gg_tower_placed] run function gourd_guard:tower/preview/remove_single
 kill @e[type=interaction,tag=gg_tower_place_btn]

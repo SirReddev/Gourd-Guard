@@ -1,0 +1,7 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"parent": "aj:blueprint/gourdguard_tower_pillager_convoy/dark_oak_fence/default",
+	"textures": {
+		"slot_default": "aj:blueprint/towers/gourdguard_tower_pillager_convoy_placeholder_fail"
+	}
+}

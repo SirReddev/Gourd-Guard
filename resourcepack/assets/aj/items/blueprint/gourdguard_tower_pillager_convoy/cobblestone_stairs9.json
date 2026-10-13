@@ -1,0 +1,36 @@
+{
+	"model": {
+		"type": "minecraft:select",
+		"property": "minecraft:custom_model_data",
+		"index": 0,
+		"cases": [
+			{
+				"when": "gourdguard_tower_pillager_convoy_placeholder_fail",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_tower_pillager_convoy/cobblestone_stairs9/default/gourdguard_tower_pillager_convoy_placeholder_fail",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			},
+			{
+				"when": "gourdguard_tower_pillager_convoy_placeholder",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_tower_pillager_convoy/cobblestone_stairs9/default/gourdguard_tower_pillager_convoy_placeholder",
+					"tints": [
+						{"type": "minecraft:dye", "default": [1, 1, 1]}
+					]
+				}
+			}
+		],
+		"fallback": {
+			"type": "minecraft:model",
+			"model": "aj:blueprint/gourdguard_tower_pillager_convoy/cobblestone_stairs9/default",
+			"tints": [
+				{"type": "minecraft:dye", "default": [1, 1, 1]}
+			]
+		}
+	}
+}

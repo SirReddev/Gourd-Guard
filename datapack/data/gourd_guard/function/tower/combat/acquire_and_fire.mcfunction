@@ -1,4 +1,7 @@
 # Executed as & at the placed tower root (@s)
+# Pillager Convoy (Type 3) does not aim single projectiles; check its multi-path convoy dispatch timer
+execute if score @s gg.tower_type matches 3 run return run function gourd_guard:tower/convoy/check_fire
+
 tag @e remove gg_in_range
 tag @e remove gg_tower_target
 

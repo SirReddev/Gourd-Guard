@@ -6,3 +6,5 @@ execute if score @s gg.tower_type matches 1 run playsound minecraft:block.anvil.
 execute if score @s gg.tower_type matches 1 run particle minecraft:happy_villager ~ ~1.2 ~ 0.4 0.4 0.4 0.05 15
 execute if score @s gg.tower_type matches 2 run playsound minecraft:block.copper.place master @a[distance=..16] ~ ~ ~ 1.0 1.4
 execute if score @s gg.tower_type matches 2 run particle minecraft:wax_off ~ ~1.2 ~ 0.4 0.4 0.4 0.05 20
+execute if score @s gg.tower_type matches 3 run playsound minecraft:event.raid.horn master @a[distance=..16] ~ ~ ~ 0.8 1.0
+execute if score @s gg.tower_type matches 3 run particle minecraft:ominous_spawning ~ ~1.2 ~ 0.4 0.4 0.4 0.05 20

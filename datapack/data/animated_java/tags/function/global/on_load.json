@@ -22,6 +22,7 @@
 		"aj:gourdguard_pumpkin/on_load",
 		"aj:gourdguard_tower_copper_golem_launcher/on_load",
 		"aj:gourdguard_tower_firework_cannon/on_load",
+		"aj:gourdguard_tower_pillager_convoy/on_load",
 		"aj:worldradio_boombox/on_load",
 		"aj:worldradio_jukebox/on_load"
 	]

@@ -23,6 +23,16 @@
           "type": "minecraft:model",
           "model": "gourd_guard:item/tower_copper_golem_launcher"
         }
+      },
+      {
+        "when": [
+          "pillager_convoy",
+          "gourdguard_tower_pillager_convoy"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_pillager_convoy"
+        }
       }
     ],
     "fallback": {
