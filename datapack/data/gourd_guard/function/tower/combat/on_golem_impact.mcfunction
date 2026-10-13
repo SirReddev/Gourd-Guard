@@ -17,5 +17,6 @@ execute as @e[tag=gg_fw_lock,limit=1] run function gourd_guard:tower/combat/deal
 # 3. Deal splash damage to other wave mobs within 1.8 blocks of impact
 execute as @e[tag=gg_mob,tag=!gg_fw_lock,distance=..1.8] run function gourd_guard:tower/combat/deal_splash_dmg with storage gourd_guard:tower macro
 
-# 4. Remove the projectile entity
+# 4. Remove the projectile entity and its block_display passenger
+execute on passengers run kill @s
 kill @s

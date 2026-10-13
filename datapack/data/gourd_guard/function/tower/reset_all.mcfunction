@@ -5,6 +5,7 @@ execute as @e[type=item_display,tag=aj.gourdguard_tower_firework_cannon.root] ru
 execute as @e[type=item_display,tag=aj.gourdguard_tower_copper_golem_launcher.root] run function gourd_guard:tower/preview/remove_single
 kill @e[type=interaction,tag=gg_tower_btn]
 kill @e[type=interaction,tag=gg_tower_place_btn]
+execute as @e[type=item_display,tag=gg_fw_proj] on passengers run kill @s
 kill @e[type=item_display,tag=gg_fw_proj]
 kill @e[type=marker,tag=gg_fw_helper]
 
