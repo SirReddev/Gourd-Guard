@@ -10,5 +10,8 @@ tag @e remove gg_convoy_target
 tag @e[tag=gg_mob,distance=..2.2,limit=1,sort=nearest] add gg_convoy_target
 execute if entity @e[tag=gg_convoy_target] run function gourd_guard:tower/convoy/exchange_damage
 
-# 3. Safety check: ensure no abandoned pillager riders linger if their ravager was killed
-execute as @e[type=pillager,tag=gg_convoy_rider] unless entity @s[nbt={RootVehicle:{}}] run kill @s
+# 3. Clean up orphaned pillager riders (any rider whose ravager was killed)
+tag @e[tag=gg_convoy_rider] add gg_orphan
+execute as @e[tag=gg_convoy] on passengers if entity @s[tag=gg_convoy_rider] run tag @s remove gg_orphan
+kill @e[type=pillager,tag=gg_orphan]
+tag @e remove gg_orphan

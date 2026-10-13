@@ -33,8 +33,9 @@ execute at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
 function gourd_guard:path/mob/walk
 
 # 4. Advance to next node when within range (sharp turns at the node, no early smoothing):
-# Ground mobs advance at 0.5 blocks of target node
+# Ground mobs advance at 0.5 blocks of target node (0.8 blocks for high-speed Ravager convoys)
 execute as @s[tag=!path_flyer] at @s if entity @e[tag=path_target,distance=..0.5] run tag @s add path_advance
+execute as @s[tag=gg_convoy] at @s if entity @e[tag=path_target,distance=..0.8] run tag @s add path_advance
 
 # Flying mobs advance when within 0.55 blocks horizontally of target node (matching ground mob timing)
 execute as @s[tag=path_flyer] at @s positioned ~ ~-1.0 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
