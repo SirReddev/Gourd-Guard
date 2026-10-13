@@ -1,11 +1,11 @@
-# Pull candy from up to 30 blocks away towards the nearest player holding a Candy Magnet
+# Pull candy from up to 50 blocks away towards the nearest player holding a Candy Magnet
 tag @s add gg_magnet_pulled
 tag @s add gg_being_pulled
 
 # Get magnet-holding player position in millimeters
-execute store result score .px math run data get entity @p[tag=gg_holding_magnet,distance=..30.0] Pos[0] 1000
-execute store result score .py math run data get entity @p[tag=gg_holding_magnet,distance=..30.0] Pos[1] 1000
-execute store result score .pz math run data get entity @p[tag=gg_holding_magnet,distance=..30.0] Pos[2] 1000
+execute store result score .px math run data get entity @p[tag=gg_holding_magnet,distance=..50.0] Pos[0] 1000
+execute store result score .py math run data get entity @p[tag=gg_holding_magnet,distance=..50.0] Pos[1] 1000
+execute store result score .pz math run data get entity @p[tag=gg_holding_magnet,distance=..50.0] Pos[2] 1000
 
 # Aim for player's torso center (+0.6m = +600mm)
 scoreboard players add .py math 600
@@ -34,7 +34,7 @@ execute if score .pz math matches 750.. run scoreboard players set .pz math 750
 execute if score .pz math matches ..-750 run scoreboard players set .pz math -750
 
 # Step smoothly towards the magnet holder so candies glide over stairs, slabs, and walls without getting stuck
-execute facing entity @p[tag=gg_holding_magnet,distance=..30.0] eyes positioned as @s run tp @s ^ ^ ^0.45
+execute facing entity @p[tag=gg_holding_magnet,distance=..50.0] eyes positioned as @s run tp @s ^ ^ ^0.55
 
 # Store velocity into entity Motion for smooth client interpolation
 execute store result entity @s Motion[0] double 0.001 run scoreboard players get .px math
