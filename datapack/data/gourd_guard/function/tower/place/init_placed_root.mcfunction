@@ -9,6 +9,7 @@ execute if score @s gg.tower_type matches 1 run function aj:gourdguard_tower_fir
 execute if score @s gg.tower_type matches 1 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_firework_cannon"
 execute if score @s gg.tower_type matches 2 run function aj:gourdguard_tower_copper_golem_launcher/variants/default/apply
 execute if score @s gg.tower_type matches 2 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_copper_golem_launcher"
+execute if score @s gg.tower_type matches 2 on passengers if entity @s[type=text_display] run data merge entity @s {transformation:[1f,0f,0f,0.0031f,0f,1f,0f,2.4553f,0f,0f,1f,0.0236f,0f,0f,0f,1f]}
 
 # Apply level-based combat stats (range, cooldown, damage, splash, sell value) and update text display
 function gourd_guard:tower/placed/update_stats

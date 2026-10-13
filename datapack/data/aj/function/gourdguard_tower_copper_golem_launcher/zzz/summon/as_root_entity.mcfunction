@@ -12,7 +12,7 @@ function animated_java:global/data_manager/read with storage animated_java:temp 
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.root_uuid set from storage animated_java:gu out
 data modify storage animated_java:temp entry.data.blueprint_id set value "aj:gourdguard_tower_copper_golem_launcher"
-data modify storage animated_java:temp entry.data.rig_hash set value "2f755aaf948b059ba1ba9fde04d6d61388c41e9045d10b438fb30d0e379cf88f"
+data modify storage animated_java:temp entry.data.rig_hash set value "d035141feb5b2fc24b4fcf8ca1752f9289edbf5ab70a6db89e213ac3f9c96a0d"
 tp @s ~ ~ ~ ~ ~
 execute on passengers if entity @s[tag=aj.gourdguard_tower_copper_golem_launcher.node.text_display] run function aj:gourdguard_tower_copper_golem_launcher/zzz/summon/as_node/text_display
 data modify storage animated_java:temp entry.data.uuids append from storage animated_java:gu out
