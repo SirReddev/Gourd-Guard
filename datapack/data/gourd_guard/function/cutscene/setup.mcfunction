@@ -19,13 +19,13 @@ tag @e[tag=cs_npc_node] remove cs_start_npc
 execute as @e[tag=cs_npc_node] if score @s cs.map = TargetMap cs.cmp if score @s cs.node matches 0 run tag @s add cs_start_npc
 execute unless entity @e[tag=cs_start_npc] as @e[tag=cs_npc_node] if score @s cs.map = TargetMap cs.cmp if score @s cs.node matches 1 run tag @s add cs_start_npc
 
-# 4. Teleport player to start place (cs_player_start -> fallback cs_player_spawn -> fallback 3 blocks in front of cs_start_npc)
+# 4. Teleport players (except gourd_test) to start place (cs_player_start -> fallback cs_player_spawn -> fallback 3 blocks in front of cs_start_npc)
 tag @e[tag=cs_player_start] remove cs_target_start
 tag @e[tag=cs_player_spawn] remove cs_target_start
 execute as @e[tag=cs_player_start] if score @s cs.map = TargetMap cs.cmp run tag @s add cs_target_start
 execute unless entity @e[tag=cs_target_start] as @e[tag=cs_player_spawn] if score @s cs.map = TargetMap cs.cmp run tag @s add cs_target_start
-execute if entity @e[tag=cs_target_start] as @a[tag=cs_viewer] at @e[tag=cs_target_start,limit=1] run tp @s ~ ~ ~ ~ ~
-execute unless entity @e[tag=cs_target_start] if entity @e[tag=cs_start_npc] as @a[tag=cs_viewer] at @e[tag=cs_start_npc,limit=1] positioned ^ ^ ^-3 rotated ~ 0 run tp @s ~ ~ ~ ~ 0
+execute if entity @e[tag=cs_target_start] as @a[tag=cs_viewer,tag=!gourd_test] at @e[tag=cs_target_start,limit=1] run tp @s ~ ~ ~ ~ ~
+execute unless entity @e[tag=cs_target_start] if entity @e[tag=cs_start_npc] as @a[tag=cs_viewer,tag=!gourd_test] at @e[tag=cs_start_npc,limit=1] positioned ^ ^ ^-3 rotated ~ 0 run tp @s ~ ~ ~ ~ 0
 
 # 5. Summon Animated Java Peeves Ghost Model (Hovers at node + 0.6 blocks)
 execute if entity @e[tag=cs_start_npc] at @e[tag=cs_start_npc,limit=1] positioned ~ ~0.6 ~ rotated ~ 0 run function aj:gourdguard_npc_ghost/summon {args:{animation:"idle",start_animation:true}}

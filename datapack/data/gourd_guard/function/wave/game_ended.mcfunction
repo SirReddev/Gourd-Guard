@@ -14,7 +14,7 @@ function gourd_guard:tower/reset_all
 function gourd_guard:pumpkin/set_default
 
 # 1. Play custom Game Over sound effect & Title together
-playsound gourd_guard:game.over record @a ~ ~ ~ 1.0 1.0 1
+execute as @a at @s run playsound gourd_guard:game.over record @s ~ ~ ~ 1.0 1.0 1
 
 # Game Ended title displays above the screen fade (lasts 11.5s)
 title @a times 10 200 20

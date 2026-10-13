@@ -10,9 +10,14 @@ data modify storage chatbox:main Sequence set value [{Style:0,Avatar:"peeves",So
 # When dialogue completes, end cutscene & transition to gameplay
 data modify storage chatbox:main SequenceOnEnd set value "function gourd_guard:cutscene/end"
 
-# Launch dialogue for the player
+# Launch dialogue for the cutscene session and show bossbar to all players in multiplayer
 execute as @a[tag=cs_viewer,limit=1] run function chatbox:sequence/start
 execute unless entity @a[tag=cs_viewer] as @p run function chatbox:sequence/start
+bossbar set chatbox:s1_frame players @a
+bossbar set chatbox:s1_line_0 players @a
+bossbar set chatbox:s1_line_1 players @a
+bossbar set chatbox:s1_line_2 players @a
+scoreboard players set @a chatbox.session 1
 
 # Cutscene state 3 (Dialogue 2)
 scoreboard players set .global cs.state 3

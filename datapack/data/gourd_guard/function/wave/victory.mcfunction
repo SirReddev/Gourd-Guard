@@ -14,7 +14,7 @@ function gourd_guard:tower/reset_all
 function gourd_guard:pumpkin/set_default
 
 # 1. Play custom Victory sound effect & Title together
-playsound gourd_guard:game.won record @a ~ ~ ~ 1.0 1.0 1
+execute as @a at @s run playsound gourd_guard:game.won record @s ~ ~ ~ 1.0 1.0 1
 
 # Victory title displays above the screen fade
 title @a times 10 200 20

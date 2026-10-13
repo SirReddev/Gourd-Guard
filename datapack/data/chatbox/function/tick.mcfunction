@@ -1,8 +1,8 @@
-# Execute session ticks for active player sessions
-execute as @a[scores={chatbox.session=1}] at @s run function chatbox:session/s1/tick
-execute as @a[scores={chatbox.session=2}] at @s run function chatbox:session/s2/tick
-execute as @a[scores={chatbox.session=3}] at @s run function chatbox:session/s3/tick
-execute as @a[scores={chatbox.session=4}] at @s run function chatbox:session/s4/tick
+# Execute session ticks for active player sessions (limit=1 so shared cutscene sessions only tick once per game tick)
+execute as @a[scores={chatbox.session=1},limit=1] at @s run function chatbox:session/s1/tick
+execute as @a[scores={chatbox.session=2},limit=1] at @s run function chatbox:session/s2/tick
+execute as @a[scores={chatbox.session=3},limit=1] at @s run function chatbox:session/s3/tick
+execute as @a[scores={chatbox.session=4},limit=1] at @s run function chatbox:session/s4/tick
 
 # Auto-cleanup orphaned sessions if player disconnected
 execute if score #chatbox.s1.busy loy.value matches 1 unless entity @a[scores={chatbox.session=1}] run function chatbox:session/s1/release

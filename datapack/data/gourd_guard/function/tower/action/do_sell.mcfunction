@@ -5,9 +5,9 @@ execute as @e[type=item_display,tag=gg_tower_placed,distance=..6] if score @s gg
 
 execute unless entity @e[type=item_display,tag=gg_target_tower] run return 0
 
-# Refund the tower's sell value to the player's candy score (coins)
+# Refund the tower's sell value to all players' shared candy score (coins)
 execute store result score #refund coins run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_sell
-scoreboard players operation @s coins += #refund coins
+scoreboard players operation @a coins += #refund coins
 
 # Play coin chime & show chat notification
 playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 0.9 1.4

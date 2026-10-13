@@ -26,5 +26,6 @@ execute if score #chatbox.sneak.handled loy.value matches 0 if score #chatbox.bo
 execute if score #chatbox.sneak.handled loy.value matches 0 if score #chatbox.bossbar.flag loy.value matches 1 unless data storage chatbox:main {SequenceActive:1b} unless data storage chatbox:shop {Active:1b} unless data storage chatbox:selection {Active:1b} run function chatbox:session/release
 execute if score #chatbox.sneak.handled loy.value matches 0 if score #chatbox.bossbar.flag loy.value matches 1 unless data storage chatbox:main {SequenceActive:1b} run scoreboard players set #chatbox.sneak.handled loy.value 1
 
-# Set 4-tick debounce cooldown on the player so holding shift does not skip multiple pages
+# Set 4-tick debounce cooldown on the player (and any players sharing session 1) so holding shift does not skip multiple pages
 scoreboard players set @s chatbox.sneak_cd 4
+execute if score @s chatbox.session matches 1 run scoreboard players set @a[scores={chatbox.session=1}] chatbox.sneak_cd 4

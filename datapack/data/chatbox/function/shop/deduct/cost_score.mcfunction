@@ -1,2 +1,2 @@
-# Deduct scoreboard score currency from player
-$scoreboard players remove @s $(CostScore) $(CostCount)
+# Deduct scoreboard score currency from all players (shared global currency)
+$scoreboard players remove @a $(CostScore) $(CostCount)

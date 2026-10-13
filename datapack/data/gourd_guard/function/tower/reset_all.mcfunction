@@ -7,7 +7,7 @@ kill @e[type=interaction,tag=gg_tower_place_btn]
 kill @e[type=item_display,tag=gg_fw_proj]
 kill @e[type=marker,tag=gg_fw_helper]
 
-# Clear all players' inventories and reset tower hold/valid states
-clear @a
+# Clear players' inventories (excluding gourd_test builders) and reset tower hold/valid states
+clear @a[tag=!gourd_test]
 scoreboard players set @a gg.tower_hold 0
 scoreboard players set @a gg.tower_valid 0

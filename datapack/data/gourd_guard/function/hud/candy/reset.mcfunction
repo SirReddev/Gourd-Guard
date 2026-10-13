@@ -1,5 +1,5 @@
-scoreboard players set @s coins 0
-scoreboard players set @s coins_prev 0
-scoreboard players set @s coins_diff 0
-scoreboard players set @s coins_pop 0
-scoreboard players set @s coins_pop_type 0
+scoreboard players set @a coins 0
+scoreboard players set @a coins_prev 0
+scoreboard players set @a coins_diff 0
+scoreboard players set @a coins_pop 0
+scoreboard players set @a coins_pop_type 0

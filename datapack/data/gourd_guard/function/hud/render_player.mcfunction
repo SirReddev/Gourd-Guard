@@ -1,5 +1,7 @@
-# Ensure player scores are initialized (Default: HUD enabled = 1)
+# Ensure player scores are initialized (Default: HUD enabled = 1, sync global shared coins for newly joined players)
 execute unless score @s hud_toggle matches 0..1 run scoreboard players set @s hud_toggle 1
+execute unless score @s coins matches 0.. as @a[scores={coins=0..},limit=1] run scoreboard players operation @p[scores={coins=..-1}] coins = @s coins
+execute unless score @s coins matches 0.. if entity @a[scores={coins=1..}] run scoreboard players operation @s coins = @r[scores={coins=1..}] coins
 execute unless score @s coins matches 0.. run scoreboard players set @s coins 0
 execute unless score @s coins_diff matches 0.. run scoreboard players set @s coins_diff 0
 execute unless score @s coins_pop matches 0.. run scoreboard players set @s coins_pop 0

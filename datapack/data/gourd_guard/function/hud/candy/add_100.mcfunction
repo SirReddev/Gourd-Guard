@@ -1,1 +1,1 @@
-scoreboard players add @s coins 100
+scoreboard players add @a coins 100
