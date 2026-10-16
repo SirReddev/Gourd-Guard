@@ -22,16 +22,16 @@ execute as @a[scores={fly_status=3,fly_hold=0},gamemode=!spectator,gamemode=!cre
 
 # 6. Mode 3 (Free Fly): Airborne vs Ground Handling
 # AIRBORNE (>= 2 blocks in the air):
-# - Sneak immediately provides upward thrust (Level 6 Levitation)
-execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 5 true
-execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 2
-# - Airborne glide parachute
+# - Directional Shift Flight: Fly fast in crosshair direction (~11 blocks/sec) with zero camera jitter (~ ~ relative rotation)
+execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run tp @s ^ ^ ^0.55 ~ ~
+execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run particle minecraft:cloud ^ ^ ^-0.7 0.1 0.1 0.1 0.02 2
+# - Release sneak provides smooth hover / glide parachute
 execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:slow_falling 1 1 true
 
 # GROUND LAUNCH (Requires holding Shift for >= 8 ticks = 0.4s to take off):
 # - Charge indicator particles during hold (ticks 4 to 7)
 execute as @a[scores={fly_status=3,fly_hold=4..7},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.05 0.05 0.05 0.01 1
-# - Launch upward once held for 8 ticks (Level 6 Levitation)
+# - Launch upward into the air once held for 8 ticks
 execute as @a[scores={fly_status=3,fly_hold=8..},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 5 true
 execute as @a[scores={fly_status=3,fly_hold=8..},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.2 0.2 0.2 0.05 4
 
