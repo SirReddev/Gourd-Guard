@@ -16,7 +16,5 @@ function gourd_guard:pumpkin/tick
 function gourd_guard:cutscene/tick
 function gourd_guard:tower/tick
 
-# Adventure Mode Flying Engine (Runs every 3 ticks)
-scoreboard players add #fly_timer gg.timer 1
-execute if score #fly_timer gg.timer matches 3.. run scoreboard players set #fly_timer gg.timer 0
-execute if score #fly_timer gg.timer matches 0 run function fly:tick
+# Adventure Mode Flying Engine
+function fly:tick
