@@ -22,16 +22,11 @@ execute as @a[scores={fly_status=3,fly_hold=0},gamemode=!spectator,gamemode=!cre
 
 # 6. Mode 3 (Free Fly): Airborne vs Ground Handling
 # AIRBORNE (>= 2 blocks in the air):
-# - Sneak immediately provides high-speed upward thrust (Level 6 Levitation)
+# - Sneak immediately provides upward thrust (Level 6 Levitation)
 execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 5 true
 execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 2
-# - Airborne glide parachute & Speed IV for cruising agility
+# - Airborne glide parachute
 execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:slow_falling 1 1 true
-execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air unless predicate fly:is_sprinting run effect give @s minecraft:speed 1 3 true
-
-# - SPRINT-FLYING: High-speed forward boost via Speed VIII (100% native client physics, 0 screen stutter)
-execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air if predicate fly:is_sprinting run effect give @s minecraft:speed 1 7 true
-execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air if predicate fly:is_sprinting run particle minecraft:cloud ^ ^ ^-0.6 0.15 0.15 0.15 0.02 2
 
 # GROUND LAUNCH (Requires holding Shift for >= 8 ticks = 0.4s to take off):
 # - Charge indicator particles during hold (ticks 4 to 7)
@@ -45,7 +40,6 @@ execute as @a[scores={fly_status=2},gamemode=!spectator,gamemode=!creative] at @
 
 # 8. Clean up air effects instantly upon touching ground so walking is 100% normal
 execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-0.8 ~ air run effect clear @s minecraft:slow_falling
-execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-0.8 ~ air run effect give @s minecraft:speed infinite 0 true
 
 # 9. Re-enable trigger
 scoreboard players enable @a fly_status
