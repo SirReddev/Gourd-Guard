@@ -40,6 +40,9 @@ stopsound @a record gourd_guard:hud.timer10s
 # Switch Pumpkin Objective to 'on' variant
 function gourd_guard:pumpkin/set_on
 
+# Ensure Flight is enabled during waves
+execute unless score .global fly_active matches 1 run function gourd_guard:fly/enable
+
 # Refresh wave HUD
 function gourd_guard:hud/wave/tick
 

@@ -17,4 +17,4 @@ function gourd_guard:cutscene/tick
 function gourd_guard:tower/tick
 
 # Adventure Mode Flying Engine
-function fly:tick
+function gourd_guard:fly/tick
