@@ -21,11 +21,6 @@ execute as @a[scores={fly_status=2},gamemode=!spectator,gamemode=!creative] at @
 # 3. Stop rising when Shift released
 effect clear @a[scores={fly_start=0,fly_status=3},gamemode=!spectator,gamemode=!creative] minecraft:levitation
 
-# 4. Trigger menu output (only if player typed /trigger fly)
-tellraw @a[scores={fly=1..}] [{"text":"[Flight] ","color":"gold","bold":true},{"color":"green","text":"[Free Fly]","clickEvent":{"action":"run_command","value":"/trigger fly_status set 3"}},{"text":"  ","color":"gray"},{"color":"yellow","text":"[Lock Altitude]","clickEvent":{"action":"run_command","value":"/trigger fly_status set 2"}},{"text":"  ","color":"gray"},{"color":"red","text":"[Disable]","clickEvent":{"action":"run_command","value":"/trigger fly_status set 0"}}]
-
-# 5. Reset scoreboard counters & re-enable triggers
+# 4. Reset scoreboard counters & re-enable triggers
 scoreboard players set @a[scores={fly_start=1..}] fly_start 0
-scoreboard players reset @a[scores={fly=1..}] fly
-scoreboard players enable @a fly
 scoreboard players enable @a fly_status
