@@ -22,9 +22,9 @@ execute as @a[scores={fly_status=3,fly_hold=0},gamemode=!spectator,gamemode=!cre
 
 # 6. Mode 3 (Free Fly): Airborne vs Ground Handling
 # AIRBORNE (>= 2 blocks in the air):
-# - Directional Shift Flight: Fly fast in crosshair direction (~11 blocks/sec) with zero camera jitter (~ ~ relative rotation)
-execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run tp @s ^ ^ ^0.55 ~ ~
-execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run particle minecraft:cloud ^ ^ ^-0.7 0.1 0.1 0.1 0.02 2
+# - Sneak immediately provides upward thrust (Level 6 Levitation)
+execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 5 true
+execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 2
 # - Release sneak provides smooth hover / glide parachute
 execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:slow_falling 1 1 true
 
