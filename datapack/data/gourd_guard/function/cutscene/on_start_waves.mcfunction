@@ -6,6 +6,9 @@ scoreboard players set .global cs.state 0
 
 tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Get ready, the first wave is approaching!","color":"yellow"}]
 
+# Enable Adventure Mode Flight during waves
+function fly:enable
+
 # Start game timer (counting up from 0:00)
 scoreboard players set .global timer_min 0
 scoreboard players set .global timer_sec 0
