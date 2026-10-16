@@ -5,4 +5,4 @@ scoreboard players set @a[gamemode=!spectator,gamemode=!creative] fly_status 3
 scoreboard players set @a fly_hold 0
 scoreboard players enable @a fly_status
 
-tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Flight is now active! Hold ","color":"green"},{"text":"[Shift]","color":"yellow","bold":true},{"text":" for 0.4s to take off, release to glide!","color":"green"}]
+tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Flight active! Hold ","color":"green"},{"text":"[Shift]","color":"yellow","bold":true},{"text":" to soar up, release to glide, and ","color":"green"},{"text":"Sprint (Ctrl / Double-W)","color":"gold","bold":true},{"text":" to fly forward fast!","color":"green"}]

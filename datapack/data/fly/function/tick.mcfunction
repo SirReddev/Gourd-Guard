@@ -22,22 +22,28 @@ execute as @a[scores={fly_status=3,fly_hold=0},gamemode=!spectator,gamemode=!cre
 
 # 6. Mode 3 (Free Fly): Airborne vs Ground Handling
 # AIRBORNE (>= 2 blocks in the air):
-# - Sneak immediately provides upward thrust (no delay needed once flying)
-execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 3 true
-execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 1
-# - Release sneak provides smooth glide parachute
+# - Sneak immediately provides high-speed upward thrust (Level 6 Levitation)
+execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 5 true
+execute as @a[scores={fly_status=3,fly_hold=1..},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 2
+# - Airborne glide parachute & Speed IV for fast horizontal steering
 execute as @a[scores={fly_status=3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:slow_falling 1 1 true
+execute as @a[scores={fly_status=3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:speed 1 3 true
+
+# - SPRINT-FLYING: Boost forward fast in facing direction when sprinting in mid-air
+execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air if predicate fly:is_sprinting run tp @s ^ ^ ^0.35
+execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air if predicate fly:is_sprinting run particle minecraft:cloud ^ ^ ^-0.6 0.15 0.15 0.15 0.02 2
 
 # GROUND LAUNCH (Requires holding Shift for >= 8 ticks = 0.4s to take off):
 # - Charge indicator particles during hold (ticks 4 to 7)
 execute as @a[scores={fly_status=3,fly_hold=4..7},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.05 0.05 0.05 0.01 1
-# - Launch upward once held for 8 ticks
-execute as @a[scores={fly_status=3,fly_hold=8..},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 3 true
-execute as @a[scores={fly_status=3,fly_hold=8..},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.15 0.15 0.15 0.05 3
+# - Launch upward once held for 8 ticks (Level 6 Levitation)
+execute as @a[scores={fly_status=3,fly_hold=8..},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 5 true
+execute as @a[scores={fly_status=3,fly_hold=8..},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.2 0.2 0.2 0.05 4
 
 # 7. Mode 2: Lock Y (Fixed Altitude Hover)
 execute as @a[scores={fly_status=2},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 255 true
 execute as @a[scores={fly_status=2},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:slow_falling 1 1 true
+execute as @a[scores={fly_status=2},gamemode=!spectator,gamemode=!creative] at @s if block ~ ~-2 ~ air run effect give @s minecraft:speed 1 3 true
 
 # 8. Clean up slow_falling instantly upon touching ground so walking is 100% normal
 execute as @a[scores={fly_status=2..3},gamemode=!spectator,gamemode=!creative] at @s unless block ~ ~-0.8 ~ air run effect clear @s minecraft:slow_falling
