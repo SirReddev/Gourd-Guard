@@ -1,5 +1,5 @@
 # gourd_guard:lobby/start_display/summon
-# Summons the interactive Start Game text display with the Gourd pixel icon and "RIGHT CLICK TO START" button badge, plus interaction hitbox
+# Summons the interactive Start Game text display with the Gourd pixel icon and "CLICK TO START" button badge, plus interaction hitbox
 
 # Text Display (NBT component with custom font glyphs):
 summon minecraft:text_display ~ ~1.6 ~ {billboard:"center",background:0,transformation:{scale:[1.4f,1.4f,1.4f],translation:[0.0f,0.0f,0.0f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]},Tags:["gg_start_display"],text:{text:"",extra:[{text:"\uE304\n\n",color:"white",font:"minecraft:default"},{text:"\uE302",color:"white",font:"minecraft:default"}]}}
