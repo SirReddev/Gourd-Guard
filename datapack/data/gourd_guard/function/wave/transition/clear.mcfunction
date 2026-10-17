@@ -1,5 +1,7 @@
-﻿# Remove posteffect transition
+# Remove posteffect transition
 posteffect remove @a gourd_guard:fade_black
+posteffect remove @a gourd_guard:cutscene_fade
+tag @a remove gg_npc_deco
 
 # Transition finished: return to state 0 (Lobby / Idle)
 scoreboard players set .wave state 0

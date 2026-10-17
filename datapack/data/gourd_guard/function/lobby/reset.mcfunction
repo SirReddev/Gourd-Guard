@@ -28,5 +28,11 @@ scoreboard players set #game_active gg_stats 0
 # Refresh statistics displays
 function gourd_guard:lobby/stats/update
 
+# Clear posteffects, flight, and accidental player deco tags
+posteffect remove @a gourd_guard:cutscene_fade
+posteffect remove @a gourd_guard:fade_black
+tag @a remove gg_npc_deco
+function gourd_guard:fly/disable
+
 # --- 3. Announcement ---
 tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"All lobby leaderboard records and game statistics have been reset!","color":"green","bold":true}]

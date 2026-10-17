@@ -13,13 +13,16 @@ effect clear @a[tag=!gourd_test]
 # 3. Clear all game items, gliders, and hotbar gear
 clear @a[tag=!gourd_test]
 
-# 4. Remove active game/cutscene/death tags
+# 4. Remove active game/cutscene/death/deco tags and posteffects
 tag @a remove cs_viewer
 tag @a remove cs_player
 tag @a remove dead
 tag @a remove gg_dead
 tag @a remove talker
 tag @a remove gg_talking
+tag @a remove gg_npc_deco
+posteffect remove @a gourd_guard:cutscene_fade
+posteffect remove @a gourd_guard:fade_black
 
 # 5. Reset player dialogue and flight hold states
 scoreboard players set @a fly_hold 0

@@ -4,7 +4,7 @@ scoreboard players set #npc_check gg.timer 0
 
 # Kill any rogue interaction hitboxes on decorative NPCs & tag surrounding parts
 execute as @e[type=item_display,tag=gg_npc_deco] at @s as @e[type=interaction,tag=gg_npc_interaction,distance=..3] run kill @s
-execute as @e[type=item_display,tag=gg_npc_deco] at @s as @e[distance=..3] run tag @s add gg_npc_deco
+execute as @e[type=item_display,tag=gg_npc_deco] at @s as @e[type=!player,distance=..3] run tag @s add gg_npc_deco
 
 # Auto-spawn interaction hitbox for any existing NPC stand missing one (excluding decorative NPCs)
 execute as @e[type=item_display,tag=aj.gourdguard_npc_witchstand.root,tag=!gg_npc_deco] at @s unless entity @e[type=interaction,tag=gg_witch_interaction,distance=..2.5] run summon minecraft:interaction ~ ~ ~ {width:2.0f,height:2.0f,response:1b,Tags:["gg_npc_interaction","gg_witch_interaction"]}

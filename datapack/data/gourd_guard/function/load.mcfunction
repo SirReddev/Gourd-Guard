@@ -14,6 +14,17 @@ scoreboard objectives add math dummy
 # Global World Spawn for New Players
 setworldspawn 2270 -2 5 181.2
 
+# Clear lingering posteffects on reload
+posteffect remove @a gourd_guard:cutscene_fade
+posteffect remove @a gourd_guard:fade_black
+
+# Remove accidental NPC deco tag from players
+tag @a remove gg_npc_deco
+
+# Permanently forceload Lobby and Map 1 chunk areas so markers are always loaded from anywhere
+forceload add 2250 -80 2290 20
+forceload add 2460 -80 2560 80
+
 # Gourd Guard Datapack Initialized
 function gourd_guard:path/init
 function gourd_guard:cutscene/init

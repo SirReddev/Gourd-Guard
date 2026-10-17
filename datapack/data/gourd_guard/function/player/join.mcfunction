@@ -15,3 +15,8 @@ gamemode adventure @s[tag=!gourd_test]
 
 # 5. Enable skip trigger
 scoreboard players enable @s gg_skip
+
+# 6. Clear any lingering posteffects or accidental deco tags
+posteffect remove @s gourd_guard:cutscene_fade
+posteffect remove @s gourd_guard:fade_black
+tag @s remove gg_npc_deco

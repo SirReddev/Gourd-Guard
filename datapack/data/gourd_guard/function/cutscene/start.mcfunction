@@ -17,11 +17,16 @@ execute unless score .global map matches 1..5 run scoreboard players set .global
 # Clean any existing cutscene entities before starting
 function gourd_guard:cutscene/reset
 
-# 1. Tag all active players (excluding gourd_test builders) as viewers
+# 1. Tag all active players (excluding gourd_test builders) as viewers (fallback to @p if all tagged gourd_test)
 tag @a[tag=!gourd_test] add cs_viewer
+execute unless entity @a[tag=cs_viewer] run tag @p add cs_viewer
 
-# 2. Put viewers (except gourd_test builders) into Adventure mode
-gamemode adventure @a[tag=cs_viewer,tag=!gourd_test]
+# 2. Put viewers into Adventure mode
+gamemode adventure @a[tag=cs_viewer]
+
+# Re-enable skip trigger and provide click-to-skip button
+scoreboard players enable @a gg_skip
+tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Intro starting! ","color":"yellow"},{"text":"[CLICK TO SKIP INTRO]","color":"dark_aqua","bold":true,"underlined":true,"click_event":{"action":"run_command","command":"/trigger gg_skip"},"hover_event":{"action":"show_text","value":{"text":"Click to skip straight to waves!","color":"green"}}}]
 
 # 3. Add black fade post-effect transition (0t..15t fade to black, 15t..40t solid black, 40t..55t fade back to clear)
 posteffect add @a[tag=cs_viewer] gourd_guard:cutscene_fade
