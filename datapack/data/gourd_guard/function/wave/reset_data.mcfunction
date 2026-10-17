@@ -42,3 +42,9 @@ kill @e[tag=gg_candy]
 execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".candy run kill @s
 function gourd_guard:tower/reset_all
 
+# 7. Reset per-player NPC first-interaction states for new playthrough
+scoreboard players reset * gg.talked_witch
+scoreboard players reset * gg.talked_archer
+scoreboard players reset * gg.talked_blacksmith
+scoreboard players reset * gg.talked_gravedigger
+

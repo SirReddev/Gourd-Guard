@@ -2,11 +2,11 @@ scoreboard objectives add gg.timer dummy
 scoreboard objectives add gg.xp_pts dummy
 scoreboard players set #player_buff_timer gg.timer 0
 
-# Clean up legacy first-interaction objectives if they exist
-scoreboard objectives remove gg.talked_witch
-scoreboard objectives remove gg.talked_archer
-scoreboard objectives remove gg.talked_blacksmith
-scoreboard objectives remove gg.talked_gravedigger
+# Ensure per-player first-interaction objectives exist
+scoreboard objectives add gg.talked_witch dummy
+scoreboard objectives add gg.talked_archer dummy
+scoreboard objectives add gg.talked_blacksmith dummy
+scoreboard objectives add gg.talked_gravedigger dummy
 
 # Gourd Guard Datapack Initialized
 function gourd_guard:path/init
