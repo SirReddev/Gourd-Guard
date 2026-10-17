@@ -1,0 +1,102 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"0": "aj:blueprint/lobby/gourdguard_lobby_titles_credits",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [25.07692, 8.46154, 5.46154],
+			"to": [31.53846, 17.69231, 10.53846],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [1.44, 1.1, 1.888, 3.1],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [1.888, 1.1, 1.44, 3.1],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [1.888, 1.1, 1.44, 0],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [1.888, 4.2, 1.44, 3.1],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [24.61538, 10.76923, 5],
+			"to": [28.30769, 15.38462, 11],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"east": {
+					"uv": [0.016, 13.3, 0, 13.35],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [0.016, 13.3, 0, 13.35],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [0.016, 13.3, 0, 13.35],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [32, 18.15385, 11],
+			"to": [24.61538, 8, 5],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [0.032, 13.3, 0, 13.85],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [0.032, 13.3, 0.016, 13.85],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [0, 13.3, 0.032, 13.85],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				}
+			}
+		}
+	]
+}
