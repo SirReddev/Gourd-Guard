@@ -10,6 +10,3 @@ execute if entity @e[tag=gg_tower_placed,distance=..2.0] run return 0
 # 3. Ambient golden spark particles sitting right above platform surface
 particle minecraft:wax_on ~ ~0.12 ~ 0.55 0.03 0.55 0.01 2
 particle minecraft:dust{color:[1.0f,0.75f,0.2f],scale:0.75f} ~ ~0.06 ~ 0.5 0.02 0.5 0 2
-
-# 4. Magical glyphs pulsating every 20 ticks sitting right above surface
-execute if score #platform_cycle gg.timer matches 0..2 run particle minecraft:enchant ~ ~0.18 ~ 0.45 0.04 0.45 0.2 2
