@@ -1,19 +1,19 @@
 # gourd_guard:wave/transition/teleport_lobby
 # Full multiplayer post-game reset: restores gamemodes, health, hunger, clears items/effects, resets dialogue sessions and teleports to lobby
 
-# 1. Restore Gamemode to adventure for any player (alive, dead, or spectator)
-gamemode adventure @a[tag=!gourd_test]
+# 1. Restore Gamemode to adventure for any non-creative player (alive, dead, or spectator)
+gamemode adventure @a[gamemode=!creative]
 
 # 2. Fully heal, feed, extinguish, and clear status effects
-effect give @a[tag=!gourd_test] minecraft:instant_health 1 255 true
-effect give @a[tag=!gourd_test] minecraft:saturation 1 255 true
-execute as @a[tag=!gourd_test] run data modify entity @s Fire set value 0s
-effect clear @a[tag=!gourd_test]
+effect give @a[gamemode=!creative] minecraft:instant_health 1 255 true
+effect give @a[gamemode=!creative] minecraft:saturation 1 255 true
+execute as @a[gamemode=!creative] run data modify entity @s Fire set value 0s
+effect clear @a[gamemode=!creative]
 
 # 3. Clear all game items, gliders, and hotbar gear
-clear @a[tag=!gourd_test]
+clear @a[gamemode=!creative]
 
-# 4. Remove active game/cutscene/death/deco tags and posteffects
+# 4. Remove active game/cutscene/death/deco/test tags and posteffects
 tag @a remove cs_viewer
 tag @a remove cs_player
 tag @a remove dead
@@ -21,6 +21,7 @@ tag @a remove gg_dead
 tag @a remove talker
 tag @a remove gg_talking
 tag @a remove gg_npc_deco
+tag @a remove gourd_test
 posteffect remove @a gourd_guard:cutscene_fade
 posteffect remove @a gourd_guard:fade_black
 
@@ -35,7 +36,7 @@ scoreboard players reset @a chatbox.page
 scoreboard players enable @a gg_skip
 
 # 7. Teleport players to post-game lobby location
-execute as @a[tag=!gourd_test] in minecraft:overworld run tp @s 2271.49 -1.00 -64.54 1618.65 -3.75
+execute as @a[gamemode=!creative] in minecraft:overworld run tp @s 2271.49 -1.00 -64.54 1618.65 -3.75
 
 # 8. Set player spawnpoint to default lobby spawn
-execute as @a[tag=!gourd_test] run spawnpoint @s 2270.47 -2.00 5.34 1621.20
+execute as @a[gamemode=!creative] run spawnpoint @s 2270.47 -2.00 5.34 1621.20

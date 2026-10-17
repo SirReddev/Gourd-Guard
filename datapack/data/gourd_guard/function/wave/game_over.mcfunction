@@ -22,10 +22,10 @@ function gourd_guard:pumpkin/set_default
 # 1. Play custom Game Over sound effect & Title together
 execute as @a at @s run playsound gourd_guard:game.over record @s ~ ~ ~ 1.0 1.0 1
 
-# Defeat title displays above the screen fade (lasts 11.5s, exclude builders)
-title @a[tag=!gourd_test] times 10 200 20
-title @a[tag=!gourd_test] title {"text":"DEFEAT","color":"dark_red","bold":true}
-title @a[tag=!gourd_test] subtitle [{"text":"The Pumpkin Objective was destroyed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
+# Defeat title displays above the screen fade (lasts 11.5s, exclude creative builders)
+title @a[gamemode=!creative] times 10 200 20
+title @a[gamemode=!creative] title {"text":"DEFEAT","color":"dark_red","bold":true}
+title @a[gamemode=!creative] subtitle [{"text":"The Pumpkin Objective was destroyed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
 
 tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"GAME OVER! The base was overwhelmed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
 

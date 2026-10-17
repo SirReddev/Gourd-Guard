@@ -2,7 +2,7 @@
 # Runs every tick
 
 # 1. Clean up gliders and return if flight is not active
-execute unless score .global fly_active matches 1 as @a[tag=!gourd_test] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run function gourd_guard:fly/disable
+execute unless score .global fly_active matches 1 as @a if data entity @s Inventory[{Slot:102b,components:{"minecraft:custom_data":{gg_glider:1b}}}] run function gourd_guard:fly/disable
 execute unless score .global fly_active matches 1 run return 0
 
 # 2. Reset flight hold & clear levitation for any player currently engaged in chatbox dialogue/shop
@@ -10,11 +10,11 @@ execute as @a[scores={chatbox.session=1..}] at @s run scoreboard players set @s 
 execute as @a[scores={chatbox.session=1..}] at @s run effect clear @s minecraft:levitation
 
 # 3. Ensure all players have the locked Elytra equipped while flight is active
-execute as @a[gamemode=!spectator,tag=!gourd_test] unless data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={}]
+execute as @a[gamemode=adventure] unless data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={}]
 
 # 4. Track continuous Sneak duration (in ticks) - only for players not in chatbox sessions
-execute as @a[gamemode=!spectator,tag=!gourd_test] unless score @s chatbox.session matches 1.. if predicate chatbox:is_sneaking run scoreboard players add @s fly_hold 1
-execute as @a[gamemode=!spectator,tag=!gourd_test] unless predicate chatbox:is_sneaking run scoreboard players set @s fly_hold 0
+execute as @a[gamemode=adventure] unless score @s chatbox.session matches 1.. if predicate chatbox:is_sneaking run scoreboard players add @s fly_hold 1
+execute as @a[gamemode=adventure] unless predicate chatbox:is_sneaking run scoreboard players set @s fly_hold 0
 
 # 5. Clear levitation immediately when Shift is released
 execute as @a[scores={fly_hold=0},gamemode=!spectator] run effect clear @s minecraft:levitation

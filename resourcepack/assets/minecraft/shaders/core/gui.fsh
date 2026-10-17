@@ -43,17 +43,7 @@ void main() {
         }
         
         float rawAlpha = color.a * ColorModulator.a;
-        
-        // Stage 1 (0.0 -> 0.5): Black background fades in/out
-        float bgAlpha = smoothstep(0.0, 0.45, rawAlpha);
-        
-        // Stage 2 (0.5 -> 1.0): Logo fades in over black, and fades out first
-        float logoAlpha = smoothstep(0.45, 1.0, rawAlpha);
-        
-        // Blend logo over solid black background
-        vec3 finalRgb = mix(vec3(0.0), rawLogo, logoAlpha);
-        
-        fragColor = vec4(finalRgb, bgAlpha);
+        fragColor = vec4(rawLogo, rawAlpha);
         return;
     }
 

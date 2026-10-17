@@ -6,8 +6,8 @@ scoreboard objectives add spawn_timer dummy
 scoreboard objectives add spawn_done dummy
 
 # 1. Stop Wave System
-execute unless score .wave state matches 3..4 run scoreboard players set .wave state 0
-execute unless score .wave state matches 3..4 run function gourd_guard:fly/disable
+scoreboard players set .wave state 0
+function gourd_guard:fly/disable
 scoreboard players set .wave spawn_timer 0
 scoreboard players set .wave spawn_done 0
 

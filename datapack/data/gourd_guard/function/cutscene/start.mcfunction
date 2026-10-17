@@ -20,6 +20,7 @@ function gourd_guard:cutscene/reset
 # 1. Tag all active players (excluding gourd_test builders) as viewers (fallback to @p if all tagged gourd_test)
 tag @a[tag=!gourd_test] add cs_viewer
 execute unless entity @a[tag=cs_viewer] run tag @p add cs_viewer
+tag @a[tag=cs_viewer] remove gourd_test
 
 # 2. Put viewers into Adventure mode
 gamemode adventure @a[tag=cs_viewer]
@@ -32,6 +33,7 @@ tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Intro 
 posteffect add @a[tag=cs_viewer] gourd_guard:cutscene_fade
 
 # 4. Reset cutscene state & stop game timer during black fade transition
+scoreboard players set .wave state 0
 scoreboard players set .global cs.timer 0
 scoreboard players set .global cs.state 1
 scoreboard players set .global timer_active 0
