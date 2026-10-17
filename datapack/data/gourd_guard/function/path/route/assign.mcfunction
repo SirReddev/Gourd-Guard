@@ -50,4 +50,7 @@ tag @e[tag=path_target] remove path_target
 # Immediately orient towards first node
 execute at @s run function gourd_guard:path/mob/process
 
+# Apply themed glowing outline
+function gourd_guard:wave/mob_glow_entity
+
 $execute if score .debug path.debug matches 1 run tellraw @a [{"text":"[Path] ","color":"dark_green"},{"text":"Assigned ","color":"green"},{"selector":"@s"},{"text":" to Map $(map) Path $(path)","color":"yellow","bold":true}]

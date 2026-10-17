@@ -13,3 +13,6 @@ function gourd_guard:path/mob/auto_init
 # 2. Process all active path mobs
 execute as @e[tag=path_mob,scores={path.state=1..}] at @s run function gourd_guard:path/mob/process
 
+# 3. Apply color-themed glow to all wave mobs
+function gourd_guard:wave/mob_glow
+
