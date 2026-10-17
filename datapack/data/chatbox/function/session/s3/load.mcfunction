@@ -31,6 +31,10 @@ data modify storage chatbox:selection SelectedSlot set from storage chatbox:s3_s
 data modify storage chatbox:selection FooterRow set from storage chatbox:s3_selection FooterRow
 data modify storage chatbox:selection Session set value "s3"
 
+# Restore item count scores for slot cycling & render
+execute store result score #chatbox.shop_items loy.value run data get storage chatbox:shop FooterRow
+execute store result score #chatbox.selection_items loy.value run data get storage chatbox:selection FooterRow
+
 scoreboard players operation #chatbox.bossbar.flag loy.value = #chatbox.s3.bossbar.flag loy.value
 scoreboard players operation #chatbox.current.line loy.value = #chatbox.s3.current.line loy.value
 scoreboard players operation #chatbox.text.length loy.value = #chatbox.s3.text.length loy.value

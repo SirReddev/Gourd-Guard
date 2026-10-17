@@ -1,4 +1,8 @@
 # Handles Shift / Sneak purchase input while shop is active
+# Ensure selected_slot is valid against current item count
+execute store result score #chatbox.shop_items loy.value run data get storage chatbox:shop FooterRow
+execute if score #chatbox.shop_items loy.value matches 1.. run scoreboard players operation @s chatbox.selected_slot %= #chatbox.shop_items loy.value
+
 # Slots (indices 0..7) trigger purchase evaluation
 execute if score #chatbox.sneak.handled loy.value matches 0 if score @s chatbox.selected_slot matches 0 if data storage chatbox:shop Items[0] run data modify storage chatbox:shop Temp set from storage chatbox:shop Items[0]
 execute if score #chatbox.sneak.handled loy.value matches 0 if score @s chatbox.selected_slot matches 0 if data storage chatbox:shop Items[0] run function chatbox:shop/purchase

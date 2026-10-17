@@ -11,8 +11,8 @@ execute unless score .global map matches 1..5 run scoreboard players set .global
 # Clean any existing cutscene entities before starting
 function gourd_guard:cutscene/reset
 
-# 1. Tag all players as viewers for multiplayer cutscene
-tag @a add cs_viewer
+# 1. Tag all active players (excluding gourd_test builders) as viewers
+tag @a[tag=!gourd_test] add cs_viewer
 
 # 2. Put viewers (except gourd_test builders) into Adventure mode
 gamemode adventure @a[tag=cs_viewer,tag=!gourd_test]

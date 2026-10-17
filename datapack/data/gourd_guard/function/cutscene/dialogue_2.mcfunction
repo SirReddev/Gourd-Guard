@@ -13,11 +13,11 @@ data modify storage chatbox:main SequenceOnEnd set value "function gourd_guard:c
 # Launch dialogue for the cutscene session and show bossbar to all players in multiplayer
 execute as @a[tag=cs_viewer,limit=1] run function chatbox:sequence/start
 execute unless entity @a[tag=cs_viewer] as @p run function chatbox:sequence/start
-bossbar set chatbox:s1_frame players @a
-bossbar set chatbox:s1_line_0 players @a
-bossbar set chatbox:s1_line_1 players @a
-bossbar set chatbox:s1_line_2 players @a
-scoreboard players set @a chatbox.session 1
+bossbar set chatbox:s1_frame players @a[tag=cs_viewer]
+bossbar set chatbox:s1_line_0 players @a[tag=cs_viewer]
+bossbar set chatbox:s1_line_1 players @a[tag=cs_viewer]
+bossbar set chatbox:s1_line_2 players @a[tag=cs_viewer]
+scoreboard players set @a[tag=cs_viewer] chatbox.session 1
 
 # Cutscene state 3 (Dialogue 2)
 scoreboard players set .global cs.state 3

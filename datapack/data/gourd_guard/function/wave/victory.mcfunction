@@ -16,10 +16,10 @@ function gourd_guard:pumpkin/set_default
 # 1. Play custom Victory sound effect & Title together
 execute as @a at @s run playsound gourd_guard:game.won record @s ~ ~ ~ 1.0 1.0 1
 
-# Victory title displays above the screen fade
-title @a times 10 200 20
-title @a title {"text":"VICTORY!","color":"gold","bold":true}
-title @a subtitle {"text":"YOU DEFENDED THE GOURD FROM ALL 40 WAVES!","color":"yellow","bold":true}
+# Victory title displays above the screen fade (exclude builders)
+title @a[tag=!gourd_test] times 10 200 20
+title @a[tag=!gourd_test] title {"text":"VICTORY!","color":"gold","bold":true}
+title @a[tag=!gourd_test] subtitle {"text":"YOU DEFENDED THE GOURD FROM ALL 40 WAVES!","color":"yellow","bold":true}
 
 tellraw @a [{"text":"[Wave System] ","color":"gold","bold":true},{"text":" CONGRATULATIONS! You successfully completed all 40 Waves! The Pumpkin is saved!","color":"yellow"}]
 

@@ -10,6 +10,7 @@ scoreboard players set @s chatbox.walk 0
 scoreboard players set @s chatbox.sprint 0
 
 # 2. Track hotbar slot changes (0..8) and cycle modulo total item count
+execute if data storage chatbox:shop {Active:1b} store result score #chatbox.shop_items loy.value run data get storage chatbox:shop FooterRow
 execute if data storage chatbox:shop {Active:1b} store result score @s chatbox.selected_slot run data get entity @s SelectedItemSlot
 execute if data storage chatbox:shop {Active:1b} if score #chatbox.shop_items loy.value matches 1.. run scoreboard players operation @s chatbox.selected_slot %= #chatbox.shop_items loy.value
 

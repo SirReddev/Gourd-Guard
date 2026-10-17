@@ -10,6 +10,9 @@ data modify storage chatbox:shop Items[6].Session set from storage chatbox:shop 
 data modify storage chatbox:shop Items[7].Session set from storage chatbox:shop Session
 data modify storage chatbox:shop Items[8].Session set from storage chatbox:shop Session
 
+# Ensure item count is populated for rendering
+execute store result score #chatbox.shop_items loy.value run data get storage chatbox:shop FooterRow
+
 # Renders active shop rows for the player ordered top-to-bottom
 execute if score #chatbox.shop_items loy.value matches 1 run function chatbox:shop/render/count_1
 execute if score #chatbox.shop_items loy.value matches 2 run function chatbox:shop/render/count_2

@@ -16,10 +16,10 @@ function gourd_guard:pumpkin/set_default
 # 1. Play custom Game Over sound effect & Title together
 execute as @a at @s run playsound gourd_guard:game.over record @s ~ ~ ~ 1.0 1.0 1
 
-# Game Ended title displays above the screen fade (lasts 11.5s)
-title @a times 10 200 20
-title @a title {"text":"GAME ENDED","color":"gold","bold":true}
-title @a subtitle [{"text":"The game was ended on Wave ","color":"yellow"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"yellow"}]
+# Game Ended title displays above the screen fade (lasts 11.5s, exclude builders)
+title @a[tag=!gourd_test] times 10 200 20
+title @a[tag=!gourd_test] title {"text":"GAME ENDED","color":"gold","bold":true}
+title @a[tag=!gourd_test] subtitle [{"text":"The game was ended on Wave ","color":"yellow"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"yellow"}]
 
 tellraw @a [{"text":"[!] ","color":"gold"},{"text":"GAME ENDED! The match was ended on Wave ","color":"yellow"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"yellow"}]
 
