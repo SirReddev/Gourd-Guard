@@ -1,7 +1,8 @@
 # Adventure Mode Flying Engine - Main Tick Loop
 # Runs every tick
 
-# 1. Global match check
+# 1. Only allow flight when a game is actively running (wave state 1 or 2)
+execute unless score .wave state matches 1..2 run return run function gourd_guard:fly/disable
 execute unless score .global fly_active matches 1 run return 0
 
 # 2. Complete immunity during cutscenes, dialogues, and chatbox shop sessions
