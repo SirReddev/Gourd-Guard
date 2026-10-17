@@ -4,6 +4,12 @@
 
 # Ensure objectives initialized
 function gourd_guard:cutscene/init
+function gourd_guard:lobby/stats/init
+
+# Increment playthroughs counter if not already active
+execute unless score #game_active gg_stats matches 1 run scoreboard players add #stats_plays gg_stats 1
+scoreboard players set #game_active gg_stats 1
+function gourd_guard:lobby/stats/update
 
 # Default to map 1 if unset
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1

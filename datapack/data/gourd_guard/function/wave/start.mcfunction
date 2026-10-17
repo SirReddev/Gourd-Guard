@@ -21,6 +21,12 @@ scoreboard objectives add obj_max_hp dummy
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 execute unless score .global wave matches 1..40 run scoreboard players set .global wave 1
 
+# Statistics tracking: mark game active & count run
+function gourd_guard:lobby/stats/init
+execute unless score #game_active gg_stats matches 1 run scoreboard players add #stats_plays gg_stats 1
+scoreboard players set #game_active gg_stats 1
+function gourd_guard:lobby/stats/update
+
 # Set state to 1 (Active Wave)
 scoreboard players set .wave state 1
 scoreboard players set .wave spawn_timer 0
@@ -49,4 +55,4 @@ execute unless score .global fly_active matches 1 run function gourd_guard:fly/e
 # Refresh wave HUD
 function gourd_guard:hud/wave/tick
 
-tellraw @a [{"text":"[Wave System] ","color":"dark_green"},{"text":"Map ","color":"green"},{"score":{"name":".global","objective":"map"},"color":"aqua","bold":true},{"text":" Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" has begun! Defend the Pumpkin!","color":"green"}]
+tellraw @a [{"text":"[Gourd Guard] ","color":"dark_green"},{"text":"Map ","color":"green"},{"score":{"name":".global","objective":"map"},"color":"aqua","bold":true},{"text":" Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" has begun! Defend the Pumpkin!","color":"green"}]

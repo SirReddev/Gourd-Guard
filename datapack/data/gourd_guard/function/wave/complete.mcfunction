@@ -18,4 +18,5 @@ title @a times 5 30 10
 title @a title {"text":"WAVE CLEARED!","color":"green","bold":true}
 title @a subtitle [{"text":"Next wave in ","color":"gray"},{"text":"15s","color":"yellow","bold":true}]
 
-tellraw @a [{"text":"[Wave System] ","color":"dark_green"},{"text":"Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" cleared! Next wave in 15s. Click ","color":"green"},{"text":"[SKIP]","color":"yellow","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/function gourd_guard:wave/skip"}},{"text":" to start immediately!","color":"green"}]
+scoreboard players enable @a gg_skip
+tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" cleared! Next wave in 15s. Click ","color":"green"},{"text":"[SKIP]","color":"yellow","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/trigger gg_skip"}},{"text":" to start immediately!","color":"green"}]

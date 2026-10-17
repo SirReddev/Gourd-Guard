@@ -12,3 +12,6 @@ execute unless entity @s[tag=gourd_test] run spawnpoint @s 2270.47 -2.00 5.34 16
 
 # 4. Set Adventure mode (unless tagged gourd_test)
 gamemode adventure @s[tag=!gourd_test]
+
+# 5. Enable skip trigger
+scoreboard players enable @s gg_skip

@@ -9,3 +9,6 @@ execute if score .wave state matches 1 run function gourd_guard:wave/active_tick
 
 # 2. State 2: Intermission Countdown Timer handling
 execute if score .wave state matches 2 run function gourd_guard:wave/intermission_tick
+
+# 3. Check for player [SKIP] trigger
+execute as @a[scores={gg_skip=1..}] run function gourd_guard:wave/skip_trigger

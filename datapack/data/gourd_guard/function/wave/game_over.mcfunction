@@ -2,6 +2,12 @@
 scoreboard players set .wave state 4
 scoreboard players set .global timer_active 0
 
+# Record defeat in statistics
+function gourd_guard:lobby/stats/init
+execute if score #game_active gg_stats matches 1 run scoreboard players add #stats_fails gg_stats 1
+scoreboard players set #game_active gg_stats 0
+function gourd_guard:lobby/stats/update
+
 # Stop timer audio & reset intermission timer
 stopsound @a record gourd_guard:hud.timer10s
 scoreboard players set .wave timer_sec 0

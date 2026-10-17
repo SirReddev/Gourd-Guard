@@ -1,4 +1,4 @@
-# Manual Full Reset: Reset all data, stop sounds, clear screen titles & posteffects
+﻿# Manual Full Reset: Reset all data, stop sounds, clear screen titles & posteffects
 scoreboard players set .wave state 0
 function gourd_guard:wave/reset_data
 
@@ -10,4 +10,4 @@ stopsound @a record gourd_guard:game.over
 stopsound @a record gourd_guard:game.won
 stopsound @a record gourd_guard:hud.timer10s
 
-tellraw @a [{"text":"[Wave System] ","color":"dark_green"},{"text":"All waves, active mobs, candies, timers, and Base HP (1000) have been reset!","color":"green"}]
+tellraw @a [{"text":"[Gourd Guard] ","color":"dark_green"},{"text":"All waves, active mobs, candies, timers, and Base HP (1000) have been reset!","color":"green"}]
