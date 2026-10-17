@@ -43,6 +43,27 @@
       "chars": ["\uE301"]
     },
     {
+      "type": "bitmap",
+      "file": "gourd_guard:font/button_start.png",
+      "ascent": 14,
+      "height": 16,
+      "chars": ["\uE302"]
+    },
+    {
+      "type": "bitmap",
+      "file": "gourd_guard:font/button_join.png",
+      "ascent": 14,
+      "height": 16,
+      "chars": ["\uE303"]
+    },
+    {
+      "type": "bitmap",
+      "file": "gourd_guard:font/gourd_icon.png",
+      "ascent": 36,
+      "height": 36,
+      "chars": ["\uE304"]
+    },
+    {
       "type": "reference",
       "id": "minecraft:include/default"
     },

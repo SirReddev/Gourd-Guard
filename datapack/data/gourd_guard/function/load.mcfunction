@@ -44,6 +44,9 @@ scoreboard objectives add path.state dummy
 scoreboard objectives add path.cmp dummy
 
 execute unless score .global map matches 1.. run scoreboard players set .global map 1
+
+# Initialize Leaderboard Tracking
+function gourd_guard:lobby/leaderboard/init
 execute unless score .global wave matches 1.. run scoreboard players set .global wave 1
 execute unless score .wave state matches 0.. run scoreboard players set .wave state 0
 

@@ -2,6 +2,9 @@
 scoreboard players set .wave state 3
 scoreboard players set .global timer_active 0
 
+# Record map completion time to leaderboard
+function gourd_guard:lobby/leaderboard/record_victory
+
 # Stop timer audio & reset intermission timer
 stopsound @a record gourd_guard:hud.timer10s
 scoreboard players set .wave timer_sec 0

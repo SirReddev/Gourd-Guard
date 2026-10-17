@@ -19,3 +19,6 @@ function gourd_guard:platform/tick
 
 # Adventure Mode Flying Engine
 function gourd_guard:fly/tick
+
+# Lobby Interaction Router
+function gourd_guard:lobby/tick

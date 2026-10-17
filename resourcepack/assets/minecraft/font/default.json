@@ -42,6 +42,9 @@
     { "type": "bitmap", "file": "gourd_guard:gui/hud/wave_timer_tab.png", "ascent": 10, "height": 10, "chars": ["\uE202"] },
     { "type": "bitmap", "file": "gourd_guard:font/tag_npc.png", "ascent": 8, "height": 9, "chars": ["\uE300"] },
     { "type": "bitmap", "file": "gourd_guard:font/tag_objective.png", "ascent": 8, "height": 9, "chars": ["\uE301"] },
+    { "type": "bitmap", "file": "gourd_guard:font/button_start.png", "ascent": 14, "height": 16, "chars": ["\uE302"] },
+    { "type": "bitmap", "file": "gourd_guard:font/button_join.png", "ascent": 14, "height": 16, "chars": ["\uE303"] },
+    { "type": "bitmap", "file": "gourd_guard:font/gourd_icon.png", "ascent": 36, "height": 36, "chars": ["\uE304"] },
     {
       "type": "space",
       "advances": {
