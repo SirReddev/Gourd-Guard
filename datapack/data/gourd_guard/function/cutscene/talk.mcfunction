@@ -1,6 +1,9 @@
 # Cutscene System - Talk to Peeves at Sacred Pumpkin
 # Called when player right-clicks Peeves' interaction hitbox
 
+# Do not allow talking to Peeves while cutscene is active
+execute if score .global cs.state matches 1..3 run return 0
+
 # If waves are currently running (state 1..3), offer to End game
 execute if score .wave state matches 1..3 run data modify storage chatbox:selection Items set value [{Slot:0,Name:"I'm good",SpaceAfterName:"\uf107\uf105\uf104\uf101",Action:"function chatbox:selection/close"},{Slot:1,Name:"End the game",SpaceAfterName:"\uf107\uf104\uf103",Action:"function gourd_guard:cutscene/on_end_game"}]
 
