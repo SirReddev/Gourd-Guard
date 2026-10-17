@@ -22,10 +22,10 @@ void main() {
     const int NUM_DIRS = 12;
     const float PI2 = 6.28318530718;
 
-    // Balanced outline sampling (1.2px, 2.4px, 3.6px)
-    float radii[3] = float[3](1.2, 2.4, 3.6);
+    // Crisp, balanced outline sampling (1.0px and 2.0px)
+    float radii[2] = float[2](1.0, 2.0);
 
-    for (int r = 0; r < 3; r++) {
+    for (int r = 0; r < 2; r++) {
         float rad = radii[r];
         for (int d = 0; d < NUM_DIRS; d++) {
             float angle = float(d) * (PI2 / float(NUM_DIRS));
@@ -33,6 +33,10 @@ void main() {
             vec4 neighbor = texture(InSampler, texCoord + offset);
             
             float diff = abs(center.a - neighbor.a);
+            // Attenuate interior edge difference so the glow outlines the model rather than consuming it
+            if (center.a > 0.1) {
+                diff *= 0.25;
+            }
             if (diff > maxDiff) {
                 maxDiff = diff;
             }

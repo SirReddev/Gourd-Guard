@@ -22,7 +22,7 @@ void main() {
 
     vec4 blurred = vec4(0.0);
     float totalWeight = 0.0;
-    float radius = 3.5; // Balanced bloom radius
+    float radius = 1.8; // Clean, non-bloating blur radius
 
     for (float a = -radius; a <= radius; a += 1.0) {
         float weight = 1.0 - abs(a) / (radius + 1.0);
@@ -31,5 +31,5 @@ void main() {
     }
 
     vec4 finalColor = blurred / totalWeight;
-    fragColor = vec4(finalColor.rgb * 1.25, clamp(finalColor.a * 1.3, 0.0, 1.0));
+    fragColor = vec4(finalColor.rgb * 1.05, clamp(finalColor.a * 1.05, 0.0, 1.0));
 }
