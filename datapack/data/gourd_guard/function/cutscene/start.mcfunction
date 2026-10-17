@@ -20,9 +20,13 @@ gamemode adventure @a[tag=cs_viewer,tag=!gourd_test]
 # 3. Add black fade post-effect transition (0t..15t fade to black, 15t..40t solid black, 40t..55t fade back to clear)
 posteffect add @a[tag=cs_viewer] gourd_guard:cutscene_fade
 
-# 4. Reset timer & set cutscene state
+# 4. Reset cutscene state & stop game timer during black fade transition
 scoreboard players set .global cs.timer 0
 scoreboard players set .global cs.state 1
+scoreboard players set .global timer_active 0
+scoreboard players set .global timer_min 0
+scoreboard players set .global timer_sec 0
+scoreboard players set .global timer_ticks 0
 
 # 5. At 15t (screen is solid black), execute setup: teleports player to start spot and spawns Peeves
 schedule function gourd_guard:cutscene/setup 15t

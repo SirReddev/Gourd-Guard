@@ -9,10 +9,10 @@ tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Get ready, the first wa
 # Enable Adventure Mode Flight during waves
 function gourd_guard:fly/enable
 
-# Start game timer (counting up from 0:00)
-scoreboard players set .global timer_min 0
-scoreboard players set .global timer_sec 0
-scoreboard players set .global timer_ticks 0
+# Ensure game timer is active (keeps counting if already started at cutscene)
+execute unless score .global timer_active matches 1 run scoreboard players set .global timer_min 0
+execute unless score .global timer_active matches 1 run scoreboard players set .global timer_sec 0
+execute unless score .global timer_active matches 1 run scoreboard players set .global timer_ticks 0
 scoreboard players set .global timer_active 1
 
 # Start wave 1 on current map
