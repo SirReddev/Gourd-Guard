@@ -21,6 +21,9 @@ scoreboard objectives add obj_max_hp dummy
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 execute unless score .global wave matches 1..40 run scoreboard players set .global wave 1
 
+# Ensure difficulty is normal so mobs can exist and fight
+difficulty normal
+
 # Statistics tracking: mark game active & count run
 function gourd_guard:lobby/stats/init
 execute unless score #game_active gg_stats matches 1 run scoreboard players add #stats_plays gg_stats 1

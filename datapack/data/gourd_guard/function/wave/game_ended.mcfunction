@@ -24,10 +24,7 @@ title @a subtitle [{"text":"The game was ended on Wave ","color":"yellow"},{"sco
 
 tellraw @a [{"text":"[!] ","color":"gold"},{"text":"GAME ENDED! The match was ended on Wave ","color":"yellow"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"yellow"}]
 
-# Clear posteffects
-posteffect remove @a gourd_guard:cutscene_fade
-posteffect remove @a gourd_guard:fade_black
-
-# 2. Reset Game State and teleport to lobby immediately
-function gourd_guard:wave/reset_data
-function gourd_guard:wave/transition/teleport_lobby
+# 2. Trigger screen transition: fade to black, teleport/reset behind curtain at 15t, fade out at 50t
+posteffect add @a gourd_guard:cutscene_fade
+schedule function gourd_guard:wave/transition/game_over_reset 15t
+schedule function gourd_guard:wave/transition/clear 50t

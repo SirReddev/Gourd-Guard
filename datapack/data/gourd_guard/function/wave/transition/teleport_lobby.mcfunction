@@ -5,13 +5,14 @@
 gamemode adventure @a[gamemode=!creative]
 
 # 2. Fully heal, feed, extinguish, and clear status effects
-effect give @a[gamemode=!creative] minecraft:instant_health 1 255 true
-effect give @a[gamemode=!creative] minecraft:saturation 1 255 true
-execute as @a[gamemode=!creative] run data modify entity @s Fire set value 0s
-effect clear @a[gamemode=!creative]
+effect give @a minecraft:instant_health 1 255 true
+effect give @a minecraft:saturation 1 255 true
+execute as @a run data modify entity @s Fire set value 0s
+effect clear @a
 
 # 3. Clear all game items, gliders, and hotbar gear
 clear @a[gamemode=!creative]
+item replace entity @a armor.chest with air
 
 # 4. Remove active game/cutscene/death/deco/test tags and posteffects
 tag @a remove cs_viewer
@@ -35,8 +36,8 @@ scoreboard players reset @a chatbox.page
 # 6. Re-enable skip trigger for all players
 scoreboard players enable @a gg_skip
 
-# 7. Teleport players to post-game lobby location
-execute as @a[gamemode=!creative] in minecraft:overworld run tp @s 2271.49 -1.00 -64.54 1618.65 -3.75
+# 7. Teleport ALL players to post-game lobby location
+execute in minecraft:overworld run tp @a 2271.49 -1.00 -64.54 1618.65 -3.75
 
 # 8. Set player spawnpoint to default lobby spawn
-execute as @a[gamemode=!creative] run spawnpoint @s 2270.47 -2.00 5.34 1621.20
+execute in minecraft:overworld as @a run spawnpoint @s 2270.47 -2.00 5.34 1621.20

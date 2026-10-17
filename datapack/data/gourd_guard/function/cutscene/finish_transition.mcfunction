@@ -19,3 +19,6 @@ execute as @a[tag=cs_viewer] run function chatbox:session/release
 
 # Enable themed glowing on all village NPCs during grace period
 function gourd_guard:npc/glow/on
+
+# Enable Adventure Mode Flight so players can fly/explore from the start of the map
+function gourd_guard:fly/enable

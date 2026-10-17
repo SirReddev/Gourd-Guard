@@ -21,9 +21,12 @@ posteffect remove @a gourd_guard:fade_black
 # Remove accidental NPC deco tag from players
 tag @a remove gg_npc_deco
 
+# Force normal difficulty so summoned hostile wave mobs never despawn
+difficulty normal
+
 # Permanently forceload Lobby and Map 1 chunk areas so markers are always loaded from anywhere
-forceload add 2250 -80 2290 20
-forceload add 2460 -80 2560 80
+forceload add 2200 -120 2320 50
+forceload add 2350 -200 2650 200
 
 # Gourd Guard Datapack Initialized
 function gourd_guard:path/init
