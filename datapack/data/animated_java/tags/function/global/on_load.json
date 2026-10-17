@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"aj:gourdguard_lobby_titles/on_load",
 		"aj:gourdguard_npc_archerstand/on_load",
 		"aj:gourdguard_npc_blacksmithstand/on_load",
 		"aj:gourdguard_npc_ghost/on_load",

@@ -1,0 +1,110 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"2": "aj:blueprint/lobby/gourdguard_lobby_titles_credits",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [-4, 9.09091, 2],
+			"to": [11.27273, 30.90909, 14],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [1.92, 1.1, 2.368, 3.1],
+					"texture": "#2"
+				},
+				"south": {
+					"uv": [2.368, 1.1, 1.92, 3.1],
+					"texture": "#2"
+				},
+				"up": {
+					"uv": [2.368, 1.1, 1.92, 0],
+					"texture": "#2"
+				},
+				"down": {
+					"uv": [2.368, 4.2, 1.92, 3.1],
+					"texture": "#2"
+				}
+			}
+		},
+		{
+			"from": [-2.90909, 29.81818, 15.09091],
+			"to": [-5.09091, 10.18182, 0.90909],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				},
+				"east": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				},
+				"south": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				},
+				"up": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				},
+				"down": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				}
+			}
+		},
+		{
+			"from": [12.36364, 32, 15.09091],
+			"to": [-2.90909, 8, 0.90909],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				},
+				"east": {
+					"uv": [0.032, 13.3, 0.048, 13.85],
+					"texture": "#2"
+				},
+				"south": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				},
+				"west": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				},
+				"up": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				},
+				"down": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#2"
+				}
+			}
+		}
+	]
+}
