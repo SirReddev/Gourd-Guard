@@ -25,9 +25,7 @@ tag @a[tag=cs_viewer] remove gourd_test
 # 2. Put viewers into Adventure mode
 gamemode adventure @a[tag=cs_viewer]
 
-# Re-enable skip trigger and provide click-to-skip button
-scoreboard players enable @a gg_skip
-tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Intro starting! ","color":"yellow"},{"text":"[CLICK TO SKIP INTRO]","color":"dark_aqua","bold":true,"underlined":true,"click_event":{"action":"run_command","command":"/trigger gg_skip"},"hover_event":{"action":"show_text","value":{"text":"Click to skip straight to waves!","color":"green"}}}]
+
 
 # 3. Add black fade post-effect transition (0t..15t fade to black, 15t..40t solid black, 40t..55t fade back to clear)
 posteffect add @a[tag=cs_viewer] gourd_guard:cutscene_fade
