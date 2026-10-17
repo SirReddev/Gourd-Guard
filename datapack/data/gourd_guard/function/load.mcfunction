@@ -53,6 +53,11 @@ function gourd_guard:lobby/stats/init
 execute unless score .global wave matches 1.. run scoreboard players set .global wave 1
 execute unless score .wave state matches 0.. run scoreboard players set .wave state 0
 
+# Ensure all lobby text displays use vertical billboard rotation
+execute as @e[type=text_display,tag=gg_start_display] run data modify entity @s billboard set value "vertical"
+execute as @e[type=text_display,tag=gg_leaderboard_display] run data modify entity @s billboard set value "vertical"
+execute as @e[type=text_display,tag=gg_stats_display] run data modify entity @s billboard set value "vertical"
+
 # Re-register existing Gourd Guard Pumpkins in Animated Java data_manager and sync variant with wave state
 data modify storage animated_java:temp args set value {variant:'default', animation:'idle', frame: 0}
 execute as @e[type=item_display,tag=aj.gourdguard_pumpkin.root] at @s run function aj:gourdguard_pumpkin/zzz/summon/as_root_entity

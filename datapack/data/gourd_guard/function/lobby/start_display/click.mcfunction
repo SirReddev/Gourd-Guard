@@ -2,16 +2,22 @@
 # Triggered when a player right-clicks the Start Game display interaction hitbox
 
 data remove entity @s interaction
-playsound minecraft:ui.button.click master @a ~ ~ ~ 1.0 1.0
-playsound minecraft:entity.experience_orb.pickup master @a ~ ~ ~ 0.8 1.2
+data remove entity @s attack
 
-# Check if game or cutscene is already running
-execute if score .wave state matches 1..2 run tellraw @a[distance=..15] [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"A game is already in progress!","color":"red"}]
-execute if score .wave state matches 1..2 return 1
+# Play click audio to nearby players
+playsound minecraft:ui.button.click master @a[distance=..20] ~ ~ ~ 1.0 1.0
+playsound minecraft:entity.experience_orb.pickup master @a[distance=..20] ~ ~ ~ 0.8 1.2
 
-execute if score .global cs.state matches 1..3 run tellraw @a[distance=..15] [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Intro cutscene is already in progress!","color":"red"}]
-execute if score .global cs.state matches 1..3 return 1
+# If clicker had gourd_test builder tag, remove it so they are included in the game
+execute as @p[distance=..8] run tag @s remove gourd_test
 
-# Start the game cutscene!
-tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Game starting! Launching intro cutscene...","color":"green","bold":true}]
+# If a previous game was active or cutscene was stuck, reset cleanly first
+execute if score .wave state matches 1..4 run function gourd_guard:wave/reset_data
+execute if score .global cs.state matches 1..3 run function gourd_guard:cutscene/reset
+
+# Set map to 1 explicitly
+scoreboard players set .global map 1
+
+# Start Map 1!
+tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Starting Map 1: Haunted Graveyard!","color":"green","bold":true}]
 function gourd_guard:cutscene/start
