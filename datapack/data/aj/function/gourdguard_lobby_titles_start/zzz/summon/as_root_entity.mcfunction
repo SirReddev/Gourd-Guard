@@ -32,7 +32,8 @@ data modify storage animated_java:temp entry.data.uuids_by_name.t3 set from stor
 # Data Manager: Write
 function animated_java:global/data_manager/write with storage animated_java:temp args
 function aj:gourdguard_lobby_titles_start/zzz/set_default_pose
-execute if data storage animated_java:temp args.variant run function aj:gourdguard_lobby_titles_start/zzz/summon/zzz/variant_arg/no_variants_warning
+scoreboard players set #success aj.i 1
+# execute if data storage animated_java:temp args.variant run function aj:gourdguard_lobby_titles_start/zzz/summon/zzz/variant_arg/no_variants_warning
 execute if score #success aj.i matches 0 run return fail
 execute on passengers run rotate @s ~ ~
 data modify entity @s teleport_duration set value 1

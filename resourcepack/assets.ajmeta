@@ -20,6 +20,31 @@
 				"assets/aj/models/blueprint/gourdguard_lobby_titles_credits/t4.json"
 			]
 		},
+		"aj:gourdguard_lobby_titles_gourd": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/a.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/d.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/d2.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/g.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/g2.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/o.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/r.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/r2.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/u.json",
+				"assets/aj/items/blueprint/gourdguard_lobby_titles_gourd/u2.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/a.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/d.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/d2.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/g.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/g2.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/o.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/r.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/r2.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/u.json",
+				"assets/aj/models/blueprint/gourdguard_lobby_titles_gourd/u2.json"
+			]
+		},
 		"aj:gourdguard_lobby_titles_settings": {
 			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
 			"versionedFiles": [

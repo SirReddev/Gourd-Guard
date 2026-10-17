@@ -1,0 +1,110 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"0": "aj:blueprint/lobby/gourdguard_lobby_titles_gourd_gourd",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [-15.4, 8.6, 4.7],
+			"to": [-7, 20.6, 11.3],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [1.92, 1.1, 2.368, 3.1],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [2.368, 1.1, 1.92, 3.1],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [2.368, 1.1, 1.92, 0],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [2.368, 4.2, 1.92, 3.1],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [-14.8, 20, 11.9],
+			"to": [-16, 9.2, 4.1],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				}
+			}
+		},
+		{
+			"from": [-6.4, 21.2, 11.9],
+			"to": [-14.8, 8, 4.1],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"east": {
+					"uv": [0.032, 13.3, 0.048, 13.85],
+					"texture": "#0"
+				},
+				"south": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"west": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"up": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				},
+				"down": {
+					"uv": [0, 13.3, 0.016, 13.35],
+					"texture": "#0"
+				}
+			}
+		}
+	]
+}

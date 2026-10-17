@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"aj:gourdguard_lobby_titles_credits/on_load",
+		"aj:gourdguard_lobby_titles_gourd/on_load",
 		"aj:gourdguard_lobby_titles_settings/on_load",
 		"aj:gourdguard_lobby_titles_start/on_load",
 		"aj:gourdguard_npc_archerstand/on_load",
