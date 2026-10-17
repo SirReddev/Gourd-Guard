@@ -9,7 +9,6 @@ scoreboard objectives add gg.talked_blacksmith dummy
 scoreboard objectives add gg.talked_gravedigger dummy
 
 # Platform particle objectives
-scoreboard objectives add gg_wand_use minecraft.used:minecraft.warped_fungus_on_a_stick
 scoreboard objectives add math dummy
 
 # Gourd Guard Datapack Initialized
