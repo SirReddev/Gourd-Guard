@@ -11,6 +11,9 @@ scoreboard objectives add gg.talked_gravedigger dummy
 # Platform particle objectives
 scoreboard objectives add math dummy
 
+# Global World Spawn for New Players
+setworldspawn 2270 -2 5 181.2
+
 # Gourd Guard Datapack Initialized
 function gourd_guard:path/init
 function gourd_guard:cutscene/init

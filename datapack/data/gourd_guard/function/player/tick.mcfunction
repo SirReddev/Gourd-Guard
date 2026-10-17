@@ -1,6 +1,8 @@
 # gourd_guard:player/tick
-# Keeps players invincible with a subtle speed and jump boost (no particles, always active)
+# Check and initialize newly joined players
+execute as @a[tag=!gg_joined] run function gourd_guard:player/join
 
+# Keeps players invincible with a subtle speed and jump boost (no particles, always active)
 scoreboard players add #player_buff_timer gg.timer 1
 execute if score #player_buff_timer gg.timer matches 20.. run scoreboard players set #player_buff_timer gg.timer 0
 execute unless score #player_buff_timer gg.timer matches 1 run return 0
