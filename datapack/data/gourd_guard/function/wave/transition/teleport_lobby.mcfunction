@@ -23,6 +23,7 @@ tag @a remove gg_talking
 
 # 5. Reset player dialogue and flight hold states
 scoreboard players set @a fly_hold 0
+function gourd_guard:fly/disable
 function chatbox:reset
 scoreboard players reset @a chatbox.session
 scoreboard players reset @a chatbox.page

@@ -1,4 +1,5 @@
-# Enable Adventure Mode Flight (Called when waves start with Peeves)
+# Enable Adventure Mode Flight (Called when map starts with Peeves or when waves begin)
+execute if score .global fly_active matches 1 run return 1
 
 scoreboard players set .global fly_active 1
 scoreboard players set @a[tag=!gourd_test] fly_status 3

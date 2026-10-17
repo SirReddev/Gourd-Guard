@@ -4,6 +4,7 @@
 scoreboard players set .global cs.state 0
 scoreboard players set .global cs.timer 0
 function chatbox:reset
+function gourd_guard:fly/disable
 
 # Remove camera & Peeves entities
 # Clean NPC glowing
