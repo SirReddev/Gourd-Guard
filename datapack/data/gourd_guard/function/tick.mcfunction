@@ -15,6 +15,7 @@ function gourd_guard:prop/waterwheel/tick
 function gourd_guard:pumpkin/tick
 function gourd_guard:cutscene/tick
 function gourd_guard:tower/tick
+function gourd_guard:platform/tick
 
 # Adventure Mode Flying Engine
 function gourd_guard:fly/tick
