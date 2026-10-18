@@ -1,8 +1,16 @@
 # Adventure Mode Flying Engine - Main Tick Loop
 # Runs every tick
 
+# 0. Strict Game-State & Zone Verification:
+# Flight is ONLY allowed if waves are running (.wave state 1..2) OR in post-intro grace period (.global cs.state 4)
+execute unless score .wave state matches 1..2 unless score .global cs.state matches 4 run scoreboard players set .global fly_active 0
+
+# Also guarantee players in lobby coords (X: 2200..2320, Z: -100..50) never have flight active
+execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=130,dy=100,dz=160,tag=!gourd_test] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run function gourd_guard:fly/disable
+
 # 1. Clean up gliders and return if flight is not active
 execute unless score .global fly_active matches 1 as @a if data entity @s Inventory[{Slot:102b,components:{"minecraft:custom_data":{gg_glider:1b}}}] run function gourd_guard:fly/disable
+execute unless score .global fly_active matches 1 as @a[tag=!gourd_test] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run function gourd_guard:fly/disable
 execute unless score .global fly_active matches 1 run return 0
 
 # 2. Reset flight hold & clear levitation for any player currently engaged in chatbox dialogue/shop

@@ -23,3 +23,6 @@ tag @s remove gg_npc_deco
 
 # 7. Initialize player candy score with team global candy
 scoreboard players operation @s coins = .global coins
+
+# 8. Disable flight and gliders if no game is running
+execute unless score .wave state matches 1..2 unless score .global cs.state matches 4 run function gourd_guard:fly/disable
