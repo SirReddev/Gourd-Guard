@@ -27,7 +27,8 @@ title @a subtitle [{"text":"The game was ended on Wave ","color":"yellow"},{"sco
 tellraw @a [{"text":"[!] ","color":"gold"},{"text":"GAME ENDED! The match was ended on Wave ","color":"yellow"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"yellow"}]
 
 # 2. Trigger screen transition: 15t fade in, 25t black hold, 15t fade out
-schedule function gourd_guard:wave/transition/fade_black 1t
+function gourd_guard:wave/transition/fade_black
 
 # 3. Reset the game state and teleport to lobby during solid black hold (tick 20)
 schedule function gourd_guard:wave/transition/game_over_reset 20t
+

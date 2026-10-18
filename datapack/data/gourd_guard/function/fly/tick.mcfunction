@@ -16,8 +16,6 @@ execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] r
 execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run effect clear @s minecraft:levitation
 execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run effect clear @s minecraft:slow_falling
 execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run scoreboard players set @s fly_hold 0
-execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run posteffect remove @s gourd_guard:fade_black
-execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run posteffect remove @s gourd_guard:cutscene_fade
 
 # 3. Suppress flight while in dialogue, shop, or selection menus (PER-PLAYER)
 execute as @a[scores={chatbox.session=1..4}] run scoreboard players set @s fly_hold 0

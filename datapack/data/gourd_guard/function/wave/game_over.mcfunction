@@ -34,7 +34,8 @@ title @a subtitle [{"text":"The Gourd was destroyed on Wave ","color":"red"},{"s
 tellraw @a [{"text":"[Wave System] ","color":"dark_red","bold":true},{"text":"GAME OVER. The Gourd was destroyed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
 
 # 2. Trigger screen transition: 15t fade in, 25t black hold, 15t fade out
-schedule function gourd_guard:wave/transition/fade_black 1t
+function gourd_guard:wave/transition/fade_black
 
 # 3. Reset the game state and teleport to lobby during solid black hold (tick 20)
 schedule function gourd_guard:wave/transition/game_over_reset 20t
+

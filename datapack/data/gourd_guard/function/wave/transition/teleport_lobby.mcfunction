@@ -34,8 +34,6 @@ tag @a remove talker
 tag @a remove gg_talking
 tag @a remove gg_npc_deco
 tag @a remove gourd_test
-posteffect remove @a gourd_guard:fade_black
-posteffect remove @a gourd_guard:cutscene_fade
 
 # 6. Reset player dialogue and sessions
 function chatbox:reset

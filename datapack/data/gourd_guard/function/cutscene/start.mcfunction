@@ -24,8 +24,9 @@ tag @a[tag=!gourd_test] add cs_viewer
 execute unless entity @a[tag=cs_viewer] run tag @p add cs_viewer
 tag @a[tag=cs_viewer] remove gourd_test
 
-# 2. Put viewers into Adventure mode
+# 2. Put viewers into Adventure mode & disable fall damage
 gamemode adventure @a[tag=cs_viewer]
+gamerule fallDamage false
 
 
 

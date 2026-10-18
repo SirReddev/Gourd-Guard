@@ -26,8 +26,3 @@ function gourd_guard:npc/glow/on
 # Give starting candy (50) to players as promised by Peeves in his final line
 function gourd_guard:hud/candy/add_50
 
-# Enable Adventure Mode Flight so players can fly/explore town
-function gourd_guard:fly/enable
-
-# Announce Gourd Glider controls once right after Peeves' final explanation line
-tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Gourd Glider equipped! Tap ","color":"green"},{"text":"[Space]","color":"yellow","bold":true},{"text":" to glide, or hold ","color":"green"},{"text":"[Shift]","color":"yellow","bold":true},{"text":" to launch and ascend!","color":"green"}]
