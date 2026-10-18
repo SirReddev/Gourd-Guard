@@ -19,5 +19,4 @@ execute if score .global cs.state matches 1..3 run function gourd_guard:cutscene
 scoreboard players set .global map 1
 
 # Start Map 1!
-tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Starting Map 1: Haunted Graveyard!","color":"green","bold":true}]
 function gourd_guard:cutscene/start

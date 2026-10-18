@@ -1,6 +1,8 @@
 scoreboard objectives add gg.timer dummy
 scoreboard objectives add gg.xp_pts dummy
+scoreboard objectives add coins dummy
 scoreboard players set #player_buff_timer gg.timer 0
+execute unless score .global coins matches 0.. run scoreboard players set .global coins 0
 
 # Ensure per-player first-interaction objectives exist
 scoreboard objectives add gg.talked_witch dummy

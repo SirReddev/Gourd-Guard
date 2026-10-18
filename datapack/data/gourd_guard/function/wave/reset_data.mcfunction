@@ -48,8 +48,6 @@ scoreboard players reset * gg.talked_archer
 scoreboard players reset * gg.talked_blacksmith
 scoreboard players reset * gg.talked_gravedigger
 
-# 8. Clean up posteffects and player tags
-posteffect remove @a gourd_guard:cutscene_fade
-posteffect remove @a gourd_guard:fade_black
+# 8. Clean up player deco tags
 tag @a remove gg_npc_deco
 

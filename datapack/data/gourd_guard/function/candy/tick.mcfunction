@@ -1,3 +1,7 @@
+# 0. Sync global team candy score across all players
+execute unless score .global coins matches 0.. run scoreboard players set .global coins 0
+scoreboard players operation @a coins = .global coins
+
 # 1. Initialize newly dropped candies (prevent hotbar pickup, never despawn & set black glow)
 execute as @e[type=item,tag=!gg_candy_init] if data entity @s Item.components."minecraft:custom_data".candy run function gourd_guard:candy/init
 tag @e[type=item,tag=!gg_candy_init] add gg_candy_init
