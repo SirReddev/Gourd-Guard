@@ -18,5 +18,8 @@ execute if score .global cs.state matches 1..3 run function gourd_guard:cutscene
 # Set map to 1 explicitly
 scoreboard players set .global map 1
 
+# Announce starting game
+tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":"Starting game…","color":"yellow"}]
+
 # Start Map 1!
 function gourd_guard:cutscene/start
