@@ -8,9 +8,9 @@ scoreboard players set .wave state 0
 scoreboard players set #game_active gg_stats 0
 scoreboard players set .global cs.state 0
 
-# Guarantee any player still in map is teleported to lobby
-execute in minecraft:overworld run tp @a[x=2350..3200] 2270.47 -2.00 5.34 181.2 -6.90
-execute in minecraft:overworld run spawnpoint @a 2270 -2 5 181.2
+# Guarantee any player still in map is teleported to lobby center
+execute in minecraft:overworld run tp @a[x=2350..3500] 2271.55 -1.00 -64.43 -180.15 -6.90
+execute in minecraft:overworld run spawnpoint @a 2272 -1 -64 -180.15
 
 # Disable Adventure Mode Flight after the fade & strip elytra
 function gourd_guard:fly/disable

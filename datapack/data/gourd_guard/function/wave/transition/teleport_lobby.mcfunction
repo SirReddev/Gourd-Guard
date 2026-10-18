@@ -1,9 +1,9 @@
 # gourd_guard:wave/transition/teleport_lobby
 # Full multiplayer post-game reset: restores gamemodes, health, hunger, clears items/effects, resets dialogue sessions and teleports to lobby
 
-# 1. Teleport ALL players to lobby spawn location immediately
-execute in minecraft:overworld run tp @a 2270.47 -2.00 5.34 181.2 -6.90
-execute in minecraft:overworld run spawnpoint @a 2270 -2 5 181.2
+# 1. Teleport ALL players to lobby spawn location immediately (Center of Lobby)
+execute in minecraft:overworld run tp @a 2271.55 -1.00 -64.43 -180.15 -6.90
+execute in minecraft:overworld run spawnpoint @a 2272 -1 -64 -180.15
 
 # 2. Restore Gamemode to adventure for any non-creative player
 gamemode adventure @a[gamemode=!creative]
