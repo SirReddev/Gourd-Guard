@@ -36,11 +36,21 @@ function chatbox:reset
 scoreboard players reset @a chatbox.session
 scoreboard players reset @a chatbox.page
 
-# 6. Re-enable skip trigger for all players
+# 6. Reset per-player NPC first-interaction states for next playthrough
+scoreboard players reset * gg.talked_witch
+scoreboard players reset * gg.talked_archer
+scoreboard players reset * gg.talked_blacksmith
+scoreboard players reset * gg.talked_gravedigger
+scoreboard players reset @a gg.talked_witch
+scoreboard players reset @a gg.talked_archer
+scoreboard players reset @a gg.talked_blacksmith
+scoreboard players reset @a gg.talked_gravedigger
+
+# 7. Re-enable skip trigger for all players
 scoreboard players enable @a gg_skip
 
-# 7. Teleport ALL players to lobby spawn location
-execute in minecraft:overworld run tp @a 2270.47 -2.00 5.34 181.2 -6.90
+# 8. Teleport ALL players to lobby spawn location
+execute in minecraft:overworld as @a run tp @s 2270.47 -2.00 5.34 181.2 -6.90
 
-# 8. Set player spawnpoint to default lobby spawn
-execute in minecraft:overworld as @a run spawnpoint @s 2270.47 -2.00 5.34 181.2 -6.90
+# 9. Set player spawnpoint to default lobby spawn
+execute in minecraft:overworld as @a run spawnpoint @s 2270.47 -2.00 5.34 181.2
