@@ -3,4 +3,6 @@ execute as @s[type=minecraft:player,tag=!WorldRadioDJ] run tellraw @s [{"text":"
 execute as @s[type=minecraft:player,tag=!WorldRadioDJ] run return 0
 
 scoreboard players set #jukebox_mode worldradio.data 1
-tellraw @a [{"text":"[WorldRadio] ","color":"green","bold":true},{"text":"Jukebox Mode: ","color":"gray"},{"text":"Local (200-Block Zone)","color":"gold","bold":true}]
+scoreboard players set #jukebox_radius worldradio.data 20
+execute store result storage worldradio:settings radius int 1 run scoreboard players get #jukebox_radius worldradio.data
+tellraw @a [{"text":"[WorldRadio] ","color":"green","bold":true},{"text":"Jukebox Mode: ","color":"gray"},{"text":"Local (20-Block Zone)","color":"gold","bold":true}]

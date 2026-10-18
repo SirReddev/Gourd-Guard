@@ -10,6 +10,8 @@ effect give @a minecraft:saturation 1 255 true
 effect clear @a
 
 # 3. Disable flight engine & clear all game items, gliders, and hotbar gear
+scoreboard players set #game_active gg_stats 0
+scoreboard players set .global cs.state 0
 scoreboard players set .global fly_active 0
 scoreboard players set @a fly_status 0
 scoreboard players set @a fly_hold 0

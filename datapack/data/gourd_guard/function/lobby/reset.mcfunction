@@ -24,6 +24,7 @@ scoreboard players set #stats_wins gg_stats 0
 scoreboard players set #stats_fails gg_stats 0
 scoreboard players set #stats_rate gg_stats 0
 scoreboard players set #game_active gg_stats 0
+scoreboard players set .global cs.state 0
 
 # Refresh statistics displays
 function gourd_guard:lobby/stats/update

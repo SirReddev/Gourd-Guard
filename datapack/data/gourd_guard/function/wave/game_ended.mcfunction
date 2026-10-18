@@ -1,5 +1,6 @@
 # Game Ended - Ended manually by player at Peeves
 scoreboard players set .wave state 0
+scoreboard players set .global cs.state 0
 scoreboard players set #game_active gg_stats 0
 scoreboard players set .global timer_active 0
 

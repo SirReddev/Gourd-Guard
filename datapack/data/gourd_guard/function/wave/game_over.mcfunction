@@ -1,5 +1,6 @@
 # Game Over - Pumpkin Objective Destroyed
 scoreboard players set .wave state 4
+scoreboard players set .global cs.state 0
 scoreboard players set .global timer_active 0
 
 # Record defeat in statistics

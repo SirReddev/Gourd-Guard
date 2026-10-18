@@ -13,7 +13,7 @@ execute as @p[distance=..8] run tag @s remove gourd_test
 
 # If a previous game was active or cutscene was stuck, reset cleanly first
 execute if score .wave state matches 1..4 run function gourd_guard:wave/reset_data
-execute if score .global cs.state matches 1..3 run function gourd_guard:cutscene/reset
+execute if score .global cs.state matches 1..4 run function gourd_guard:cutscene/reset
 
 # Set map to 1 explicitly
 scoreboard players set .global map 1

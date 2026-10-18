@@ -1,5 +1,6 @@
 # Victory - All 40 Waves Cleared!
 scoreboard players set .wave state 3
+scoreboard players set .global cs.state 0
 scoreboard players set .global timer_active 0
 
 # Record map completion time to leaderboard
