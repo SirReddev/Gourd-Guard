@@ -17,19 +17,26 @@ execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] r
 execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run effect clear @s minecraft:slow_falling
 execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run scoreboard players set @s fly_hold 0
 
-# 3. Reset flight hold & clear levitation for any player currently engaged in chatbox dialogue/shop
-execute as @a[scores={chatbox.session=1..}] at @s run scoreboard players set @s fly_hold 0
-execute as @a[scores={chatbox.session=1..}] at @s run effect clear @s minecraft:levitation
+# 3. Suppress flight while in dialogue, shop, or selection menus
+execute if data storage chatbox:main {SequenceActive:1b} as @a run scoreboard players set @s fly_hold 0
+execute if data storage chatbox:main {SequenceActive:1b} as @a run effect clear @s minecraft:levitation
+execute if data storage chatbox:shop {Active:1b} as @a run scoreboard players set @s fly_hold 0
+execute if data storage chatbox:shop {Active:1b} as @a run effect clear @s minecraft:levitation
+execute if data storage chatbox:selection {Active:1b} as @a run scoreboard players set @s fly_hold 0
+execute if data storage chatbox:selection {Active:1b} as @a run effect clear @s minecraft:levitation
+
+# If no chatbox UI is open, guarantee session is 0
+execute unless data storage chatbox:main {SequenceActive:1b} unless data storage chatbox:shop {Active:1b} unless data storage chatbox:selection {Active:1b} run scoreboard players set @a chatbox.session 0
 
 # 4. Clear flight hold and effects for any player NOT wearing an Elytra
 execute as @a[gamemode=adventure] unless data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run scoreboard players set @s fly_hold 0
 execute as @a[gamemode=adventure] unless data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run effect clear @s minecraft:levitation
 
 # 5. Ensure players on the active game map (X >= 2400) have the locked Elytra equipped while flight is active
-execute in minecraft:overworld as @a[x=2400,y=-64,z=-500,dx=600,dy=200,dz=1000,gamemode=adventure,tag=!gourd_test] unless score @s chatbox.session matches 1.. unless data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={}]
+execute in minecraft:overworld as @a[x=2400,y=-64,z=-500,dx=600,dy=200,dz=1000,gamemode=adventure,tag=!gourd_test] unless data storage chatbox:main {SequenceActive:1b} unless data storage chatbox:shop {Active:1b} unless data storage chatbox:selection {Active:1b} unless data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={}]
 
-# 6. Track continuous Sneak duration (in ticks) - only for players with glider equipped and not in dialogue
-execute in minecraft:overworld as @a[x=2400,y=-64,z=-500,dx=600,dy=200,dz=1000,gamemode=adventure,tag=!gourd_test] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] unless score @s chatbox.session matches 1.. if predicate chatbox:is_sneaking run scoreboard players add @s fly_hold 1
+# 6. Track continuous Sneak duration (in ticks) - only for players with glider equipped and not in dialogue/shop
+execute in minecraft:overworld as @a[x=2400,y=-64,z=-500,dx=600,dy=200,dz=1000,gamemode=adventure,tag=!gourd_test] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] unless data storage chatbox:main {SequenceActive:1b} unless data storage chatbox:shop {Active:1b} unless data storage chatbox:selection {Active:1b} if predicate chatbox:is_sneaking run scoreboard players add @s fly_hold 1
 execute as @a[gamemode=adventure] unless predicate chatbox:is_sneaking run scoreboard players set @s fly_hold 0
 
 # 7. Clear levitation immediately when Shift is released
@@ -41,12 +48,12 @@ execute as @a[scores={fly_hold=0}] run effect clear @s minecraft:levitation
 execute as @a[scores={fly_hold=1..},gamemode=adventure] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] at @s if block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 12 true
 execute as @a[scores={fly_hold=1..},gamemode=adventure] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] at @s if block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 2
 
-# GROUND LAUNCH (Requires holding Shift for >= 8 ticks = 0.4s to shoot up into the air):
-# - Charge indicator particles during hold (ticks 4 to 7)
-execute as @a[scores={fly_hold=4..7},gamemode=adventure] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.05 0.05 0.05 0.01 1
-# - Launch high into the air once held for 8 ticks (Level 16 Levitation for fast snappy air launch)
-execute as @a[scores={fly_hold=8..},gamemode=adventure] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] at @s unless block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 15 true
-execute as @a[scores={fly_hold=8..},gamemode=adventure] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.2 0.2 0.2 0.05 4
+# GROUND LAUNCH (Requires holding Shift for >= 6 ticks = 0.3s to shoot up into the air):
+# - Charge indicator particles during hold (ticks 3 to 5)
+execute as @a[scores={fly_hold=3..5},gamemode=adventure] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.05 0.05 0.05 0.01 1
+# - Launch high into the air once held for 6 ticks (Level 18 Levitation for snappy air launch)
+execute as @a[scores={fly_hold=6..},gamemode=adventure] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] at @s unless block ~ ~-2 ~ air run effect give @s minecraft:levitation 1 18 true
+execute as @a[scores={fly_hold=6..},gamemode=adventure] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.2 0.2 0.2 0.05 4
 
 # 9. Clean up stray dropped gliders
 execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".gg_glider run kill @s

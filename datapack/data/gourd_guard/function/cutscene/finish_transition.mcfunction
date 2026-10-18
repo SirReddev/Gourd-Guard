@@ -16,6 +16,9 @@ scoreboard players set .wave state 0
 # Clear fade and ensure session released
 posteffect remove @a gourd_guard:cutscene_fade
 execute as @a[tag=cs_viewer] run function chatbox:session/release
+scoreboard players set @a chatbox.session 0
+scoreboard players set @a fly_hold 0
+tag @a remove cs_viewer
 
 # Enable themed glowing on all village NPCs during grace period
 function gourd_guard:npc/glow/on

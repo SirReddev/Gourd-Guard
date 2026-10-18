@@ -20,6 +20,8 @@ scoreboard objectives add obj_max_hp dummy
 
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 execute unless score .global wave matches 1..40 run scoreboard players set .global wave 1
+scoreboard objectives add gg_skip trigger
+scoreboard players enable @a gg_skip
 
 # Ensure difficulty is normal so mobs can exist and fight
 difficulty normal
