@@ -2,6 +2,7 @@
 # Executed as any player who joins the map for the first time
 
 # 1. Tag player so this only runs once per player
+tag @s add has_joined
 tag @s add gg_joined
 
 # 2. Teleport to initial start location for new players
@@ -43,3 +44,6 @@ execute unless score @s fly_status matches 0.. run scoreboard players set @s fly
 execute unless score @s fly_hold matches 0.. run scoreboard players set @s fly_hold 0
 execute unless score @s chatbox.session matches 0.. run scoreboard players set @s chatbox.session 0
 execute unless score @s chatbox.page matches 0.. run scoreboard players set @s chatbox.page 0
+
+# 8. Ensure start display is centered for client
+execute in minecraft:overworld as @e[type=text_display,tag=gg_start_display] run data merge entity @s {alignment:"center"}

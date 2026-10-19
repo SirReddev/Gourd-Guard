@@ -3,6 +3,7 @@ function gourd_guard:player/clear_xp
 function gourd_guard:player/tick
 function gourd_guard:item_glow/tick
 function gourd_guard:candy/tick
+function gourd_guard:world/crops
 function gourd_guard:hud/tick
 function gourd_guard:wave/tick
 function gourd_guard:npc/witchstand/tick

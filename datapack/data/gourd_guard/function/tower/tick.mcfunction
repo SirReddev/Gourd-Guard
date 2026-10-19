@@ -35,6 +35,9 @@ execute as @e[type=item_display,tag=gg_tower_placed] at @s run function gourd_gu
 # 9. Tick active arcing projectiles
 execute as @e[type=item_display,tag=gg_fw_proj] at @s run function gourd_guard:tower/combat/tick_projectile
 
+# 9a. Clean up Tesla lightning bolt entities after strike
+execute as @e[type=lightning_bolt,tag=gg_tesla_bolt] run kill @s
+
 # 9b. Tick active Pillager Convoys (collision detection against wave mobs & HP exchange)
 execute as @e[tag=gg_convoy] at @s run function gourd_guard:tower/convoy/tick
 

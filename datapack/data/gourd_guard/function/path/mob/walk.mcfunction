@@ -5,14 +5,16 @@
 data modify entity @s FallDistance set value 0.0f
 
 # 2. Advance forward in facing direction based on speed tier
-# Fast sprinters (e.g. Baby Zombies, Spiders, Swarms): 0.26b/tick (~5.2 blocks/sec)
-execute if entity @s[tag=gg_fast] run tp @s ^ ^ ^0.26
-# Pillager Convoy high-speed charge: 0.75b/tick (~15.0 blocks/sec)
-execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.75
+# Top-tier sprinters (Baby Zombies, Camo Sprinters): 0.38b/tick (~7.6 blocks/sec)
+execute if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.38
+# Agile sprinters (Spiders, Swarms, Creepers): 0.28b/tick (~5.6 blocks/sec)
+execute if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
+# Pillager Convoy high-speed charge: 1.25b/tick (~25.0 blocks/sec)
+execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^1.25
 # Heavy Juggernauts & Colossal Bosses: 0.10b/tick (~2.0 blocks/sec)
 execute if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10
 # Standard pace: 0.15b/tick (~3.0 blocks/sec)
-execute unless entity @s[tag=gg_fast,tag=gg_slow,tag=gg_convoy] run tp @s ^ ^ ^0.15
+execute unless entity @s[tag=gg_fast,tag=gg_runner,tag=gg_slow,tag=gg_convoy] run tp @s ^ ^ ^0.15
 
 # --- GROUND MOBS (Zombies, Spiders, Skeletons, etc.) ---
 # Step-Up: Elevate smoothly onto top of block, stair, or slab

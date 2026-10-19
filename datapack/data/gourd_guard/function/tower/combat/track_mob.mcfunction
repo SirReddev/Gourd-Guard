@@ -7,11 +7,18 @@ execute unless score @s path.node = @s gg.mob_node_prev run scoreboard players s
 execute unless score @s path.node = @s gg.mob_node_prev run scoreboard players operation @s gg.mob_node_prev = @s path.node
 scoreboard players add @s gg.mob_sub 1
 
-# Compute overall wave progression score: gg.mob_prog = path.branch * 100000 + path.node * 1000 + gg.mob_sub
-# The mob with the highest gg.mob_prog is ALWAYS the first mob in the wave!
+# Compute overall wave progression score:
+# Stage 0: Branch 0 (Route entrance)
+# Stage 1: Branch 1, 2, or sub-splits (Parallel route branches)
+# Stage 2: Branch 3 (Common end route to Sacred Gourd)
+scoreboard players set #mob_stage math 0
+execute if score @s path.branch matches 1..2 run scoreboard players set #mob_stage math 1
+execute if score @s path.branch matches 11..22 run scoreboard players set #mob_stage math 1
+execute if score @s path.branch matches 3 run scoreboard players set #mob_stage math 2
+
 scoreboard players set #c100k math 100000
 scoreboard players set #c1k math 1000
-scoreboard players operation @s gg.mob_prog = @s path.branch
+scoreboard players operation @s gg.mob_prog = #mob_stage math
 scoreboard players operation @s gg.mob_prog *= #c100k math
 scoreboard players operation #node_part math = @s path.node
 scoreboard players operation #node_part math *= #c1k math

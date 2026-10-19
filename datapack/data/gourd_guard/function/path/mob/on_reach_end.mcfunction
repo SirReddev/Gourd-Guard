@@ -11,6 +11,7 @@ tag @s remove path_mob
 # Deduct damage equal to the mob's remaining HP (Base has 1000 HP)
 execute store result score #mob_dmg obj_hp run data get entity @s Health 1
 execute if score #mob_dmg obj_hp matches ..0 run scoreboard players set #mob_dmg obj_hp 1
+execute unless entity @s[tag=gg_boss] if score #mob_dmg obj_hp matches 101.. run scoreboard players set #mob_dmg obj_hp 100
 scoreboard players operation .objective obj_hp -= #mob_dmg obj_hp
 execute if score .objective obj_hp matches ..0 run scoreboard players set .objective obj_hp 0
 
