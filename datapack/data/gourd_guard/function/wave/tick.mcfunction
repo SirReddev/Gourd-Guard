@@ -13,6 +13,3 @@ execute if score .wave state matches 2 run function gourd_guard:wave/intermissio
 
 # 3. Check for player [SKIP] trigger
 execute as @a[scores={gg_skip=1..}] run function gourd_guard:wave/skip_trigger
-
-# 4. Defeat Watchdog: trigger Game Over if Gourd HP reaches 0
-execute if score .wave state matches 1..2 if score .objective obj_hp matches ..0 run function gourd_guard:wave/game_over

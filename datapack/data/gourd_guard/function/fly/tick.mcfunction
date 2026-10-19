@@ -16,15 +16,13 @@ execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] r
 execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run effect clear @s minecraft:levitation
 execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run effect clear @s minecraft:slow_falling
 execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run scoreboard players set @s fly_hold 0
-execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run posteffect remove @s gourd_guard:fade_black
-execute in minecraft:overworld as @a[x=2200,y=-64,z=-100,dx=150,dy=120,dz=170] run posteffect remove @s gourd_guard:cutscene_fade
 
 # 3. Suppress flight while in dialogue, shop, or selection menus (PER-PLAYER)
 execute as @a[scores={chatbox.session=1..4}] run scoreboard players set @s fly_hold 0
 execute as @a[scores={chatbox.session=1..4}] run effect clear @s minecraft:levitation
 
 # 4. Guarantee active game players wearing non-elytra or missing elytra get re-equipped with locked Gourd Glider
-execute as @a[gamemode=adventure,tag=!gourd_test,scores={chatbox.session=0}] unless items entity @s armor.chest elytra run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={},minecraft:enchantments={levels:{"minecraft:binding_curse":1}}]
+execute as @a[gamemode=adventure,tag=!gourd_test,scores={chatbox.session=0}] unless items entity @s armor.chest elytra run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name='{"text":"Gourd Glider","color":"gold","bold":true}',minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={},minecraft:enchantments={levels:{"minecraft:binding_curse":1}}]
 
 # 5. Detect Sneak input (supports fly_start sneak_time, chatbox.was_sneaking, and predicate)
 tag @a remove gg_is_sneaking
