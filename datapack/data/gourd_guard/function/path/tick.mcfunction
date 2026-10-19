@@ -10,6 +10,10 @@ execute as @e[tag=path_node,tag=!gg_forceloaded_5x5] run tag @s add gg_forceload
 # 1. Auto-detect any newly spawned mobs with route tags
 function gourd_guard:path/mob/auto_init
 
+# 1.5. Remove path and wave tags from dead mobs so they never glitch or process pathfinding
+execute as @e[tag=path_mob] if data entity @s {Health:0.0f} run tag @s remove path_mob
+execute as @e[tag=gg_mob] if data entity @s {Health:0.0f} run tag @s remove gg_mob
+
 # 2. Process all active path mobs
 execute as @e[tag=path_mob,scores={path.state=1..}] at @s run function gourd_guard:path/mob/process
 

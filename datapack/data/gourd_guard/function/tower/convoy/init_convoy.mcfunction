@@ -2,6 +2,8 @@
 # Macro arguments: $(map), $(path)
 
 tag @s remove gg_new_convoy
+team join team_convoy @s
+execute as @s on passengers run team join team_convoy @s
 
 # Assign to pathfinding network on active map & route
 $function gourd_guard:path/route/assign {map:$(map),path:$(path)}

@@ -72,3 +72,7 @@ team modify team_gold collisionRule never
 team add team_aqua
 team modify team_aqua color aqua
 team modify team_aqua collisionRule never
+
+team add team_convoy
+team modify team_convoy color red
+team modify team_convoy collisionRule never

@@ -23,9 +23,9 @@ execute unless score .wave state matches 1..2 run return 0
 
 scoreboard players set .global wave_hud_toggle 1
 
-# Live-count active path mobs for the Ghost Mob UI counter
+# Live-count active path mobs for the Ghost Mob UI counter (only enemy wave mobs, excludes convoy ravagers)
 scoreboard players set .global wave_mobs 0
-execute as @e[tag=path_mob,scores={path.state=1..}] run scoreboard players add .global wave_mobs 1
+execute as @e[tag=gg_mob,tag=path_mob,scores={path.state=1..}] run scoreboard players add .global wave_mobs 1
 
 # If HUD is toggled ON (1), populate storage
 # Wave Sign: 26px -> backstep \uF81A (-26px)

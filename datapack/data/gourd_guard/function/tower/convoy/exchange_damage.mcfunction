@@ -1,9 +1,11 @@
 # Collision Damage Exchange
 # Executed as the ravager (@s) colliding with target wave mob @e[tag=gg_convoy_target,limit=1]
 
-# 1. Read mob remaining HP
+# 1. Read mob remaining HP (skip & untag if already dead)
 execute store result score #mob_hp gg.calc run data get entity @e[tag=gg_convoy_target,limit=1] Health 1
-execute if score #mob_hp gg.calc matches ..0 run scoreboard players set #mob_hp gg.calc 1
+execute if score #mob_hp gg.calc matches ..0 as @e[tag=gg_convoy_target,limit=1] run tag @s remove gg_mob
+execute if score #mob_hp gg.calc matches ..0 as @e[tag=gg_convoy_target,limit=1] run tag @s remove path_mob
+execute if score #mob_hp gg.calc matches ..0 run return 0
 
 # 2. Read convoy remaining HP
 execute store result score #convoy_hp gg.calc run data get entity @s Health 1
