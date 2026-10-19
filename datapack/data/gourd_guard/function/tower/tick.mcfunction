@@ -26,6 +26,8 @@ execute as @e[type=interaction,tag=gg_tower_place_btn] run function gourd_guard:
 execute as @e[type=item_display,tag=aj.gourdguard_tower_firework_cannon.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_copper_golem_launcher.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_pillager_convoy.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_cauldron_damage.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_tesla_coil.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 
 # 8. Tick placed towers (6-block text visibility, MOVE/SELL hitboxes, target acquisition & firework firing)
 execute as @e[type=item_display,tag=gg_tower_placed] at @s run function gourd_guard:tower/placed/tick_tower

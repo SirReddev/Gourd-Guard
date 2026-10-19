@@ -10,6 +10,8 @@ execute store result score #move_type gg.tower_type run scoreboard players get @
 execute if score #move_type gg.tower_type matches 1 run function gourd_guard:tower/place/restore_firework_cannon
 execute if score #move_type gg.tower_type matches 2 run function gourd_guard:tower/place/restore_copper_golem_launcher
 execute if score #move_type gg.tower_type matches 3 run function gourd_guard:tower/place/restore_pillager_convoy
+execute if score #move_type gg.tower_type matches 4 run function gourd_guard:tower/place/restore_cauldron_damage
+execute if score #move_type gg.tower_type matches 5 run function gourd_guard:tower/place/restore_tesla_coil
 
 # Play pickup sound & chat message
 playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.8 1.2

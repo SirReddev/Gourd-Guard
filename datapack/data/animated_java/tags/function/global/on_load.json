@@ -24,9 +24,11 @@
 		"aj:gourdguard_prop_waterwheel/on_load",
 		"aj:gourdguard_prop_windmill/on_load",
 		"aj:gourdguard_pumpkin/on_load",
+		"aj:gourdguard_tower_cauldron_damage/on_load",
 		"aj:gourdguard_tower_copper_golem_launcher/on_load",
 		"aj:gourdguard_tower_firework_cannon/on_load",
 		"aj:gourdguard_tower_pillager_convoy/on_load",
+		"aj:gourdguard_tower_tesla_coil/on_load",
 		"aj:worldradio_boombox/on_load",
 		"aj:worldradio_jukebox/on_load"
 	]

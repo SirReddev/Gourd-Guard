@@ -22,3 +22,11 @@ function gourd_guard:npc/glow/on
 
 # Enable Adventure Mode Flight so players can fly/explore from the start of the map
 function gourd_guard:fly/enable
+
+# Award 50 candy on completing Peeves introduction dialogue
+function gourd_guard:hud/candy/add_50
+tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Here is ","color":"gray"},{"text":"50 Candy","color":"gold","bold":true},{"text":" to get you started! Speak with the villagers to buy defense towers.","color":"gray"}]
+
+# Announce flight controls once per playthrough
+execute unless score #told_flight gg_temp matches 1 run tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Gourd Glider equipped! Tap ","color":"green"},{"text":"[Space]","color":"yellow","bold":true},{"text":" to glide, or hold ","color":"green"},{"text":"[Shift]","color":"yellow","bold":true},{"text":" to launch and ascend!","color":"green"}]
+scoreboard players set #told_flight gg_temp 1

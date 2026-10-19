@@ -43,12 +43,13 @@ execute as @e[type=item] if data entity @s Item.components."minecraft:custom_dat
 function gourd_guard:tower/reset_all
 
 # 7. Reset per-player NPC first-interaction states for new playthrough
-scoreboard players reset * gg.talked_witch
-scoreboard players reset * gg.talked_archer
-scoreboard players reset * gg.talked_blacksmith
-scoreboard players reset * gg.talked_gravedigger
+scoreboard players reset @a gg.talked_witch
+scoreboard players reset @a gg.talked_archer
+scoreboard players reset @a gg.talked_blacksmith
+scoreboard players reset @a gg.talked_gravedigger
 
 # 8. Clean up posteffects and player tags
 posteffect remove @a gourd_guard:cutscene_fade
 tag @a remove gg_npc_deco
+scoreboard players set #told_flight gg_temp 0
 

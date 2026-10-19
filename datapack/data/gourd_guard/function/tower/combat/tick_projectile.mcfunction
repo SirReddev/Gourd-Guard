@@ -56,16 +56,19 @@ execute at @s facing entity @n[type=marker,tag=gg_fw_helper] feet run tp @s ~ ~ 
 execute rotated as @s at @n[type=marker,tag=gg_fw_helper] run tp @s ~ ~ ~ ~ ~
 kill @e[type=marker,tag=gg_fw_helper]
 
-# Spawn trail along the arc (firework sparks for fireworks, copper scrape & wax for golem statues)
-execute if entity @s[tag=!gg_cg_proj] at @s run particle minecraft:firework ~ ~ ~ 0.04 0.04 0.04 0.01 2
-execute if entity @s[tag=!gg_cg_proj] at @s run particle minecraft:flame ~ ~ ~ 0.02 0.02 0.02 0.005 1
+# Spawn trail along the arc (firework sparks for fireworks, copper scrape & wax for golem statues, potion swirl for potions)
+execute if entity @s[tag=!gg_cg_proj,tag=!gg_potion_proj] at @s run particle minecraft:firework ~ ~ ~ 0.04 0.04 0.04 0.01 2
+execute if entity @s[tag=!gg_cg_proj,tag=!gg_potion_proj] at @s run particle minecraft:flame ~ ~ ~ 0.02 0.02 0.02 0.005 1
 execute if entity @s[tag=gg_cg_proj] at @s run particle minecraft:wax_off ~ ~ ~ 0.05 0.05 0.05 0.02 3
+execute if entity @s[tag=gg_potion_proj] at @s run particle minecraft:witch ~ ~ ~ 0.05 0.05 0.05 0.01 2
+execute if entity @s[tag=gg_potion_proj] at @s run particle minecraft:instant_effect ~ ~ ~ 0.04 0.04 0.04 0.01 1
 
 # Mid-flight mob collision detection (steps 2..13):
 # If the heavy projectile collides with any wave mob along its flight path, trigger impact immediately!
 execute if score @s gg.fw_step matches 2..13 at @s if entity @e[tag=gg_mob,distance=..1.6] run scoreboard players set @s gg.fw_step 14
 
 # On step 14 (impact!), detonate and damage the target + nearby splash mobs
-execute if score @s gg.fw_step matches 14.. if entity @s[tag=!gg_cg_proj] at @s run function gourd_guard:tower/combat/on_impact
+execute if score @s gg.fw_step matches 14.. if entity @s[tag=!gg_cg_proj,tag=!gg_potion_proj] at @s run function gourd_guard:tower/combat/on_impact
 execute if score @s gg.fw_step matches 14.. if entity @s[tag=gg_cg_proj] at @s run function gourd_guard:tower/combat/on_golem_impact
+execute if score @s gg.fw_step matches 14.. if entity @s[tag=gg_potion_proj] at @s run function gourd_guard:tower/combat/on_potion_impact
 tag @e remove gg_fw_lock

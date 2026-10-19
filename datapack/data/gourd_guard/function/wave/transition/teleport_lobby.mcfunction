@@ -36,7 +36,7 @@ scoreboard players reset @a chatbox.page
 scoreboard players enable @a gg_skip
 
 # 7. Teleport ALL players to post-game lobby location
-execute in minecraft:overworld run tp @a 2271.53 -1.00 -64.57 177.75 -6.90
+execute in minecraft:overworld as @a run tp @s 2271.53 -1.00 -64.57 177.75 -6.90
 
 # 8. Set player spawnpoint to default lobby spawn
 execute in minecraft:overworld as @a run spawnpoint @s 2272 -1 -65 177.75
