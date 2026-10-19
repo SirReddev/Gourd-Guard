@@ -16,6 +16,7 @@ kill @e[tag=gg_peeves_interaction]
 
 # Remove post-effects & restore effects
 posteffect remove @a gourd_guard:cutscene_fade
+posteffect remove @a gourd_guard:fade_black
 effect clear @a[tag=cs_viewer] minecraft:invisibility
 
 # Remove viewer tag
