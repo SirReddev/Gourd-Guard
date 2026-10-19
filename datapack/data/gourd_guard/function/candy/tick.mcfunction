@@ -1,3 +1,6 @@
+# Fast-path early return: If no dropped items exist in the world, skip immediately
+execute unless entity @e[type=item] run return 0
+
 # 1. Initialize newly dropped candies (prevent hotbar pickup, never despawn & set black glow)
 execute as @e[type=item,tag=!gg_candy_init] if data entity @s Item.components."minecraft:custom_data".candy run function gourd_guard:candy/init
 tag @e[type=item,tag=!gg_candy_init] add gg_candy_init

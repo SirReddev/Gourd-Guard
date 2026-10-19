@@ -6,6 +6,3 @@ data modify storage chatbox:shop Items set value [{Slot:0,Name:"Copper Golem Lau
 data modify storage chatbox:shop Title set value '[{"text":"  Captain Bolt: Archery Arsenal  |  (1-2)  |  [Shift] Buy  |  [Walk] Exit","color":"#FBFBFB"}]'
 
 function chatbox:shop/open
-
-
-

@@ -6,6 +6,3 @@ data modify storage chatbox:shop Items set value [{Slot:0,Name:"Cauldron Damage"
 data modify storage chatbox:shop Title set value '[{"text":"  Alchemilla: Potion Spire Shop  |  (1)  |  [Shift] Buy  |  [Walk] Exit","color":"#FBFBFB"}]'
 
 function chatbox:shop/open
-
-
-

@@ -6,6 +6,3 @@ data modify storage chatbox:shop Items set value [{Slot:0,Name:"Firework Cannon"
 data modify storage chatbox:shop Title set value '[{"text":"  Garrick: Heavy Artillery  |  (1-2)  |  [Shift] Buy  |  [Walk] Exit","color":"#FBFBFB"}]'
 
 function chatbox:shop/open
-
-
-

@@ -1,3 +1,13 @@
+# Fast-path early returns: Only render HUD when active and enabled
+execute unless score .global timer_active matches 1 run title @s actionbar {"text":""}
+execute unless score .global timer_active matches 1 run return 0
+
+execute if score .wave state matches 3..4 run title @s actionbar {"text":""}
+execute if score .wave state matches 3..4 run return 0
+
+execute if score @s hud_toggle matches 0 run title @s actionbar {"text":""}
+execute if score @s hud_toggle matches 0 run return 0
+
 # Ensure player scores are initialized (Default: HUD enabled = 1, sync global shared coins for newly joined players)
 execute unless score @s hud_toggle matches 0..1 run scoreboard players set @s hud_toggle 1
 execute unless score @s coins matches 0.. as @a[scores={coins=0..},limit=1] run scoreboard players operation @p[scores={coins=..-1}] coins = @s coins
@@ -8,18 +18,6 @@ execute unless score @s coins_pop matches 0.. run scoreboard players set @s coin
 execute unless score @s coins_pop_type matches 0.. run scoreboard players set @s coins_pop_type 0
 execute unless score .global timer_sec matches 0.. run scoreboard players set .global timer_sec 0
 execute unless score .global timer_min matches 0.. run scoreboard players set .global timer_min 0
-
-# If player has toggled HUD off (hud_toggle = 0), clear actionbar and skip rendering
-execute if score @s hud_toggle matches 0 run title @s actionbar {"text":""}
-execute if score @s hud_toggle matches 0 run return 0
-
-# Hide HUD during Game Over (4) or Victory (3)
-execute if score .wave state matches 3..4 run title @s actionbar {"text":""}
-execute if score .wave state matches 3..4 run return 0
-
-# Only show HUD when the game timer is active (starts after cutscene black fade, active through waves)
-execute unless score .global timer_active matches 1 run title @s actionbar {"text":""}
-execute unless score .global timer_active matches 1 run return 0
 
 
 # Resolve player username (cached in storage for singleplayer; refreshed in multiplayer)
