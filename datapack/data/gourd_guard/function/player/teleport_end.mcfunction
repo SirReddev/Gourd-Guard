@@ -1,3 +1,3 @@
 # gourd_guard:player/teleport_end
-# Teleports executing player to the post-game lobby center location
-execute in minecraft:overworld run tp @s 2271.55 -1.00 -64.43 -180.15 -6.90
+# Teleports executing player to the post-game ended location
+execute in minecraft:overworld run tp @s 2271.49 -1.00 -64.54 1618.65 -3.75

@@ -14,10 +14,8 @@ function gourd_guard:lobby/stats/update
 # Default to map 1 if unset
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 
-# Clean any existing cutscene entities and reset candy before starting
+# Clean any existing cutscene entities before starting
 function gourd_guard:cutscene/reset
-function gourd_guard:hud/reset_candy
-scoreboard objectives add gg_skip trigger
 
 # 1. Tag all active players (excluding gourd_test builders) as viewers (fallback to @p if all tagged gourd_test)
 tag @a[tag=!gourd_test] add cs_viewer

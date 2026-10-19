@@ -7,8 +7,6 @@ scoreboard objectives add spawn_done dummy
 
 # 1. Stop Wave System
 scoreboard players set .wave state 0
-scoreboard players set .global cs.state 0
-scoreboard players set #game_active gg_stats 0
 function gourd_guard:fly/disable
 scoreboard players set .wave spawn_timer 0
 scoreboard players set .wave spawn_done 0

@@ -20,8 +20,6 @@ scoreboard objectives add obj_max_hp dummy
 
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 execute unless score .global wave matches 1..40 run scoreboard players set .global wave 1
-scoreboard objectives add gg_skip trigger
-scoreboard players enable @a gg_skip
 
 # Ensure difficulty is normal so mobs can exist and fight
 difficulty normal
@@ -60,4 +58,4 @@ execute unless score .global fly_active matches 1 run function gourd_guard:fly/e
 # Refresh wave HUD
 function gourd_guard:hud/wave/tick
 
-tellraw @a [{"text":"[Wave System] ","color":"gold","bold":true},{"text":"Wave ","color":"yellow"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" has begun. Defend the Gourd!","color":"yellow"}]
+tellraw @a [{"text":"[Gourd Guard] ","color":"dark_green"},{"text":"Map ","color":"green"},{"score":{"name":".global","objective":"map"},"color":"aqua","bold":true},{"text":" Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" has begun! Defend the Pumpkin!","color":"green"}]

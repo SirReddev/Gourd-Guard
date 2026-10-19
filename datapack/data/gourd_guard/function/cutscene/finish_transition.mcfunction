@@ -16,18 +16,9 @@ scoreboard players set .wave state 0
 # Clear fade and ensure session released
 posteffect remove @a gourd_guard:cutscene_fade
 execute as @a[tag=cs_viewer] run function chatbox:session/release
-scoreboard players set @a chatbox.session 0
-scoreboard players set @a fly_hold 0
-tag @a remove cs_viewer
 
 # Enable themed glowing on all village NPCs during grace period
 function gourd_guard:npc/glow/on
 
-# Give starting candy (50) to players as promised by Peeves in his final line
-function gourd_guard:hud/candy/add_50
-
-# Enable Adventure Mode Flight so players can fly/explore town
+# Enable Adventure Mode Flight so players can fly/explore from the start of the map
 function gourd_guard:fly/enable
-
-# Announce Gourd Glider controls once right after Peeves' final explanation line
-tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Gourd Glider equipped! Tap ","color":"green"},{"text":"[Space]","color":"yellow","bold":true},{"text":" to glide, or hold ","color":"green"},{"text":"[Shift]","color":"yellow","bold":true},{"text":" to launch and ascend!","color":"green"}]

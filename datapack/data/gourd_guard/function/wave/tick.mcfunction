@@ -2,7 +2,6 @@
 # State machine: 0 = Idle, 1 = Wave Active, 2 = Intermission, 3 = Victory, 4 = Defeat
 
 # Ensure default map if unset
-scoreboard objectives add gg_skip trigger
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1
 
 # 1. State 1: Active Wave Spawning & Progression

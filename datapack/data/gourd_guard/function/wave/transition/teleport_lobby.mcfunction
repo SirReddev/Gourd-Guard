@@ -1,31 +1,22 @@
 # gourd_guard:wave/transition/teleport_lobby
 # Full multiplayer post-game reset: restores gamemodes, health, hunger, clears items/effects, resets dialogue sessions and teleports to lobby
 
-# 1. Teleport ALL players to lobby spawn location immediately (Center of Lobby)
-execute in minecraft:overworld run tp @a 2271.55 -1.00 -64.43 -180.15 -6.90
-execute in minecraft:overworld run spawnpoint @a 2272 -1 -64 -180.15
-
-# 2. Restore Gamemode to adventure for any non-creative player
+# 1. Restore Gamemode to adventure for any non-creative player (alive, dead, or spectator)
 gamemode adventure @a[gamemode=!creative]
 
-# 3. Fully heal, feed, and clear status effects
+# 2. Fully heal, feed, extinguish, and clear status effects
 effect give @a minecraft:instant_health 1 255 true
 effect give @a minecraft:saturation 1 255 true
+execute as @a run data modify entity @s Fire set value 0s
 effect clear @a
 
-# 4. Disable flight engine & clear all game items, gliders, and hotbar gear
-scoreboard players set #game_active gg_stats 0
-scoreboard players set .global cs.state 0
-scoreboard players set .global fly_active 0
-scoreboard players set @a fly_status 0
-scoreboard players set @a fly_hold 0
-function gourd_guard:fly/disable
+# 3. Clear all game items, gliders, and hotbar gear
+clear @a[gamemode=!creative]
 item replace entity @a armor.chest with air
 clear @a minecraft:elytra
 clear @a minecraft:firework_rocket
-clear @a[gamemode=!creative]
 
-# 5. Remove active game/cutscene/death/deco/test tags
+# 4. Remove active game/cutscene/death/deco/test tags
 tag @a remove cs_viewer
 tag @a remove cs_player
 tag @a remove dead
@@ -35,24 +26,18 @@ tag @a remove gg_talking
 tag @a remove gg_npc_deco
 tag @a remove gourd_test
 
-# 6. Reset player dialogue and sessions
+# 5. Reset player dialogue and flight hold states
+scoreboard players set @a fly_hold 0
+function gourd_guard:fly/disable
 function chatbox:reset
-scoreboard players set @a chatbox.session 0
+scoreboard players reset @a chatbox.session
 scoreboard players reset @a chatbox.page
 
-# 7. Reset candy
-function gourd_guard:hud/reset_candy
-
-# 8. Reset per-player NPC first-interaction states for next playthrough
-scoreboard objectives add gg.talked_witch dummy
-scoreboard objectives add gg.talked_archer dummy
-scoreboard objectives add gg.talked_blacksmith dummy
-scoreboard objectives add gg.talked_gravedigger dummy
-scoreboard players reset @a gg.talked_witch
-scoreboard players reset @a gg.talked_archer
-scoreboard players reset @a gg.talked_blacksmith
-scoreboard players reset @a gg.talked_gravedigger
-
-# 9. Re-enable skip trigger for all players
-scoreboard objectives add gg_skip trigger
+# 6. Re-enable skip trigger for all players
 scoreboard players enable @a gg_skip
+
+# 7. Teleport ALL players to post-game lobby location
+execute in minecraft:overworld as @a run tp @s 2271.49 -1.00 -64.54 178.65 -3.75
+
+# 8. Set player spawnpoint to default lobby spawn
+execute in minecraft:overworld as @a run spawnpoint @s 2270.47 -2.00 5.34 181.2 -6.90
