@@ -15,7 +15,7 @@ execute at @n[tag=gg_tower_target] run particle minecraft:electric_spark ~ ~1 ~ 
 # Extinguish any ground fire and protect nearby players from vanilla lightning damage
 execute at @n[tag=gg_tower_target] run fill ~-1 ~-1 ~-1 ~1 ~1 ~1 air replace fire
 execute at @n[tag=gg_tower_target] run fill ~-1 ~-1 ~-1 ~1 ~1 ~1 air replace soul_fire
-execute at @n[tag=gg_tower_target] as @a[distance=..5] run data modify entity @s Fire set value 0s
+execute at @n[tag=gg_tower_target] as @a[distance=..5] run effect give @s minecraft:fire_resistance 2 0 true
 execute at @n[tag=gg_tower_target] as @a[distance=..5] run effect give @s minecraft:resistance 1 4 true
 
 # Deal heavy direct hit damage to the struck target mob

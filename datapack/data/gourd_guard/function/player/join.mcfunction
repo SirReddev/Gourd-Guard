@@ -20,3 +20,6 @@ scoreboard players enable @s gg_skip
 posteffect remove @s gourd_guard:cutscene_fade
 posteffect remove @s gourd_guard:fade_black
 tag @s remove gg_npc_deco
+
+# 7. Ensure currency score is initialized
+execute unless score @s coins matches 0.. run scoreboard players set @s coins 0

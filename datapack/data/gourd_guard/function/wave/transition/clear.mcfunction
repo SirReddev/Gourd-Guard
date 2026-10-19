@@ -9,5 +9,8 @@ scoreboard players set .wave state 0
 # Disable Adventure Mode Flight after the fade
 function gourd_guard:fly/disable
 
+# Ensure all players are at the lobby if they somehow drifted
+execute in minecraft:overworld run tp @a 2271.53 -1.00 -64.57 177.75 -6.90
+
 # Announce reset complete when returning to normal screen
 tellraw @a [{"text":"[Gourd Guard] ","color":"green"},{"text":"Game reset. Ready for next playthrough!","color":"gray"}]
