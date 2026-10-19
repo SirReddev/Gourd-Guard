@@ -10,4 +10,5 @@ execute if score .global cs.state matches 1..3 run kill @e[type=interaction,tag=
 execute unless score .global cs.state matches 1..3 as @e[type=interaction,tag=gg_peeves_interaction] at @e[type=item_display,tag=peeves_ghost_root,limit=1] run tp @s ~ ~-0.5 ~
 
 # Checks for right-click player interaction on NPC interaction entities (executes as the interacting player at the hitbox)
+execute as @e[type=minecraft:interaction,tag=gg_npc_interaction] if data entity @s interaction at @s on target run function gourd_guard:npc/interact/handle
 execute as @e[type=minecraft:interaction,tag=gg_npc_interaction] if data entity @s interaction at @s as @p[distance=..5] run function gourd_guard:npc/interact/handle

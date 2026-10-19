@@ -58,6 +58,7 @@ data modify storage chatbox:s2_selection Items set value []
 data modify storage chatbox:s2_selection Title set value '{"text":"SELECT"}'
 data modify storage chatbox:s2_selection SelectedSlot set value 0
 
+scoreboard players set @a[scores={chatbox.session=2}] chatbox.session 0
 scoreboard players set #chatbox.s2.busy loy.value 0
 scoreboard players set #chatbox.s2.bossbar.flag loy.value 0
 scoreboard players set #chatbox.s2.current.line loy.value 0

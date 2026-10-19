@@ -1,4 +1,8 @@
 # Inject session to items
+execute if score @s chatbox.session matches 1 run data modify storage chatbox:selection Session set value "s1"
+execute if score @s chatbox.session matches 2 run data modify storage chatbox:selection Session set value "s2"
+execute if score @s chatbox.session matches 3 run data modify storage chatbox:selection Session set value "s3"
+execute if score @s chatbox.session matches 4 run data modify storage chatbox:selection Session set value "s4"
 execute unless data storage chatbox:selection Session run data modify storage chatbox:selection Session set value "s1"
 data modify storage chatbox:selection Items[0].Session set from storage chatbox:selection Session
 data modify storage chatbox:selection Items[1].Session set from storage chatbox:selection Session

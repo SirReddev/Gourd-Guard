@@ -1,4 +1,9 @@
 # Closes the Shop & Selection UI for @s
+execute if score @s chatbox.session matches 1 run data modify storage chatbox:shop Session set value "s1"
+execute if score @s chatbox.session matches 2 run data modify storage chatbox:shop Session set value "s2"
+execute if score @s chatbox.session matches 3 run data modify storage chatbox:shop Session set value "s3"
+execute if score @s chatbox.session matches 4 run data modify storage chatbox:shop Session set value "s4"
+
 data modify storage chatbox:shop Active set value 0b
 
 # Hide and clear shop bossbars for this session

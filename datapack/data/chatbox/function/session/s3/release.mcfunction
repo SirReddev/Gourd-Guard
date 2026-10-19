@@ -58,6 +58,7 @@ data modify storage chatbox:s3_selection Items set value []
 data modify storage chatbox:s3_selection Title set value '{"text":"SELECT"}'
 data modify storage chatbox:s3_selection SelectedSlot set value 0
 
+scoreboard players set @a[scores={chatbox.session=3}] chatbox.session 0
 scoreboard players set #chatbox.s3.busy loy.value 0
 scoreboard players set #chatbox.s3.bossbar.flag loy.value 0
 scoreboard players set #chatbox.s3.current.line loy.value 0
