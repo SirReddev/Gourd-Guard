@@ -23,6 +23,7 @@ tag @a remove gg_npc_deco
 
 # Force normal difficulty so summoned hostile wave mobs never despawn
 difficulty normal
+gamerule doFireTick false
 
 # Permanently forceload Lobby and Map 1 chunk areas so markers are always loaded from anywhere
 forceload add 2200 -120 2320 50

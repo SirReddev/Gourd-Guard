@@ -29,6 +29,9 @@
                 },
                 "minecraft:tooltip_display": {
                   "hide_tooltip": true
+                },
+                "minecraft:damage_resistant": {
+                  "types": "#gourd_guard:candy_immune"
                 }
               }
             }

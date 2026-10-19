@@ -9,7 +9,7 @@ tag @s add gg_joined
 execute in minecraft:overworld run tp @s 2270.45 -2.00 5.15 -178.95 -3.00
 
 # 3. Set their spawnpoint here
-execute in minecraft:overworld run spawnpoint @s 2270 -2 5 -178.95
+execute in minecraft:overworld run spawnpoint @s 2270 -2 5 180
 
 # 4. Set Adventure mode (unless tagged gourd_test)
 gamemode adventure @s[tag=!gourd_test]
@@ -18,16 +18,10 @@ gamemode adventure @s[tag=!gourd_test]
 scoreboard players enable @s gg_skip
 
 # 6. Initialize default player scores
-execute unless score @s hud_toggle matches 0..1 run scoreboard players set @s hud_toggle 1
-execute unless score @s coins matches 0.. run scoreboard players set @s coins 0
-execute unless score @s coins_prev matches 0.. run scoreboard players set @s coins_prev 0
-execute unless score @s coins_diff matches 0.. run scoreboard players set @s coins_diff 0
-execute unless score @s coins_pop matches 0.. run scoreboard players set @s coins_pop 0
-execute unless score @s coins_pop_type matches 0.. run scoreboard players set @s coins_pop_type 0
-execute unless score @s fly_status matches 0.. run scoreboard players set @s fly_status 0
-execute unless score @s fly_hold matches 0.. run scoreboard players set @s fly_hold 0
-execute unless score @s chatbox.session matches 0.. run scoreboard players set @s chatbox.session 0
-execute unless score @s chatbox.page matches 0.. run scoreboard players set @s chatbox.page 0
+scoreboard players set @s hud_toggle 1
+scoreboard players set @s coins 0
+scoreboard players set @s fly_status 0
+scoreboard players set @s fly_hold 0
 
 # 7. Remove accidental deco tag
 tag @s remove gg_npc_deco
