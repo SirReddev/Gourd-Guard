@@ -33,9 +33,9 @@ execute at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
 function gourd_guard:path/mob/walk
 
 # 4. Advance to next node when within range (sharp turns at the node, no early smoothing):
-# Fast sprinters advance at 0.8 / 1.5 blocks, standard ground mobs at 0.5 blocks, convoys at 3.2 blocks
-execute as @s[tag=!path_flyer,tag=!gg_convoy,tag=!gg_fast,tag=!gg_runner] at @s if entity @e[tag=path_target,distance=..0.5] run tag @s add path_advance
-execute as @s[tag=gg_fast,tag=!path_flyer,tag=!gg_convoy,tag=!gg_runner] at @s if entity @e[tag=path_target,distance=..0.8] run tag @s add path_advance
+# Fast sprinters advance at 1.2 / 1.5 blocks, standard ground mobs at 1.2 blocks, convoys at 3.2 blocks
+execute as @s[tag=!path_flyer,tag=!gg_convoy,tag=!gg_fast,tag=!gg_runner] at @s if entity @e[tag=path_target,distance=..1.2] run tag @s add path_advance
+execute as @s[tag=gg_fast,tag=!path_flyer,tag=!gg_convoy,tag=!gg_runner] at @s if entity @e[tag=path_target,distance=..1.2] run tag @s add path_advance
 execute as @s[tag=gg_runner,tag=!path_flyer,tag=!gg_convoy] at @s if entity @e[tag=path_target,distance=..1.5] run tag @s add path_advance
 execute as @s[tag=gg_convoy] at @s if entity @e[tag=path_target,distance=..3.2] run tag @s add path_advance
 
