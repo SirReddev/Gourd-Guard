@@ -19,21 +19,21 @@ function gourd_guard:cutscene/reset
 function gourd_guard:hud/reset_candy
 scoreboard objectives add gg_skip trigger
 
-# 1. Tag all active players (excluding gourd_test builders) as viewers (fallback to @p if all tagged gourd_test)
-tag @a[tag=!gourd_test] add cs_viewer
-execute unless entity @a[tag=cs_viewer] run tag @p add cs_viewer
-tag @a[tag=cs_viewer] remove gourd_test
+# 1. Tag all active players as viewers and remove gourd_test builder tag
+tag @a remove gourd_test
+tag @a add cs_viewer
 
 # 2. Put viewers into Adventure mode & disable fall damage
-gamemode adventure @a[tag=cs_viewer]
+gamemode adventure @a[gamemode=!creative]
 gamerule fallDamage false
-
-
 
 # 3. Add black fade post-effect transition (0t..15t fade to black, 15t..40t solid black, 40t..55t fade back to clear)
 posteffect add @a[tag=cs_viewer] gourd_guard:cutscene_fade
 
-# 4. Reset cutscene state & stop game timer during black fade transition
+# 4. Enable Adventure Mode Flight immediately from map start
+function gourd_guard:fly/enable
+
+# 5. Reset cutscene state & initialize tick timer (handled deterministically by cutscene/tick)
 scoreboard players set .wave state 0
 scoreboard players set .global cs.timer 0
 scoreboard players set .global cs.state 1
@@ -42,11 +42,7 @@ scoreboard players set .global timer_min 0
 scoreboard players set .global timer_sec 0
 scoreboard players set .global timer_ticks 0
 
-# 5. At 15t (screen is solid black), execute setup: teleports player to start spot and spawns Peeves
+# 6. Fallback / direct schedule in case tick isn't running immediately
 schedule function gourd_guard:cutscene/setup 15t
-
-# 6. At 50t (screen fade back is complete), cleanly clear post-effect so shader is inactive
 schedule function gourd_guard:cutscene/clear_posteffect 50t
-
-# 7. At 55t (screen is clear and no shader active), begin Dialogue 1
 schedule function gourd_guard:cutscene/dialogue_1 55t

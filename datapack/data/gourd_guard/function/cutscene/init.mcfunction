@@ -6,6 +6,7 @@ scoreboard objectives add cs.target dummy
 scoreboard objectives add cs.cmp dummy
 scoreboard objectives add cs.edit dummy
 scoreboard objectives add cs.timer dummy
+scoreboard objectives add gg_skip trigger
 
 # Default to map 1 if unset
 execute unless score .global map matches 1..5 run scoreboard players set .global map 1

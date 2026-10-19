@@ -26,3 +26,6 @@ function gourd_guard:npc/glow/on
 # Give starting candy (50) to players as promised by Peeves in his final line
 function gourd_guard:hud/candy/add_50
 
+# Ensure flight is active and glider equipped for all players
+function gourd_guard:fly/enable
+

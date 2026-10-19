@@ -17,6 +17,7 @@ effect clear @a
 scoreboard players set #game_active gg_stats 0
 scoreboard players set .global cs.state 0
 scoreboard players set .global fly_active 0
+scoreboard players set .wave reset_timer -1
 scoreboard players set @a fly_status 0
 scoreboard players set @a fly_hold 0
 function gourd_guard:fly/disable

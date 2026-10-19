@@ -37,5 +37,6 @@ tellraw @a [{"text":"[Wave System] ","color":"dark_red","bold":true},{"text":"GA
 function gourd_guard:wave/transition/fade_black
 
 # 3. Reset the game state and teleport to lobby during solid black hold (tick 20)
+scoreboard players set .wave reset_timer 20
 schedule function gourd_guard:wave/transition/game_over_reset 20t
 

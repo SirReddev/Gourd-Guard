@@ -8,8 +8,8 @@ data remove entity @s attack
 playsound minecraft:ui.button.click master @a[distance=..20] ~ ~ ~ 1.0 1.0
 playsound minecraft:entity.experience_orb.pickup master @a[distance=..20] ~ ~ ~ 0.8 1.2
 
-# If clicker had gourd_test builder tag, remove it so they are included in the game
-execute as @p[distance=..8] run tag @s remove gourd_test
+# Remove gourd_test builder tag so all players are included in the game
+tag @a remove gourd_test
 
 # If a previous game was active or cutscene was stuck, reset cleanly first
 execute if score .wave state matches 1..4 run function gourd_guard:wave/reset_data
