@@ -2,9 +2,9 @@
 # Runs every tick
 
 # 0. Strict Game-State Verification:
-# Flight is allowed whenever a match is active (#game_active gg_stats 1) AND (waves running .wave state 1..2 OR map cutscene/grace period .global cs.state 1..4)
+# Flight is ONLY allowed if a match is active (#game_active gg_stats 1) AND (waves running .wave state 1..2 OR in post-intro grace period .global cs.state 4)
 execute unless score #game_active gg_stats matches 1 run scoreboard players set .global fly_active 0
-execute unless score .wave state matches 1..2 unless score .global cs.state matches 1..4 run scoreboard players set .global fly_active 0
+execute unless score .wave state matches 1..2 unless score .global cs.state matches 4 run scoreboard players set .global fly_active 0
 
 # 1. Clean up gliders and return if flight is not active anywhere
 execute unless score .global fly_active matches 1 run function gourd_guard:fly/disable
@@ -22,7 +22,7 @@ execute as @a[scores={chatbox.session=1..4}] run scoreboard players set @s fly_h
 execute as @a[scores={chatbox.session=1..4}] run effect clear @s minecraft:levitation
 
 # 4. Guarantee active game players wearing non-elytra or missing elytra get re-equipped with locked Gourd Glider
-execute as @a[gamemode=adventure,tag=!gourd_test] unless items entity @s armor.chest elytra run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={},minecraft:enchantments={levels:{"minecraft:binding_curse":1}}]
+execute as @a[gamemode=adventure,tag=!gourd_test,scores={chatbox.session=0}] unless items entity @s armor.chest elytra run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={},minecraft:enchantments={levels:{"minecraft:binding_curse":1}}]
 
 # 5. Detect Sneak input (supports fly_start sneak_time, chatbox.was_sneaking, and predicate)
 tag @a remove gg_is_sneaking
@@ -49,7 +49,6 @@ execute as @a[scores={fly_hold=1..},gamemode=adventure] at @s run particle minec
 
 # 10. Clean up stray dropped gliders
 execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".gg_glider run kill @s
-execute as @e[type=item] if data entity @s {Item:{id:"minecraft:elytra"}} run kill @s
 
 # 11. Re-enable trigger
 scoreboard players enable @a fly_status

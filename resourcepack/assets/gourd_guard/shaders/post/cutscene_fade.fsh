@@ -19,7 +19,7 @@ void main() {
     }
 
     int startTicks = int(round(timer.r * 255.0)) * 256 + int(round(timer.g * 255.0));
-    int currentTicks = int(round(fract(GameTime) * 24000.0));
+    int currentTicks = int(round(clamp(GameTime, 0.0, 1.0) * 24000.0));
 
     int elapsedTicks = currentTicks - startTicks;
     if (elapsedTicks < 0) {

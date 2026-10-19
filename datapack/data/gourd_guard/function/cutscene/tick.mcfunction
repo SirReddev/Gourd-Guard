@@ -11,16 +11,6 @@ execute as @e[tag=cs_player_spawn,tag=!gg_forceloaded] run tag @s add gg_forcelo
 execute as @e[tag=path_node,tag=!gg_forceloaded] at @s run forceload add ~ ~
 execute as @e[tag=path_node,tag=!gg_forceloaded] run tag @s add gg_forceloaded
 
-# Drive state 1 (Intro Cutscene transition & setup behind black fade)
-execute if score .global cs.state matches 1 run scoreboard players add .global cs.timer 1
-execute if score .global cs.state matches 1 if score .global cs.timer matches 15 run function gourd_guard:cutscene/setup
-execute if score .global cs.state matches 1 if score .global cs.timer matches 50 run function gourd_guard:cutscene/clear_posteffect
-execute if score .global cs.state matches 1 if score .global cs.timer matches 55 run function gourd_guard:cutscene/dialogue_1
-
-# Drive state 3 (Reached Pumpkin, transition to Dialogue 2)
-execute if score .global cs.state matches 3 run scoreboard players add .global cs.timer 1
-execute if score .global cs.state matches 3 if score .global cs.timer matches 11 run function gourd_guard:cutscene/dialogue_2
-
 # Only run movement logic during state 2 (walking phase)
 execute unless score .global cs.state matches 2 run return 0
 

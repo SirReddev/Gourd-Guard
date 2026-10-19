@@ -27,14 +27,9 @@ tag @a remove gg_npc_deco
 difficulty normal
 gamerule fallDamage false
 
-# Permanently forceload Lobby and Map 1 chunk areas (split to stay well under vanilla 256 chunk limit)
+# Permanently forceload Lobby and Map 1 chunk areas so markers are always loaded from anywhere
 forceload add 2200 -120 2320 50
-forceload add 2350 -200 2500 0
-forceload add 2350 1 2500 200
-forceload add 2501 -200 2650 0
-forceload add 2501 1 2650 200
-
-scoreboard objectives add gg_skip trigger
+forceload add 2350 -200 2650 200
 
 # Gourd Guard Datapack Initialized
 function gourd_guard:path/init

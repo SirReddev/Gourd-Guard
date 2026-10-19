@@ -30,6 +30,5 @@ tellraw @a [{"text":"[!] ","color":"gold"},{"text":"GAME ENDED! The match was en
 function gourd_guard:wave/transition/fade_black
 
 # 3. Reset the game state and teleport to lobby during solid black hold (tick 20)
-scoreboard players set .wave reset_timer 20
 schedule function gourd_guard:wave/transition/game_over_reset 20t
 

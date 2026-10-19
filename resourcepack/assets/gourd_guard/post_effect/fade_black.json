@@ -1,11 +1,11 @@
 {
     "targets": {
         "swap": {},
-        "fade_timer": {
+        "timer": {
             "persistent": true,
             "clear_color": [0.0, 0.0, 0.0, 0.0]
         },
-        "fade_timer_swap": {
+        "timer_swap": {
             "persistent": true,
             "clear_color": [0.0, 0.0, 0.0, 0.0]
         }
@@ -17,10 +17,10 @@
             "inputs": [
                 {
                     "sampler_name": "TimerIn",
-                    "target": "fade_timer"
+                    "target": "timer"
                 }
             ],
-            "output": "fade_timer_swap"
+            "output": "timer_swap"
         },
         {
             "vertex_shader": "minecraft:core/screenquad",
@@ -28,7 +28,7 @@
             "inputs": [
                 {
                     "sampler_name": "In",
-                    "target": "fade_timer_swap"
+                    "target": "timer_swap"
                 }
             ],
             "uniforms": {
@@ -40,7 +40,7 @@
                     }
                 ]
             },
-            "output": "fade_timer"
+            "output": "timer"
         },
         {
             "vertex_shader": "minecraft:core/screenquad",
@@ -52,7 +52,7 @@
                 },
                 {
                     "sampler_name": "TimerState",
-                    "target": "fade_timer_swap"
+                    "target": "timer_swap"
                 }
             ],
             "output": "swap"

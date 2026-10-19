@@ -11,11 +11,6 @@ execute as @e[tag=cs_npc_node] if score @s cs.map = TargetMap cs.cmp if score @s
 # If no more nodes exist, already at destination
 execute unless entity @e[tag=cs_target] run function gourd_guard:cutscene/reach_pumpkin
 
-# Release chatbox dialogue session so players are free to move and fly
-execute as @a run function chatbox:session/release
-scoreboard players set @a chatbox.session 0
-scoreboard players set @a fly_hold 0
-
 # If node 1 exists, start movement and play Peeves laugh at his position for all players
 execute if entity @e[tag=cs_target] run scoreboard players set .global cs.state 2
 execute if entity @e[tag=cs_target] as @e[tag=peeves_ghost_root] at @s run playsound gourd_guard:npc.peeves.laugh master @a ~ ~ ~ 4 1 1

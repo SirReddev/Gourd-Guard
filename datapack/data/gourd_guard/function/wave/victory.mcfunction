@@ -40,6 +40,5 @@ tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":" CONGR
 function gourd_guard:wave/transition/fade_black
 
 # 3. Reset the game state and teleport to lobby during solid black hold (tick 20)
-scoreboard players set .wave reset_timer 20
 schedule function gourd_guard:wave/transition/victory_reset 20t
 
