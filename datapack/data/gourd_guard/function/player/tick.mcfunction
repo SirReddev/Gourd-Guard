@@ -1,5 +1,9 @@
 # Check and initialize newly joined players (checks has_joined)
 execute as @a[tag=!has_joined] at @s run function gourd_guard:player/join
+execute as @a[tag=!has_joined] at @s run execute in minecraft:overworld run tp @s 2270.45 -2.00 5.15 -178.95 -3.00
+execute as @a[tag=!has_joined] run gamemode adventure @s[tag=!gourd_test]
+execute as @a[tag=!has_joined] run tag @s add has_joined
+execute as @a[tag=!gg_joined] run tag @s add gg_joined
 
 # Keeps players invincible with a subtle speed and jump boost (no particles, always active)
 scoreboard players add #player_buff_timer gg.timer 1

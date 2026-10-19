@@ -39,7 +39,6 @@ scoreboard players set @a fly_hold 0
 function gourd_guard:fly/disable
 function chatbox:reset
 scoreboard players reset @a chatbox.session
-scoreboard players reset @a chatbox.page
 
 # 7. Re-enable skip trigger for all players
 scoreboard players enable @a gg_skip
