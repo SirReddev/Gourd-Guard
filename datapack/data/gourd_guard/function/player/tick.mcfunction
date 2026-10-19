@@ -1,6 +1,5 @@
-# Check and initialize newly joined players (checks has_joined and gg_joined)
+# Check and initialize newly joined players (checks has_joined)
 execute as @a[tag=!has_joined] at @s run function gourd_guard:player/join
-execute as @a[tag=!gg_joined] at @s run function gourd_guard:player/join
 
 # Keeps players invincible with a subtle speed and jump boost (no particles, always active)
 scoreboard players add #player_buff_timer gg.timer 1

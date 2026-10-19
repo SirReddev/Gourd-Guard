@@ -6,10 +6,10 @@ tag @s add has_joined
 tag @s add gg_joined
 
 # 2. Teleport to initial start location for new players
-execute in minecraft:overworld run tp @s 2270.45 -2.00 5.56 180.00 -4.35
+execute in minecraft:overworld run tp @s 2270.45 -2.00 5.15 -178.95 -3.00
 
 # 3. Set their spawnpoint here
-execute in minecraft:overworld run spawnpoint @s 2270 -2 6 180.00
+execute in minecraft:overworld run spawnpoint @s 2270 -2 5 -178.95
 
 # 4. Set Adventure mode (unless tagged gourd_test)
 gamemode adventure @s[tag=!gourd_test]
