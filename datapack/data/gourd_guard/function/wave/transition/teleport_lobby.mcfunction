@@ -18,6 +18,11 @@ effect clear @a
 clear @a[gamemode=!creative]
 item replace entity @a armor.chest with air
 
+# 5. Reset Candy / Coins and clear all dropped candies
+function gourd_guard:hud/reset_candy
+kill @e[tag=gg_candy]
+execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".candy run kill @s
+
 # 5. Remove active game/cutscene/death/deco/test tags and cutscene posteffect
 tag @a remove cs_viewer
 tag @a remove cs_player

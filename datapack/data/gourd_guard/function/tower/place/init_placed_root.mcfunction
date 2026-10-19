@@ -21,6 +21,7 @@ execute if score @s gg.tower_type matches 5 on passengers if entity @s[type=item
 # Apply level-based combat stats (range, cooldown, damage, splash, sell value) and update text display
 function gourd_guard:tower/placed/update_stats
 execute on passengers if entity @s[type=text_display] run data modify entity @s view_range set value 0.09375f
+execute on passengers if entity @s[type=text_display] run data merge entity @s {billboard:"vertical"}
 
 # Summon the two clickable interaction hitboxes for [MOVE] and [SELL]
 execute if score @s gg.tower_type matches 1 run summon minecraft:interaction ~ ~3.0 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}

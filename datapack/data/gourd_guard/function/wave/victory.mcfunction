@@ -19,6 +19,9 @@ scoreboard players set .wave timer_ticks 0
 # Clean remaining mobs, remove all placed towers & clear player inventories, and reset Pumpkin variant
 kill @e[tag=path_mob]
 kill @e[tag=gg_mob]
+kill @e[tag=gg_candy]
+execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".candy run kill @s
+function gourd_guard:hud/reset_candy
 function gourd_guard:tower/reset_all
 function gourd_guard:pumpkin/set_default
 

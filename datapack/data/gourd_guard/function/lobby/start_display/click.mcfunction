@@ -11,8 +11,8 @@ playsound minecraft:entity.experience_orb.pickup master @a[distance=..20] ~ ~ ~ 
 # If clicker had gourd_test builder tag, remove it so they are included in the game
 execute as @p[distance=..8] run tag @s remove gourd_test
 
-# If a previous game was active or cutscene was stuck, reset cleanly first
-execute if score .wave state matches 1..4 run function gourd_guard:wave/reset_data
+# Cleanly reset previous game data and stuck cutscenes before starting
+function gourd_guard:wave/reset_data
 execute if score .global cs.state matches 1..3 run function gourd_guard:cutscene/reset
 
 # Set map to 1 explicitly

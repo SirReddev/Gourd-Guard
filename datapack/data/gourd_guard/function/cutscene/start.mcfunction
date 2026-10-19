@@ -17,6 +17,11 @@ execute unless score .global map matches 1..5 run scoreboard players set .global
 # Clean any existing cutscene entities before starting
 function gourd_guard:cutscene/reset
 
+# Reset candy balance and clear dropped candies for new playthrough
+function gourd_guard:hud/reset_candy
+kill @e[tag=gg_candy]
+execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".candy run kill @s
+
 # 1. Tag all active players (excluding gourd_test builders) as viewers (fallback to @p if all tagged gourd_test)
 tag @a[tag=!gourd_test] add cs_viewer
 execute unless entity @a[tag=cs_viewer] run tag @p add cs_viewer

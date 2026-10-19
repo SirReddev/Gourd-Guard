@@ -9,6 +9,8 @@ execute if entity @a[distance=..6] on passengers if entity @s[type=text_display]
 execute unless entity @a[distance=..6] on passengers if entity @s[type=text_display] run data modify entity @s view_range set value 0.0f
 execute if score @s gg.tower_type matches 2 unless entity @s[tag=gg_cgl_rot_fixed] on passengers if entity @s[type=text_display] run data merge entity @s {transformation:[1f,0f,0f,0.0031f,0f,1f,0f,2.4553f,0f,0f,1f,0.0236f,0f,0f,0f,1f]}
 execute if score @s gg.tower_type matches 2 unless entity @s[tag=gg_cgl_rot_fixed] run tag @s add gg_cgl_rot_fixed
+execute if score @s gg.tower_type matches 4 unless entity @s[tag=gg_cauldron_bb_fixed] on passengers if entity @s[type=text_display] run data merge entity @s {billboard:"vertical"}
+execute if score @s gg.tower_type matches 4 unless entity @s[tag=gg_cauldron_bb_fixed] run tag @s add gg_cauldron_bb_fixed
 
 # 2. Orient [MOVE] (player's left = ^-0.42) and [SELL] (player's right = ^0.42) toward nearest player within 6 blocks
 execute if score @s gg.tower_type matches 1 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.42 ^ ^0.05
