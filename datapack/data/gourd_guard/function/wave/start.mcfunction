@@ -58,4 +58,4 @@ execute unless score .global fly_active matches 1 run function gourd_guard:fly/e
 # Refresh wave HUD
 function gourd_guard:hud/wave/tick
 
-tellraw @a [{"text":"[Gourd Guard] ","color":"dark_green"},{"text":"Map ","color":"green"},{"score":{"name":".global","objective":"map"},"color":"aqua","bold":true},{"text":" Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" has begun! Defend the Pumpkin!","color":"green"}]
+tellraw @a [{"text":"[Wave System] ","color":"dark_green","bold":true},{"text":"Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" has begun. Defend the Gourd!","color":"green"}]

@@ -22,7 +22,7 @@ function gourd_guard:pumpkin/hit
 function gourd_guard:hud/objective/tick
 
 # Announce in chat with exact HP damage dealt and remaining base health
-tellraw @a [{"text":"[!] ","color":"dark_red"},{"selector":"@s"},{"text":" reached the goal! Dealt ","color":"red"},{"score":{"name":"#mob_dmg","objective":"obj_hp"},"color":"gold","bold":true},{"text":" DMG","color":"gold","bold":true},{"text":" to Base (HP: ","color":"gray"},{"score":{"name":".objective","objective":"obj_hp"},"color":"green","bold":true},{"text":")","color":"gray"}]
+tellraw @a [{"text":"[!] ","color":"dark_red"},{"selector":"@s"},{"text":" reached the gourd! Dealt ","color":"red"},{"score":{"name":"#mob_dmg","objective":"obj_hp"},"color":"gold","bold":true},{"text":" damage to the gourd (HP: ","color":"red"},{"score":{"name":".objective","objective":"obj_hp"},"color":"green","bold":true},{"text":")","color":"gray"}]
 
 # Trigger Game Over if Base HP reaches 0
 execute if score .objective obj_hp matches ..0 run function gourd_guard:wave/game_over

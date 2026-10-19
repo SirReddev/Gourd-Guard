@@ -15,7 +15,7 @@ execute if score #move_type gg.tower_type matches 5 run function gourd_guard:tow
 
 # Play pickup sound & chat message
 playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.8 1.2
-tellraw @s [{"text":"[Tower] ","color":"aqua"},{"text":"Picked up tower to move!","color":"yellow"}]
+tellraw @s [{"text":"[Tower] ","color":"aqua"},{"text":"Picked up tower, ready to move!","color":"yellow"}]
 
 # Remove the tower model and its interaction buttons
 function gourd_guard:tower/action/cleanup_target_tower

@@ -28,9 +28,9 @@ execute as @a at @s run playsound gourd_guard:game.over record @s ~ ~ ~ 1.0 1.0 
 # Defeat title displays above the screen fade
 title @a times 10 70 20
 title @a title {"text":"DEFEAT","color":"dark_red","bold":true}
-title @a subtitle [{"text":"The Pumpkin Objective was destroyed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
+title @a subtitle [{"text":"The Gourd was destroyed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true}]
 
-tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"GAME OVER! The base was overwhelmed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
+tellraw @a [{"text":"[Wave System] ","color":"dark_red","bold":true},{"text":"GAME OVER. The Gourd was destroyed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
 
 # 2. Trigger screen transition: 15t fade in, 25t black hold, 15t fade out
 posteffect add @a gourd_guard:fade_black
