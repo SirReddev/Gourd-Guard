@@ -9,26 +9,29 @@ data modify entity @s FallDistance set value 0.0f
 execute if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
 # Agile sprinters (Spiders, Swarms, Creepers): 0.28b/tick (~5.6 blocks/sec)
 execute if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
-# Pillager Convoy high-speed charge: 1.80b/tick (~36.0 blocks/sec)
-execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^1.80
+# Pillager Convoy high-speed charge: 1.20b/tick (~24.0 blocks/sec)
+execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^1.20
 # Heavy Juggernauts & Colossal Bosses: 0.10b/tick (~2.0 blocks/sec)
 execute if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10
 # Standard pace: 0.15b/tick (~3.0 blocks/sec)
 execute unless entity @s[tag=gg_fast,tag=gg_runner,tag=gg_slow,tag=gg_convoy] run tp @s ^ ^ ^0.15
 
-# --- TARGET NODE ELEVATION TRACKING FOR CONVOYS (Ravagers charging at 1.8b/tick) ---
+# --- TARGET NODE ELEVATION TRACKING FOR CONVOYS ---
 # Convoys elevate/descend smoothly towards node altitude so they charge cleanly across bridges and ramps
 execute if entity @s[tag=gg_convoy] store result score #mob_y gg.y run data get entity @s Pos[1] 100
 execute if entity @s[tag=gg_convoy] store result score #tgt_y gg.y run data get entity @e[tag=path_target,limit=1] Pos[1] 100
 execute if entity @s[tag=gg_convoy] run scoreboard players operation #y_diff gg.y = #tgt_y gg.y
 execute if entity @s[tag=gg_convoy] run scoreboard players operation #y_diff gg.y -= #mob_y gg.y
-execute as @s[tag=gg_convoy] at @s if score #y_diff gg.y matches 15.. run tp @s ~ ~0.50 ~
-execute as @s[tag=gg_convoy] at @s if score #y_diff gg.y matches ..-15 unless block ~ ~ ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.50 ~
+execute as @s[tag=gg_convoy] at @s if score #y_diff gg.y matches 10.. run tp @s ~ ~0.35 ~
+execute as @s[tag=gg_convoy] at @s if score #y_diff gg.y matches ..-10 unless block ~ ~ ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.35 ~
+
+# --- BOTTOM SLAB ANTI-SINK (Instantly elevates any entity sunken inside a bottom slab) ---
+execute as @s[tag=!path_flyer] at @s if block ~ ~ ~ #minecraft:slabs[type=bottom] if block ~ ~0.5 ~ air run tp @s ~ ~0.50 ~
 
 # --- GROUND MOBS (Zombies, Spiders, Skeletons, etc.) ---
 # Step-Up: Elevate smoothly onto top of block, stair, or slab
-execute as @s[tag=!path_flyer,tag=!gg_convoy] at @s unless block ~ ~0.05 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
-execute as @s[tag=gg_convoy] at @s unless block ~ ~0.05 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] if block ~ ~1.8 ~ air run tp @s ~ ~0.40 ~
+execute as @s[tag=!path_flyer,tag=!gg_convoy] at @s unless block ~ ~0.05 ~ air if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
+execute as @s[tag=gg_convoy] at @s unless block ~ ~0.05 ~ air if block ~ ~1.8 ~ air run tp @s ~ ~0.40 ~
 
 # Step-Down: Descend onto lower ground ONLY if solid ground exists within 1.2b below (NEVER falls into the void)
 execute as @s[tag=!path_flyer,tag=!gg_convoy] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~

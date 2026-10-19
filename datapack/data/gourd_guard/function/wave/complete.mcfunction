@@ -7,16 +7,16 @@ execute if score .global wave matches 40.. run return run function gourd_guard:w
 scoreboard players set .wave state 2
 scoreboard players set .wave spawn_done 0
 
-# Set Intermission Timer: 15 Seconds countdown on Wave Intermission HUD
+# Set Intermission Timer: 30 Seconds countdown on Wave Intermission HUD
 scoreboard players set .wave timer_min 0
-scoreboard players set .wave timer_sec 15
+scoreboard players set .wave timer_sec 30
 scoreboard players set .wave timer_ticks 0
 
 # Play celebration fanfare & brief title (2.25s total)
 playsound minecraft:ui.toast.challenge_complete player @a ~ ~ ~ 1.0 1.0 1
 title @a times 5 30 10
 title @a title {"text":"WAVE CLEARED!","color":"green","bold":true}
-title @a subtitle [{"text":"Next wave in ","color":"gray"},{"text":"15s","color":"yellow","bold":true}]
+title @a subtitle [{"text":"Next wave in ","color":"gray"},{"text":"30s","color":"yellow","bold":true}]
 
 scoreboard players enable @a gg_skip
-tellraw @a [{"text":"[Wave System] ","color":"gold","bold":true},{"text":"Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" cleared. Next wave in 15s, get ready!","color":"green"},{"text":" [SKIP]","color":"yellow","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/trigger gg_skip"}}]
+tellraw @a [{"text":"[Wave System] ","color":"gold","bold":true},{"text":"Wave ","color":"green"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":" cleared. Next wave in 30s, get ready!","color":"green"},{"text":" [SKIP]","color":"yellow","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/trigger gg_skip","command":"/trigger gg_skip"},"click_event":{"action":"run_command","command":"/trigger gg_skip","value":"/trigger gg_skip"}}]

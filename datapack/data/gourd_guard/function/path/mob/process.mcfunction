@@ -37,7 +37,7 @@ function gourd_guard:path/mob/walk
 execute as @s[tag=!path_flyer,tag=!gg_convoy,tag=!gg_fast,tag=!gg_runner] at @s if entity @e[tag=path_target,distance=..1.2] run tag @s add path_advance
 execute as @s[tag=gg_fast,tag=!path_flyer,tag=!gg_convoy,tag=!gg_runner] at @s if entity @e[tag=path_target,distance=..1.2] run tag @s add path_advance
 execute as @s[tag=gg_runner,tag=!path_flyer,tag=!gg_convoy] at @s if entity @e[tag=path_target,distance=..1.5] run tag @s add path_advance
-execute as @s[tag=gg_convoy] at @s if entity @e[tag=path_target,distance=..3.2] run tag @s add path_advance
+execute as @s[tag=gg_convoy] at @s if entity @e[tag=path_target,distance=..1.5] run tag @s add path_advance
 
 # Flying mobs advance when within 0.55 blocks horizontally of target node (matching ground mob timing)
 execute as @s[tag=path_flyer] at @s positioned ~ ~-1.0 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance

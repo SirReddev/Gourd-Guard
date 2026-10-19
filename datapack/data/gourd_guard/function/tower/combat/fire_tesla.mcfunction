@@ -10,8 +10,8 @@ particle minecraft:electric_spark ~ ~3.7 ~ 0.3 0.3 0.3 0.1 20
 # Protect any existing items in the strike zone from lightning damage
 execute at @n[tag=gg_tower_target] as @e[type=item,distance=..8] run data merge entity @s {Invulnerable:1b,Health:1000s}
 
-# Execute lightning strike at the target mob (offset by 5 blocks vertically so visual bolt and thunder play, but item loot at ground level is safe from vanilla lightning destruction)
-execute at @n[tag=gg_tower_target] run summon minecraft:lightning_bolt ~ ~5 ~ {Tags:["gg_tesla_bolt"]}
+# Execute lightning strike at the target mob
+execute at @n[tag=gg_tower_target] run summon minecraft:lightning_bolt ~ ~ ~
 execute at @n[tag=gg_tower_target] run playsound minecraft:entity.lightning_bolt.impact master @a[distance=..32] ~ ~ ~ 1.0 1.2
 execute at @n[tag=gg_tower_target] run particle minecraft:electric_spark ~ ~1 ~ 0.6 0.6 0.6 0.2 35
 
