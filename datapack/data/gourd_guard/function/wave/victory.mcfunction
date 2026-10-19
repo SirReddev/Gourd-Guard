@@ -36,9 +36,8 @@ title @a subtitle {"text":"YOU DEFENDED THE GOURD FROM ALL 40 WAVES!","color":"y
 
 tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":" CONGRATULATIONS! You successfully completed all 40 Waves! The Pumpkin is saved!","color":"yellow"}]
 
-# 2. Trigger screen transition: 15t fade in, 25t black hold, 15t fade out
-function gourd_guard:wave/transition/fade_black
+# 2. Trigger screen transition: 2s fade in to black, 8s black hold, 2s fade out
+schedule function gourd_guard:wave/transition/fade_black 1t
 
-# 3. Reset the game state and teleport to lobby during solid black hold (tick 20)
-schedule function gourd_guard:wave/transition/victory_reset 20t
-
+# 3. Reset the game state and teleport to lobby during solid black hold (tick 40)
+schedule function gourd_guard:wave/transition/victory_reset 40t
