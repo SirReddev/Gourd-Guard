@@ -25,14 +25,14 @@ execute as @a[gamemode=!spectator] at @s unless block ~ ~2 ~ air run scoreboard 
 # AIRBORNE (>= 2 blocks in the air):
 # - Sneak pumps altitude up so you can re-deploy wings or gain height anytime (only if headroom is clear)
 execute as @a[scores={fly_hold=1..},gamemode=!spectator] at @s if block ~ ~-2 ~ air if block ~ ~2 ~ air run effect give @s minecraft:levitation 1 12 true
-execute as @a[scores={fly_hold=1..},gamemode=!spectator] at @s if block ~ ~-2 ~ air if block ~ ~2 ~ air run particle minecraft:cloud ~ ~ ~ 0.1 0.1 0.1 0 2
+execute as @a[scores={fly_hold=1..},gamemode=!spectator] at @s if block ~ ~-2 ~ air if block ~ ~2 ~ air run particle minecraft:geyser_base{water_blocks:1,burst_impulse_base:0} ~ ~ ~ 0 0 0 0.05 1 force
 
 # GROUND LAUNCH (Requires holding Shift for >= 8 ticks = 0.4s to shoot up into the air):
 # - Charge indicator particles during hold (ticks 4 to 7)
-execute as @a[scores={fly_hold=4..7},gamemode=!spectator] at @s unless block ~ ~-2 ~ air run particle minecraft:cloud ~ ~ ~ 0.05 0.05 0.05 0.01 1
+execute as @a[scores={fly_hold=4..7},gamemode=!spectator] at @s unless block ~ ~-2 ~ air run particle minecraft:geyser_base{water_blocks:1,burst_impulse_base:0} ~ ~ ~ 0 0 0 0.05 1 force
 # - Launch high into the air once held for 8 ticks (Level 16 Levitation for fast snappy air launch, only if headroom is clear)
 execute as @a[scores={fly_hold=8..},gamemode=!spectator] at @s unless block ~ ~-2 ~ air if block ~ ~2 ~ air run effect give @s minecraft:levitation 1 15 true
-execute as @a[scores={fly_hold=8..},gamemode=!spectator] at @s unless block ~ ~-2 ~ air if block ~ ~2 ~ air run particle minecraft:cloud ~ ~ ~ 0.2 0.2 0.2 0.05 4
+execute as @a[scores={fly_hold=8..},gamemode=!spectator] at @s unless block ~ ~-2 ~ air if block ~ ~2 ~ air run particle minecraft:geyser_base{water_blocks:1,burst_impulse_base:0} ~ ~ ~ 0 0 0 0.05 1 force
 
 # 7. Clean up stray dropped gliders
 execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".gg_glider run kill @s
