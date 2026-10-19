@@ -29,7 +29,9 @@ title @a subtitle [{"text":"The Pumpkin Objective was destroyed on Wave ","color
 
 tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"GAME OVER! The base was overwhelmed on Wave ","color":"red"},{"score":{"name":".global","objective":"wave"},"color":"gold","bold":true},{"text":"!","color":"red"}]
 
-# 2. Trigger screen transition: fade to black, teleport/reset behind curtain at 15t, fade out at 50t
-posteffect add @a gourd_guard:cutscene_fade
-schedule function gourd_guard:wave/transition/game_over_reset 15t
-schedule function gourd_guard:wave/transition/clear 50t
+# 2. Trigger screen transition: 15t fade in, 25t black hold, 15t fade out
+posteffect add @a gourd_guard:fade_black
+scoreboard players set .wave reset_timer 20
+scoreboard players set .wave fade_timer 55
+schedule function gourd_guard:wave/transition/game_over_reset 20t
+schedule function gourd_guard:wave/transition/clear 55t

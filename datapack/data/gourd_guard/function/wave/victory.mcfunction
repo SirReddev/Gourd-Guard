@@ -32,7 +32,9 @@ title @a subtitle {"text":"YOU DEFENDED THE GOURD FROM ALL 40 WAVES!","color":"y
 
 tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":" CONGRATULATIONS! You successfully completed all 40 Waves! The Pumpkin is saved!","color":"yellow"}]
 
-# 2. Trigger screen transition: fade to black, teleport/reset behind curtain at 15t, fade out at 50t
-posteffect add @a gourd_guard:cutscene_fade
-schedule function gourd_guard:wave/transition/victory_reset 15t
-schedule function gourd_guard:wave/transition/clear 50t
+# 2. Trigger screen transition: 15t fade in, 25t black hold, 15t fade out
+posteffect add @a gourd_guard:fade_black
+scoreboard players set .wave reset_timer 20
+scoreboard players set .wave fade_timer 55
+schedule function gourd_guard:wave/transition/victory_reset 20t
+schedule function gourd_guard:wave/transition/clear 55t

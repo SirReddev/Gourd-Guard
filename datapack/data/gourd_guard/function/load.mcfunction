@@ -12,7 +12,7 @@ scoreboard objectives add gg.talked_gravedigger dummy
 scoreboard objectives add math dummy
 
 # Global World Spawn for New Players
-setworldspawn 2270 -2 5 181.2
+setworldspawn 2270 -2 6 180.0
 
 # Clear lingering posteffects on reload
 posteffect remove @a gourd_guard:cutscene_fade

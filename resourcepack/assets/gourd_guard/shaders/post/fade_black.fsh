@@ -21,7 +21,7 @@ void main() {
 
     // Decode start tick from R and G channels
     int startTicks = int(round(timer.r * 255.0)) * 256 + int(round(timer.g * 255.0));
-    int currentTicks = int(round(clamp(GameTime, 0.0, 1.0) * 24000.0));
+    int currentTicks = int(round(fract(GameTime) * 24000.0));
 
     int elapsedTicks = currentTicks - startTicks;
     if (elapsedTicks < 0) {
@@ -30,18 +30,18 @@ void main() {
 
     float t = float(elapsedTicks);
 
-    // Exact requested timing (20 ticks = 1.0 second):
-    // 0t -> 40t   (0.0s -> 2.0s) : Smooth 2s fade into solid black
-    // 40t -> 200t (2.0s -> 10.0s): Full 8s solid black hold (allows title display & game reset)
-    // 200t -> 240t(10.0s -> 12.0s): Smooth 2s fade from black back to normal
-    // >= 240t: 100% normal scene
+    // Exact transition timing (20 ticks = 1.0 second, 55 ticks ~ 2.75s total):
+    // 0t -> 15t  (0.0s -> 0.75s): Smooth fade into solid black
+    // 15t -> 40t (0.75s -> 2.0s): Full solid black hold (allows reset & teleport behind curtain)
+    // 40t -> 55t (2.0s -> 2.75s): Smooth fade from black back to normal
+    // >= 55t: 100% normal scene
     float blackness = 0.0;
-    if (t < 40.0) {
-        blackness = smoothstep(0.0, 40.0, t);
-    } else if (t < 200.0) {
+    if (t < 15.0) {
+        blackness = smoothstep(0.0, 15.0, t);
+    } else if (t < 40.0) {
         blackness = 1.0;
-    } else if (t < 240.0) {
-        blackness = 1.0 - smoothstep(200.0, 240.0, t);
+    } else if (t < 55.0) {
+        blackness = 1.0 - smoothstep(40.0, 55.0, t);
     } else {
         blackness = 0.0;
     }

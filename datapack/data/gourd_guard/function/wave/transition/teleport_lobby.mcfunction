@@ -14,7 +14,7 @@ effect clear @a
 clear @a[gamemode=!creative]
 item replace entity @a armor.chest with air
 
-# 4. Remove active game/cutscene/death/deco/test tags and posteffects
+# 4. Remove active game/cutscene/death/deco/test tags and cutscene posteffect
 tag @a remove cs_viewer
 tag @a remove cs_player
 tag @a remove dead
@@ -24,7 +24,6 @@ tag @a remove gg_talking
 tag @a remove gg_npc_deco
 tag @a remove gourd_test
 posteffect remove @a gourd_guard:cutscene_fade
-posteffect remove @a gourd_guard:fade_black
 
 # 5. Reset player dialogue and flight hold states
 scoreboard players set @a fly_hold 0
@@ -37,7 +36,8 @@ scoreboard players reset @a chatbox.page
 scoreboard players enable @a gg_skip
 
 # 7. Teleport ALL players to post-game lobby location
-execute in minecraft:overworld run tp @a 2271.49 -1.00 -64.54 1618.65 -3.75
+execute in minecraft:overworld run tp @a 2271.53 -1.00 -64.57 177.75 -6.90
 
 # 8. Set player spawnpoint to default lobby spawn
-execute in minecraft:overworld as @a run spawnpoint @s 2270.47 -2.00 5.34 1621.20
+execute in minecraft:overworld as @a run spawnpoint @s 2272 -1 -65 177.75
+scoreboard players set .wave reset_timer -1
