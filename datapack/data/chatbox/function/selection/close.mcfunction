@@ -11,4 +11,5 @@ data modify storage chatbox:selection Items set value []
 
 playsound minecraft:ui.toast.out master @s ~ ~ ~ 0.35 1.05
 scoreboard players set @s chatbox.open_grace 0
+data modify storage chatbox:main SequenceActive set value 0b
 function chatbox:session/release

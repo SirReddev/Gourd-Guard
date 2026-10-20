@@ -51,6 +51,7 @@ function gourd_guard:pumpkin/set_on
 
 # Turn off NPC glow once game/waves begin
 function gourd_guard:npc/glow/off
+execute as @a[scores={chatbox.session=1..4}] run function chatbox:session/release
 
 # Ensure Flight is enabled during waves
 execute unless score .global fly_active matches 1 run function gourd_guard:fly/enable

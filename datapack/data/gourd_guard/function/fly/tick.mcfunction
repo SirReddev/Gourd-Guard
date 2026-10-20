@@ -2,7 +2,7 @@
 # Runs every tick
 
 # 1. Clean up gliders and return if flight is not active
-execute unless score .global fly_active matches 1 as @a[tag=!gourd_test] if data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run function gourd_guard:fly/disable
+execute unless score .global fly_active matches 1 as @a[tag=!gourd_test] if items entity @s armor.chest minecraft:elytra run function gourd_guard:fly/disable
 execute unless score .global fly_active matches 1 run return 0
 
 # 2. Reset flight hold & clear levitation for any player currently engaged in chatbox dialogue/shop
@@ -10,7 +10,7 @@ execute as @a[scores={chatbox.session=1..}] at @s run scoreboard players set @s 
 execute as @a[scores={chatbox.session=1..}] at @s run effect clear @s minecraft:levitation
 
 # 3. Ensure all players have the locked Elytra equipped while flight is active
-execute as @a[gamemode=!spectator,tag=!gourd_test] unless data entity @s Inventory[{Slot:102b,id:"minecraft:elytra"}] run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={}]
+execute as @a[gamemode=!spectator,tag=!gourd_test] unless items entity @s armor.chest minecraft:elytra run item replace entity @s armor.chest with minecraft:elytra[minecraft:item_name={text:"Gourd Glider",color:"gold",bold:true},minecraft:custom_data={gg_glider:1b},minecraft:unbreakable={}]
 
 # 4. Track continuous Sneak duration (in ticks) - only for players not in chatbox sessions
 execute as @a[gamemode=!spectator,tag=!gourd_test] unless score @s chatbox.session matches 1.. if predicate chatbox:is_sneaking run scoreboard players add @s fly_hold 1
@@ -35,7 +35,8 @@ execute as @a[scores={fly_hold=8..},gamemode=!spectator] at @s unless block ~ ~-
 execute as @a[scores={fly_hold=8..},gamemode=!spectator] at @s unless block ~ ~-2 ~ air if block ~ ~2 ~ air run particle minecraft:geyser_base{water_blocks:1,burst_impulse_base:0} ~ ~ ~ 0 0 0 0.05 1 force
 
 # 7. Clean up stray dropped gliders
-execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data".gg_glider run kill @s
+execute as @e[type=item,tag=!gg_glider_checked] if items entity @s contents *[minecraft:custom_data~{gg_glider:1b}] run kill @s
+tag @e[type=item,tag=!gg_glider_checked] add gg_glider_checked
 
 # 8. Re-enable trigger
 scoreboard players enable @a fly_status

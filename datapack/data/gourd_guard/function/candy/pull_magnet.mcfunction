@@ -2,13 +2,10 @@
 tag @s add gg_magnet_pulled
 tag @s add gg_being_pulled
 
-# Get magnet-holding player position in millimeters
-execute store result score .px math run data get entity @p[tag=gg_holding_magnet,distance=..50.0] Pos[0] 1000
-execute store result score .py math run data get entity @p[tag=gg_holding_magnet,distance=..50.0] Pos[1] 1000
-execute store result score .pz math run data get entity @p[tag=gg_holding_magnet,distance=..50.0] Pos[2] 1000
-
-# Aim for player's torso center (+0.6m = +600mm)
-scoreboard players add .py math 600
+# Read cached magnet-holding player position (pre-calculated once per tick)
+scoreboard players operation .px math = #mag_x math
+scoreboard players operation .py math = #mag_y math
+scoreboard players operation .pz math = #mag_z math
 
 # Get candy position in millimeters
 execute store result score .ix math run data get entity @s Pos[0] 1000

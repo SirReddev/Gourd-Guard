@@ -70,8 +70,22 @@ execute unless score .wave state matches 0.. run scoreboard players set .wave st
 
 # Ensure all lobby text displays use vertical billboard rotation
 execute as @e[type=text_display,tag=gg_start_display] run data modify entity @s billboard set value "vertical"
+execute as @e[type=text_display,tag=gg_start_display] run data modify entity @s alignment set value "center"
 execute as @e[type=text_display,tag=gg_leaderboard_display] run data modify entity @s billboard set value "vertical"
 execute as @e[type=text_display,tag=gg_stats_display] run data modify entity @s billboard set value "vertical"
+
+# Living mob health tracking (updated automatically by engine)
+scoreboard objectives add gg_hp health
+
+# Clear any lingering dialogue / shop frame bossbars (vignette fix)
+bossbar set chatbox:s1_frame name ""
+bossbar set chatbox:s2_frame name ""
+bossbar set chatbox:s3_frame name ""
+bossbar set chatbox:s4_frame name ""
+bossbar set chatbox:s1_frame players
+bossbar set chatbox:s2_frame players
+bossbar set chatbox:s3_frame players
+bossbar set chatbox:s4_frame players
 
 # Re-register existing Gourd Guard Pumpkins in Animated Java data_manager and sync variant with wave state
 data modify storage animated_java:temp args set value {variant:'default', animation:'idle', frame: 0}

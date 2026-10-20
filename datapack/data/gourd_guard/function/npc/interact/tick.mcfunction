@@ -12,3 +12,6 @@ execute unless score .global cs.state matches 1..3 as @e[type=interaction,tag=gg
 # Checks for right-click player interaction on NPC interaction entities (executes as the interacting player at the hitbox)
 execute as @e[type=minecraft:interaction,tag=gg_npc_interaction] if data entity @s interaction at @s on target run function gourd_guard:npc/interact/handle
 execute as @e[type=minecraft:interaction,tag=gg_npc_interaction] if data entity @s interaction at @s as @p[distance=..5] run function gourd_guard:npc/interact/handle
+
+# Auto-release chatbox session and clear vignette if player walks away (>7.5 blocks) from NPC
+execute as @a[scores={chatbox.session=1..4}] unless score .global cs.state matches 1..3 at @s unless entity @e[type=interaction,tag=gg_npc_interaction,distance=..7.5] unless entity @e[type=interaction,tag=gg_peeves_interaction,distance=..7.5] run function chatbox:session/release

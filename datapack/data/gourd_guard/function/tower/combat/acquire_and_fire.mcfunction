@@ -2,8 +2,8 @@
 # Pillager Convoy (Type 3) does not aim single projectiles; check its multi-path convoy dispatch timer
 execute if score @s gg.tower_type matches 3 run return run function gourd_guard:tower/convoy/check_fire
 
-tag @e remove gg_in_range
-tag @e remove gg_tower_target
+tag @e[tag=gg_in_range] remove gg_in_range
+tag @e[tag=gg_tower_target] remove gg_tower_target
 
 # Tag all living wave mobs within this tower's level-based range (Lvl 1 = 6b, Lvl 2 = 7b, Lvl 3 = 8b, Lvl 4 = 9b, Lvl 5 = 10.5b)
 execute if score @s gg.tower_lvl matches 1 run tag @e[tag=gg_mob,distance=..6.0] add gg_in_range
@@ -34,3 +34,7 @@ execute if score @s gg.tower_type matches 1 facing entity @n[tag=gg_tower_target
 
 # If cooldown is ready (0), fire at the target!
 execute if score @s gg.tower_cd matches ..0 run function gourd_guard:tower/combat/fire_shot
+
+# Clean up tags
+tag @e[tag=gg_in_range] remove gg_in_range
+tag @e[tag=gg_tower_target] remove gg_tower_target

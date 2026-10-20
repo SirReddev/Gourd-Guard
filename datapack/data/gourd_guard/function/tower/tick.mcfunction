@@ -38,6 +38,12 @@ execute as @e[type=item_display,tag=gg_fw_proj] at @s run function gourd_guard:t
 # 9b. Tick active Pillager Convoys (collision detection against wave mobs & HP exchange)
 execute as @e[tag=gg_convoy] at @s run function gourd_guard:tower/convoy/tick
 
+# 9c. Clean up orphaned pillager riders (any rider whose ravager was killed)
+execute if entity @e[type=pillager,tag=gg_convoy_rider] run tag @e[tag=gg_convoy_rider] add gg_orphan
+execute if entity @e[type=pillager,tag=gg_convoy_rider] as @e[tag=gg_convoy] on passengers if entity @s[tag=gg_convoy_rider] run tag @s remove gg_orphan
+execute if entity @e[type=pillager,tag=gg_orphan] run kill @e[type=pillager,tag=gg_orphan]
+tag @e[tag=gg_orphan] remove gg_orphan
+
 # 10. Check for player clicks (right-click OR left-click) on [MOVE] and [SELL] interaction buttons
 execute as @e[type=interaction,tag=gg_tower_btn] if data entity @s interaction at @s run function gourd_guard:tower/action/on_interact
 execute as @e[type=interaction,tag=gg_tower_btn] if data entity @s attack at @s run function gourd_guard:tower/action/on_attack

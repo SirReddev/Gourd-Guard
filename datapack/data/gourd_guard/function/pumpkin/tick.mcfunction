@@ -13,5 +13,5 @@ execute if score #pumpkin_hit gg.timer matches 1 run function gourd_guard:pumpki
 execute if score #pumpkin_hit gg.timer matches 2.. run scoreboard players remove #pumpkin_hit gg.timer 1
 
 # 4. Keep all pumpkins in 'on' variant during active game (state 1..2) and 'default' otherwise (when not flashing hit)
-execute unless score #pumpkin_hit gg.timer matches 1.. if score .wave state matches 1..2 as @e[type=item_display,tag=aj.gourdguard_pumpkin.bone] unless data entity @s {item:{components:{"minecraft:custom_model_data":{strings:["gourdguard_pumpkin_on"]}}}} run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_pumpkin_on"
-execute unless score #pumpkin_hit gg.timer matches 1.. unless score .wave state matches 1..2 as @e[type=item_display,tag=aj.gourdguard_pumpkin.bone] unless data entity @s {item:{components:{"minecraft:custom_model_data":{strings:["gourdguard_pumpkin_default"]}}}} run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_pumpkin_default"
+execute unless score #pumpkin_hit gg.timer matches 1.. if score .wave state matches 1..2 as @e[type=item_display,tag=aj.gourdguard_pumpkin.bone,tag=!gg_variant_on] run function gourd_guard:pumpkin/set_on
+execute unless score #pumpkin_hit gg.timer matches 1.. unless score .wave state matches 1..2 as @e[type=item_display,tag=aj.gourdguard_pumpkin.bone,tag=!gg_variant_default] run function gourd_guard:pumpkin/set_default

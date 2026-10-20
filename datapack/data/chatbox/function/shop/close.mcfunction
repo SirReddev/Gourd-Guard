@@ -17,5 +17,6 @@ scoreboard players set @s chatbox.sprint 0
 # Play exit sound
 playsound minecraft:ui.toast.out master @s ~ ~ ~ 0.35 0.95
 
-# If not in sequence, release session
-execute unless data storage chatbox:main {SequenceActive:1b} run function chatbox:session/release
+# Release active session and reset SequenceActive flag
+data modify storage chatbox:main SequenceActive set value 0b
+function chatbox:session/release

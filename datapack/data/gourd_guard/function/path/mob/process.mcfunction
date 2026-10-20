@@ -15,9 +15,10 @@ scoreboard players operation MobRoute path.cmp = @s path.route
 scoreboard players operation MobBranch path.cmp = @s path.branch
 scoreboard players operation MobNode path.cmp = @s path.node
 
-# Find and tag the target node for this mob
-tag @e[tag=path_node] remove path_target
-execute as @e[tag=path_node] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp if score @s path.branch = MobBranch path.cmp if score @s path.node = MobNode path.cmp run tag @s add path_target
+# Find and tag the target node for this mob (optimized: check local 36-block sphere first, fallback to all nodes)
+tag @e[tag=path_target] remove path_target
+execute as @e[tag=path_node,distance=..36] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp if score @s path.branch = MobBranch path.cmp if score @s path.node = MobNode path.cmp run tag @s add path_target
+execute unless entity @e[tag=path_target] as @e[tag=path_node] if score @s path.map = MobMap path.cmp if score @s path.route = MobRoute path.cmp if score @s path.branch = MobBranch path.cmp if score @s path.node = MobNode path.cmp run tag @s add path_target
 
 # If no matching node in current section, transition to Split Option (1 or 2) or Common End (3)
 execute unless entity @e[tag=path_target] run function gourd_guard:path/mob/resolve_next_branch
