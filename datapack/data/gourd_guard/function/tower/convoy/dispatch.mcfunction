@@ -11,7 +11,9 @@ function aj:gourdguard_tower_pillager_convoy/at_locator {name:'locator',command:
 # 3. Prepare parameters for route dispatch
 execute store result storage gourd_guard:tower macro.map int 1 run scoreboard players get .global map
 execute store result storage gourd_guard:tower macro.lvl int 1 run scoreboard players get @s gg.tower_lvl
-execute store result storage gourd_guard:tower macro.hp float 1 run scoreboard players get @s gg.tower_dmg
+execute store result storage gourd_guard:tower macro.dmg int 1 run scoreboard players get @s gg.tower_dmg
+scoreboard players set #convoy_tank_hp gg.calc 400
+execute store result storage gourd_guard:tower macro.hp float 1 run scoreboard players get #convoy_tank_hp gg.calc
 
 # 4. Dispatch one convoy for each active main route on the current map
 function gourd_guard:tower/convoy/dispatch_map with storage gourd_guard:tower macro

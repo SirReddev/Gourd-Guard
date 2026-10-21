@@ -3,7 +3,9 @@
 
 # Decrement slow timer & clear tag on expiration
 execute if entity @s[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
+execute if entity @s[tag=gg_slowed] if score @s gg.slow_timer matches ..0 run effect clear @s minecraft:slowness
 execute if entity @s[tag=gg_slowed] if score @s gg.slow_timer matches ..0 run tag @s remove gg_slowed
+execute if entity @s[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run effect clear @s minecraft:slowness
 execute if entity @s[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run tag @s remove gg_slowed
 execute if entity @s[tag=gg_slowed] at @s run particle minecraft:soul ~ ~0.3 ~ 0.15 0.15 0.15 0.01 1
 
@@ -14,13 +16,13 @@ execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.22
 execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
 execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
 execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10
-execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] unless entity @s[tag=gg_fast,tag=gg_runner,tag=gg_slow] run tp @s ^ ^ ^0.15
+execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] unless entity @s[tag=gg_fast] unless entity @s[tag=gg_runner] unless entity @s[tag=gg_slow] run tp @s ^ ^ ^0.15
 
 # Slowed speed movement (50% reduction from Cauldron Slowness)
 execute if entity @s[tag=gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.27
 execute if entity @s[tag=gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.14
 execute if entity @s[tag=gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.05
-execute if entity @s[tag=gg_slowed,tag=!gg_convoy] unless entity @s[tag=gg_fast,tag=gg_runner,tag=gg_slow] run tp @s ^ ^ ^0.07
+execute if entity @s[tag=gg_slowed,tag=!gg_convoy] unless entity @s[tag=gg_fast] unless entity @s[tag=gg_runner] unless entity @s[tag=gg_slow] run tp @s ^ ^ ^0.07
 
 # --- SLAB, STAIR & SOLID TERRAIN SNAPPING & ANTI-SINK ---
 # Snaps entities cleanly to the top surface of slabs/stairs/blocks, preventing sinking or floating.

@@ -26,6 +26,9 @@ scoreboard objectives add gg.fw_splash dummy
 scoreboard objectives add gg.fw_slow_dur dummy
 scoreboard objectives add gg.tower_slow_dur dummy
 scoreboard objectives add gg.slow_timer dummy
+scoreboard objectives add gg.convoy_dmg dummy
+scoreboard objectives add gg.convoy_ram_cd dummy
+scoreboard objectives add gg.last_hp dummy
 scoreboard objectives add gg.fw_bx dummy
 scoreboard objectives add gg.fw_by dummy
 scoreboard objectives add gg.fw_bz dummy

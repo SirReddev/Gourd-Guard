@@ -8,9 +8,5 @@ execute if score #convoy_hp gg.calc matches ..0 run return run function gourd_gu
 # 2. Ram cooldown decrement
 execute if score @s gg.convoy_ram_cd matches 1.. run scoreboard players remove @s gg.convoy_ram_cd 1
 
-# 3. Collision detection against living wave mobs (within 3.5 blocks, only when ram cooldown ready)
-execute unless score @s gg.convoy_ram_cd matches 1.. run tag @e[tag=gg_convoy_target] remove gg_convoy_target
-execute unless score @s gg.convoy_ram_cd matches 1.. run tag @e[tag=gg_mob,tag=!gg_boss,distance=..3.5,limit=1,sort=nearest] add gg_convoy_target
-execute unless score @s gg.convoy_ram_cd matches 1.. unless entity @e[tag=gg_convoy_target] run tag @e[tag=gg_mob,distance=..3.5,limit=1,sort=nearest] add gg_convoy_target
-execute unless score @s gg.convoy_ram_cd matches 1.. if entity @e[tag=gg_convoy_target] run function gourd_guard:tower/convoy/exchange_damage
-tag @e[tag=gg_convoy_target] remove gg_convoy_target
+# 3. Collision attack against living wave mobs (within 3.0 blocks, only when ram cooldown ready)
+execute unless score @s gg.convoy_ram_cd matches 1.. at @s if entity @e[tag=gg_mob,distance=..3.0] run function gourd_guard:tower/convoy/exchange_damage
