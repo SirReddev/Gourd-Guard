@@ -16,6 +16,14 @@ execute as @e[tag=gg_mob,scores={gg_hp=..0}] run tag @s remove gg_mob
 execute as @e[tag=path_mob] if data entity @s {Health:0.0f} run tag @s remove path_mob
 execute as @e[tag=gg_mob] if data entity @s {Health:0.0f} run tag @s remove gg_mob
 
+# 1.8. Global Slowness Countdown (strictly lasts 5 seconds = 100 ticks max, clears immediately on expiration)
+execute as @e[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
+execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run effect clear @s minecraft:slowness
+execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run tag @s remove gg_slowed
+execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run effect clear @s minecraft:slowness
+execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run tag @s remove gg_slowed
+execute as @e[tag=gg_slowed] at @s run particle minecraft:soul ~ ~0.3 ~ 0.15 0.15 0.15 0.01 1
+
 # 2. Process all active path mobs
 execute as @e[tag=path_mob,scores={path.state=1..}] at @s run function gourd_guard:path/mob/process
 

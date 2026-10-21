@@ -1,14 +1,6 @@
 # Pathfinding - Per-Mob Movement Step forward
 # Runs as each active path mob, oriented towards path_target.
 
-# Decrement slow timer & clear tag on expiration
-execute if entity @s[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
-execute if entity @s[tag=gg_slowed] if score @s gg.slow_timer matches ..0 run effect clear @s minecraft:slowness
-execute if entity @s[tag=gg_slowed] if score @s gg.slow_timer matches ..0 run tag @s remove gg_slowed
-execute if entity @s[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run effect clear @s minecraft:slowness
-execute if entity @s[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run tag @s remove gg_slowed
-execute if entity @s[tag=gg_slowed] at @s run particle minecraft:soul ~ ~0.3 ~ 0.15 0.15 0.15 0.01 1
-
 # Pillager Convoy steady armored charge: 0.22b/tick (~4.4 blocks/sec)
 execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.22
 
