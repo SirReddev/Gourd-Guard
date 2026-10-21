@@ -71,6 +71,8 @@ execute unless score .wave state matches 0.. run scoreboard players set .wave st
 # Ensure all lobby text displays use vertical billboard rotation
 execute as @e[type=text_display,tag=gg_start_display] run data modify entity @s billboard set value "vertical"
 execute as @e[type=text_display,tag=gg_start_display] run data modify entity @s alignment set value "center"
+execute as @e[type=text_display,tag=gg_start_icon] run data modify entity @s text set value {text:"\uE304",color:"white",font:"minecraft:default"}
+execute as @e[type=text_display,tag=gg_start_btn] run data modify entity @s text set value {text:"\uE302",color:"white",font:"minecraft:default"}
 execute as @e[type=text_display,tag=gg_leaderboard_display] run data modify entity @s billboard set value "vertical"
 execute as @e[type=text_display,tag=gg_stats_display] run data modify entity @s billboard set value "vertical"
 
