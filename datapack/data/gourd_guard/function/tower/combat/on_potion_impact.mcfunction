@@ -10,6 +10,7 @@ execute unless score @s gg.fw_dmg matches 1.. run scoreboard players set @s gg.f
 execute unless score @s gg.fw_splash matches 1.. run scoreboard players set @s gg.fw_splash 50
 
 # 1. Deal direct hit damage to the closest wave mob within 2.8 blocks of impact
+data merge storage gourd_guard:tower {macro:{dmg:35,splash:50}}
 execute store result storage gourd_guard:tower macro.dmg int 1 run scoreboard players get @s gg.fw_dmg
 execute store result storage gourd_guard:tower macro.splash int 1 run scoreboard players get @s gg.fw_splash
 

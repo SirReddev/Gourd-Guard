@@ -1,4 +1,5 @@
 # Executed as & at the Tesla Coil root (@s) facing the target
+data merge storage gourd_guard:tower {macro:{dmg:200,splash:100}}
 execute store result storage gourd_guard:tower macro.dmg int 1 run scoreboard players get @s gg.tower_dmg
 execute store result storage gourd_guard:tower macro.splash int 1 run scoreboard players get @s gg.tower_splash
 

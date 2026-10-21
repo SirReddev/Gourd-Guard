@@ -14,9 +14,10 @@ particle minecraft:sweep_attack ~ ~1 ~ 0.5 0.3 0.5 0.0 6
 particle minecraft:damage_indicator ~ ~1 ~ 0.35 0.35 0.35 0.05 12
 particle minecraft:crit ~ ~1 ~ 0.35 0.35 0.35 0.1 12
 
-# 3. Deal damage directly to all wave mobs within 6.0 blocks of the ravager
+# 3. Deal damage directly to all wave mobs within 6.5 blocks of the ravager
+data merge storage gourd_guard:tower {macro:{dmg:45}}
 execute store result storage gourd_guard:tower macro.dmg int 1 run scoreboard players get @s gg.convoy_dmg
-execute at @s as @e[tag=gg_mob,distance=..6.0] at @s run function gourd_guard:tower/combat/deal_direct_dmg with storage gourd_guard:tower macro
+execute at @s as @e[tag=gg_mob,distance=..6.5] at @s run function gourd_guard:tower/combat/deal_direct_dmg with storage gourd_guard:tower macro
 
 # 4. Convoy takes slight recoil wear (15 damage per ram engagement)
 function gourd_guard:tower/convoy/deal_convoy_dmg {dmg:15}

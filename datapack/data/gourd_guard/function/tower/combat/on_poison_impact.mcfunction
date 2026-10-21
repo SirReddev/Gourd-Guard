@@ -10,6 +10,7 @@ execute unless score @s gg.fw_dmg matches 1.. run scoreboard players set @s gg.f
 execute unless score @s gg.fw_splash matches 1.. run scoreboard players set @s gg.fw_splash 25
 
 # 1. Deal direct hit damage & apply Poison II for 6 seconds to the closest wave mob
+data merge storage gourd_guard:tower {macro:{dmg:50,splash:25}}
 execute store result storage gourd_guard:tower macro.dmg int 1 run scoreboard players get @s gg.fw_dmg
 execute store result storage gourd_guard:tower macro.splash int 1 run scoreboard players get @s gg.fw_splash
 

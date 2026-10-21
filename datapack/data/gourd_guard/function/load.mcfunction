@@ -107,3 +107,7 @@ execute unless score .wave state matches 1..2 run function gourd_guard:pumpkin/s
 
 # Refresh Lobby Leaderboard text displays
 function gourd_guard:lobby/leaderboard/update
+
+# Initialize command storage containers for macro execution
+data merge storage gourd_guard:tower {macro:{dmg:45,splash:20,lvl:1,sell:20,map:1,hp:400f}}
+data merge storage gourd_guard:mob {hp:100}
