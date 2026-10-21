@@ -1,0 +1,7 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"parent": "aj:blueprint/gourdguard_tower_magic_altar/flip_right_rotation/default",
+	"textures": {
+		"slot_default": "aj:blueprint/towers/gourdguard_tower_magic_altar_placeholder"
+	}
+}

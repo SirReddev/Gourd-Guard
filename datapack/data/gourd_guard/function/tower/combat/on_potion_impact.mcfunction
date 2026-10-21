@@ -3,6 +3,7 @@ playsound minecraft:entity.splash_potion.break master @a[distance=..24] ~ ~ ~ 1.
 playsound minecraft:entity.witch.celebrate master @a[distance=..24] ~ ~ ~ 0.5 1.5
 particle minecraft:instant_effect ~ ~ ~ 0.5 0.5 0.5 0.1 30
 particle minecraft:witch ~ ~ ~ 0.4 0.4 0.4 0.05 20
+particle minecraft:damage_indicator ~ ~0.5 ~ 0.5 0.5 0.5 0.1 14
 
 # Ensure non-zero damage values even if projectile scores were uninitialized
 execute unless score @s gg.fw_dmg matches 1.. run scoreboard players set @s gg.fw_dmg 80

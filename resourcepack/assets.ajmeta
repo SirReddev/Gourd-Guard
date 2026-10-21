@@ -623,7 +623,37 @@
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_damage/potion/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_damage/potion/default/gourdguard_tower_cauldron_damage_placeholder.json",
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_damage/potion/default/gourdguard_tower_cauldron_damage_placeholder_fail.json",
-				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_damage/gourdguard_tower_cauldron_damage_placeholder.png"
+				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_damage/gourdguard_tower_cauldron_damage.png",
+				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_damage/gourdguard_tower_cauldron_damage_placeholder.png",
+				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_damage/gourdguard_tower_cauldron_damage_placeholder_fail.png"
+			]
+		},
+		"aj:gourdguard_tower_cauldron_poison": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_tower_cauldron_poison/cauldron.json",
+				"assets/aj/items/blueprint/gourdguard_tower_cauldron_poison/potion.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/cauldron/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/cauldron/default/gourdguard_tower_cauldron_poison_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/cauldron/default/gourdguard_tower_cauldron_poison_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/potion/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/potion/default/gourdguard_tower_cauldron_poison_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/potion/default/gourdguard_tower_cauldron_poison_placeholder_fail.json",
+				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_poison/gourdguard_tower_cauldron_poison.png"
+			]
+		},
+		"aj:gourdguard_tower_cauldron_slowness": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_tower_cauldron_slowness/cauldron.json",
+				"assets/aj/items/blueprint/gourdguard_tower_cauldron_slowness/potion.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/cauldron/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/cauldron/default/gourdguard_tower_cauldron_slowness_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/cauldron/default/gourdguard_tower_cauldron_slowness_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/potion/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/potion/default/gourdguard_tower_cauldron_slowness_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/potion/default/gourdguard_tower_cauldron_slowness_placeholder_fail.json",
+				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_slowness/gourdguard_tower_cauldron_slowness.png"
 			]
 		},
 		"aj:gourdguard_tower_copper_golem_launcher": {
@@ -667,6 +697,47 @@
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/wood_mount/default/gourdguard_tower_firework_cannon_placeholder_fail.json",
 				"assets/aj/textures/blueprint/gourdguard_tower_firework_cannon/gourdguard_tower_firework_cannon_placeholder.png",
 				"assets/aj/textures/blueprint/gourdguard_tower_firework_cannon/gourdguard_tower_firework_cannon_placeholder_fail.png"
+			]
+		},
+		"aj:gourdguard_tower_magic_altar": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/altar.json",
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/cloth.json",
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/cover_left_rotation.json",
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/cover_right_rotation.json",
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/flip_left_rotation.json",
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/flip_right_rotation.json",
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/page_left_rotation.json",
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/page_right_rotation.json",
+				"assets/aj/items/blueprint/gourdguard_tower_magic_altar/spine_rotation.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/altar/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/altar/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/altar/default/gourdguard_tower_magic_altar_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cloth/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cloth/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cloth/default/gourdguard_tower_magic_altar_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cover_left_rotation/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cover_left_rotation/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cover_left_rotation/default/gourdguard_tower_magic_altar_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cover_right_rotation/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cover_right_rotation/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/cover_right_rotation/default/gourdguard_tower_magic_altar_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/flip_left_rotation/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/flip_left_rotation/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/flip_left_rotation/default/gourdguard_tower_magic_altar_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/flip_right_rotation/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/flip_right_rotation/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/flip_right_rotation/default/gourdguard_tower_magic_altar_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/page_left_rotation/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/page_left_rotation/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/page_left_rotation/default/gourdguard_tower_magic_altar_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/page_right_rotation/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/page_right_rotation/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/page_right_rotation/default/gourdguard_tower_magic_altar_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/spine_rotation/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/spine_rotation/default/gourdguard_tower_magic_altar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_magic_altar/spine_rotation/default/gourdguard_tower_magic_altar_placeholder_fail.json"
 			]
 		},
 		"aj:gourdguard_tower_pillager_convoy": {

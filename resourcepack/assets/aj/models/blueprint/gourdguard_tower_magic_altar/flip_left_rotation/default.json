@@ -1,0 +1,50 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"particle": "minecraft:item/pufferfish",
+		"slot_default": "aj:blueprint/towers/gourdguard_tower_magic_altar"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [4.25, 2, 8],
+			"to": [11.75, 14, 8],
+			"rotation": {
+				"x": 0,
+				"y": -10,
+				"z": 0,
+				"origin": [11.75, 8, 8.15]
+			},
+			"faces": {
+				"north": {
+					"uv": [6, 2.5, 7.25, 4.5],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [6, 2.5, 6, 4.5],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [7.25, 2.5, 8.5, 4.5],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [7.25, 2.5, 7.25, 4.5],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [7.25, 2.5, 6, 2.5],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [8.5, 2.5, 7.25, 2.5],
+					"texture": "#slot_default"
+				}
+			}
+		}
+	]
+}

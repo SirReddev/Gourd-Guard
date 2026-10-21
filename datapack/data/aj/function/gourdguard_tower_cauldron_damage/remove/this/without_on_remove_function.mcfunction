@@ -4,6 +4,6 @@ execute store result storage animated_java:temp args.id int 1 run scoreboard pla
 # Data Manager: Read
 function animated_java:global/data_manager/read with storage animated_java:temp args
 function animated_java:global/remove/entity_stack_by_uuid with storage animated_java:temp entry.data.locators.locator
-execute unless data storage animated_java:temp {entry:{data:{rig_hash: 'd1a96e563017cae3078a25a88f0d9900621a2f4c3849836bf983346e0042fb9f'}}} run function animated_java:global/remove/outdated_rig
+execute unless data storage animated_java:temp {entry:{data:{rig_hash: '1da9b7cd88bfc7f1137d854bcca6e64423c30d9614f2089adc9c10d310990c79'}}} run function animated_java:global/remove/outdated_rig
 function aj:gourdguard_tower_cauldron_damage/remove/this/zzz/0 with storage animated_java:temp entry.data.uuids_by_name
 function animated_java:global/remove/entity_stack

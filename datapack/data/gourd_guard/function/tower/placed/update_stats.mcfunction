@@ -131,4 +131,82 @@ execute if score @s gg.tower_type matches 5 if score @s gg.tower_lvl matches 5 r
 execute if score @s gg.tower_type matches 5 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 220
 execute if score @s gg.tower_type matches 5 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 130
 
+# Type 6: Cauldron Poison
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_max_cd 50
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 50
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_splash 25
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_sell 23
+
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_max_cd 42
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 75
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_splash 40
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_sell 36
+
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_max_cd 35
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 110
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_splash 60
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_sell 55
+
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_max_cd 28
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 160
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_splash 90
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_sell 80
+
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_max_cd 20
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 240
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 130
+execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 120
+
+# Type 7: Cauldron Slowness
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_max_cd 45
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 35
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_splash 20
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_sell 16
+
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_max_cd 38
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 55
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_splash 30
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_sell 26
+
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_max_cd 32
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 80
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_splash 45
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_sell 40
+
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_max_cd 26
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 120
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_splash 65
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_sell 60
+
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_max_cd 18
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 175
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 95
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 90
+
+# Type 8: Magic Altar
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_max_cd 35
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 110
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_splash 55
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_sell 30
+
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_max_cd 30
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 165
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_splash 85
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_sell 48
+
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_max_cd 25
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 240
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_splash 120
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_sell 72
+
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_max_cd 20
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 350
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_splash 175
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_sell 105
+
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_max_cd 14
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 520
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 260
+execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 155
+
 function gourd_guard:tower/placed/update_text

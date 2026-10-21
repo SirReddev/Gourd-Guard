@@ -17,6 +17,14 @@ execute if score @s gg.tower_type matches 4 on passengers if entity @s[type=item
 execute if score @s gg.tower_type matches 4 run function aj:gourdguard_tower_cauldron_damage/animations/idle/play
 execute if score @s gg.tower_type matches 5 run function aj:gourdguard_tower_tesla_coil/variants/default/apply
 execute if score @s gg.tower_type matches 5 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_tesla_coil"
+execute if score @s gg.tower_type matches 6 run function aj:gourdguard_tower_cauldron_poison/variants/default/apply
+execute if score @s gg.tower_type matches 6 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_cauldron_poison"
+execute if score @s gg.tower_type matches 6 run function aj:gourdguard_tower_cauldron_poison/animations/idle/play
+execute if score @s gg.tower_type matches 7 run function aj:gourdguard_tower_cauldron_slowness/variants/default/apply
+execute if score @s gg.tower_type matches 7 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_cauldron_slowness"
+execute if score @s gg.tower_type matches 7 run function aj:gourdguard_tower_cauldron_slowness/animations/idle/play
+execute if score @s gg.tower_type matches 8 run function aj:gourdguard_tower_magic_altar/variants/default/apply
+execute if score @s gg.tower_type matches 8 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_magic_altar"
 
 # Apply level-based combat stats (range, cooldown, damage, splash, sell value) and update text display
 function gourd_guard:tower/placed/update_stats
@@ -29,6 +37,9 @@ execute if score @s gg.tower_type matches 2 run summon minecraft:interaction ~ ~
 execute if score @s gg.tower_type matches 3 run summon minecraft:interaction ~ ~3.05 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 4 run summon minecraft:interaction ~ ~2.75 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 5 run summon minecraft:interaction ~ ~3.75 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 6 run summon minecraft:interaction ~ ~2.75 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 7 run summon minecraft:interaction ~ ~2.75 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 8 run summon minecraft:interaction ~ ~3.05 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
 execute as @n[type=interaction,tag=gg_tower_btn_new,distance=..4] run function gourd_guard:tower/place/init_btn
 
 execute if score @s gg.tower_type matches 1 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
@@ -36,4 +47,7 @@ execute if score @s gg.tower_type matches 2 run summon minecraft:interaction ~ ~
 execute if score @s gg.tower_type matches 3 run summon minecraft:interaction ~ ~3.05 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 4 run summon minecraft:interaction ~ ~2.75 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 5 run summon minecraft:interaction ~ ~3.75 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 6 run summon minecraft:interaction ~ ~2.75 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 7 run summon minecraft:interaction ~ ~2.75 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 8 run summon minecraft:interaction ~ ~3.05 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
 execute as @n[type=interaction,tag=gg_tower_btn_new,distance=..4] run function gourd_guard:tower/place/init_btn

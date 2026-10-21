@@ -1,0 +1,45 @@
+{
+	"model": {
+		"type": "minecraft:select",
+		"property": "minecraft:custom_model_data",
+		"index": 0,
+		"cases": [
+			{
+				"when": "gourdguard_tower_cauldron_poison_placeholder_fail",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_tower_cauldron_poison/potion/default/gourdguard_tower_cauldron_poison_placeholder_fail",
+					"tints": [
+						{
+							"type": "minecraft:constant",
+							"value": 0
+						}
+					]
+				}
+			},
+			{
+				"when": "gourdguard_tower_cauldron_poison_placeholder",
+				"model": {
+					"type": "minecraft:model",
+					"model": "aj:blueprint/gourdguard_tower_cauldron_poison/potion/default/gourdguard_tower_cauldron_poison_placeholder",
+					"tints": [
+						{
+							"type": "minecraft:constant",
+							"value": 0
+						}
+					]
+				}
+			}
+		],
+		"fallback": {
+			"type": "minecraft:model",
+			"model": "aj:blueprint/gourdguard_tower_cauldron_poison/potion/default",
+			"tints": [
+				{
+					"type": "minecraft:constant",
+					"value": 0
+				}
+			]
+		}
+	}
+}

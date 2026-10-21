@@ -12,6 +12,9 @@ execute if score #move_type gg.tower_type matches 2 run function gourd_guard:tow
 execute if score #move_type gg.tower_type matches 3 run function gourd_guard:tower/place/restore_pillager_convoy
 execute if score #move_type gg.tower_type matches 4 run function gourd_guard:tower/place/restore_cauldron_damage
 execute if score #move_type gg.tower_type matches 5 run function gourd_guard:tower/place/restore_tesla_coil
+execute if score #move_type gg.tower_type matches 6 run function gourd_guard:tower/place/restore_cauldron_poison
+execute if score #move_type gg.tower_type matches 7 run function gourd_guard:tower/place/restore_cauldron_slowness
+execute if score #move_type gg.tower_type matches 8 run function gourd_guard:tower/place/restore_magic_altar
 
 # Play pickup sound & chat message
 playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.8 1.2

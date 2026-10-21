@@ -10,5 +10,8 @@ execute if entity @s[gamemode=!creative] if score #spawn_type gg.tower_type matc
 execute if entity @s[gamemode=!creative] if score #spawn_type gg.tower_type matches 3 run function gourd_guard:tower/place/restore_pillager_convoy
 execute if entity @s[gamemode=!creative] if score #spawn_type gg.tower_type matches 4 run function gourd_guard:tower/place/restore_cauldron_damage
 execute if entity @s[gamemode=!creative] if score #spawn_type gg.tower_type matches 5 run function gourd_guard:tower/place/restore_tesla_coil
+execute if entity @s[gamemode=!creative] if score #spawn_type gg.tower_type matches 6 run function gourd_guard:tower/place/restore_cauldron_poison
+execute if entity @s[gamemode=!creative] if score #spawn_type gg.tower_type matches 7 run function gourd_guard:tower/place/restore_cauldron_slowness
+execute if entity @s[gamemode=!creative] if score #spawn_type gg.tower_type matches 8 run function gourd_guard:tower/place/restore_magic_altar
 playsound minecraft:block.note_block.bass master @s ~ ~ ~ 0.8 0.7
 tellraw @s [{"text":"[Tower] ","color":"red"},{"text":"Must be placed on an empty 2x2 Black Glazed Terracotta platform!","color":"yellow"}]

@@ -4,17 +4,26 @@
 # 1. Reset fall distance so mobs never accumulate fall damage on elevation changes
 data modify entity @s FallDistance set value 0.0f
 
-# 2. Advance forward in facing direction based on speed tier
-# Top-tier sprinters (Baby Zombies, Camo Sprinters): 0.55b/tick (~11.0 blocks/sec)
-execute if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
-# Agile sprinters (Spiders, Swarms, Creepers): 0.28b/tick (~5.6 blocks/sec)
-execute if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
-# Pillager Convoy high-speed charge: 1.20b/tick (~24.0 blocks/sec)
+# 2. Advance forward in facing direction based on speed tier & status effects
+# Slowdown effect timer & particle trail for slowed mobs
+execute if entity @s[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
+execute if entity @s[tag=gg_slowed] if score @s gg.slow_timer matches ..0 run tag @s remove gg_slowed
+execute if entity @s[tag=gg_slowed] at @s run particle minecraft:soul ~ ~0.3 ~ 0.15 0.15 0.15 0.01 1
+
+# Pillager Convoy high-speed charge (unaffected by mob slowness): 1.20b/tick (~24.0 blocks/sec)
 execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^1.20
-# Heavy Juggernauts & Colossal Bosses: 0.10b/tick (~2.0 blocks/sec)
-execute if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10
-# Standard pace: 0.15b/tick (~3.0 blocks/sec)
-execute unless entity @s[tag=gg_fast,tag=gg_runner,tag=gg_slow,tag=gg_convoy] run tp @s ^ ^ ^0.15
+
+# Normal speed movement (not slowed)
+execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
+execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
+execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10
+execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] unless entity @s[tag=gg_fast,tag=gg_runner,tag=gg_slow] run tp @s ^ ^ ^0.15
+
+# Slowed speed movement (50% reduction from Cauldron Slowness)
+execute if entity @s[tag=gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.27
+execute if entity @s[tag=gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.14
+execute if entity @s[tag=gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.05
+execute if entity @s[tag=gg_slowed,tag=!gg_convoy] unless entity @s[tag=gg_fast,tag=gg_runner,tag=gg_slow] run tp @s ^ ^ ^0.07
 
 # --- SLAB, STAIR & SOLID TERRAIN SNAPPING & ANTI-SINK ---
 # Snaps entities cleanly to the top surface of slabs/stairs/blocks, preventing sinking or floating.

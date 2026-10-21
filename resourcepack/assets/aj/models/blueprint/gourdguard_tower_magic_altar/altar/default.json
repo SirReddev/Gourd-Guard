@@ -1,0 +1,194 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"particle": "minecraft:item/pufferfish",
+		"slot_default": "aj:blueprint/towers/gourdguard_tower_magic_altar"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [0.42105, -12.21053, -0.84211],
+			"to": [15.57895, -8.42105, 16.84211],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, -12.21053, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [11.75, 8.25, 14.75, 9],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [7.25, 13.25, 10.75, 14],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [11.75, 9, 14.75, 9.75],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [10.75, 13.25, 14.25, 14],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [2.25, 8.25, 5.25, 11.75],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [5.25, 8.25, 8.25, 11.75],
+					"texture": "#slot_default"
+				}
+			}
+		},
+		{
+			"from": [4.21053, -8.42105, 2.94737],
+			"to": [11.78947, 8, 13.05263],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, -8.42105, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [4.25, 11.75, 5.75, 15],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [9.25, 4.25, 11.25, 7.5],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [5.75, 11.75, 7.25, 15],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [2.25, 11.75, 4.25, 15],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [11.25, 4.25, 12.75, 6.25],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [11.25, 6.25, 12.75, 8.25],
+					"texture": "#slot_default"
+				}
+			}
+		},
+		{
+			"from": [10.52632, 8, 2.94737],
+			"to": [11.78947, 11.78947, 13.05263],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, -4.63158, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [7.25, 12.25, 7.5, 13],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [9.25, 7.5, 11.25, 8.25],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [7.5, 12.25, 7.75, 13],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [11.75, 11.75, 13.75, 12.5],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [10.25, 14, 10.5, 16],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [10.5, 14, 10.75, 16],
+					"texture": "#slot_default"
+				}
+			}
+		},
+		{
+			"from": [8, 8, 2.94737],
+			"to": [10.52632, 10.52632, 13.05263],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [6.73684, -4.63158, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [7.25, 11.75, 7.75, 12.25],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [11.75, 12.5, 13.75, 13],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [7.75, 11.75, 8.25, 12.25],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [7.25, 14, 9.25, 14.5],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [9.25, 14, 9.75, 16],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [9.75, 14, 10.25, 16],
+					"texture": "#slot_default"
+				}
+			}
+		},
+		{
+			"from": [-0.84211, 8, -2.10526],
+			"to": [16.84211, 10.52632, 18.10526],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 30,
+				"origin": [8, 8, 8]
+			},
+			"faces": {
+				"north": {
+					"uv": [11.75, 10.75, 15.25, 11.25],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [11.75, 9.75, 15.75, 10.25],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [11.75, 11.25, 15.25, 11.75],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [11.75, 10.25, 15.75, 10.75],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [12.5, 0, 16, 4],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [8.75, 0, 12.25, 4],
+					"texture": "#slot_default"
+				}
+			}
+		}
+	]
+}

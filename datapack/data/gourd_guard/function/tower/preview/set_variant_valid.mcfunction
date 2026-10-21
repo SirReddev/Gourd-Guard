@@ -8,5 +8,11 @@ execute if score @s gg.tower_type matches 4 run function aj:gourdguard_tower_cau
 execute if score @s gg.tower_type matches 4 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_cauldron_damage_placeholder"
 execute if score @s gg.tower_type matches 5 run function aj:gourdguard_tower_tesla_coil/variants/placeholder/apply
 execute if score @s gg.tower_type matches 5 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_tesla_coil_placeholder"
+execute if score @s gg.tower_type matches 6 run function aj:gourdguard_tower_cauldron_poison/variants/placeholder/apply
+execute if score @s gg.tower_type matches 6 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_cauldron_poison_placeholder"
+execute if score @s gg.tower_type matches 7 run function aj:gourdguard_tower_cauldron_slowness/variants/placeholder/apply
+execute if score @s gg.tower_type matches 7 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_cauldron_slowness_placeholder"
+execute if score @s gg.tower_type matches 8 run function aj:gourdguard_tower_magic_altar/variants/placeholder/apply
+execute if score @s gg.tower_type matches 8 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_magic_altar_placeholder"
 execute on passengers if entity @s[type=text_display] run data modify entity @s text set value ""
 execute on passengers if entity @s[type=text_display] run data modify entity @s background set value 0
