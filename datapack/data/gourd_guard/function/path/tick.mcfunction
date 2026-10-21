@@ -20,15 +20,15 @@ execute as @e[tag=gg_mob] if data entity @s {Health:0.0f} run tag @s remove gg_m
 # A. Decrement timer by 1 each tick for all slowed mobs
 execute as @e[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
 
-# B. If timer reached 0 or less, immediately clear slowness effect, reset timer, and remove slowed tag
-execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run effect clear @s minecraft:slowness
-execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run scoreboard players reset @s gg.slow_timer
-execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run tag @s remove gg_slowed
+# B. Tag all mobs whose slow timer has expired (<= 0) or who lack an active positive timer (1..1000)
+tag @e[tag=gg_slowed,scores={gg.slow_timer=..0}] add gg_slow_expired
+execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1..1000 run tag @s add gg_slow_expired
 
-# C. Absolute Fail-Safe: any mob with gg_slowed that does NOT have a positive active timer (1..1000) is cleared immediately
-execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1..1000 run effect clear @s minecraft:slowness
-execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1..1000 run scoreboard players reset @s gg.slow_timer
-execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1..1000 run tag @s remove gg_slowed
+# C. Completely clear slowness from expired mobs: effect clear, tag removal, scoreboard reset
+execute as @e[tag=gg_slow_expired] run effect clear @s minecraft:slowness
+execute as @e[tag=gg_slow_expired] run tag @s remove gg_slowed
+execute as @e[tag=gg_slow_expired] run scoreboard players reset @s gg.slow_timer
+tag @e[tag=gg_slow_expired] remove gg_slow_expired
 
 # D. Particle indicator only while actively slowed
 execute as @e[tag=gg_slowed] at @s run particle minecraft:soul ~ ~0.3 ~ 0.15 0.15 0.15 0.01 1
