@@ -24,6 +24,9 @@ execute if score @s gg.tower_type matches 2 unless entity @e[tag=gg_in_range] ru
 # Early exit if no wave mobs are within range
 execute unless entity @e[tag=gg_in_range] run return 0
 
+# For Type 7 (Slowness Cauldron), prioritize mobs not yet slowed to avoid infinite chain-slow on a single mob
+execute if score @s gg.tower_type matches 7 if entity @e[tag=gg_in_range,tag=!gg_slowed] run tag @e[tag=gg_in_range,tag=gg_slowed] remove gg_in_range
+
 # Find the mob in range with the HIGHEST gg.mob_prog (the FIRST mob in the wave!)
 scoreboard players set #best_prog gg.mob_prog -1
 execute as @e[tag=gg_in_range] if score @s gg.mob_prog > #best_prog gg.mob_prog run scoreboard players operation #best_prog gg.mob_prog = @s gg.mob_prog

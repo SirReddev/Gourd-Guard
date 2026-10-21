@@ -2,7 +2,7 @@
 # Runs as each active path mob, oriented towards path_target.
 
 # Pillager Convoy steady armored charge: 0.13b/tick (~2.6 blocks/sec, slower so it maintains collision contact)
-execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.13
+execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.22
 
 # Normal speed movement (not slowed)
 execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55

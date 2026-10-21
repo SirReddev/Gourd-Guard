@@ -9,7 +9,7 @@ playsound minecraft:event.raid.horn master @a[distance=..32] ~ ~3.2 ~ 1.0 1.0
 function aj:gourdguard_tower_pillager_convoy/at_locator {name:'locator',command:'particle minecraft:raid_omen ~ ~ ~ 0.35 0.35 0.35 0.0 25'}
 
 # 3. Prepare parameters for route dispatch
-data merge storage gourd_guard:tower {macro:{map:1,lvl:1,dmg:45,hp:400}}
+data merge storage gourd_guard:tower {macro:{map:1,lvl:1,dmg:30,hp:400}}
 execute store result storage gourd_guard:tower macro.map int 1 run scoreboard players get .global map
 execute store result storage gourd_guard:tower macro.lvl int 1 run scoreboard players get @s gg.tower_lvl
 execute store result storage gourd_guard:tower macro.dmg int 1 run scoreboard players get @s gg.tower_dmg

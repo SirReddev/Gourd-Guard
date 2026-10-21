@@ -55,27 +55,27 @@ execute if score @s gg.tower_type matches 2 if score @s gg.tower_lvl matches 5 r
 
 # Type 3: Pillager Convoy
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_max_cd 900
-execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 45
+execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 30
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_sell 25
 
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_max_cd 800
-execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 65
+execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 45
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_sell 45
 
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_max_cd 700
-execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 90
+execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 65
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_sell 70
 
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_max_cd 600
-execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 120
+execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 90
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_sell 100
 
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_max_cd 500
-execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 160
+execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 125
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 3 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 140
 
@@ -159,32 +159,32 @@ execute if score @s gg.tower_type matches 6 if score @s gg.tower_lvl matches 5 r
 
 # Type 7: Cauldron Slowness
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_max_cd 45
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 35
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_splash 20
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_sell 20
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_slow_dur 100
 
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_max_cd 38
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 55
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_splash 30
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_sell 32
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_slow_dur 120
 
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_max_cd 32
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 80
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_splash 45
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_sell 50
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_slow_dur 140
 
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_max_cd 26
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 120
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_splash 65
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_sell 75
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_slow_dur 160
 
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_max_cd 18
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 175
-execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 95
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 0
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 110
 execute if score @s gg.tower_type matches 7 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_slow_dur 200
 

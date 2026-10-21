@@ -20,10 +20,10 @@ execute as @e[tag=gg_mob] if data entity @s {Health:0.0f} run tag @s remove gg_m
 # A. Decrement timer by 1 each tick for all slowed mobs
 execute as @e[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
 
-# B. If timer reached 0 or less, immediately clear slowness effect, remove slowed tag, and reset timer
+# B. If timer reached 0 or less, immediately clear slowness effect, reset timer, and remove slowed tag
 execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run effect clear @s minecraft:slowness
+execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run scoreboard players reset @s gg.slow_timer
 execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run tag @s remove gg_slowed
-execute as @e[tag=!gg_slowed,scores={gg.slow_timer=..0}] run scoreboard players reset @s gg.slow_timer
 
 # C. Absolute Fail-Safe: any mob with gg_slowed that does NOT have a positive active timer (1..1000) is cleared immediately
 execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1..1000 run effect clear @s minecraft:slowness
