@@ -15,6 +15,9 @@ scoreboard players operation TryBranch path.cmp = @e[tag=path_fork_opt,limit=1] 
 execute if score TryBranch path.cmp matches 1 as @e[tag=path_fork_opt] run scoreboard players set @s path.edit 2
 execute if score TryBranch path.cmp matches 2 as @e[tag=path_fork_opt] run scoreboard players set @s path.edit 1
 
+# Force bosses on Graveyard Path (Route 2) to take the long route (Option 2)
+execute if entity @s[tag=gg_boss] if score @s path.route matches 2 run scoreboard players set TryBranch path.cmp 2
+
 # 1. If chosen side is Option 1 (TryBranch = 1): try branch 1 first, then subsplit_1 (11/12) if branch 1 has no nodes
 execute if score TryBranch path.cmp matches 1 as @e[tag=path_fork_opt,scores={path.branch=1}] run tag @s add path_target
 execute if score TryBranch path.cmp matches 1 unless entity @e[tag=path_target] run function gourd_guard:path/mob/subsplit_1

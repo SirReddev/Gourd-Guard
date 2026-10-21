@@ -1,5 +1,5 @@
 # Wave 10 Spawning Sequence
-# Total spawns: 33 mobs across Path 1 & Path 2
+# Total spawns: 33 mobs across Castle Path & Graveyard Path
 execute if score .wave spawn_timer matches 1 run title @a times 5 30 10
 execute if score .wave spawn_timer matches 1 run title @a title {"text":"WAVE 10","color":"gold","bold":true}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.wither.spawn hostile @a ~ ~ ~ 1.0 1.0 1
@@ -37,5 +37,5 @@ execute if score .wave spawn_timer matches 209 run function gourd_guard:wave/spa
 execute if score .wave spawn_timer matches 222 run function gourd_guard:wave/spawn/spider {map:1,path:2}
 execute if score .wave spawn_timer matches 280 run function gourd_guard:wave/spawn/boss_warlord {map:1,path:1}
 execute if score .wave spawn_timer matches 280 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1
-execute if score .wave spawn_timer matches 280 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Warlord Malakor ","color":"yellow","bold":true},{"text":"has spawned on Path 1!","color":"gray"}]
+execute if score .wave spawn_timer matches 280 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Warlord Malakor ","color":"yellow","bold":true},{"text":"has spawned on the Castle Path!","color":"gray"}]
 execute if score .wave spawn_timer matches 281 run scoreboard players set .wave spawn_done 1

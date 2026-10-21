@@ -1,10 +1,14 @@
 # Collision Damage Exchange
 # Executed as the ravager (@s) colliding with target wave mob @e[tag=gg_convoy_target,limit=1]
 
+# Set ram attack cooldown (8 ticks) to prevent per-tick computation spam
+scoreboard players set @s gg.convoy_ram_cd 8
+
 # 1. Read mob remaining HP (skip & untag if already dead)
 execute store result score #mob_hp gg.calc run data get entity @e[tag=gg_convoy_target,limit=1] Health 1
 execute if score #mob_hp gg.calc matches ..0 as @e[tag=gg_convoy_target,limit=1] run tag @s remove gg_mob
 execute if score #mob_hp gg.calc matches ..0 as @e[tag=gg_convoy_target,limit=1] run tag @s remove path_mob
+execute if score #mob_hp gg.calc matches ..0 as @e[tag=gg_convoy_target,limit=1] run kill @s
 execute if score #mob_hp gg.calc matches ..0 run return 0
 
 # 2. Read convoy remaining HP

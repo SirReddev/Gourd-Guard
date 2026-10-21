@@ -1,11 +1,11 @@
 # Wave 33 Spawning Sequence
-# Total spawns: 32 mobs across Path 1 & Path 2
+# Total spawns: 32 mobs across Castle Path & Graveyard Path
 execute if score .wave spawn_timer matches 1 run title @a times 5 30 10
 execute if score .wave spawn_timer matches 1 run title @a title {"text":"WAVE 33","color":"gold","bold":true}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.experience_orb.pickup player @a ~ ~ ~ 1.0 1.0 1
 execute if score .wave spawn_timer matches 1 run function gourd_guard:wave/spawn/boss_elder {map:1,path:1}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1
-execute if score .wave spawn_timer matches 1 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Leviathan of the Depths ","color":"yellow","bold":true},{"text":"has spawned on Path 1!","color":"gray"}]
+execute if score .wave spawn_timer matches 1 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Leviathan of the Depths ","color":"yellow","bold":true},{"text":"has spawned on the Castle Path!","color":"gray"}]
 execute if score .wave spawn_timer matches 20 run function gourd_guard:wave/spawn/guardian {map:1,path:1}
 execute if score .wave spawn_timer matches 36 run function gourd_guard:wave/spawn/guardian {map:1,path:2}
 execute if score .wave spawn_timer matches 40 run function gourd_guard:wave/spawn/ghast {map:1,path:1}
@@ -23,7 +23,7 @@ execute if score .wave spawn_timer matches 148 run function gourd_guard:wave/spa
 execute if score .wave spawn_timer matches 150 run function gourd_guard:wave/spawn/ghast {map:1,path:2}
 execute if score .wave spawn_timer matches 161 run function gourd_guard:wave/spawn/boss_elder {map:1,path:2}
 execute if score .wave spawn_timer matches 161 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1
-execute if score .wave spawn_timer matches 161 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Leviathan of the Depths ","color":"yellow","bold":true},{"text":"has spawned on Path 2!","color":"gray"}]
+execute if score .wave spawn_timer matches 161 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Leviathan of the Depths ","color":"yellow","bold":true},{"text":"has spawned on the Graveyard Path!","color":"gray"}]
 execute if score .wave spawn_timer matches 164 run function gourd_guard:wave/spawn/guardian {map:1,path:2}
 execute if score .wave spawn_timer matches 172 run function gourd_guard:wave/spawn/ghast {map:1,path:1}
 execute if score .wave spawn_timer matches 180 run function gourd_guard:wave/spawn/guardian {map:1,path:1}

@@ -33,7 +33,7 @@ title @a times 10 70 20
 title @a title {"text":"VICTORY!","color":"gold","bold":true}
 title @a subtitle {"text":"YOU DEFENDED THE GOURD FROM ALL 40 WAVES!","color":"yellow","bold":true}
 
-tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":" CONGRATULATIONS! You successfully completed all 40 Waves! The Pumpkin is saved!","color":"yellow"}]
+tellraw @a [{"text":"[Gourd Guard] ","color":"gold","bold":true},{"text":" CONGRATULATIONS! You successfully completed all 40 Waves! The Gourd is saved!","color":"yellow"}]
 
 # 2. Trigger screen transition: 15t fade in, 25t black hold, 15t fade out
 posteffect add @a gourd_guard:fade_black

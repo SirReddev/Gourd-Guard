@@ -1,11 +1,11 @@
 # Wave 38 Spawning Sequence
-# Total spawns: 41 mobs across Path 1 & Path 2
+# Total spawns: 41 mobs across Castle Path & Graveyard Path
 execute if score .wave spawn_timer matches 1 run title @a times 5 30 10
 execute if score .wave spawn_timer matches 1 run title @a title {"text":"WAVE 38","color":"gold","bold":true}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.wither.spawn hostile @a ~ ~ ~ 1.0 1.0 1
-execute if score .wave spawn_timer matches 1 run function gourd_guard:wave/spawn/boss_warden {map:1,path:2}
+execute if score .wave spawn_timer matches 1 run function gourd_guard:wave/spawn/boss_enderman {map:1,path:2}
 execute if score .wave spawn_timer matches 1 run playsound minecraft:entity.wither.ambient hostile @a ~ ~ ~ 1.0 0.7 1
-execute if score .wave spawn_timer matches 1 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Harbinger of the Void ","color":"yellow","bold":true},{"text":"has spawned on Path 2!","color":"gray"}]
+execute if score .wave spawn_timer matches 1 run tellraw @a [{"text":"[!] ","color":"dark_red"},{"text":"BOSS INCOMING: ","color":"red","bold":true},{"text":"Void Walker ","color":"yellow","bold":true},{"text":"has spawned on the Graveyard Path!","color":"gray"}]
 execute if score .wave spawn_timer matches 20 run function gourd_guard:wave/spawn/brute {map:1,path:1}
 execute if score .wave spawn_timer matches 32 run function gourd_guard:wave/spawn/brute {map:1,path:2}
 execute if score .wave spawn_timer matches 40 run function gourd_guard:wave/spawn/camo_assassin {map:1,path:1}

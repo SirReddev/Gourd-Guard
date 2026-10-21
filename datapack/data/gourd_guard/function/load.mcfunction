@@ -92,3 +92,6 @@ data modify storage animated_java:temp args set value {variant:'default', animat
 execute as @e[type=item_display,tag=aj.gourdguard_pumpkin.root] at @s run function aj:gourdguard_pumpkin/zzz/summon/as_root_entity
 execute if score .wave state matches 1..2 run function gourd_guard:pumpkin/set_on
 execute unless score .wave state matches 1..2 run function gourd_guard:pumpkin/set_default
+
+# Refresh Lobby Leaderboard text displays
+function gourd_guard:lobby/leaderboard/update

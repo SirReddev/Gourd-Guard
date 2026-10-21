@@ -20,3 +20,4 @@ effect clear @a[tag=cs_viewer] minecraft:invisibility
 
 # Remove viewer tag
 tag @a remove cs_viewer
+scoreboard players reset #told_flight gg_temp

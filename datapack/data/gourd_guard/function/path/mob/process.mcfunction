@@ -34,16 +34,14 @@ execute at @s facing entity @e[tag=path_target,limit=1] eyes run tp @s ~ ~ ~ ~ 0
 function gourd_guard:path/mob/walk
 
 # 4. Advance to next node when within range (sharp turns at the node, no early smoothing):
-# Fast sprinters advance at 1.2 / 1.5 blocks, standard ground mobs at 1.2 blocks, convoys at 2.2 blocks
+# Fast sprinters advance at 1.2 / 1.5 blocks, standard ground mobs at 1.2 blocks, convoys at 2.5 blocks
 execute as @s[tag=!path_flyer,tag=!gg_convoy,tag=!gg_fast,tag=!gg_runner] at @s if entity @e[tag=path_target,distance=..1.2] run tag @s add path_advance
 execute as @s[tag=gg_fast,tag=!path_flyer,tag=!gg_convoy,tag=!gg_runner] at @s if entity @e[tag=path_target,distance=..1.2] run tag @s add path_advance
 execute as @s[tag=gg_runner,tag=!path_flyer,tag=!gg_convoy] at @s if entity @e[tag=path_target,distance=..1.5] run tag @s add path_advance
-execute as @s[tag=gg_convoy] at @s if entity @e[tag=path_target,distance=..2.2] run tag @s add path_advance
+execute as @s[tag=gg_convoy] at @s if entity @e[tag=path_target,distance=..2.5] run tag @s add path_advance
 
-# Flying mobs advance when within 0.55 blocks horizontally of target node (matching ground mob timing)
-execute as @s[tag=path_flyer] at @s positioned ~ ~-1.0 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
-execute as @s[tag=path_flyer] at @s positioned ~ ~-0.5 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
-execute as @s[tag=path_flyer] at @s positioned ~ ~-1.5 ~ if entity @e[tag=path_target,distance=..0.55] run tag @s add path_advance
+# Flying mobs advance when within 2.0 blocks of target node (detects ground node beneath flight altitude)
+execute as @s[tag=path_flyer] at @s if entity @e[tag=path_target,distance=..2.0] run tag @s add path_advance
 
 # Increment node index if arrived at node
 execute as @s[tag=path_advance] run scoreboard players add @s path.node 1
