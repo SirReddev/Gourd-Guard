@@ -1,8 +1,8 @@
 # Pathfinding - Per-Mob Movement Step forward
 # Runs as each active path mob, oriented towards path_target.
 
-# Pillager Convoy steady armored charge: 0.22b/tick (~4.4 blocks/sec)
-execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.22
+# Pillager Convoy steady armored charge: 0.13b/tick (~2.6 blocks/sec, slower so it maintains collision contact)
+execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.13
 
 # Normal speed movement (not slowed)
 execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
@@ -30,12 +30,12 @@ execute as @s[tag=!path_flyer] at @s if block ~ ~ ~ air if block ~ ~0.8 ~ #minec
 execute as @s[tag=!path_flyer] at @s unless block ~ ~ ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] unless block ~ ~ ~ #minecraft:stairs[half=bottom] if block ~ ~1 ~ air align y run tp @s ~ ~1.00 ~
 
 # --- GROUND MOBS (Zombies, Spiders, Skeletons, Convoys, etc.) ---
-# Step-Up: Elevate smoothly onto higher block, stair, or slab
-execute as @s[tag=!path_flyer,tag=!gg_convoy] at @s unless block ~ ~0.05 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
-execute as @s[tag=gg_convoy] at @s unless block ~ ~0.05 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] if block ~ ~1.8 ~ air run tp @s ~ ~0.25 ~
+# Step-Up: Elevate smoothly onto higher block, stair, or slab (only when ground is underneath; NEVER when floating!)
+execute as @s[tag=!path_flyer,tag=!gg_convoy] at @s unless block ~ ~-0.1 ~ air unless block ~ ~0.05 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] if block ~ ~1.5 ~ air run tp @s ~ ~0.25 ~
+execute as @s[tag=gg_convoy] at @s unless block ~ ~-0.1 ~ air unless block ~ ~0.05 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] if block ~ ~1.8 ~ air run tp @s ~ ~0.25 ~
 
-# Step-Down: Descend onto lower ground / bridge (smooth descent back to surface)
-execute as @s[tag=!path_flyer,tag=!gg_convoy] at @s if block ~ ~-0.05 ~ air unless block ~ ~-1.2 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~
+# Step-Down: Descend onto lower ground / bridge (smooth descent back to surface, no distance ceiling so floating mobs fall back down)
+execute as @s[tag=!path_flyer,tag=!gg_convoy] at @s if block ~ ~-0.05 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~
 execute as @s[tag=gg_convoy] at @s if block ~ ~-0.05 ~ air unless block ~ ~ ~ #minecraft:slabs[type=bottom] run tp @s ~ ~-0.25 ~
 
 # Slab & Stair Descent: Descend onto bottom slabs and bottom stairs (prevents floating 0.5b above half-down slabs)

@@ -50,7 +50,11 @@ tag @e[tag=path_target] remove path_target
 # Immediately orient towards first node
 execute at @s run function gourd_guard:path/mob/process
 
-# Apply themed glowing outline
-function gourd_guard:wave/mob_glow_entity
+# Initialize tracked HP and slow timer for newly assigned mob
+execute store result score @s gg.last_hp run data get entity @s Health 1
+scoreboard players set @s gg.slow_timer 0
+
+# Apply themed glowing outline (skip convoy so its team_convoy is preserved)
+execute unless entity @s[tag=gg_convoy] run function gourd_guard:wave/mob_glow_entity
 
 $execute if score .debug path.debug matches 1 run tellraw @a [{"text":"[Path] ","color":"dark_green"},{"text":"Assigned ","color":"green"},{"selector":"@s"},{"text":" to Map $(map) Path $(path)","color":"yellow","bold":true}]

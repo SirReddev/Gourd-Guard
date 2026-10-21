@@ -20,8 +20,10 @@ execute as @e[tag=gg_mob] if data entity @s {Health:0.0f} run tag @s remove gg_m
 execute as @e[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
 execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run effect clear @s minecraft:slowness
 execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run tag @s remove gg_slowed
+execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run scoreboard players reset @s gg.slow_timer
 execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run effect clear @s minecraft:slowness
 execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run tag @s remove gg_slowed
+execute as @e[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run scoreboard players reset @s gg.slow_timer
 execute as @e[tag=gg_slowed] at @s run particle minecraft:soul ~ ~0.3 ~ 0.15 0.15 0.15 0.01 1
 
 # 2. Process all active path mobs
