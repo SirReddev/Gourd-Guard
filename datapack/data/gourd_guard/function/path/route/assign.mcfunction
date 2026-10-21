@@ -52,7 +52,7 @@ execute at @s run function gourd_guard:path/mob/process
 
 # Initialize tracked HP and slow timer for newly assigned mob
 execute store result score @s gg.last_hp run data get entity @s Health 1
-scoreboard players set @s gg.slow_timer 0
+scoreboard players reset @s gg.slow_timer
 
 # Apply themed glowing outline (skip convoy so its team_convoy is preserved)
 execute unless entity @s[tag=gg_convoy] run function gourd_guard:wave/mob_glow_entity
