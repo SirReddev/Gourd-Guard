@@ -20,14 +20,14 @@ execute as @e[tag=gg_hit_direct,limit=1] run function gourd_guard:tower/combat/d
 
 # Only apply/start slow if the mob is NOT currently slowed, so the 5s timer strictly expires without perma-slow locks
 execute as @e[tag=gg_hit_direct,tag=!gg_slowed,limit=1] run scoreboard players operation @s gg.slow_timer = #apply_slow_dur gg.calc
-execute as @e[tag=gg_hit_direct,tag=!gg_slowed,limit=1] run tag @s add gg_slowed
 execute as @e[tag=gg_hit_direct,tag=!gg_slowed,limit=1] run effect give @s minecraft:slowness 5 1 true
+execute as @e[tag=gg_hit_direct,tag=!gg_slowed,limit=1] run tag @s add gg_slowed
 
 # 2. Deal splash damage & apply 5-second slow (100 ticks) to all other wave mobs within 3.5 blocks
 execute as @e[tag=gg_mob,tag=!gg_hit_direct,distance=..3.5] run function gourd_guard:tower/combat/deal_splash_dmg with storage gourd_guard:tower macro
 execute as @e[tag=gg_mob,tag=!gg_hit_direct,tag=!gg_slowed,distance=..3.5] run scoreboard players operation @s gg.slow_timer = #apply_slow_dur gg.calc
-execute as @e[tag=gg_mob,tag=!gg_hit_direct,tag=!gg_slowed,distance=..3.5] run tag @s add gg_slowed
 execute as @e[tag=gg_mob,tag=!gg_hit_direct,tag=!gg_slowed,distance=..3.5] run effect give @s minecraft:slowness 5 0 true
+execute as @e[tag=gg_mob,tag=!gg_hit_direct,tag=!gg_slowed,distance=..3.5] run tag @s add gg_slowed
 tag @e remove gg_hit_direct
 
 # 3. Remove projectile

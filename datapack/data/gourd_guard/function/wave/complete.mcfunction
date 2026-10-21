@@ -5,7 +5,10 @@
 # Set state to 2 (Intermission)
 scoreboard players set .wave state 2
 
-# Reset intermission timer to 600 ticks (30 seconds)
+# Reset intermission countdown timer to 30 seconds
+scoreboard players set .wave timer_ticks 0
+scoreboard players set .wave timer_sec 30
+scoreboard players set .wave timer_min 0
 scoreboard players set .wave intermission_timer 600
 
 # Wave clear Candy rewards
