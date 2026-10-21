@@ -5,6 +5,9 @@ execute if entity @s[tag=gg_tower_spawn_type_2] run scoreboard players set #spaw
 execute if entity @s[tag=gg_tower_spawn_type_3] run scoreboard players set #spawn_type gg.tower_type 3
 execute if entity @s[tag=gg_tower_spawn_type_4] run scoreboard players set #spawn_type gg.tower_type 4
 execute if entity @s[tag=gg_tower_spawn_type_5] run scoreboard players set #spawn_type gg.tower_type 5
+execute if entity @s[tag=gg_tower_spawn_type_6] run scoreboard players set #spawn_type gg.tower_type 6
+execute if entity @s[tag=gg_tower_spawn_type_7] run scoreboard players set #spawn_type gg.tower_type 7
+execute if entity @s[tag=gg_tower_spawn_type_8] run scoreboard players set #spawn_type gg.tower_type 8
 
 # Refresh the nearest player's raycast & 2x2 platform check at the exact moment of right-click
 execute as @p[distance=..7] at @s run scoreboard players operation @s gg.tower_hold = #spawn_type gg.tower_type
