@@ -6,4 +6,5 @@ execute store result score #check_hp gg.calc run data get entity @s Health 10
 execute if score #check_hp gg.calc matches 1.. run function gourd_guard:wave/mob_update_hp
 execute if score #check_hp gg.calc matches ..0 run tag @s remove gg_mob
 execute if score #check_hp gg.calc matches ..0 run tag @s remove path_mob
+execute if score #check_hp gg.calc matches ..0 if entity @s[type=magma_cube] at @s run kill @e[type=magma_cube,distance=..3,tag=!gg_mob]
 execute if score #check_hp gg.calc matches ..0 run kill @s

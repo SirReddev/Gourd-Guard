@@ -4,10 +4,11 @@
 # Decrement slow timer & clear tag on expiration
 execute if entity @s[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
 execute if entity @s[tag=gg_slowed] if score @s gg.slow_timer matches ..0 run tag @s remove gg_slowed
+execute if entity @s[tag=gg_slowed] unless score @s gg.slow_timer matches 1.. run tag @s remove gg_slowed
 execute if entity @s[tag=gg_slowed] at @s run particle minecraft:soul ~ ~0.3 ~ 0.15 0.15 0.15 0.01 1
 
-# Pillager Convoy high-speed charge (unaffected by mob slowness): 0.45b/tick (~9.0 blocks/sec, prevents waypoint overshooting)
-execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.45
+# Pillager Convoy steady armored charge: 0.22b/tick (~4.4 blocks/sec)
+execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.22
 
 # Normal speed movement (not slowed)
 execute if entity @s[tag=!gg_slowed,tag=!gg_convoy] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
@@ -48,6 +49,6 @@ execute as @s[tag=!path_flyer] at @s if block ~ ~ ~ air if block ~ ~-0.05 ~ #min
 execute as @s[tag=!path_flyer] at @s if block ~ ~ ~ air if block ~ ~-0.05 ~ #minecraft:stairs[half=bottom] align y run tp @s ~ ~-0.50 ~
 
 # --- FLYING MOBS (Phantoms, Blazes, Guardians, etc.) ---
-# Maintain close ~1.0-1.1 block hover above terrain at all times:
-execute as @s[tag=path_flyer] at @s unless block ~ ~-1.0 ~ air run tp @s ~ ~0.15 ~
-execute as @s[tag=path_flyer] at @s if block ~ ~-1.15 ~ air run tp @s ~ ~-0.15 ~
+# Smooth flight altitude maintenance without vertical jitter or flapping:
+execute as @s[tag=path_flyer] at @s unless block ~ ~-0.8 ~ air run tp @s ~ ~0.05 ~
+execute as @s[tag=path_flyer] at @s if block ~ ~-1.6 ~ air run tp @s ~ ~-0.05 ~

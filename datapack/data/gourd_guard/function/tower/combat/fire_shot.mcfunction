@@ -5,6 +5,7 @@ scoreboard players operation @s gg.tower_cd = @s gg.tower_max_cd
 # Cache projectile stats & target mob ID
 scoreboard players operation #shot_dmg gg.fw_dmg = @s gg.tower_dmg
 scoreboard players operation #shot_splash gg.fw_splash = @s gg.tower_splash
+scoreboard players operation #shot_slow_dur gg.fw_slow_dur = @s gg.tower_slow_dur
 scoreboard players operation #shot_tid gg.fw_tid = @n[tag=gg_tower_target] gg.mob_id
 
 # Launch audio & projectile oriented toward the target

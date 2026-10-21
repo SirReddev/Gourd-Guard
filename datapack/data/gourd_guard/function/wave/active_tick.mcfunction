@@ -6,7 +6,8 @@ scoreboard players add .wave spawn_timer 1
 # Dispatch active wave sequence
 execute if score .global map matches 1..5 run function gourd_guard:wave/map1/tick
 
-# Clean up any child magma cubes that split without pathfinding state
+# Clean up any child or untagged magma cubes that split
+execute as @e[type=magma_cube,tag=!gg_mob] run kill @s
 execute as @e[type=magma_cube,tag=gg_mob] unless score @s path.state matches 1.. run kill @s
 
 # Update mob health display periodically (e.g. for poison ticks)

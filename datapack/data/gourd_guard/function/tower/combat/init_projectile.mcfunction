@@ -3,6 +3,7 @@ tag @s remove gg_fw_new
 scoreboard players operation @s gg.fw_tid = #shot_tid gg.fw_tid
 scoreboard players operation @s gg.fw_dmg = #shot_dmg gg.fw_dmg
 scoreboard players operation @s gg.fw_splash = #shot_splash gg.fw_splash
+scoreboard players operation @s gg.fw_slow_dur = #shot_slow_dur gg.fw_slow_dur
 scoreboard players set @s gg.fw_step 0
 
 # Store starting muzzle coordinates in hundredths of a block (scale 100)
