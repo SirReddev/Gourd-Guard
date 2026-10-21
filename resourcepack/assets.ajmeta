@@ -622,10 +622,7 @@
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_damage/cauldron/default/gourdguard_tower_cauldron_damage_placeholder_fail.json",
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_damage/potion/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_damage/potion/default/gourdguard_tower_cauldron_damage_placeholder.json",
-				"assets/aj/models/blueprint/gourdguard_tower_cauldron_damage/potion/default/gourdguard_tower_cauldron_damage_placeholder_fail.json",
-				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_damage/gourdguard_tower_cauldron_damage.png",
-				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_damage/gourdguard_tower_cauldron_damage_placeholder.png",
-				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_damage/gourdguard_tower_cauldron_damage_placeholder_fail.png"
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_damage/potion/default/gourdguard_tower_cauldron_damage_placeholder_fail.json"
 			]
 		},
 		"aj:gourdguard_tower_cauldron_poison": {
@@ -638,8 +635,7 @@
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/cauldron/default/gourdguard_tower_cauldron_poison_placeholder_fail.json",
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/potion/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/potion/default/gourdguard_tower_cauldron_poison_placeholder.json",
-				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/potion/default/gourdguard_tower_cauldron_poison_placeholder_fail.json",
-				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_poison/gourdguard_tower_cauldron_poison.png"
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_poison/potion/default/gourdguard_tower_cauldron_poison_placeholder_fail.json"
 			]
 		},
 		"aj:gourdguard_tower_cauldron_slowness": {
@@ -652,8 +648,7 @@
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/cauldron/default/gourdguard_tower_cauldron_slowness_placeholder_fail.json",
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/potion/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/potion/default/gourdguard_tower_cauldron_slowness_placeholder.json",
-				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/potion/default/gourdguard_tower_cauldron_slowness_placeholder_fail.json",
-				"assets/aj/textures/blueprint/gourdguard_tower_cauldron_slowness/gourdguard_tower_cauldron_slowness.png"
+				"assets/aj/models/blueprint/gourdguard_tower_cauldron_slowness/potion/default/gourdguard_tower_cauldron_slowness_placeholder_fail.json"
 			]
 		},
 		"aj:gourdguard_tower_copper_golem_launcher": {

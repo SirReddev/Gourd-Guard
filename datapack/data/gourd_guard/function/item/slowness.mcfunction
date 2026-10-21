@@ -1,0 +1,1 @@
+function gourd_guard:item/cauldron_slowness
