@@ -13,14 +13,15 @@ function gourd_guard:path/mob/auto_init
 execute as @e[tag=path_mob] if data entity @s {Health:0.0f} run tag @s remove path_mob
 execute as @e[tag=gg_mob] if data entity @s {Health:0.0f} run tag @s remove gg_mob
 
-# 1.8. Global Slowness Countdown - SINGLE decrement per tick only here in tick.mcfunction!
-execute as @e[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
-execute as @e[tag=gg_slowed,scores={gg.slow_timer=..0}] run function gourd_guard:path/mob/clear_slow
-
-# 1.9. Global immunity cooldown countdown
-execute as @e[tag=gg_slow_immune] run scoreboard players remove @s gg.slow_immune_timer 1
-execute as @e[tag=gg_slow_immune,scores={gg.slow_immune_timer=..0}] run tag @s remove gg_slow_immune
-execute as @e[tag=gg_slow_immune,scores={gg.slow_immune_timer=..0}] run scoreboard players reset @s gg.slow_immune_timer
+# 1.8. Slowness countdown using single score: >0 = slowed, <0 = immune, 0/unset = free
+# Count down slowed mobs toward 0
+execute as @e[tag=gg_mob,tag=gg_slowed,scores={gg.slow_timer=1..}] run scoreboard players remove @s gg.slow_timer 1
+# When slowed mob reaches 0: call clear_slow (removes tags + starts immunity)
+execute as @e[tag=gg_mob,tag=gg_slowed,scores={gg.slow_timer=0}] run function gourd_guard:path/mob/clear_slow
+# Count immune mobs up toward 0 (from negative)
+execute as @e[tag=gg_mob,scores={gg.slow_timer=..-1}] run scoreboard players add @s gg.slow_timer 1
+# When immunity expires: reset score to unset
+execute as @e[tag=gg_mob,scores={gg.slow_timer=0}] run scoreboard players reset @s gg.slow_timer
 
 # 1.10. Ram cooldown countdown
 execute as @e[tag=gg_rammed] run scoreboard players remove @s gg.ram_cd 1

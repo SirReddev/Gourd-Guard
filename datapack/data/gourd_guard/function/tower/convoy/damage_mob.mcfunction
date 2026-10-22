@@ -18,11 +18,11 @@ particle minecraft:damage_indicator ~ ~1 ~ 0.2 0.3 0.2 0.05 6
 
 # Deal damage
 data modify entity @s HurtTime set value 0s
-execute if score #convoy_dmg gg.calc matches 45 run damage @s 45 generic
-execute if score #convoy_dmg gg.calc matches 65 run damage @s 65 generic
-execute if score #convoy_dmg gg.calc matches 90 run damage @s 90 generic
-execute if score #convoy_dmg gg.calc matches 125 run damage @s 125 generic
-execute unless score #convoy_dmg gg.calc matches 45 unless score #convoy_dmg gg.calc matches 65 unless score #convoy_dmg gg.calc matches 90 unless score #convoy_dmg gg.calc matches 125 run damage @s 30 generic
+execute if score #convoy_dmg gg.calc matches 45 run damage @s 45 minecraft:generic
+execute if score #convoy_dmg gg.calc matches 65 run damage @s 65 minecraft:generic
+execute if score #convoy_dmg gg.calc matches 90 run damage @s 90 minecraft:generic
+execute if score #convoy_dmg gg.calc matches 125 run damage @s 125 minecraft:generic
+execute unless score #convoy_dmg gg.calc matches 45 unless score #convoy_dmg gg.calc matches 65 unless score #convoy_dmg gg.calc matches 90 unless score #convoy_dmg gg.calc matches 125 run damage @s 30 minecraft:generic
 
 # Deduct actual HP spent from ravager's total damage capacity
 # (capped at the actual convoy_dmg - so overkill damage doesn't drain extra capacity)

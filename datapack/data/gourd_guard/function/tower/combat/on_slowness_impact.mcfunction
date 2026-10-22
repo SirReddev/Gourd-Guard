@@ -9,8 +9,8 @@ execute if score @s gg.fw_slow_dur matches 20.. run scoreboard players operation
 execute unless score @s gg.fw_slow_dur matches 20.. run scoreboard players set #slow_dur gg.calc 100
 
 # Apply slowness to ALL wave mobs within 3.5 blocks that are NOT immune
-# (immune = still within their post-slow cooldown window)
-execute as @e[tag=gg_mob,tag=!gg_slow_immune,distance=..3.5] run function gourd_guard:tower/combat/apply_slow
+# (immune = negative gg.slow_timer score)
+execute as @e[tag=gg_mob,distance=..3.5] run function gourd_guard:tower/combat/apply_slow
 
 # Remove projectile
 kill @s
