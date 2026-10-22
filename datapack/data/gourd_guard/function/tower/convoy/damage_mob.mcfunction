@@ -1,13 +1,10 @@
-# Executed as the wave mob (@s) at @s - hit ONCE by nearby ravager convoy
+# Executed as the wave mob (@s) at @s - hit by nearby ravager convoy
 # Guard: only hit if not already rammed recently
 execute if entity @s[tag=gg_rammed] run return 0
 
-# Tag as rammed with 5s cooldown before this mob can be rammed again
+# Tag as rammed with 5s cooldown so this specific mob isn't double-hit if it survives
 tag @s add gg_rammed
 scoreboard players set @s gg.ram_cd 100
-
-# Cache this mob's current HP BEFORE dealing damage (this is what ravager "spends")
-execute store result score #mob_hp_before gg.calc run data get entity @s Health 1
 
 # Audio & visual impact effects
 playsound minecraft:entity.ravager.attack master @a[distance=..20] ~ ~ ~ 0.9 1.0
@@ -16,25 +13,31 @@ particle minecraft:sweep_attack ~ ~1 ~ 0.3 0.2 0.3 0.0 5
 particle minecraft:crit ~ ~1 ~ 0.3 0.3 0.3 0.1 8
 particle minecraft:damage_indicator ~ ~1 ~ 0.2 0.3 0.2 0.05 6
 
-# Deal damage
-data modify entity @s HurtTime set value 0s
-execute if score #convoy_dmg gg.calc matches 45 run damage @s 45 minecraft:generic
-execute if score #convoy_dmg gg.calc matches 65 run damage @s 65 minecraft:generic
-execute if score #convoy_dmg gg.calc matches 90 run damage @s 90 minecraft:generic
-execute if score #convoy_dmg gg.calc matches 125 run damage @s 125 minecraft:generic
-execute unless score #convoy_dmg gg.calc matches 45 unless score #convoy_dmg gg.calc matches 65 unless score #convoy_dmg gg.calc matches 90 unless score #convoy_dmg gg.calc matches 125 run damage @s 30 minecraft:generic
+# 1. Fetch ravager remaining capacity
+scoreboard players set #cap gg.calc 0
+execute as @e[tag=gg_convoy,distance=..3.5,limit=1] run scoreboard players operation #cap gg.calc = @s gg.convoy_cap
+execute if score #cap gg.calc matches ..0 run return 0
 
-# Deduct actual HP spent from ravager's total damage capacity
-# (capped at the actual convoy_dmg - so overkill damage doesn't drain extra capacity)
-execute if score #mob_hp_before gg.calc < #convoy_dmg gg.calc run scoreboard players operation #dmg_spent gg.calc = #mob_hp_before gg.calc
-execute if score #mob_hp_before gg.calc >= #convoy_dmg gg.calc run scoreboard players operation #dmg_spent gg.calc = #convoy_dmg gg.calc
-execute as @e[tag=gg_convoy,distance=..3.5,limit=1] run scoreboard players operation @s gg.convoy_cap -= #dmg_spent gg.calc
+# 2. Fetch this mob's current HP
+execute store result score #mob_hp gg.calc run data get entity @s Health 1
+execute if score #mob_hp gg.calc matches ..0 run return 0
 
-# If ravager used up its total damage capacity, trigger death
+# 3. Calculate damage to deal: min(mob_hp, convoy_cap)
+scoreboard players operation #dmg_deal gg.calc = #mob_hp gg.calc
+execute if score #dmg_deal gg.calc > #cap gg.calc run scoreboard players operation #dmg_deal gg.calc = #cap gg.calc
+
+# 4. Deduct dealt damage from ravager capacity
+execute as @e[tag=gg_convoy,distance=..3.5,limit=1] run scoreboard players operation @s gg.convoy_cap -= #dmg_deal gg.calc
+
+# 5. Deal dynamic damage to mob via macro
+data merge storage gourd_guard:convoy {macro:{dmg:1}}
+execute store result storage gourd_guard:convoy macro.dmg int 1 run scoreboard players get #dmg_deal gg.calc
+function gourd_guard:tower/convoy/deal_damage with storage gourd_guard:convoy macro
+
+# 6. Check if ravager depleted its capacity - trigger death
 execute as @e[tag=gg_convoy,distance=..3.5,limit=1,scores={gg.convoy_cap=..0}] run function gourd_guard:tower/convoy/on_convoy_death
-execute as @e[tag=gg_convoy,distance=..3.5,limit=1] if data entity @s {Health:0.0f} run function gourd_guard:tower/convoy/on_convoy_death
 
-# Update mob HP display and kill if dead
+# 7. Update mob HP display or remove if dead
 execute store result score #check_hp gg.calc run data get entity @s Health 10
 execute if score #check_hp gg.calc matches 1.. run function gourd_guard:wave/mob_update_hp
 execute if score #check_hp gg.calc matches ..0 run tag @s remove gg_mob

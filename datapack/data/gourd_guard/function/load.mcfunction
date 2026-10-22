@@ -97,6 +97,11 @@ scoreboard objectives add gg_temp dummy
 
 # Remove legacy slowness tags from existing mobs on reload
 tag @e[tag=gg_slowed] remove gg_slowed
+tag @e[tag=gg_slow_50] remove gg_slow_50
+tag @e[tag=gg_slow_25] remove gg_slow_25
+tag @e[tag=gg_slow_75] remove gg_slow_75
+tag @e[tag=gg_slow_immune] remove gg_slow_immune
+scoreboard players reset @e[tag=gg_mob] gg.slow_timer
 
 # Clear any lingering dialogue / shop frame bossbars (vignette fix)
 bossbar set chatbox:s1_frame name ""

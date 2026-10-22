@@ -8,9 +8,8 @@ particle minecraft:soul_fire_flame ~ ~ ~ 0.5 0.4 0.5 0.04 20
 execute if score @s gg.fw_slow_dur matches 20.. run scoreboard players operation #slow_dur gg.calc = @s gg.fw_slow_dur
 execute unless score @s gg.fw_slow_dur matches 20.. run scoreboard players set #slow_dur gg.calc 100
 
-# Apply slowness to ALL wave mobs within 3.5 blocks that are NOT immune
-# (immune = negative gg.slow_timer score)
-execute as @e[tag=gg_mob,distance=..3.5] run function gourd_guard:tower/combat/apply_slow
+# Apply slowness to all wave mobs within 4.0 blocks
+execute as @e[tag=gg_mob,distance=..4.0] run function gourd_guard:tower/combat/apply_slow
 
 # Remove projectile
 kill @s
