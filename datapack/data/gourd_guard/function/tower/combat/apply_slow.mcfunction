@@ -1,16 +1,11 @@
-# Apply 50% slowness for 5s (100 ticks) to this mob
+# Apply slowness for 5 seconds (100 ticks) to wave mob (@s)
 # Executed as the wave mob (@s)
 
-# Guard: Do not re-slow if already slowed or currently slow immune!
-execute if entity @s[tag=gg_slowed] run return 0
-execute if entity @s[tag=gg_slow_immune] run return 0
+# Guard: Ignore if currently slowed or under recent slow cooldown
+execute if score @s gg.slow_ticks matches 1.. run return 0
+execute if score @s gg.slow_cd matches 1.. run return 0
 
-# Apply slowness tags & 5s timer (100 ticks)
-tag @s add gg_slowed
-tag @s add gg_slow_50
-tag @s add gg_slow_immune
-scoreboard players operation @s gg.slow_timer = #slow_dur gg.calc
-execute unless score @s gg.slow_timer matches 20.. run scoreboard players set @s gg.slow_timer 100
-
-# Set 10-second total immunity timer (200 ticks = 5s slow + 5s cooldown before re-slowable)
-scoreboard players set @s gg.slow_immune_timer 200
+# Apply 50% slow for 5 seconds (100 ticks) and 8 seconds cooldown (160 ticks)
+scoreboard players set @s gg.slow_pct 50
+scoreboard players set @s gg.slow_ticks 100
+scoreboard players set @s gg.slow_cd 160

@@ -78,6 +78,9 @@ execute as @e[type=text_display,tag=gg_stats_display] run data modify entity @s 
 
 # Living mob health tracking (updated automatically by engine)
 scoreboard objectives add gg_hp health
+scoreboard objectives add gg.slow_ticks dummy
+scoreboard objectives add gg.slow_cd dummy
+scoreboard objectives add gg.slow_pct dummy
 scoreboard objectives add gg.slow_timer dummy
 scoreboard objectives add gg.slow_immune_timer dummy
 scoreboard objectives add gg.slow_cooldown dummy
@@ -95,12 +98,15 @@ scoreboard objectives add fade_timer dummy
 scoreboard objectives add fly_active dummy
 scoreboard objectives add gg_temp dummy
 
-# Remove legacy slowness tags from existing mobs on reload
+# Remove legacy slowness tags and reset slowness on reload
 tag @e[tag=gg_slowed] remove gg_slowed
 tag @e[tag=gg_slow_50] remove gg_slow_50
 tag @e[tag=gg_slow_25] remove gg_slow_25
 tag @e[tag=gg_slow_75] remove gg_slow_75
 tag @e[tag=gg_slow_immune] remove gg_slow_immune
+scoreboard players reset @e[tag=gg_mob] gg.slow_ticks
+scoreboard players reset @e[tag=gg_mob] gg.slow_cd
+scoreboard players reset @e[tag=gg_mob] gg.slow_pct
 scoreboard players reset @e[tag=gg_mob] gg.slow_timer
 
 # Clear any lingering dialogue / shop frame bossbars (vignette fix)

@@ -23,6 +23,9 @@ scoreboard objectives add gg.fw_tid dummy
 scoreboard objectives add gg.fw_step dummy
 scoreboard objectives add gg.fw_dmg dummy
 scoreboard objectives add gg.fw_splash dummy
+scoreboard objectives add gg.slow_ticks dummy
+scoreboard objectives add gg.slow_cd dummy
+scoreboard objectives add gg.slow_pct dummy
 scoreboard objectives add gg.fw_slow_dur dummy
 scoreboard objectives add gg.tower_slow_dur dummy
 scoreboard objectives add gg.slow_timer dummy

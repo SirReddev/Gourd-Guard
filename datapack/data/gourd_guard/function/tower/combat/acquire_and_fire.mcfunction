@@ -24,8 +24,8 @@ execute if score @s gg.tower_type matches 2 unless entity @e[tag=gg_in_range] ru
 # Early exit if no wave mobs are within range
 execute unless entity @e[tag=gg_in_range] run return 0
 
-# For Type 7 (Slowness Cauldron), prioritize mobs that are not already slowed or immune
-execute if score @s gg.tower_type matches 7 as @e[tag=gg_in_range,tag=!gg_slowed,tag=!gg_slow_immune] run tag @s add gg_prefer_target
+# For Type 7 (Slowness Cauldron), prioritize mobs that are not currently slowed
+execute if score @s gg.tower_type matches 7 as @e[tag=gg_in_range] unless score @s gg.slow_ticks matches 1.. run tag @s add gg_prefer_target
 execute if score @s gg.tower_type matches 7 if entity @e[tag=gg_prefer_target] run tag @e[tag=gg_in_range,tag=!gg_prefer_target] remove gg_in_range
 tag @e remove gg_prefer_target
 
