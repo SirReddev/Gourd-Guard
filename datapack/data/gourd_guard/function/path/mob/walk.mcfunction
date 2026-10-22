@@ -6,7 +6,7 @@ execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.22
 
 # Slowed movement OR normal movement (mutually exclusive)
 execute unless entity @s[tag=gg_convoy] if entity @s[tag=gg_slowed] run function gourd_guard:path/mob/move_slowed
-execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.38
+execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.30
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] unless entity @s[tag=gg_fast] unless entity @s[tag=gg_runner] unless entity @s[tag=gg_slow] run tp @s ^ ^ ^0.15

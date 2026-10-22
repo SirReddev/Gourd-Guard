@@ -24,8 +24,8 @@ execute if score @s gg.tower_type matches 2 unless entity @e[tag=gg_in_range] ru
 # Early exit if no wave mobs are within range
 execute unless entity @e[tag=gg_in_range] run return 0
 
-# For Type 7 (Slowness Cauldron), prioritize mobs that are not already slowed
-execute if score @s gg.tower_type matches 7 as @e[tag=gg_in_range,tag=!gg_slowed] run tag @s add gg_prefer_target
+# For Type 7 (Slowness Cauldron), prioritize mobs that are not already slowed or immune
+execute if score @s gg.tower_type matches 7 as @e[tag=gg_in_range,tag=!gg_slowed,tag=!gg_slow_immune] run tag @s add gg_prefer_target
 execute if score @s gg.tower_type matches 7 if entity @e[tag=gg_prefer_target] run tag @e[tag=gg_in_range,tag=!gg_prefer_target] remove gg_in_range
 tag @e remove gg_prefer_target
 
@@ -35,7 +35,7 @@ execute as @e[tag=gg_in_range] if score @s gg.mob_prog > #best_prog gg.mob_prog 
 execute as @e[tag=gg_in_range] if score @s gg.mob_prog = #best_prog gg.mob_prog run tag @s add gg_tower_target
 
 # Aim Type 1 cannon's wooden mount and barrel horizontally toward the leading target mob
-execute if score @s gg.tower_type matches 1 facing entity @n[tag=gg_tower_target] eyes rotated ~ 0 on passengers if entity @s[tag=!aj.gourdguard_tower_firework_cannon.node.stone_base,tag=!aj.gourdguard_tower_firework_cannon.node.text_display] run rotate @s ~ 0
+execute if score @s gg.tower_type matches 1 facing entity @e[tag=gg_tower_target,limit=1,sort=nearest] eyes rotated ~ 0 on passengers if entity @s[tag=!aj.gourdguard_tower_firework_cannon.node.stone_base,tag=!aj.gourdguard_tower_firework_cannon.node.text_display] run rotate @s ~ 0
 
 # If cooldown is ready (0), fire at the target!
 execute if score @s gg.tower_cd matches ..0 run function gourd_guard:tower/combat/fire_shot

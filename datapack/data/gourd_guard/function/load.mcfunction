@@ -122,6 +122,14 @@ execute unless score .wave state matches 1..2 run function gourd_guard:pumpkin/s
 # Refresh Lobby Leaderboard text displays
 function gourd_guard:lobby/leaderboard/update
 
+# Ensure lobby start game displays are perfectly centered and aligned with 3D title or icon
+execute as @e[type=text_display,tag=gg_start_icon] at @e[type=item_display,tag=gg_lobby_title_start,distance=..6,limit=1,sort=nearest] run tp @s ~ ~2.35 ~
+execute as @e[type=text_display,tag=gg_start_btn] at @e[type=item_display,tag=gg_lobby_title_start,distance=..6,limit=1,sort=nearest] run tp @s ~ ~1.20 ~
+execute as @e[type=interaction,tag=gg_start_display_interaction] at @e[type=item_display,tag=gg_lobby_title_start,distance=..6,limit=1,sort=nearest] run tp @s ~ ~0.20 ~
+execute as @e[type=text_display,tag=gg_start_btn] unless entity @e[type=item_display,tag=gg_lobby_title_start,distance=..6] at @e[type=text_display,tag=gg_start_icon,limit=1,sort=nearest] run tp @s ~ ~-1.15 ~
+execute as @e[type=interaction,tag=gg_start_display_interaction] unless entity @e[type=item_display,tag=gg_lobby_title_start,distance=..6] at @e[type=text_display,tag=gg_start_icon,limit=1,sort=nearest] run tp @s ~ ~-2.15 ~
+execute as @e[type=text_display,tag=gg_start_display] run data merge entity @s {alignment:"center",transformation:{scale:[1.4f,1.4f,1.4f],translation:[0.0f,0.0f,0.0f],left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f]}}
+
 # Initialize command storage containers for macro execution
 data merge storage gourd_guard:tower {macro:{dmg:45,splash:20,lvl:1,sell:20,map:1,hp:400f}}
 data merge storage gourd_guard:mob {hp:100}

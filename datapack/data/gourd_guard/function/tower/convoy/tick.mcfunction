@@ -1,12 +1,20 @@
 # Pillager Convoy Main Tick Loop
 # Executed as each active ravager convoy entity (@s) at @s
 
-# 1. Death check
+# 0. Ensure convoy stats are initialized
+execute unless score @s gg.convoy_cap matches 1.. store result score @s gg.convoy_cap run data get entity @s Health 1
+execute unless score @s gg.convoy_cap matches 1.. run scoreboard players set @s gg.convoy_cap 300
+execute unless score @s gg.convoy_dmg matches 1.. run scoreboard players set @s gg.convoy_dmg 45
+
+# 1. Death check (Health or Capacity depleted)
 execute store result score #convoy_hp gg.calc run data get entity @s Health 1
 execute if score #convoy_hp gg.calc matches ..0 run return run function gourd_guard:tower/convoy/on_convoy_death
 execute if score @s gg.convoy_cap matches ..0 run return run function gourd_guard:tower/convoy/on_convoy_death
 
-# 2. Damage close wave mob (within 3 blocks) that hasn't been rammed yet
-execute at @s as @n[tag=gg_mob,tag=!gg_rammed,distance=..3.0] at @s run function gourd_guard:tower/convoy/damage_mob
-execute if score @s gg.convoy_cap matches 1.. at @s as @n[tag=gg_mob,tag=!gg_rammed,distance=..3.0] at @s run function gourd_guard:tower/convoy/damage_mob
-execute if score @s gg.convoy_cap matches 1.. at @s as @n[tag=gg_mob,tag=!gg_rammed,distance=..3.0] at @s run function gourd_guard:tower/convoy/damage_mob
+# 2. Damage close wave mob (within 3.0 blocks)
+# Tag self as active convoy so damage_mob can reference @s with 100% certainty
+tag @s add gg_current_convoy
+execute at @s as @e[tag=gg_mob,tag=!gg_rammed,distance=..3.0,limit=1,sort=nearest] at @s run function gourd_guard:tower/convoy/damage_mob
+execute if score @s gg.convoy_cap matches 1.. at @s as @e[tag=gg_mob,tag=!gg_rammed,distance=..3.0,limit=1,sort=nearest] at @s run function gourd_guard:tower/convoy/damage_mob
+execute if score @s gg.convoy_cap matches 1.. at @s as @e[tag=gg_mob,tag=!gg_rammed,distance=..3.0,limit=1,sort=nearest] at @s run function gourd_guard:tower/convoy/damage_mob
+tag @s remove gg_current_convoy

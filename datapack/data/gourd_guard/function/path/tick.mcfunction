@@ -21,6 +21,11 @@ execute as @e[tag=gg_slow_25] unless entity @s[tag=gg_slowed] run tag @s remove 
 execute as @e[tag=gg_slow_75] unless entity @s[tag=gg_slowed] run tag @s remove gg_slow_75
 execute as @e[tag=gg_mob] unless entity @s[tag=gg_slowed] if score @s gg.slow_timer matches ..0 run scoreboard players reset @s gg.slow_timer
 
+# 1.9. Slowness immunity countdown
+execute as @e[tag=gg_slow_immune] run scoreboard players remove @s gg.slow_immune_timer 1
+execute as @e[tag=gg_slow_immune,scores={gg.slow_immune_timer=..0}] run tag @s remove gg_slow_immune
+execute as @e[tag=gg_slow_immune,scores={gg.slow_immune_timer=..0}] run scoreboard players reset @s gg.slow_immune_timer
+
 # 1.10. Ram cooldown countdown
 execute as @e[tag=gg_rammed] run scoreboard players remove @s gg.ram_cd 1
 execute as @e[tag=gg_rammed,scores={gg.ram_cd=..0}] run tag @s remove gg_rammed
