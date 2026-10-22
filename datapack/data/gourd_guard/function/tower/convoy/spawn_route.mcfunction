@@ -10,4 +10,5 @@ $execute unless entity @e[tag=path_node,scores={path.map=$(map),path.route=$(pat
 
 # Initialize the newly spawned convoy
 $execute as @e[tag=gg_new_convoy] run scoreboard players set @s gg.convoy_dmg $(dmg)
+$execute as @e[tag=gg_new_convoy] run scoreboard players set @s gg.convoy_cap $(hp)
 $execute as @e[tag=gg_new_convoy] at @s run function gourd_guard:tower/convoy/init_convoy {map:$(map),path:$(path)}

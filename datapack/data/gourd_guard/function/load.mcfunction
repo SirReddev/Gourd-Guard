@@ -79,11 +79,13 @@ execute as @e[type=text_display,tag=gg_stats_display] run data modify entity @s 
 # Living mob health tracking (updated automatically by engine)
 scoreboard objectives add gg_hp health
 scoreboard objectives add gg.slow_timer dummy
+scoreboard objectives add gg.slow_cooldown dummy
 scoreboard objectives add gg.slow_dur dummy
 scoreboard objectives add gg.slow_val dummy
 scoreboard objectives add gg.fw_slow_dur dummy
 scoreboard objectives add gg.last_hp dummy
 scoreboard objectives add gg.convoy_dmg dummy
+scoreboard objectives add gg.convoy_cap dummy
 scoreboard objectives add gg.ram_cd dummy
 scoreboard objectives add mob_hp_tick dummy
 scoreboard objectives add intermission_timer dummy

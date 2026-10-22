@@ -4,10 +4,26 @@
 # Pillager Convoy steady armored charge: 0.22b/tick (always constant speed)
 execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.22
 
-# Slowed movement (active while mob has gg_slowed tag)
+# 1. Slowness Timer Countdown & Expiration (runs per mob every step forward)
+execute if entity @s[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
+execute if entity @s[tag=gg_slowed] if score @s gg.slow_timer matches ..0 run tag @s remove gg_slowed
+execute if entity @s[tag=gg_slow_50] unless entity @s[tag=gg_slowed] run tag @s remove gg_slow_50
+execute if entity @s[tag=gg_slow_25] unless entity @s[tag=gg_slowed] run tag @s remove gg_slow_25
+execute if entity @s[tag=gg_slow_75] unless entity @s[tag=gg_slowed] run tag @s remove gg_slow_75
+execute unless entity @s[tag=gg_slowed] run effect clear @s minecraft:slowness
+execute unless entity @s[tag=gg_slowed] run scoreboard players reset @s gg.slow_timer
+
+# 2. Slowness Re-slow Immunity Cooldown (prevents infinite re-slow while passing cauldron)
+execute if score @s gg.slow_cooldown matches 1.. run scoreboard players remove @s gg.slow_cooldown 1
+
+# 3. Convoy Ram Hit Cooldown (damages each mob once per encounter)
+execute if score @s gg.ram_cd matches 1.. run scoreboard players remove @s gg.ram_cd 1
+execute if score @s gg.ram_cd matches ..0 if entity @s[tag=gg_rammed] run tag @s remove gg_rammed
+
+# 4. Slowed movement (active while mob has gg_slowed tag)
 execute unless entity @s[tag=gg_convoy] if entity @s[tag=gg_slowed] run function gourd_guard:path/mob/move_slowed
 
-# Normal uninhibited mob movement (default for all mobs without gg_slowed)
+# 5. Normal uninhibited mob movement (default for all mobs without gg_slowed)
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10

@@ -13,7 +13,11 @@ data merge storage gourd_guard:tower {macro:{map:1,lvl:1,dmg:30,hp:400}}
 execute store result storage gourd_guard:tower macro.map int 1 run scoreboard players get .global map
 execute store result storage gourd_guard:tower macro.lvl int 1 run scoreboard players get @s gg.tower_lvl
 execute store result storage gourd_guard:tower macro.dmg int 1 run scoreboard players get @s gg.tower_dmg
-scoreboard players set #convoy_tank_hp gg.calc 400
+scoreboard players set #convoy_tank_hp gg.calc 300
+execute if score @s gg.tower_lvl matches 2 run scoreboard players set #convoy_tank_hp gg.calc 450
+execute if score @s gg.tower_lvl matches 3 run scoreboard players set #convoy_tank_hp gg.calc 650
+execute if score @s gg.tower_lvl matches 4 run scoreboard players set #convoy_tank_hp gg.calc 900
+execute if score @s gg.tower_lvl matches 5 run scoreboard players set #convoy_tank_hp gg.calc 1250
 execute store result storage gourd_guard:tower macro.hp int 1 run scoreboard players get #convoy_tank_hp gg.calc
 
 # 4. Dispatch one convoy for each active main route on the current map
