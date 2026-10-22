@@ -77,6 +77,9 @@ execute as @e[type=text_display,tag=gg_leaderboard_display] run data modify enti
 execute as @e[type=text_display,tag=gg_stats_display] run data modify entity @s billboard set value "vertical"
 
 # Living mob health tracking (updated automatically by engine)
+team add team_white
+team modify team_white color white
+team modify team_white collisionRule never
 scoreboard objectives add gg_hp health
 scoreboard objectives add gg.slow_ticks dummy
 scoreboard objectives add gg.slow_cd dummy

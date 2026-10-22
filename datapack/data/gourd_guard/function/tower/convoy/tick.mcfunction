@@ -11,9 +11,7 @@ execute store result score #convoy_hp gg.calc run data get entity @s Health 1
 execute if score #convoy_hp gg.calc matches ..0 run return run function gourd_guard:tower/convoy/on_convoy_death
 execute if score @s gg.convoy_cap matches ..0 run return run function gourd_guard:tower/convoy/on_convoy_death
 
-# 2. Damage close wave mob (within 3.5 blocks) that hasn't been rammed yet
-tag @s add gg_active_convoy
-execute at @s as @e[tag=gg_mob,tag=!gg_rammed,distance=..3.5,limit=1,sort=nearest] at @s run function gourd_guard:tower/convoy/damage_mob
-execute if score @s gg.convoy_cap matches 1.. at @s as @e[tag=gg_mob,tag=!gg_rammed,distance=..3.5,limit=1,sort=nearest] at @s run function gourd_guard:tower/convoy/damage_mob
-execute if score @s gg.convoy_cap matches 1.. at @s as @e[tag=gg_mob,tag=!gg_rammed,distance=..3.5,limit=1,sort=nearest] at @s run function gourd_guard:tower/convoy/damage_mob
-tag @s remove gg_active_convoy
+# 2. Ram nearby wave mobs within 3.5 blocks (chains up to 3 mobs if capacity remains)
+execute at @s if entity @e[tag=gg_mob,tag=!gg_rammed,distance=..3.5] run function gourd_guard:tower/convoy/ram_attack
+execute if score @s gg.convoy_cap matches 1.. at @s if entity @e[tag=gg_mob,tag=!gg_rammed,distance=..3.5] run function gourd_guard:tower/convoy/ram_attack
+execute if score @s gg.convoy_cap matches 1.. at @s if entity @e[tag=gg_mob,tag=!gg_rammed,distance=..3.5] run function gourd_guard:tower/convoy/ram_attack
