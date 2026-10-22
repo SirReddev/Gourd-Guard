@@ -28,9 +28,4 @@ function gourd_guard:hud/candy/add_40
 tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Here is ","color":"gray"},{"text":"40 Candy","color":"gold","bold":true},{"text":" to get you started! Speak with the villagers to buy defense towers.","color":"gray"}]
 
 # Announce flight controls in chat
-tellraw @a ["",{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_gray"}]
-tellraw @a [{"text":"✈ ","color":"gold","bold":true},{"text":"HOW TO FLY (Gourd Glider):","color":"yellow","bold":true}]
-tellraw @a [{"text":" • Hold ","color":"gray"},{"text":"[Shift / Sneak]","color":"aqua","bold":true},{"text":" on the ground to launch high into the air!","color":"gray"}]
-tellraw @a [{"text":" • Press ","color":"gray"},{"text":"[Space]","color":"aqua","bold":true},{"text":" mid-air to open wings & glide smoothly.","color":"gray"}]
-tellraw @a [{"text":" • Hold ","color":"gray"},{"text":"[Shift / Sneak]","color":"aqua","bold":true},{"text":" while airborne to boost altitude upwards anytime!","color":"gray"}]
-tellraw @a ["",{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_gray"}]
+tellraw @a [{"text":"[Peeves] ","color":"aqua"},{"text":"Hold ","color":"gray"},{"text":"[Shift]","color":"yellow","bold":true},{"text":" to launch into the air, and press ","color":"gray"},{"text":"[Space]","color":"yellow","bold":true},{"text":" to glide!","color":"gray"}]

@@ -6,7 +6,8 @@ execute if entity @s[tag=gg_slowed] run return 0
 execute if score @s gg.slow_cd matches 1.. run return 0
 
 # Apply 50% slow for 5 seconds (100 ticks) and 8 seconds cooldown (160 ticks)
+scoreboard objectives add gg.slow_timer dummy
+scoreboard objectives add gg.slow_cd dummy
 tag @s add gg_slowed
-scoreboard players set @s gg.slow_pct 50
 scoreboard players set @s gg.slow_timer 100
 scoreboard players set @s gg.slow_cd 160
