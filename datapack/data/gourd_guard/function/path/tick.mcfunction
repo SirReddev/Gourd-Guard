@@ -16,14 +16,21 @@ execute as @e[tag=gg_mob,scores={gg_hp=..0}] run tag @s remove gg_mob
 execute as @e[tag=path_mob] if data entity @s {Health:0.0f} run tag @s remove path_mob
 execute as @e[tag=gg_mob] if data entity @s {Health:0.0f} run tag @s remove gg_mob
 
-# 1.8. Global Slowness Countdown & Expiration (scoreboard-driven, no tags)
-# A. Decrement timer by 1 each tick for all mobs with active slowness
-execute as @e[scores={gg.slow_dur=1..}] run scoreboard players remove @s gg.slow_dur 1
+# 1.8. Global Slowness Countdown & Expiration
+# A. Decrement timer by 1 each tick for all slowed mobs
+execute as @e[tag=gg_slowed] run scoreboard players remove @s gg.slow_timer 1
 
-# B. Completely clear slowness when duration expires (reaches 0 or below)
-execute as @e[scores={gg.slow_dur=..0}] run effect clear @s minecraft:slowness
-execute as @e[scores={gg.slow_dur=..0}] run scoreboard players reset @s gg.slow_val
-execute as @e[scores={gg.slow_dur=..0}] run scoreboard players reset @s gg.slow_dur
+# B. Tag expired mobs whose timer reached 0 or below
+tag @e[tag=gg_slowed,scores={gg.slow_timer=..0}] add gg_slow_expired
+
+# C. Completely clear slowness from expired mobs: tags removed FIRST, then effect, then reset score
+execute as @e[tag=gg_slow_expired] run tag @s remove gg_slowed
+execute as @e[tag=gg_slow_expired] run tag @s remove gg_slow_25
+execute as @e[tag=gg_slow_expired] run tag @s remove gg_slow_50
+execute as @e[tag=gg_slow_expired] run tag @s remove gg_slow_75
+execute as @e[tag=gg_slow_expired] run effect clear @s minecraft:slowness
+execute as @e[tag=gg_slow_expired] run scoreboard players reset @s gg.slow_timer
+tag @e[tag=gg_slow_expired] remove gg_slow_expired
 
 # 1.9. Decrement mob ram cooldown (for ravager convoy collisions)
 execute as @e[scores={gg.ram_cd=1..}] run scoreboard players remove @s gg.ram_cd 1

@@ -4,9 +4,14 @@
 # Pillager Convoy steady armored charge: 0.22b/tick (always constant speed)
 execute if entity @s[tag=gg_convoy] run tp @s ^ ^ ^0.22
 
-# Wave Mobs: Choose movement function based on active slowness score (gg.slow_dur)
-execute unless entity @s[tag=gg_convoy] unless score @s gg.slow_dur matches 1.. run function gourd_guard:path/mob/move_normal
-execute unless entity @s[tag=gg_convoy] if score @s gg.slow_dur matches 1.. run function gourd_guard:path/mob/move_slowed
+# Slowed movement (active while mob has gg_slowed tag)
+execute unless entity @s[tag=gg_convoy] if entity @s[tag=gg_slowed] run function gourd_guard:path/mob/move_slowed
+
+# Normal uninhibited mob movement (default for all mobs without gg_slowed)
+execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
+execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
+execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10
+execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] unless entity @s[tag=gg_fast] unless entity @s[tag=gg_runner] unless entity @s[tag=gg_slow] run tp @s ^ ^ ^0.15
 
 # --- SLAB, STAIR & SOLID TERRAIN SNAPPING & ANTI-SINK ---
 # Snaps entities cleanly to the top surface of slabs/stairs/blocks, preventing sinking or floating.
