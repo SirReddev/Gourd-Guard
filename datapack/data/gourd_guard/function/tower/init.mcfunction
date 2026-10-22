@@ -26,6 +26,7 @@ scoreboard objectives add gg.fw_splash dummy
 scoreboard objectives add gg.fw_slow_dur dummy
 scoreboard objectives add gg.tower_slow_dur dummy
 scoreboard objectives add gg.slow_timer dummy
+scoreboard objectives add gg.slow_immune_timer dummy
 scoreboard objectives add gg.slow_cooldown dummy
 scoreboard objectives add gg.slow_dur dummy
 scoreboard objectives add gg.slow_val dummy

@@ -14,7 +14,9 @@ execute unless entity @s[tag=gg_slowed] run effect clear @s minecraft:slowness
 execute unless entity @s[tag=gg_slowed] run scoreboard players reset @s gg.slow_timer
 
 # 2. Slowness Re-slow Immunity Cooldown (prevents infinite re-slow while passing cauldron)
-execute if score @s gg.slow_cooldown matches 1.. run scoreboard players remove @s gg.slow_cooldown 1
+execute if entity @s[tag=gg_slow_immune] run scoreboard players remove @s gg.slow_immune_timer 1
+execute if entity @s[tag=gg_slow_immune] if score @s gg.slow_immune_timer matches ..0 run tag @s remove gg_slow_immune
+execute if entity @s[tag=gg_slow_immune] if score @s gg.slow_immune_timer matches ..0 run scoreboard players reset @s gg.slow_immune_timer
 
 # 3. Convoy Ram Hit Cooldown (damages each mob once per encounter)
 execute if score @s gg.ram_cd matches 1.. run scoreboard players remove @s gg.ram_cd 1
@@ -24,7 +26,8 @@ execute if score @s gg.ram_cd matches ..0 if entity @s[tag=gg_rammed] run tag @s
 execute unless entity @s[tag=gg_convoy] if entity @s[tag=gg_slowed] run function gourd_guard:path/mob/move_slowed
 
 # 5. Normal uninhibited mob movement (default for all mobs without gg_slowed)
-execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.55
+# Sprinters tuned to 0.38b/tick (slower and more balanced than 0.55)
+execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_runner] run tp @s ^ ^ ^0.38
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_fast,tag=!gg_runner] run tp @s ^ ^ ^0.28
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] if entity @s[tag=gg_slow] run tp @s ^ ^ ^0.10
 execute unless entity @s[tag=gg_convoy] unless entity @s[tag=gg_slowed] unless entity @s[tag=gg_fast] unless entity @s[tag=gg_runner] unless entity @s[tag=gg_slow] run tp @s ^ ^ ^0.15
