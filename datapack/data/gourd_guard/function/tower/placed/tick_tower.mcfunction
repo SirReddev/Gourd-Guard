@@ -3,8 +3,8 @@ scoreboard players operation #t_id gg.tower_id = @s gg.tower_id
 
 # Ensure stats are initialized for pre-existing towers
 execute unless score @s gg.tower_max_cd matches 1.. run function gourd_guard:tower/placed/update_stats
-execute unless entity @s[tag=gg_tower_base_sell_text_fixed] run function gourd_guard:tower/placed/update_text
-tag @s add gg_tower_base_sell_text_fixed
+execute unless entity @s[tag=gg_tower_base_sell_text_fixed_v2] run function gourd_guard:tower/placed/update_text
+tag @s add gg_tower_base_sell_text_fixed_v2
 
 # 1. Show text_display only when a player is within 6 blocks (0.09375 * 64 = 6 blocks; 0.0 when no player is within 6 blocks)
 execute if entity @a[distance=..6] on passengers if entity @s[type=text_display] run data modify entity @s view_range set value 0.09375f

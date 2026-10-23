@@ -8,7 +8,8 @@ execute unless entity @e[type=item_display,tag=gg_target_tower] run return 0
 execute store result score #stat_lvl gg.calc run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_lvl
 execute store result score #stat_dmg gg.fw_dmg run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_dmg
 execute store result score #stat_cd gg.fw_tid run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_max_cd
-execute store result score #stat_sell gg.fw_splash run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_sell
+execute as @n[type=item_display,tag=gg_target_tower] run function gourd_guard:tower/placed/set_base_sell
+scoreboard players operation #stat_sell gg.fw_splash = #base_sell coins
 
 # Set next level upgrade cost (0 if already max)
 scoreboard players set #up_cost gg.calc 0
