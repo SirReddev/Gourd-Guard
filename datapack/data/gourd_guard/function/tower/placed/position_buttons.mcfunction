@@ -1,22 +1,58 @@
-# Read the text display's pose and preserve each tower's button-row alignment.
-scoreboard players set #btn_y gg.tower_id -100000
-execute on passengers if entity @s[type=text_display] store result score #btn_y gg.tower_id run data get entity @s transformation[7] 1000
-execute if score @s gg.tower_type matches 1 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 115
-execute if score @s gg.tower_type matches 2 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 105
-execute if score @s gg.tower_type matches 3 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 65
-execute if score @s gg.tower_type matches 4 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 51
-execute if score @s gg.tower_type matches 5 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 53
-execute if score @s gg.tower_type matches 6 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 51
-execute if score @s gg.tower_type matches 7 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 51
-execute if score @s gg.tower_type matches 8 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 44
-execute if score @s gg.tower_type matches 9 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 1520
-execute if score @s gg.tower_type matches 10 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 489
-execute if score @s gg.tower_type matches 11 if score #btn_y gg.tower_id matches 0..10000 run scoreboard players remove #btn_y gg.tower_id 45
-execute if score #btn_y gg.tower_id matches 0..10000 store result storage gourd_guard:tower macro.button_y double 0.001 run scoreboard players get #btn_y gg.tower_id
-data modify storage gourd_guard:tower macro.button_move_x set value -1.525d
-data modify storage gourd_guard:tower macro.button_sell_x set value -0.625d
-data modify storage gourd_guard:tower macro.button_upgrade_x set value 0.4375d
-data modify storage gourd_guard:tower macro.button_stats_x set value 1.4875d
-execute if score @s gg.tower_type matches 9 run data modify storage gourd_guard:tower macro.button_move_x set value -0.475d
-execute if score @s gg.tower_type matches 9 run data modify storage gourd_guard:tower macro.button_sell_x set value 0.425d
-execute if score #btn_y gg.tower_id matches 0..10000 run function gourd_guard:tower/placed/position_buttons/rotated with storage gourd_guard:tower macro
+# Keep each interaction row at its tower-specific hologram height and turn it toward the nearby player.
+execute as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run data modify entity @s width set value 0.85f
+execute as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run data modify entity @s width set value 0.95f
+execute as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run data modify entity @s width set value 1.2f
+execute as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run data modify entity @s width set value 0.9f
+
+execute if score @s gg.tower_type matches 1 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 1 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 1 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 1 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 2 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.35 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 2 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.35 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 2 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.35 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 2 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.35 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 3 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 3 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 3 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 3 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 4 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 4 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 4 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 4 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 5 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.7 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 5 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.7 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 5 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.7 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 5 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.7 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 6 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 6 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 6 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 6 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 7 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 7 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 7 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 7 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 8 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 8 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 8 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 8 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 9 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.32 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.475 ^ ^0.05
+execute if score @s gg.tower_type matches 9 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.32 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.425 ^ ^0.05
+
+execute if score @s gg.tower_type matches 10 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.29 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 10 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.29 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 10 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.29 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 10 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.29 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
+
+execute if score @s gg.tower_type matches 11 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~1.95 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-1.525 ^ ^0.05
+execute if score @s gg.tower_type matches 11 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~1.95 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.625 ^ ^0.05
+execute if score @s gg.tower_type matches 11 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~1.95 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.4375 ^ ^0.05
+execute if score @s gg.tower_type matches 11 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~1.95 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.4875 ^ ^0.05
