@@ -13,5 +13,7 @@ execute as @e[tag=gg_scarecrow_hit,tag=gg_boss] at @s run function gourd_guard:t
 tag @e remove gg_scarecrow_hit
 
 # Remove this scarecrow (it's single-use)
+scoreboard players operation #btn_tid gg.tower_id = @s gg.tower_id
+tag @e[type=item_display,tag=gg_target_tower] remove gg_target_tower
+tag @s add gg_target_tower
 function gourd_guard:tower/action/cleanup_target_tower
-kill @s
