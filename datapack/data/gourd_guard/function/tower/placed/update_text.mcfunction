@@ -1,6 +1,16 @@
 # Executed as a placed tower root entity (@s)
 execute store result storage gourd_guard:tower macro.lvl int 1 run scoreboard players get @s gg.tower_lvl
-execute store result storage gourd_guard:tower macro.sell int 1 run scoreboard players get @s gg.tower_sell
+execute if score @s gg.tower_type matches 1 run data modify storage gourd_guard:tower macro.sell set value 10
+execute if score @s gg.tower_type matches 2 run data modify storage gourd_guard:tower macro.sell set value 15
+execute if score @s gg.tower_type matches 3 run data modify storage gourd_guard:tower macro.sell set value 25
+execute if score @s gg.tower_type matches 4 run data modify storage gourd_guard:tower macro.sell set value 16
+execute if score @s gg.tower_type matches 5 run data modify storage gourd_guard:tower macro.sell set value 22
+execute if score @s gg.tower_type matches 6 run data modify storage gourd_guard:tower macro.sell set value 23
+execute if score @s gg.tower_type matches 7 run data modify storage gourd_guard:tower macro.sell set value 20
+execute if score @s gg.tower_type matches 8 run data modify storage gourd_guard:tower macro.sell set value 30
+execute if score @s gg.tower_type matches 9 run data modify storage gourd_guard:tower macro.sell set value 8
+execute if score @s gg.tower_type matches 10 run data modify storage gourd_guard:tower macro.sell set value 20
+execute if score @s gg.tower_type matches 11 run data modify storage gourd_guard:tower macro.sell set value 18
 
 execute if score @s gg.tower_type matches 1 run data modify storage gourd_guard:tower macro.name set value "Firework Cannon"
 execute if score @s gg.tower_type matches 2 run data modify storage gourd_guard:tower macro.name set value "Copper Golem Launcher"
