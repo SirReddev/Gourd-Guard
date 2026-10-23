@@ -1,0 +1,191 @@
+{
+  "credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+  "textures": {
+    "particle": "minecraft:item/pufferfish",
+    "slot_default": "aj:blueprint/towers/gourdguard_tower_ballista"
+  },
+  "display": {
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -147.50099,
+        -45.0,
+        -180.0
+      ],
+      "translation": [
+        4.5317,
+        3.69365,
+        0.76315
+      ],
+      "scale": [
+        0.41255,
+        0.41253,
+        0.41253
+      ]
+    }
+  },
+  "elements": [
+    {
+      "from": [
+        1.708,
+        3.281,
+        4.59777
+      ],
+      "to": [
+        6.427,
+        17.438,
+        7.74377
+      ],
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "origin": [
+          4.0675,
+          10.3595,
+          6.17077
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            3.5,
+            5,
+            6.5
+          ],
+          "texture": "#slot_default"
+        },
+        "east": {
+          "uv": [
+            0,
+            7.75,
+            0.75,
+            10.75
+          ],
+          "texture": "#slot_default"
+        },
+        "south": {
+          "uv": [
+            2,
+            7.5,
+            3,
+            10.5
+          ],
+          "texture": "#slot_default"
+        },
+        "west": {
+          "uv": [
+            0.75,
+            7.75,
+            1.5,
+            10.75
+          ],
+          "texture": "#slot_default"
+        },
+        "up": {
+          "uv": [
+            8.25,
+            3.5,
+            9.25,
+            4.25
+          ],
+          "texture": "#slot_default"
+        },
+        "down": {
+          "uv": [
+            6.5,
+            11.75,
+            7.5,
+            12.5
+          ],
+          "texture": "#slot_default"
+        }
+      }
+    },
+    {
+      "from": [
+        9.573,
+        3.281,
+        4.59777
+      ],
+      "to": [
+        14.292,
+        17.438,
+        7.74377
+      ],
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "origin": [
+          11.9325,
+          10.3595,
+          6.17077
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            7.5,
+            4,
+            10.5
+          ],
+          "texture": "#slot_default"
+        },
+        "east": {
+          "uv": [
+            5,
+            3.5,
+            5.75,
+            6.5
+          ],
+          "texture": "#slot_default"
+        },
+        "south": {
+          "uv": [
+            4,
+            6.5,
+            5,
+            9.5
+          ],
+          "texture": "#slot_default"
+        },
+        "west": {
+          "uv": [
+            5,
+            6.5,
+            5.75,
+            9.5
+          ],
+          "texture": "#slot_default"
+        },
+        "up": {
+          "uv": [
+            7.5,
+            11.75,
+            8.5,
+            12.5
+          ],
+          "texture": "#slot_default"
+        },
+        "down": {
+          "uv": [
+            0.75,
+            12,
+            1.75,
+            12.75
+          ],
+          "texture": "#slot_default"
+        }
+      }
+    }
+  ]
+}

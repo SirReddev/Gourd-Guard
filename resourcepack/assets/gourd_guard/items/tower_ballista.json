@@ -1,6 +1,83 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "gourd_guard:item/tower_ballista"
+    "type": "minecraft:composite",
+    "models": [
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/back"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/bow"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/bowblade"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/cross_1"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/cross_2"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/head"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/innerleftblade"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/innerrightblade"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/leftreardrawstring"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/leftstring"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/lever"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/outerleftblade"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/outerrightblade"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/pedestal"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/pulley"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/ram"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/rightreardrawstring"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/rightstring"
+      },
+      {
+        "type": "minecraft:model",
+        "model": "gourd_guard:item/towers/ballista/rope"
+      }
+    ]
   }
 }

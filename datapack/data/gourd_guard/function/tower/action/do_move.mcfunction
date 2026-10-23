@@ -7,7 +7,7 @@ execute unless entity @e[type=item_display,tag=gg_target_tower] run return 0
 
 # Get tower type and give the matching tower armor_stand item back to the player (into active hand slot if empty)
 execute store result score #move_type gg.tower_type run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_type
-execute store result storage gourd_guard:tower_restore lvl int 1 run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_lvl
+data modify storage gourd_guard:tower_restore lvl set value 1
 execute if score #move_type gg.tower_type matches 1 run function gourd_guard:tower/place/restore_firework_cannon with storage gourd_guard:tower_restore
 execute if score #move_type gg.tower_type matches 2 run function gourd_guard:tower/place/restore_copper_golem_launcher with storage gourd_guard:tower_restore
 execute if score #move_type gg.tower_type matches 3 run function gourd_guard:tower/place/restore_pillager_convoy with storage gourd_guard:tower_restore

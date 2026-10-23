@@ -1,0 +1,113 @@
+{
+  "credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+  "textures": {
+    "particle": "minecraft:item/pufferfish",
+    "slot_default": "aj:blueprint/towers/gourdguard_tower_ballista"
+  },
+  "display": {
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -147.50099,
+        -45.0,
+        -180.0
+      ],
+      "translation": [
+        6.75876,
+        3.76965,
+        -1.95173
+      ],
+      "scale": [
+        0.41255,
+        0.41253,
+        0.41253
+      ]
+    }
+  },
+  "elements": [
+    {
+      "from": [
+        -0.13628,
+        9.7545,
+        6.04744
+      ],
+      "to": [
+        6.15572,
+        12.9005,
+        7.62044
+      ],
+      "rotation": {
+        "x": 0,
+        "y": 60,
+        "z": 0,
+        "origin": [
+          6.15572,
+          12.114,
+          6.83394
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            1.5,
+            11.25,
+            2.75,
+            12
+          ],
+          "texture": "#slot_default"
+        },
+        "east": {
+          "uv": [
+            6.5,
+            10.5,
+            6.75,
+            11.25
+          ],
+          "texture": "#slot_default"
+        },
+        "south": {
+          "uv": [
+            7.75,
+            8.5,
+            9,
+            9.25
+          ],
+          "texture": "#slot_default"
+        },
+        "west": {
+          "uv": [
+            6.75,
+            10.5,
+            7,
+            11.25
+          ],
+          "texture": "#slot_default"
+        },
+        "up": {
+          "uv": [
+            9.75,
+            6.25,
+            11,
+            6.5
+          ],
+          "texture": "#slot_default"
+        },
+        "down": {
+          "uv": [
+            9.75,
+            8.5,
+            11,
+            8.75
+          ],
+          "texture": "#slot_default"
+        }
+      }
+    }
+  ]
+}

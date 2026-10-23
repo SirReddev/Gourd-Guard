@@ -1,0 +1,113 @@
+{
+  "credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+  "textures": {
+    "particle": "minecraft:item/pufferfish",
+    "slot_default": "aj:blueprint/towers/gourdguard_tower_copper_golem_launcher"
+  },
+  "display": {
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        150.0,
+        45.0,
+        0.0
+      ],
+      "translation": [
+        3.27012,
+        3.74073,
+        1.58451
+      ],
+      "scale": [
+        0.29157,
+        0.29157,
+        0.29157
+      ]
+    }
+  },
+  "elements": [
+    {
+      "from": [
+        -3.88212,
+        -0.06287,
+        8.42436
+      ],
+      "to": [
+        19.69352,
+        8.42436,
+        32.0
+      ],
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "origin": [
+          8.0,
+          -6.85265,
+          -3.45776
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.5,
+            3.5,
+            7,
+            4.75
+          ],
+          "texture": "#slot_default"
+        },
+        "east": {
+          "uv": [
+            0,
+            3.5,
+            3.5,
+            4.75
+          ],
+          "texture": "#slot_default"
+        },
+        "south": {
+          "uv": [
+            10.5,
+            3.5,
+            14,
+            4.75
+          ],
+          "texture": "#slot_default"
+        },
+        "west": {
+          "uv": [
+            7,
+            3.5,
+            10.5,
+            4.75
+          ],
+          "texture": "#slot_default"
+        },
+        "up": {
+          "uv": [
+            7,
+            3.5,
+            3.5,
+            0
+          ],
+          "texture": "#slot_default"
+        },
+        "down": {
+          "uv": [
+            10.5,
+            0,
+            7,
+            3.5
+          ],
+          "texture": "#slot_default"
+        }
+      }
+    }
+  ]
+}

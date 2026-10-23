@@ -1,0 +1,113 @@
+{
+  "credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+  "textures": {
+    "particle": "minecraft:item/pufferfish",
+    "slot_default": "aj:blueprint/towers/gourdguard_tower_ballista"
+  },
+  "display": {
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -147.50099,
+        -45.0,
+        -180.0
+      ],
+      "translation": [
+        2.87588,
+        3.76965,
+        1.93115
+      ],
+      "scale": [
+        0.41255,
+        0.41253,
+        0.41253
+      ]
+    }
+  },
+  "elements": [
+    {
+      "from": [
+        9.452,
+        9.7545,
+        4.77927
+      ],
+      "to": [
+        14.171,
+        12.9005,
+        6.35227
+      ],
+      "rotation": {
+        "x": 0,
+        "y": -20,
+        "z": 0,
+        "origin": [
+          9.452,
+          11.3275,
+          5.56577
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            11.75,
+            9.5,
+            12.5
+          ],
+          "texture": "#slot_default"
+        },
+        "east": {
+          "uv": [
+            0,
+            13.25,
+            0.25,
+            14
+          ],
+          "texture": "#slot_default"
+        },
+        "south": {
+          "uv": [
+            9,
+            4.25,
+            10,
+            5
+          ],
+          "texture": "#slot_default"
+        },
+        "west": {
+          "uv": [
+            0.25,
+            13.25,
+            0.5,
+            14
+          ],
+          "texture": "#slot_default"
+        },
+        "up": {
+          "uv": [
+            9.75,
+            10,
+            10.75,
+            10.25
+          ],
+          "texture": "#slot_default"
+        },
+        "down": {
+          "uv": [
+            9.75,
+            10.25,
+            10.75,
+            10.5
+          ],
+          "texture": "#slot_default"
+        }
+      }
+    }
+  ]
+}

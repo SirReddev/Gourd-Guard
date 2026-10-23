@@ -5,8 +5,19 @@ execute as @e[type=item_display,tag=gg_tower_placed,distance=..6] if score @s gg
 
 execute unless entity @e[type=item_display,tag=gg_target_tower] run return 0
 
-# Refund the tower's sell value to all players' shared candy score (coins)
-execute store result score #refund coins run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_sell
+# Refund the tower's base value, regardless of its upgrade level.
+execute store result score #sell_type gg.tower_type run scoreboard players get @n[type=item_display,tag=gg_target_tower] gg.tower_type
+execute if score #sell_type gg.tower_type matches 1 run scoreboard players set #refund coins 10
+execute if score #sell_type gg.tower_type matches 2 run scoreboard players set #refund coins 15
+execute if score #sell_type gg.tower_type matches 3 run scoreboard players set #refund coins 25
+execute if score #sell_type gg.tower_type matches 4 run scoreboard players set #refund coins 16
+execute if score #sell_type gg.tower_type matches 5 run scoreboard players set #refund coins 22
+execute if score #sell_type gg.tower_type matches 6 run scoreboard players set #refund coins 23
+execute if score #sell_type gg.tower_type matches 7 run scoreboard players set #refund coins 20
+execute if score #sell_type gg.tower_type matches 8 run scoreboard players set #refund coins 30
+execute if score #sell_type gg.tower_type matches 9 run scoreboard players set #refund coins 8
+execute if score #sell_type gg.tower_type matches 10 run scoreboard players set #refund coins 20
+execute if score #sell_type gg.tower_type matches 11 run scoreboard players set #refund coins 18
 scoreboard players operation @a coins += #refund coins
 
 # Play coin chime & show chat notification

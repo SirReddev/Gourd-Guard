@@ -1,0 +1,113 @@
+{
+  "credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+  "textures": {
+    "particle": "minecraft:item/pufferfish",
+    "slot_default": "aj:blueprint/towers/gourdguard_tower_ballista"
+  },
+  "display": {
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -147.50099,
+        -45.0,
+        -180.0
+      ],
+      "translation": [
+        1.42178,
+        0.55113,
+        -3.75916
+      ],
+      "scale": [
+        0.41255,
+        0.41253,
+        0.41253
+      ]
+    }
+  },
+  "elements": [
+    {
+      "from": [
+        -9.63575,
+        11.3275,
+        9.92177
+      ],
+      "to": [
+        7.66725,
+        11.3275,
+        11.49477
+      ],
+      "rotation": {
+        "x": 0,
+        "y": -53,
+        "z": 0,
+        "origin": [
+          7.66725,
+          11.3275,
+          10.70827
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            3.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#slot_default"
+        },
+        "east": {
+          "uv": [
+            0,
+            3.5,
+            0.25,
+            3.5
+          ],
+          "texture": "#slot_default"
+        },
+        "south": {
+          "uv": [
+            0,
+            3.5,
+            3.5,
+            3.5
+          ],
+          "texture": "#slot_default"
+        },
+        "west": {
+          "uv": [
+            0,
+            3.5,
+            0.25,
+            3.5
+          ],
+          "texture": "#slot_default"
+        },
+        "up": {
+          "uv": [
+            7.75,
+            10.75,
+            11.25,
+            11
+          ],
+          "texture": "#slot_default"
+        },
+        "down": {
+          "uv": [
+            7.75,
+            10.75,
+            11.25,
+            11
+          ],
+          "texture": "#slot_default"
+        }
+      }
+    }
+  ]
+}

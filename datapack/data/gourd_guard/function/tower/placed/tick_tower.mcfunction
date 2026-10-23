@@ -12,19 +12,15 @@ execute if score @s gg.tower_type matches 2 unless entity @s[tag=gg_cgl_rot_fixe
 execute if score @s gg.tower_type matches 4 unless entity @s[tag=gg_cauldron_bb_fixed] on passengers if entity @s[type=text_display] run data merge entity @s {billboard:"vertical"}
 execute if score @s gg.tower_type matches 4 unless entity @s[tag=gg_cauldron_bb_fixed] run tag @s add gg_cauldron_bb_fixed
 
+# 2. Position all interaction buttons from the tower's actual text-display transform.
+function gourd_guard:tower/placed/position_buttons
+
 # Ambient particles at Magic Altar locator above the book
 execute if score @s gg.tower_type matches 8 as @e[type=marker,tag=aj.gourdguard_tower_magic_altar.locator.locator,distance=..3,limit=1] at @s run particle minecraft:enchant ~ ~ ~ 0.15 0.15 0.15 0.5 2
 
 # 3. Combat Cooldown & First-in-Wave Target Acquisition
 execute if score @s gg.tower_cd matches 1.. run scoreboard players remove @s gg.tower_cd 1
 function gourd_guard:tower/combat/acquire_and_fire
-# Position each hitbox from the tower text display so the buttons share its billboard anchor.
-execute if score @s gg.tower_type matches 9 if entity @a[distance=..6] on passengers if entity @s[type=text_display] at @s rotated as @p[distance=..6] 0 positioned ^-0.45 ^ ^ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ~ ~ ~
-execute if score @s gg.tower_type matches 9 if entity @a[distance=..6] on passengers if entity @s[type=text_display] at @s rotated as @p[distance=..6] 0 positioned ^0.45 ^ ^ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ~ ~ ~
-execute unless score @s gg.tower_type matches 9 if entity @a[distance=..6] on passengers if entity @s[type=text_display] at @s rotated as @p[distance=..6] 0 positioned ^-1.2 ^ ^ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ~ ~ ~
-execute unless score @s gg.tower_type matches 9 if entity @a[distance=..6] on passengers if entity @s[type=text_display] at @s rotated as @p[distance=..6] 0 positioned ^-0.3 ^ ^ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ~ ~ ~
-execute unless score @s gg.tower_type matches 9 if entity @a[distance=..6] on passengers if entity @s[type=text_display] at @s rotated as @p[distance=..6] 0 positioned ^0.65 ^ ^ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ~ ~ ~
-execute unless score @s gg.tower_type matches 9 if entity @a[distance=..6] on passengers if entity @s[type=text_display] at @s rotated as @p[distance=..6] 0 positioned ^1.6 ^ ^ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ~ ~ ~
 # Scarecrow tick: check proximity trigger
 execute if score @s gg.tower_type matches 9 run function gourd_guard:tower/scarecrow/tick
 

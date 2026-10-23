@@ -1,0 +1,113 @@
+{
+  "credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+  "textures": {
+    "particle": "minecraft:item/pufferfish",
+    "slot_default": "aj:blueprint/towers/gourdguard_tower_firework_cannon"
+  },
+  "display": {
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        165.0,
+        -45.0,
+        -180.0
+      ],
+      "translation": [
+        1.47062,
+        1.40869,
+        -0.31007
+      ],
+      "scale": [
+        0.24542,
+        0.24542,
+        0.24542
+      ]
+    }
+  },
+  "elements": [
+    {
+      "from": [
+        2.0,
+        28.0,
+        3.0
+      ],
+      "to": [
+        14.0,
+        31.2,
+        15.0
+      ],
+      "rotation": {
+        "x": 45,
+        "y": 0,
+        "z": 0,
+        "origin": [
+          8.0,
+          8.0,
+          8.0
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            10,
+            7.5,
+            10.5
+          ],
+          "texture": "#slot_default"
+        },
+        "east": {
+          "uv": [
+            6,
+            10,
+            7.5,
+            10.5
+          ],
+          "texture": "#slot_default"
+        },
+        "south": {
+          "uv": [
+            6,
+            10,
+            7.5,
+            10.5
+          ],
+          "texture": "#slot_default"
+        },
+        "west": {
+          "uv": [
+            6,
+            10,
+            7.5,
+            10.5
+          ],
+          "texture": "#slot_default"
+        },
+        "up": {
+          "uv": [
+            8,
+            10,
+            9.5,
+            11.5
+          ],
+          "texture": "#slot_default"
+        },
+        "down": {
+          "uv": [
+            2,
+            10,
+            3.5,
+            11.5
+          ],
+          "texture": "#slot_default"
+        }
+      }
+    }
+  ]
+}
