@@ -6,6 +6,12 @@ execute as @e[type=item_display,tag=aj.gourdguard_tower_copper_golem_launcher.ro
 execute as @e[type=item_display,tag=aj.gourdguard_tower_pillager_convoy.root] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_cauldron_damage.root] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_tesla_coil.root] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_cauldron_poison.root] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_cauldron_slowness.root] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_magic_altar.root] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_scarecrow.root] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_fortune_pillar.root] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_ballista.root] run function gourd_guard:tower/preview/remove_single
 kill @e[type=interaction,tag=gg_tower_btn]
 kill @e[type=interaction,tag=gg_tower_place_btn]
 execute as @e[type=item_display,tag=gg_fw_proj] on passengers run kill @s

@@ -1,4 +1,16 @@
 # Remove 1 tower item from the player's inventory (works identically in Adventure, Survival, and Creative mode)
+scoreboard players set #spawn_lvl gg.tower_lvl 1
+execute if items entity @s weapon.offhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b}] run scoreboard players set #spawn_lvl gg.tower_lvl 1
+execute if items entity @s weapon.offhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_lvl:2}] run scoreboard players set #spawn_lvl gg.tower_lvl 2
+execute if items entity @s weapon.offhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_lvl:3}] run scoreboard players set #spawn_lvl gg.tower_lvl 3
+execute if items entity @s weapon.offhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_lvl:4}] run scoreboard players set #spawn_lvl gg.tower_lvl 4
+execute if items entity @s weapon.offhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_lvl:5}] run scoreboard players set #spawn_lvl gg.tower_lvl 5
+execute if items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b}] run scoreboard players set #spawn_lvl gg.tower_lvl 1
+execute if items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_lvl:2}] run scoreboard players set #spawn_lvl gg.tower_lvl 2
+execute if items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_lvl:3}] run scoreboard players set #spawn_lvl gg.tower_lvl 3
+execute if items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_lvl:4}] run scoreboard players set #spawn_lvl gg.tower_lvl 4
+execute if items entity @s weapon.mainhand minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_lvl:5}] run scoreboard players set #spawn_lvl gg.tower_lvl 5
+execute store result storage gourd_guard:tower_restore lvl int 1 run scoreboard players get #spawn_lvl gg.tower_lvl
 execute if score #spawn_type gg.tower_type matches 1 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:1}] 1
 execute if score #spawn_type gg.tower_type matches 2 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:2}] 1
 execute if score #spawn_type gg.tower_type matches 3 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:3}] 1

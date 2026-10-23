@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "gourd_guard:item/tower_fortune_pillar"
+    "model": "aj:blueprint/gourdguard_tower_fortune_pillar/gourdguard_tower_fortune_pillar/default"
   }
 }

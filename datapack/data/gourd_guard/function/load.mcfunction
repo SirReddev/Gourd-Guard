@@ -60,10 +60,9 @@ scoreboard objectives add path.cmp dummy
 
 execute unless score .global map matches 1.. run scoreboard players set .global map 1
 
-# Initialize Leaderboard & Statistics Tracking
+# Initialize game statistics tracking
 scoreboard objectives add gg_skip trigger
 scoreboard players enable @a gg_skip
-function gourd_guard:lobby/leaderboard/init
 function gourd_guard:lobby/stats/init
 execute unless score .global wave matches 1.. run scoreboard players set .global wave 1
 execute unless score .wave state matches 0.. run scoreboard players set .wave state 0
@@ -73,7 +72,6 @@ execute as @e[type=text_display,tag=gg_start_display] run data modify entity @s 
 execute as @e[type=text_display,tag=gg_start_display] run data modify entity @s alignment set value "center"
 execute as @e[type=text_display,tag=gg_start_icon] run data modify entity @s text set value {text:"\uE304",color:"white",font:"minecraft:default"}
 execute as @e[type=text_display,tag=gg_start_btn] run data modify entity @s text set value {text:"\uE302",color:"white",font:"minecraft:default"}
-execute as @e[type=text_display,tag=gg_leaderboard_display] run data modify entity @s billboard set value "vertical"
 execute as @e[type=text_display,tag=gg_stats_display] run data modify entity @s billboard set value "vertical"
 
 # Living mob health tracking (updated automatically by engine)
@@ -128,8 +126,8 @@ execute as @e[type=item_display,tag=aj.gourdguard_pumpkin.root] at @s run functi
 execute if score .wave state matches 1..2 run function gourd_guard:pumpkin/set_on
 execute unless score .wave state matches 1..2 run function gourd_guard:pumpkin/set_default
 
-# Refresh Lobby Leaderboard text displays
-function gourd_guard:lobby/leaderboard/update
+# Remove legacy leaderboard displays from worlds that previously had them.
+kill @e[type=text_display,tag=gg_leaderboard_display]
 
 # Ensure lobby start game displays are perfectly centered and aligned with 3D title or icon
 execute as @e[type=text_display,tag=gg_start_icon] at @e[type=item_display,tag=gg_lobby_title_start,distance=..6,limit=1,sort=nearest] run tp @s ~ ~2.35 ~

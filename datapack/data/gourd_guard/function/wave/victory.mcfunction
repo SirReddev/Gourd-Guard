@@ -2,9 +2,6 @@
 scoreboard players set .wave state 3
 scoreboard players set .global timer_active 0
 
-# Record map completion time to leaderboard
-function gourd_guard:lobby/leaderboard/record_victory
-
 # Record victory in statistics
 function gourd_guard:lobby/stats/init
 execute if score #game_active gg_stats matches 1 run scoreboard players add #stats_wins gg_stats 1
