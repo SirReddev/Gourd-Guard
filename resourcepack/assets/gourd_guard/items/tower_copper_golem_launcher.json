@@ -1,19 +1,6 @@
 {
   "model": {
-    "type": "minecraft:composite",
-    "models": [
-      {
-        "type": "minecraft:model",
-        "model": "gourd_guard:item/towers/copper_golem_launcher/base"
-      },
-      {
-        "type": "minecraft:model",
-        "model": "gourd_guard:item/towers/copper_golem_launcher/knob"
-      },
-      {
-        "type": "minecraft:model",
-        "model": "gourd_guard:item/towers/copper_golem_launcher/lid"
-      }
-    ]
+    "type": "minecraft:model",
+    "model": "gourd_guard:item/tower_copper_golem_launcher"
   }
 }
