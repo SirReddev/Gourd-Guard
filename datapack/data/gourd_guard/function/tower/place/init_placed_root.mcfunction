@@ -50,7 +50,7 @@ execute if score @s gg.tower_type matches 8 run summon minecraft:interaction ~ ~
 execute as @n[type=interaction,tag=gg_tower_btn_new,distance=..4] run function gourd_guard:tower/place/init_btn
 execute if score @s gg.tower_type matches 9 run summon minecraft:interaction ~ ~2.0 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 10 run summon minecraft:interaction ~ ~3.0 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
-execute if score @s gg.tower_type matches 11 run summon minecraft:interaction ~ ~3.0 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 11 run summon minecraft:interaction ~ ~2.0 ~ {width:0.6f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_move","gg_tower_btn_new"]}
 execute as @n[type=interaction,tag=gg_tower_btn_new,distance=..4] run function gourd_guard:tower/place/init_btn
 
 execute if score @s gg.tower_type matches 1 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
@@ -64,7 +64,7 @@ execute if score @s gg.tower_type matches 8 run summon minecraft:interaction ~ ~
 execute as @n[type=interaction,tag=gg_tower_btn_new,distance=..4] run function gourd_guard:tower/place/init_btn
 execute if score @s gg.tower_type matches 9 run summon minecraft:interaction ~ ~2.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 10 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
-execute if score @s gg.tower_type matches 11 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 11 run summon minecraft:interaction ~ ~2.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_sell","gg_tower_btn_new"]}
 execute as @n[type=interaction,tag=gg_tower_btn_new,distance=..4] run function gourd_guard:tower/place/init_btn
 
 # Summon [UPGRADE] and [STATS] interaction buttons for all towers EXCEPT scarecrow (type 9)
@@ -77,7 +77,7 @@ execute if score @s gg.tower_type matches 6 run summon minecraft:interaction ~ ~
 execute if score @s gg.tower_type matches 7 run summon minecraft:interaction ~ ~2.75 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_upgrade","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 8 run summon minecraft:interaction ~ ~3.05 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_upgrade","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 10 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_upgrade","gg_tower_btn_new"]}
-execute if score @s gg.tower_type matches 11 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_upgrade","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 11 run summon minecraft:interaction ~ ~2.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_upgrade","gg_tower_btn_new"]}
 execute as @n[type=interaction,tag=gg_tower_btn_new,distance=..4] run function gourd_guard:tower/place/init_btn
 
 execute if score @s gg.tower_type matches 1 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_stats","gg_tower_btn_new"]}
@@ -89,5 +89,5 @@ execute if score @s gg.tower_type matches 6 run summon minecraft:interaction ~ ~
 execute if score @s gg.tower_type matches 7 run summon minecraft:interaction ~ ~2.75 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_stats","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 8 run summon minecraft:interaction ~ ~3.05 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_stats","gg_tower_btn_new"]}
 execute if score @s gg.tower_type matches 10 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_stats","gg_tower_btn_new"]}
-execute if score @s gg.tower_type matches 11 run summon minecraft:interaction ~ ~3.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_stats","gg_tower_btn_new"]}
+execute if score @s gg.tower_type matches 11 run summon minecraft:interaction ~ ~2.0 ~ {width:0.7f,height:0.4f,response:1b,Tags:["gg_tower_btn","gg_tower_btn_stats","gg_tower_btn_new"]}
 execute as @n[type=interaction,tag=gg_tower_btn_new,distance=..4] run function gourd_guard:tower/place/init_btn

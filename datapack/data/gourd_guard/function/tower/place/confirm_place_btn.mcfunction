@@ -7,6 +7,9 @@ execute if score #spawn_type gg.tower_type matches 5 run clear @s minecraft:armo
 execute if score #spawn_type gg.tower_type matches 6 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:6}] 1
 execute if score #spawn_type gg.tower_type matches 7 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:7}] 1
 execute if score #spawn_type gg.tower_type matches 8 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:8}] 1
+execute if score #spawn_type gg.tower_type matches 9 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:9}] 1
+execute if score #spawn_type gg.tower_type matches 10 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:10}] 1
+execute if score #spawn_type gg.tower_type matches 11 run clear @s minecraft:armor_stand[minecraft:custom_data~{gg_tower:1b,tower_type:11}] 1
 
 # Locate this player's snapped preview hologram and spawn the real tower there!
 tag @e[type=item_display,tag=gg_tower_preview] remove gg_place_target

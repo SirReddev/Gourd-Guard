@@ -33,6 +33,86 @@
           "type": "minecraft:model",
           "model": "gourd_guard:item/tower_pillager_convoy"
         }
+      },
+      {
+        "when": [
+          "cauldron_damage",
+          "gourdguard_tower_cauldron_damage"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_cauldron_damage"
+        }
+      },
+      {
+        "when": [
+          "tesla_coil",
+          "gourdguard_tower_tesla_coil"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_tesla_coil"
+        }
+      },
+      {
+        "when": [
+          "cauldron_poison",
+          "gourdguard_tower_cauldron_poison"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_cauldron_poison"
+        }
+      },
+      {
+        "when": [
+          "cauldron_slowness",
+          "gourdguard_tower_cauldron_slowness"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_cauldron_slowness"
+        }
+      },
+      {
+        "when": [
+          "magic_altar",
+          "gourdguard_tower_magic_altar"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_magic_altar"
+        }
+      },
+      {
+        "when": [
+          "scarecrow",
+          "gourdguard_tower_scarecrow"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_scarecrow"
+        }
+      },
+      {
+        "when": [
+          "fortune_pillar",
+          "gourdguard_tower_fortune_pillar"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_fortune_pillar"
+        }
+      },
+      {
+        "when": [
+          "ballista",
+          "gourdguard_tower_ballista"
+        ],
+        "model": {
+          "type": "minecraft:model",
+          "model": "gourd_guard:item/tower_ballista"
+        }
       }
     ],
     "fallback": {

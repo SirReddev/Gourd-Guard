@@ -1,23 +1,24 @@
-#version 330
-#extension GL_ARB_separate_shader_objects : require
+/*
+ Generated from https://non0reo.github.io/ImgToShader/
+*/
 
-#include <minecraft:dynamictransforms.glsl>
-
+#version 150
 
 uniform sampler2D Sampler0;
+uniform vec4 ColorModulator;
 
-layout(location = 0) in vec2 texCoord0;
+in vec2 texCoord0;
 
-layout(location = 0) out vec4 fragColor;
+out vec4 fragColor;
 
 void main() {
     vec4 color = texture(Sampler0, texCoord0);
     if (color.a == 0.0) discard;
 
-    // Discard entire vanilla loading texture (Mojang logo & loading bar textures)
-    if (texelFetch(Sampler0, ivec2(267, 146), 0) == vec4(1.0)) {
+    fragColor = color * ColorModulator;
+
+    if(texelFetch(Sampler0, ivec2(267, 146), 0) == vec4(1)) {
         discard;
     }
 
-    fragColor = color * ColorModulator;
 }

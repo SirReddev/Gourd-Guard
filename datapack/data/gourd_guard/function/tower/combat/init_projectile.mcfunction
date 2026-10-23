@@ -19,5 +19,5 @@ execute if entity @e[tag=gg_fw_lock] run scoreboard players add @s gg.fw_ty 80
 execute if entity @e[tag=gg_fw_lock] store result score @s gg.fw_tz run data get entity @n[tag=gg_fw_lock] Pos[2] 100
 tag @e remove gg_fw_lock
 
-# Point steeply upward initially along launch angle
-tp @s ~ ~ ~ ~ -55
+# Point steeply upward initially along launch angle for arcing projectiles
+execute unless entity @s[tag=gg_ballista_proj] run tp @s ~ ~ ~ ~ -55

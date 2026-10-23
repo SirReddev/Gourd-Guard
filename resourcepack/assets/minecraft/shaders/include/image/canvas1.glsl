@@ -4608,6 +4608,6 @@ vec3 pColor(ivec2 RealPixelPos, ivec2 imageSize) {
 		case 39723:
 			return vec3(244, 147, 26);
 		default:
-			return vec3(7, 0.0, 22);
+			return vec3(0.0, 0.0, 0.0);
     }
 }

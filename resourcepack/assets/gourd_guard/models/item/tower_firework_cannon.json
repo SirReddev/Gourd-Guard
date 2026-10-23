@@ -5,7 +5,7 @@
     64
   ],
   "textures": {
-    "0": "aj:blueprint/towers/gourdguard_tower_firework_cannon",
+    "layer0": "aj:blueprint/towers/gourdguard_tower_firework_cannon",
     "particle": "aj:blueprint/towers/gourdguard_tower_firework_cannon"
   },
   "elements": [

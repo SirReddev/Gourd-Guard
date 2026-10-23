@@ -5,7 +5,7 @@
     64
   ],
   "textures": {
-    "0": "aj:blueprint/towers/gourdguard_tower_copper_golem_launcher",
+    "layer0": "aj:blueprint/towers/gourdguard_tower_copper_golem_launcher",
     "particle": "aj:blueprint/towers/gourdguard_tower_copper_golem_launcher"
   },
   "elements": [

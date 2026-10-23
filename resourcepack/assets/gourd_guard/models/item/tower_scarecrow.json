@@ -2,7 +2,7 @@
   "credit": "Gourd Guard Tower Item Model",
   "parent": "minecraft:item/generated",
   "textures": {
-    "0": "aj:blueprint/towers/gourdguard_tower_scarecrow",
+    "layer0": "aj:blueprint/towers/gourdguard_tower_scarecrow",
     "particle": "aj:blueprint/towers/gourdguard_tower_scarecrow"
   }
 }

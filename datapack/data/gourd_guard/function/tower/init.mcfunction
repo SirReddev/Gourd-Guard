@@ -8,6 +8,7 @@ scoreboard objectives add gg.tower_lvl dummy
 scoreboard objectives add gg.tower_sell dummy
 scoreboard objectives add gg.tower_valid dummy
 scoreboard objectives add gg.tower_hold dummy
+scoreboard objectives add gg.tower_tip dummy
 
 # Combat & Projectile Objectives
 scoreboard objectives add gg.tower_cd dummy

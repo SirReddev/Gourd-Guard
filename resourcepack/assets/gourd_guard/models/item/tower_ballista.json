@@ -2,7 +2,7 @@
   "credit": "Gourd Guard Tower Item Model",
   "parent": "minecraft:item/generated",
   "textures": {
-    "0": "aj:blueprint/towers/gourdguard_tower_ballista",
+    "layer0": "aj:blueprint/towers/gourdguard_tower_ballista",
     "particle": "aj:blueprint/towers/gourdguard_tower_ballista"
   }
 }

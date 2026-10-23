@@ -2,7 +2,7 @@
   "credit": "Gourd Guard Tower Item Model",
   "parent": "minecraft:item/generated",
   "textures": {
-    "0": "aj:blueprint/towers/gourdguard_tower_fortune_pillar",
+    "layer0": "aj:blueprint/towers/gourdguard_tower_fortune_pillar",
     "particle": "aj:blueprint/towers/gourdguard_tower_fortune_pillar"
   }
 }
