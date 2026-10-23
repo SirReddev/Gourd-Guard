@@ -1,10 +1,5 @@
 scoreboard players set #ray_hit math 1
 
-# Scarecrow (type 9) can only snap to an unoccupied dirt_path block.
-execute if score #cur_type gg.tower_type matches 9 if block ~ ~ ~ minecraft:dirt_path align xyz positioned ~0.5 ~1.0 ~0.5 run return run function gourd_guard:tower/preview/snap_scarecrow
-execute if score #cur_type gg.tower_type matches 9 if block ~ ~-1 ~ minecraft:dirt_path align xyz positioned ~0.5 ~ ~0.5 run return run function gourd_guard:tower/preview/snap_scarecrow
-execute if score #cur_type gg.tower_type matches 9 run return run function gourd_guard:tower/preview/move_invalid
-
 # Snap to a valid platform when the ray hits the platform or a block directly above it.
 execute if block ~ ~ ~ minecraft:black_glazed_terracotta align xyz positioned ~0.5 ~1.0 ~0.5 run return run function gourd_guard:tower/preview/snap_2x2
 execute if score #cur_type gg.tower_type matches 11 if block ~ ~-1 ~ minecraft:black_glazed_terracotta align xyz positioned ~0.5 ~ ~0.5 run return run function gourd_guard:tower/preview/snap_2x2
