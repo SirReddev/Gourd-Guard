@@ -4,3 +4,5 @@ data remove entity @s attack
 
 execute if entity @s[tag=gg_tower_btn_move] as @p[distance=..6] run function gourd_guard:tower/action/do_move
 execute if entity @s[tag=gg_tower_btn_sell] as @p[distance=..6] run function gourd_guard:tower/action/do_sell
+execute if entity @s[tag=gg_tower_btn_upgrade] as @p[distance=..6] run function gourd_guard:tower/action/do_upgrade
+execute if entity @s[tag=gg_tower_btn_stats] as @p[distance=..6] run function gourd_guard:tower/action/do_stats

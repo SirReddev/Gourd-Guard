@@ -22,3 +22,12 @@ execute if score #cur_type gg.tower_type matches 7 as @n[type=item_display,tag=a
 
 execute if score #cur_type gg.tower_type matches 8 run function aj:gourdguard_tower_magic_altar/summon {args:{variant:'placeholder_fail'}}
 execute if score #cur_type gg.tower_type matches 8 as @n[type=item_display,tag=aj.gourdguard_tower_magic_altar.root,tag=!gg_tower_preview,tag=!gg_tower_placed,distance=..2] run function gourd_guard:tower/preview/init_spawned
+
+execute if score #cur_type gg.tower_type matches 9 run function aj:gourdguard_tower_scarecrow/summon {args:{variant:'placeholder_fail'}}
+execute if score #cur_type gg.tower_type matches 9 as @n[type=item_display,tag=aj.gourdguard_tower_scarecrow.root,tag=!gg_tower_preview,tag=!gg_tower_placed,distance=..2] run function gourd_guard:tower/preview/init_spawned
+
+execute if score #cur_type gg.tower_type matches 10 run function aj:gourdguard_tower_fortune_pillar/summon {args:{variant:'placeholder_fail'}}
+execute if score #cur_type gg.tower_type matches 10 as @n[type=item_display,tag=aj.gourdguard_tower_fortune_pillar.root,tag=!gg_tower_preview,tag=!gg_tower_placed,distance=..2] run function gourd_guard:tower/preview/init_spawned
+
+execute if score #cur_type gg.tower_type matches 11 run function aj:gourdguard_tower_ballista/summon {args:{variant:'placeholder_fail'}}
+execute if score #cur_type gg.tower_type matches 11 as @n[type=item_display,tag=aj.gourdguard_tower_ballista.root,tag=!gg_tower_preview,tag=!gg_tower_placed,distance=..2] run function gourd_guard:tower/preview/init_spawned

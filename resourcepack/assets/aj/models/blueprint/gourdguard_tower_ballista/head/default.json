@@ -1,0 +1,122 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"particle": "minecraft:item/pufferfish",
+		"slot_default": "aj:blueprint/towers/gourdguard_tower_ballista"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [4.854, 9.694, 4.83977],
+			"to": [11.146, 11.267, 11.13177],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 10.4805, 7.98577]
+			},
+			"faces": {
+				"north": {
+					"uv": [9.5, 13, 10.75, 13.25],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [9.75, 5, 11, 5.25],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [9.75, 5.25, 11, 5.5],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [9.75, 5.5, 11, 5.75],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [4, 9.5, 5.25, 10.75],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [7, 3.5, 8.25, 4.75],
+					"texture": "#slot_default"
+				}
+			}
+		},
+		{
+			"from": [11.146, 9.694, 4.83977],
+			"to": [12.719, 17.559, 11.13177],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 10.4805, 7.98577]
+			},
+			"faces": {
+				"north": {
+					"uv": [1.5, 7.75, 1.75, 9.5],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [5.75, 3.5, 7, 5.25],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [1.75, 7.75, 2, 9.5],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [5.75, 5.25, 7, 7],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [4.75, 10.75, 5, 12],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [3, 12.75, 3.25, 14],
+					"texture": "#slot_default"
+				}
+			}
+		},
+		{
+			"from": [3.281, 9.694, 4.83977],
+			"to": [4.854, 17.559, 11.13177],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [8, 10.4805, 7.98577]
+			},
+			"faces": {
+				"north": {
+					"uv": [5, 10.75, 5.25, 12.5],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [5.75, 7, 7, 8.75],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [5, 12.5, 5.25, 14.25],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [5.75, 8.75, 7, 10.5],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [3.25, 12.75, 3.5, 14],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [4.75, 12.75, 5, 14],
+					"texture": "#slot_default"
+				}
+			}
+		}
+	]
+}

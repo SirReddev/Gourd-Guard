@@ -36,3 +36,42 @@ execute if score @s gg.tower_type matches 8 as @e[type=marker,tag=aj.gourdguard_
 # 3. Combat Cooldown & First-in-Wave Target Acquisition
 execute if score @s gg.tower_cd matches 1.. run scoreboard players remove @s gg.tower_cd 1
 function gourd_guard:tower/combat/acquire_and_fire
+# New towers (9/10/11) button positioning
+execute if score @s gg.tower_type matches 9 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~1.95 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.42 ^ ^0.05
+execute if score @s gg.tower_type matches 9 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~1.95 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.42 ^ ^0.05
+execute if score @s gg.tower_type matches 10 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.7 ^ ^0.05
+execute if score @s gg.tower_type matches 10 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.0 ^ ^0.05
+execute if score @s gg.tower_type matches 10 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 10 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+execute if score @s gg.tower_type matches 11 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_move,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^-0.7 ^ ^0.05
+execute if score @s gg.tower_type matches 11 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_sell,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.0 ^ ^0.05
+execute if score @s gg.tower_type matches 11 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 11 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+
+# Also add upgrade/stats btn positioning for existing towers 1-8
+execute if score @s gg.tower_type matches 1 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 1 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.95 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+execute if score @s gg.tower_type matches 2 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.35 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 2 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.35 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+execute if score @s gg.tower_type matches 3 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 3 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+execute if score @s gg.tower_type matches 4 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 4 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+execute if score @s gg.tower_type matches 5 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.7 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 5 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.7 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+execute if score @s gg.tower_type matches 6 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 6 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+execute if score @s gg.tower_type matches 7 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 7 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~2.7 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+execute if score @s gg.tower_type matches 8 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_upgrade,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^0.72 ^ ^0.05
+execute if score @s gg.tower_type matches 8 if entity @a[distance=..6] facing entity @p[distance=..6] eyes rotated ~ 0 positioned ~ ~3.0 ~ as @e[type=interaction,tag=gg_tower_btn_stats,distance=..5] if score @s gg.tower_id = #t_id gg.tower_id run tp @s ^1.35 ^ ^0.05
+
+# Scarecrow tick: check proximity trigger
+execute if score @s gg.tower_type matches 9 run function gourd_guard:tower/scarecrow/tick
+
+# Fortune Pillar tick: apply candy aura to nearby mobs
+execute if score @s gg.tower_type matches 10 run function gourd_guard:tower/fortune/tick
+
+# Ballista: rotate head bone toward nearest mob in range
+execute if score @s gg.tower_type matches 11 if entity @e[tag=gg_in_range] facing entity @e[tag=gg_tower_target,limit=1,sort=nearest] eyes rotated ~ 0 on passengers if entity @s[tag=aj.gourdguard_tower_ballista.node.head] run rotate @s ~ 0
+execute if score @s gg.tower_type matches 11 if entity @e[tag=gg_in_range] at @s run particle minecraft:crit ~ ~2.5 ~ 0.1 0.1 0.1 0.1 1

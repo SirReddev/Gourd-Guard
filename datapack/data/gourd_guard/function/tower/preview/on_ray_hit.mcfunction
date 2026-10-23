@@ -7,3 +7,6 @@ execute if block ~ ~-1 ~ minecraft:black_glazed_terracotta if block ~ ~ ~ #minec
 # Otherwise, we hit a non-platform block: show placeholder_fail preview on top of the hit block (or at ray point) and mark invalid (0)
 execute if block ~ ~1 ~ #minecraft:air align y positioned ~ ~1.0 ~ run return run function gourd_guard:tower/preview/move_invalid
 function gourd_guard:tower/preview/move_invalid
+# Scarecrow (type 9) can be placed on dirt_path (single block, no 2x2 snap needed)
+execute if score #cur_type gg.tower_type matches 9 if block ~ ~ ~ minecraft:dirt_path align xyz positioned ~0.5 ~1.0 ~0.5 run function gourd_guard:tower/preview/snap_scarecrow
+execute if score #cur_type gg.tower_type matches 9 if block ~ ~-1 ~ minecraft:dirt_path if block ~ ~ ~ #minecraft:air align xyz positioned ~0.5 ~ ~0.5 run function gourd_guard:tower/preview/snap_scarecrow

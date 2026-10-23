@@ -16,6 +16,10 @@ execute if score #move_type gg.tower_type matches 6 run function gourd_guard:tow
 execute if score #move_type gg.tower_type matches 7 run function gourd_guard:tower/place/restore_cauldron_slowness
 execute if score #move_type gg.tower_type matches 8 run function gourd_guard:tower/place/restore_magic_altar
 
+execute if score #move_type gg.tower_type matches 9 run function gourd_guard:tower/place/restore_scarecrow
+execute if score #move_type gg.tower_type matches 10 run function gourd_guard:tower/place/restore_fortune_pillar
+execute if score #move_type gg.tower_type matches 11 run function gourd_guard:tower/place/restore_ballista
+
 # Play pickup sound & chat message
 playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.8 1.2
 tellraw @s [{"text":"[Tower] ","color":"aqua"},{"text":"Picked up tower, ready to move!","color":"yellow"}]

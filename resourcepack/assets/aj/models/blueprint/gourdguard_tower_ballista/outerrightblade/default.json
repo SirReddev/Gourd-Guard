@@ -1,0 +1,50 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"particle": "minecraft:item/pufferfish",
+		"slot_default": "aj:blueprint/towers/gourdguard_tower_ballista"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [9.84428, 9.7545, 6.04744],
+			"to": [16.13628, 12.9005, 7.62044],
+			"rotation": {
+				"x": 0,
+				"y": -60,
+				"z": 0,
+				"origin": [9.84428, 12.114, 6.83394]
+			},
+			"faces": {
+				"north": {
+					"uv": [7.75, 9.25, 9, 10],
+					"texture": "#slot_default"
+				},
+				"east": {
+					"uv": [0.5, 13.25, 0.75, 14],
+					"texture": "#slot_default"
+				},
+				"south": {
+					"uv": [7.75, 10, 9, 10.75],
+					"texture": "#slot_default"
+				},
+				"west": {
+					"uv": [7.5, 13.25, 7.75, 14],
+					"texture": "#slot_default"
+				},
+				"up": {
+					"uv": [9.75, 8.75, 11, 9],
+					"texture": "#slot_default"
+				},
+				"down": {
+					"uv": [9.75, 9, 11, 9.25],
+					"texture": "#slot_default"
+				}
+			}
+		}
+	]
+}

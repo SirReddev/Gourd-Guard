@@ -2,6 +2,11 @@
 # Pillager Convoy (Type 3) does not aim single projectiles; check its multi-path convoy dispatch timer
 execute if score @s gg.tower_type matches 3 run return run function gourd_guard:tower/convoy/check_fire
 
+# Scarecrow (type 9) uses proximity detection in tick_tower, not standard cooldown combat
+execute if score @s gg.tower_type matches 9 run return 0
+# Fortune Pillar (type 10) is passive, no combat
+execute if score @s gg.tower_type matches 10 run return 0
+
 tag @e[tag=gg_in_range] remove gg_in_range
 tag @e[tag=gg_tower_target] remove gg_tower_target
 

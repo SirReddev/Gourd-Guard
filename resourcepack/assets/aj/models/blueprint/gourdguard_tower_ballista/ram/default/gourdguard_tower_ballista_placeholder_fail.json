@@ -1,0 +1,7 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"parent": "aj:blueprint/gourdguard_tower_ballista/ram/default",
+	"textures": {
+		"slot_default": "aj:blueprint/towers/gourdguard_tower_ballista_placeholder_fail"
+	}
+}

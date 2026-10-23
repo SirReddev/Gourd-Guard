@@ -4,8 +4,8 @@
 #include <minecraft:dynamictransforms.glsl>
 #include <minecraft:projection.glsl>
 
-#define WIDTH 422
-#define HEIGHT 237
+#define WIDTH 338
+#define HEIGHT 190
 
 #include <image/canvas1.glsl>
 

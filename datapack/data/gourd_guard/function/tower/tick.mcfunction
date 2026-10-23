@@ -1,5 +1,8 @@
 # Gourd Guard Tower System - Main Tick Loop
 
+# Reset fortune aura each tick before fortune pillars re-apply it
+tag @e[tag=gg_fortune_aura] remove gg_fortune_aura
+
 # 1. Assign unique player IDs for multiplayer preview tracking
 execute as @a unless score @s gg.tower_pid matches 1.. run function gourd_guard:tower/assign_pid
 
@@ -32,6 +35,9 @@ execute as @e[type=item_display,tag=aj.gourdguard_tower_cauldron_poison.root,tag
 execute as @e[type=item_display,tag=aj.gourdguard_tower_cauldron_slowness.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 execute as @e[type=item_display,tag=aj.gourdguard_tower_magic_altar.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 
+execute as @e[type=item_display,tag=aj.gourdguard_tower_scarecrow.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_fortune_pillar.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
+execute as @e[type=item_display,tag=aj.gourdguard_tower_ballista.root,tag=!gg_tower_placed,tag=!gg_tower_preview] run function gourd_guard:tower/preview/remove_single
 # 8. Tick placed towers (6-block text visibility, MOVE/SELL hitboxes, target acquisition & firework firing)
 execute as @e[type=item_display,tag=gg_tower_placed] at @s run function gourd_guard:tower/placed/tick_tower
 

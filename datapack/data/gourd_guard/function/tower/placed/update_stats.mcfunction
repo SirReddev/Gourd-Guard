@@ -215,3 +215,61 @@ execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 5 r
 execute if score @s gg.tower_type matches 8 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 155
 
 function gourd_guard:tower/placed/update_text
+
+# Type 9: Scarecrow (single-use trap, no levels or combat CD)
+execute if score @s gg.tower_type matches 9 run scoreboard players set @s gg.tower_max_cd 9999
+execute if score @s gg.tower_type matches 9 run scoreboard players set @s gg.tower_dmg 500
+execute if score @s gg.tower_type matches 9 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 9 run scoreboard players set @s gg.tower_sell 8
+
+# Type 10: Fortune Pillar (passive, upgradeable 1-5)
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_max_cd 9999
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_sell 20
+
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_max_cd 9999
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_sell 32
+
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_max_cd 9999
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_sell 50
+
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_max_cd 9999
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_sell 75
+
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_max_cd 9999
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 10 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 110
+
+# Type 11: Ballista (damage tower, upgradeable 1-5)
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_max_cd 30
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_dmg 80
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 1 run scoreboard players set @s gg.tower_sell 18
+
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_max_cd 25
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_dmg 120
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 2 run scoreboard players set @s gg.tower_sell 30
+
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_max_cd 20
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_dmg 180
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 3 run scoreboard players set @s gg.tower_sell 48
+
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_max_cd 16
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_dmg 260
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 4 run scoreboard players set @s gg.tower_sell 72
+
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_max_cd 12
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_dmg 380
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_splash 0
+execute if score @s gg.tower_type matches 11 if score @s gg.tower_lvl matches 5 run scoreboard players set @s gg.tower_sell 105

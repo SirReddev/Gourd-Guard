@@ -612,6 +612,87 @@
 				"assets/aj/models/blueprint/gourdguard_pumpkin/stem/default/gourdguard_pumpkin_on.json"
 			]
 		},
+		"aj:gourdguard_tower_ballista": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/back.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/bow.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/bowblade.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/cross_1.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/cross_2.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/head.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/innerleftblade.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/innerrightblade.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/leftreardrawstring.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/leftstring.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/lever.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/outerleftblade.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/outerrightblade.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/pedestal.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/pulley.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/ram.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/rightreardrawstring.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/rightstring.json",
+				"assets/aj/items/blueprint/gourdguard_tower_ballista/rope.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/back/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/back/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/back/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/bow/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/bow/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/bow/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/bowblade/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/bowblade/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/bowblade/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/cross_1/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/cross_1/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/cross_1/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/cross_2/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/cross_2/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/cross_2/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/head/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/head/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/head/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/innerleftblade/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/innerleftblade/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/innerleftblade/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/innerrightblade/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/innerrightblade/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/innerrightblade/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/leftreardrawstring/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/leftreardrawstring/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/leftreardrawstring/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/leftstring/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/leftstring/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/leftstring/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/lever/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/lever/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/lever/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/outerleftblade/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/outerleftblade/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/outerleftblade/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/outerrightblade/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/outerrightblade/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/outerrightblade/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/pedestal/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/pedestal/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/pedestal/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/pulley/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/pulley/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/pulley/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/ram/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/ram/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/ram/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rightreardrawstring/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rightreardrawstring/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rightreardrawstring/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rightstring/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rightstring/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rightstring/default/gourdguard_tower_ballista_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rope/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rope/default/gourdguard_tower_ballista_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_ballista/rope/default/gourdguard_tower_ballista_placeholder_fail.json"
+			]
+		},
 		"aj:gourdguard_tower_cauldron_damage": {
 			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
 			"versionedFiles": [
@@ -692,6 +773,16 @@
 				"assets/aj/models/blueprint/gourdguard_tower_firework_cannon/wood_mount/default/gourdguard_tower_firework_cannon_placeholder_fail.json",
 				"assets/aj/textures/blueprint/gourdguard_tower_firework_cannon/gourdguard_tower_firework_cannon_placeholder.png",
 				"assets/aj/textures/blueprint/gourdguard_tower_firework_cannon/gourdguard_tower_firework_cannon_placeholder_fail.png"
+			]
+		},
+		"aj:gourdguard_tower_fortune_pillar": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_tower_fortune_pillar/gourdguard_tower_fortune_pillar.json",
+				"assets/aj/models/blueprint/gourdguard_tower_fortune_pillar/gourdguard_tower_fortune_pillar/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_fortune_pillar/gourdguard_tower_fortune_pillar/default/gourdguard_tower_fortune_pillar_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_fortune_pillar/gourdguard_tower_fortune_pillar/default/gourdguard_tower_fortune_pillar_placeholder_fail.json",
+				"assets/aj/textures/blueprint/gourdguard_tower_fortune_pillar/gourdguard_tower_fortune_pillar.png"
 			]
 		},
 		"aj:gourdguard_tower_magic_altar": {
@@ -1082,6 +1173,20 @@
 				"assets/aj/models/blueprint/gourdguard_tower_pillager_convoy/watchtower/default.json",
 				"assets/aj/models/blueprint/gourdguard_tower_pillager_convoy/watchtower/default/gourdguard_tower_pillager_convoy_placeholder.json",
 				"assets/aj/models/blueprint/gourdguard_tower_pillager_convoy/watchtower/default/gourdguard_tower_pillager_convoy_placeholder_fail.json"
+			]
+		},
+		"aj:gourdguard_tower_scarecrow": {
+			"coreFiles": ["assets/minecraft/atlases/blocks.json", "pack.mcmeta"],
+			"versionedFiles": [
+				"assets/aj/items/blueprint/gourdguard_tower_scarecrow/head.json",
+				"assets/aj/items/blueprint/gourdguard_tower_scarecrow/scarecrow.json",
+				"assets/aj/models/blueprint/gourdguard_tower_scarecrow/head/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_scarecrow/head/default/gourdguard_tower_scarecrow_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_scarecrow/head/default/gourdguard_tower_scarecrow_placeholder_fail.json",
+				"assets/aj/models/blueprint/gourdguard_tower_scarecrow/scarecrow.json",
+				"assets/aj/models/blueprint/gourdguard_tower_scarecrow/scarecrow/default.json",
+				"assets/aj/models/blueprint/gourdguard_tower_scarecrow/scarecrow/default/gourdguard_tower_scarecrow_placeholder.json",
+				"assets/aj/models/blueprint/gourdguard_tower_scarecrow/scarecrow/default/gourdguard_tower_scarecrow_placeholder_fail.json"
 			]
 		},
 		"aj:gourdguard_tower_tesla_coil": {

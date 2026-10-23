@@ -1,0 +1,50 @@
+{
+	"credit": "Made with Animated Java (https://github.com/Animated-Java/animated-java) via Blockbench",
+	"textures": {
+		"1": "aj:blueprint/towers/gourdguard_tower_scarecrow",
+		"particle": "minecraft:item/pufferfish"
+	},
+	"display": {
+		"head": {
+			"rotation": [0, 180, 0]
+		}
+	},
+	"elements": [
+		{
+			"from": [5.26984, 7.1746, 6.53968],
+			"to": [10.73016, 15.1746, 9.46032],
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 0,
+				"origin": [2.92063, 2.28571, 2.92063]
+			},
+			"faces": {
+				"north": {
+					"uv": [0.5, 4.375, 1.5, 5.875],
+					"texture": "#1"
+				},
+				"east": {
+					"uv": [0, 4.375, 0.5, 5.875],
+					"texture": "#1"
+				},
+				"south": {
+					"uv": [2, 4.375, 3, 5.875],
+					"texture": "#1"
+				},
+				"west": {
+					"uv": [1.5, 4.375, 2, 5.875],
+					"texture": "#1"
+				},
+				"up": {
+					"uv": [1.5, 4.375, 0.5, 3.875],
+					"texture": "#1"
+				},
+				"down": {
+					"uv": [2.5, 3.875, 1.5, 4.375],
+					"texture": "#1"
+				}
+			}
+		}
+	]
+}
