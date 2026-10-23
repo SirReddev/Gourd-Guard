@@ -1,11 +1,6 @@
 {
   "model": {
-    "type": "minecraft:composite",
-    "models": [
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_firework_cannon/barrel_muzzle_collar/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_firework_cannon/cannon_barrel/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_firework_cannon/stone_base/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_firework_cannon/wood_mount/default"}
-    ]
+    "type": "minecraft:model",
+    "model": "gourd_guard:item/tower_firework_cannon"
   }
 }

@@ -1,26 +1,6 @@
 {
   "model": {
-    "type": "minecraft:composite",
-    "models": [
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/back/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/bow/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/bowblade/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/cross_1/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/cross_2/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/head/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/innerleftblade/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/innerrightblade/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/leftreardrawstring/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/leftstring/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/lever/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/outerleftblade/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/outerrightblade/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/pedestal/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/pulley/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/ram/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/rightreardrawstring/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/rightstring/default"},
-      {"type": "minecraft:model", "model": "aj:blueprint/gourdguard_tower_ballista/rope/default"}
-    ]
+    "type": "minecraft:model",
+    "model": "gourd_guard:item/tower_ballista"
   }
 }

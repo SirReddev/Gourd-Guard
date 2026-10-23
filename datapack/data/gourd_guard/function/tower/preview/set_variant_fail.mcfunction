@@ -19,5 +19,6 @@ execute if score @s gg.tower_type matches 9 on passengers if entity @s[type=item
 execute if score @s gg.tower_type matches 10 run function aj:gourdguard_tower_fortune_pillar/variants/placeholder_fail/apply
 execute if score @s gg.tower_type matches 10 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_fortune_pillar_placeholder_fail"
 execute if score @s gg.tower_type matches 11 run function aj:gourdguard_tower_ballista/variants/placeholder_fail/apply
-execute if score @s gg.tower_type matches 11 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_ballista_placeholder_fail"execute on passengers if entity @s[type=text_display] run data modify entity @s text set value ""
+execute if score @s gg.tower_type matches 11 on passengers if entity @s[type=item_display] run data modify entity @s item.components."minecraft:custom_model_data".strings[0] set value "gourdguard_tower_ballista_placeholder_fail"
+execute on passengers if entity @s[type=text_display] run data modify entity @s text set value ""
 execute on passengers if entity @s[type=text_display] run data modify entity @s background set value 0
